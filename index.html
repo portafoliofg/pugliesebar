@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Pugliese Bar · Rotisería &amp; Bar</title>
+<meta name="description" content="San Pugliese Bar: rotisería y bar de pizzas, empanadas, entrepanes, menú del día y tragos. Pedí por delivery o take away directo a nuestro WhatsApp.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Dancing+Script:wght@600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Open Graph -->
+<meta property="og:title" content="San Pugliese Bar · Rotisería & Bar">
+<meta property="og:description" content="Pizzas, empanadas, entrepanes, menú del día y tragos. Delivery y take away.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo.svg">
+
+<!-- Datos estructurados para buscadores -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "San Pugliese Bar",
+  "servesCuisine": ["Rotisería", "Pizza", "Empanadas", "Bar"],
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ayacucho 429"
+  },
+  "telephone": "+5493518753053",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "opens": "11:30", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "opens": "19:30", "closes": "23:59" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="#inicio" class="nav__brand">
+      <img src="assets/logo.svg" alt="Logo San Pugliese Bar">
+      San Pugliese
+    </a>
+    <nav>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#delivery">Delivery &amp; Take Away</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="nav__cta">
+      <a class="btn btn--whatsapp btn--sm" id="navWhatsapp" href="#" target="_blank" rel="noopener">
+        <span>WhatsApp</span> 📲
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <span class="hero__eyebrow">Bienvenidos a</span>
+        <h1>SAN PUGLIESE <em>BAR</em></h1>
+        <p class="lead">Rotisería y bar de barrio: pizzas a la piedra, empanadas caseras, entrepanes, menú del día y una buena carta de tragos. Todo para comer acá o pedir a domicilio.</p>
+        <div class="hero__actions">
+          <a href="#carta" class="btn btn--gold">Ver la carta 📋</a>
+          <a href="#" id="heroWhatsapp" class="btn btn--whatsapp" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        </div>
+        <div class="hero__badges">
+          <div class="hero__badge"><span class="dot"></span> Delivery</div>
+          <div class="hero__badge"><span class="dot"></span> Take away</div>
+          <div class="hero__badge"><span class="dot"></span> Bebidas con alcohol</div>
+        </div>
+      </div>
+      <div class="hero__art">
+        <div class="hero__medallion" role="img" aria-label="Logo San Pugliese Bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HISTORIA ===================== -->
+  <section class="section" id="historia">
+    <div class="container historia">
+      <div class="historia__frame">
+        <img src="assets/logo.svg" alt="San Pugliese Bar">
+        <p class="cap">Desde siempre, a la mesa</p>
+      </div>
+      <div class="historia__body">
+        <span class="eyebrow">Nuestra historia</span>
+        <h2>El bar de todos los días</h2>
+        <p>San Pugliese nació de una idea simple: la de un bar de barrio donde se come bien, se sirve rápido y nadie se va con hambre. Empezamos con una rotisería chica y un mostrador de empanadas, y con el tiempo fuimos sumando pizzas a la piedra, sándwiches, un menú del día para el mediodía y la noche, y una barra con tragos para los que se quedan a tomar algo.</p>
+        <p>El nombre es un homenaje a la persona que nos enseñó el oficio: la constancia de abrir todos los días, la cocina de olla y el trato de siempre, con clientes que se volvieron parte de la familia del bar.</p>
+        <p>Hoy seguimos con esa misma idea: comida casera, buenos precios y la puerta abierta para comer en el salón, llevarte tu pedido o que te lo llevemos nosotros.</p>
+        <div class="historia__stats">
+          <div><strong>2</strong><span>franjas horarias al día</span></div>
+          <div><strong>5+</strong><span>sabores de empanadas</span></div>
+          <div><strong>100%</strong><span>casero</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARTA ===================== -->
+  <section class="section bg-cream-dark" id="carta">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Para todos los gustos</span>
+        <h2>Nuestra carta</h2>
+        <p>Elegí una categoría, sumá los platos que quieras y armamos tu pedido para enviarlo directo por WhatsApp.</p>
+      </div>
+
+      <div class="tabs" id="menuTabs"></div>
+      <div id="menuPanels"></div>
+    </div>
+  </section>
+
+  <!-- ===================== DELIVERY / TAKE AWAY ===================== -->
+  <section class="section bg-maroon" id="delivery">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" style="color: var(--pink-script)">Cómo pedir</span>
+        <h2>Delivery &amp; Take Away</h2>
+        <p style="color: rgba(247,241,225,0.8)">Elegí cómo lo querés recibir: te lo llevamos o lo retirás vos.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="icon">🛵</div>
+          <h3>Delivery</h3>
+          <p>Hacemos envíos a domicilio en la zona.</p>
+          <p>Coordinamos la dirección y el costo del envío por WhatsApp al confirmar tu pedido.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🥡</div>
+          <h3>Take Away</h3>
+          <p>Pedilo y retiralo vos mismo en el local.</p>
+          <p><strong>Ayacucho 429</strong></p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🕒</div>
+          <h3>Horarios</h3>
+          <p>Mediodía: 11:30 a 15:00 hs</p>
+          <p>Noche: 19:30 a 00:00 hs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESEÑAS ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Lo que dicen</span>
+        <h2>Clientes de siempre</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Las empanadas son un clásico del barrio, siempre calentitas y recién hechas."</p>
+          <div class="who">— Cliente habitué</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Pedí por delivery y llegó rapidísimo. El menú del día rinde muchísimo."</p>
+          <div class="who">— Cliente del barrio</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Buena onda, buenos precios y siempre tienen algo rico para tomar."</p>
+          <div class="who">— Cliente de la noche</div>
+        </div>
+      </div>
+      <p class="form-note center mt-lg">* Reseñas de ejemplo — reemplazalas por comentarios reales de tus clientes cuando quieras.</p>
+    </div>
+  </section>
+
+  <!-- ===================== GALERÍA ===================== -->
+  <section class="section bg-maroon">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" style="color: var(--pink-script)">Un vistazo</span>
+        <h2>Nuestros platos</h2>
+        <p style="color: rgba(247,241,225,0.8)">Espacio listo para tus fotos — subí las imágenes reales del local y los platos cuando las tengas.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-tile">🍕</div>
+        <div class="gallery-tile">🥟</div>
+        <div class="gallery-tile">🥪</div>
+        <div class="gallery-tile">🍹</div>
+        <div class="gallery-tile">🍗</div>
+        <div class="gallery-tile">🍺</div>
+        <div class="gallery-tile">🥗</div>
+        <div class="gallery-tile">🍔</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="section" id="contacto">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">Encontranos</span>
+        <h2>Contacto</h2>
+        <ul class="contact-list">
+          <li><span class="icon">📍</span> <span>Ayacucho 429</span></li>
+          <li><span class="icon">📲</span> <span>WhatsApp: <a href="#" id="contactWhatsapp" target="_blank" rel="noopener">3518 753 053</a></span></li>
+          <li><span class="icon">🕒</span> <span>Mediodía 11:30–15:00 hs · Noche 19:30–00:00 hs</span></li>
+          <li><span class="icon">🛵</span> <span>Delivery y take away</span></li>
+        </ul>
+        <a href="#" id="mapsLink" class="btn btn--gold mt-lg" target="_blank" rel="noopener">Cómo llegar 🗺️</a>
+      </div>
+      <div class="map-embed">
+        <iframe
+          title="Ubicación San Pugliese Bar"
+          src="https://www.google.com/maps?q=Ayacucho%20429&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <strong>San Pugliese Bar</strong> — Rotisería &amp; Bar
+    <div class="footer-social">
+      <a href="#" id="footerWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">📲</a>
+      <a href="#" id="footerInstagram" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+    </div>
+    <p>Ayacucho 429 · Pedidos por WhatsApp al 3518 753 053</p>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="#" id="floatWhatsapp" class="wsp-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">💬</a>
+
+<!-- Botón flotante del carrito -->
+<button class="cart-fab" id="cartFab" hidden>
+  🛒 <span id="cartFabLabel">Ver pedido</span>
+  <span class="cart-fab__count" id="cartFabCount">0</span>
+</button>
+
+<!-- Panel del carrito / formulario de pedido -->
+<div class="cart-overlay" id="cartOverlay" hidden>
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-panel__head">
+      <h3 id="cartTitle">Tu pedido</h3>
+      <button class="cart-panel__close" id="cartClose" aria-label="Cerrar">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+    <div class="cart-summary" id="cartSummary" hidden>
+      <span>Total</span>
+      <span id="cartTotal">$0</span>
+    </div>
+
+    <form class="order-form" id="orderForm">
+      <fieldset>
+        <legend>¿Cómo lo querés?</legend>
+        <div class="radio-row">
+          <div class="radio-chip">
+            <input type="radio" name="entrega" id="entregaDelivery" value="Delivery" checked>
+            <label for="entregaDelivery">🛵 Delivery</label>
+          </div>
+          <div class="radio-chip">
+            <input type="radio" name="entrega" id="entregaTakeaway" value="Take Away">
+            <label for="entregaTakeaway">🥡 Take Away</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="field" id="direccionField">
+        <label for="direccionInput">Dirección de entrega</label>
+        <input type="text" id="direccionInput" name="direccion" placeholder="Calle, número, referencia">
+      </div>
+
+      <div class="field">
+        <label for="nombreInput">Tu nombre</label>
+        <input type="text" id="nombreInput" name="nombre" placeholder="¿A nombre de quién?" required>
+      </div>
+
+      <fieldset>
+        <legend>Medio de pago</legend>
+        <div class="field">
+          <select id="pagoInput" name="pago">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Transferencia">Transferencia</option>
+            <option value="Tarjeta débito/crédito">Tarjeta débito/crédito</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="notasInput">Aclaraciones (opcional)</label>
+        <textarea id="notasInput" name="notas" placeholder="Sin cebolla, timbre roto, piso 3º, etc."></textarea>
+      </div>
+
+      <p class="form-note">Al confirmar se abrirá WhatsApp con tu pedido ya armado, listo para enviar.</p>
+      <button type="submit" class="btn btn--whatsapp btn--block" id="submitOrder">Enviar pedido por WhatsApp 📲</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/config.js"></script>
+<script src="js/menu-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
