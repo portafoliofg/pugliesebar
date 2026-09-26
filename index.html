@@ -1,323 +1,1089 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>San Pugliese Bar · Rotisería &amp; Bar</title>
-<meta name="description" content="San Pugliese Bar: rotisería y bar de pizzas, empanadas, entrepanes, menú del día y tragos. Pedí por delivery o take away directo a nuestro WhatsApp.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Circuito Agro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Dancing+Script:wght@600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/styles.css">
-
-<!-- Open Graph -->
-<meta property="og:title" content="San Pugliese Bar · Rotisería & Bar">
-<meta property="og:description" content="Pizzas, empanadas, entrepanes, menú del día y tragos. Delivery y take away.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/logo.svg">
-
-<!-- Datos estructurados para buscadores -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "San Pugliese Bar",
-  "servesCuisine": ["Rotisería", "Pizza", "Empanadas", "Bar"],
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Ayacucho 429"
-  },
-  "telephone": "+5493518753053",
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "opens": "11:30", "closes": "15:00" },
-    { "@type": "OpeningHoursSpecification", "opens": "19:30", "closes": "23:59" }
-  ]
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5EF; --surface:#FFFFFF; --surface-2:#E8ECE2; --ink:#1C261F; --muted:#5B675D;
+  --line:#CDD5C8; --accent:#A8740F; --accent-ink:#7A5410; --accent-soft:#F4E6C6;
+  --field:#3D6B45; --field-soft:#DDE9D9; --warn:#A5461F; --warn-soft:#F6E0D5;
+  --sow:#4F8A45; --grow:#BCD2AB; --harvest:#D39A22;
+  --display:"Zilla Slab", Rockwell, "Courier New", Georgia, serif;
+  --body:"Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
-</script>
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#121814; --surface:#1A221C; --surface-2:#232D26; --ink:#E4E9E1; --muted:#9CA79E;
+    --line:#34423A; --accent:#E2B04A; --accent-ink:#F0C66B; --accent-soft:#3A2F16;
+    --field:#86BB8B; --field-soft:#1F3223; --warn:#F09372; --warn-soft:#3B2219;
+    --sow:#7FB26E; --grow:#3E5739; --harvest:#E2B04A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121814; --surface:#1A221C; --surface-2:#232D26; --ink:#E4E9E1; --muted:#9CA79E;
+  --line:#34423A; --accent:#E2B04A; --accent-ink:#F0C66B; --accent-soft:#3A2F16;
+  --field:#86BB8B; --field-soft:#1F3223; --warn:#F09372; --warn-soft:#3B2219;
+  --sow:#7FB26E; --grow:#3E5739; --harvest:#E2B04A;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,4vw,2.1rem);font-weight:700}
+h3{font-size:1.3rem;font-weight:700}
+h4{font-size:1.05rem;font-weight:700}
+p{margin:0;max-width:68ch}
+a{color:var(--field)}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.muted{color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.stack-lg{display:flex;flex-direction:column;gap:32px}
+
+/* header */
+header.top{padding-block:36px 20px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line)}
+header.top p{font-size:1.1rem;color:var(--muted)}
+
+/* nav */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-20px;padding-inline:20px;overflow-x:auto;scrollbar-width:thin}
+nav.tabs .row{display:flex;gap:4px;min-width:max-content}
+nav.tabs button{font:600 .95rem var(--body);color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:14px 12px 11px;cursor:pointer;white-space:nowrap}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+section.panel{padding-block:32px 0}
+.lead{font-size:1.12rem}
+
+/* cards and grids */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.grid-2{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card .tag{align-self:flex-start}
+.tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--surface-2);color:var(--muted)}
+.tag.gold{background:var(--accent-soft);color:var(--accent-ink)}
+.tag.green{background:var(--field-soft);color:var(--field)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:14px 16px;border-radius:0 6px 6px 0}
+.callout.green{border-left-color:var(--field);background:var(--field-soft)}
+.callout.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.callout p{max-width:none}
+
+/* diagram */
+.scroll-x{overflow-x:auto}
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px}
+.diagram svg{display:block;min-width:760px;width:100%;height:auto}
+svg .box{fill:var(--surface-2);stroke:var(--line)}
+svg .box-c{fill:var(--accent-soft);stroke:var(--accent)}
+svg .box-v{fill:var(--field-soft);stroke:var(--field)}
+svg .box-n{fill:var(--surface);stroke:var(--muted);stroke-dasharray:4 3}
+svg .t1{fill:var(--ink);font:700 14px var(--body)}
+svg .t2{fill:var(--muted);font:400 12px var(--body)}
+svg .lane{fill:var(--muted);font:500 11px var(--mono);letter-spacing:.1em}
+svg .arr{stroke:var(--ink);stroke-width:1.6;fill:none}
+svg .arr-g{stroke:var(--field);stroke-width:1.6;fill:none;stroke-dasharray:5 4}
+svg .head{fill:var(--ink)}
+svg .head-g{fill:var(--field)}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:28px;counter-reset:st}
+.step{display:grid;grid-template-columns:48px 1fr;gap:16px}
+.step-n{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);font:700 1.2rem var(--display);display:flex;align-items:center;justify-content:center}
+.step-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+ul.check{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+ul.check li{padding-left:24px;position:relative}
+ul.check li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:6px;border-left:2px solid var(--field);border-bottom:2px solid var(--field);transform:rotate(-45deg)}
+ul.plain{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+
+details.ex{border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+details.ex > summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;align-items:center;gap:10px}
+details.ex > summary::-webkit-details-marker{display:none}
+details.ex > summary::before{content:"+";font:700 1.1rem var(--mono);color:var(--accent-ink);width:14px}
+details.ex[open] > summary::before{content:"\2212"}
+details.ex .inner{padding:4px 16px 18px}
+
+/* paper documents: fixed paper look in both themes on purpose */
+.paper{background:#FDFDFB;color:#222;border:1px solid #C9CCC4;border-radius:2px;box-shadow:0 1px 0 #d7d9d2,0 8px 20px rgba(20,30,20,.10);font-family:var(--mono);font-size:.82rem;line-height:1.45;padding:18px;position:relative;max-width:720px;overflow-x:auto}
+.paper .stamp{position:absolute;top:14px;right:14px;border:2px solid #B5412A;color:#B5412A;font:700 .7rem var(--mono);letter-spacing:.1em;padding:3px 8px;transform:rotate(4deg);background:#FDFDFB}
+.paper .dh{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid #222;padding-bottom:10px;margin-bottom:10px;padding-right:110px}
+.paper .dh b{font-size:1rem;font-family:var(--display);letter-spacing:.02em}
+.paper .letter{display:inline-flex;width:34px;height:34px;border:2px solid #222;align-items:center;justify-content:center;font:700 1.2rem var(--display)}
+.paper .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 18px;margin-bottom:10px}
+.paper .kv span{color:#666}
+.paper table{width:100%;border-collapse:collapse;margin-block:8px;min-width:460px}
+.paper th{text-align:left;border-bottom:1px solid #222;padding:4px 6px;font-weight:500;color:#555;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em}
+.paper td{padding:4px 6px;border-bottom:1px dotted #bbb;font-variant-numeric:tabular-nums}
+.paper td.r,.paper th.r{text-align:right}
+.paper tr.tot td{border-top:2px solid #222;border-bottom:0;font-weight:500}
+.paper .sig{display:flex;gap:24px;flex-wrap:wrap;margin-top:18px}
+.paper .sig div{border-top:1px solid #222;padding-top:4px;min-width:160px;color:#555;font-size:.74rem}
+.paper .code{background:#EFEFE8;padding:6px 8px;display:inline-block;letter-spacing:.08em}
+.note{font-size:.85rem;color:var(--muted)}
+
+/* table generic */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table.tbl{border-collapse:collapse;width:100%;min-width:560px;font-variant-numeric:tabular-nums}
+table.tbl th,table.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.tbl th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--surface-2)}
+table.tbl tr:last-child td{border-bottom:0}
+.ok{color:var(--field);font-weight:700}
+.bad{color:var(--warn);font-weight:700}
+
+/* calendar */
+.cal{min-width:760px}
+.cal th,.cal td{text-align:center;padding:0}
+.cal th{padding:8px 2px;font-size:.72rem}
+.cal td.crop{text-align:left;padding:8px 12px;font-weight:600;white-space:nowrap;font-size:.92rem}
+.cal td.crop small{display:block;font-weight:400;color:var(--muted);font-size:.75rem}
+.cal td.m{height:40px;border-left:1px solid var(--line)}
+.cal td.m span{display:block;height:18px;margin:0 1px;border-radius:2px}
+.cal .S span{background:var(--sow)}
+.cal .C span{background:var(--grow)}
+.cal .H span{background:var(--harvest)}
+.cal th.now,.cal td.now{background:var(--accent-soft)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.9rem}
+.legend i{display:inline-block;width:18px;height:12px;border-radius:2px;vertical-align:middle;margin-right:6px}
+
+/* org */
+.org{display:flex;flex-direction:column;align-items:center;gap:0}
+.org .boss{background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:6px;text-align:center}
+.org .boss small{display:block;opacity:.75}
+.org .vline{width:2px;height:22px;background:var(--line)}
+.org .kids{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;border-top:2px solid var(--line);padding-top:22px;position:relative}
+.org .kid{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 18px;text-align:center;min-width:140px}
+.org .kid small{display:block;color:var(--muted)}
+
+/* glossary */
+.gtools{display:flex;flex-direction:column;gap:12px}
+.gtools input{width:100%;font:1rem var(--body);padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 .85rem var(--body);border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gl{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.gl .term{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.gl .term h4{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.gl .term p{font-size:.95rem}
+.count{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+
+/* quiz */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.q .opts{display:flex;flex-direction:column;gap:8px}
+.q .opt{text-align:left;font:1rem var(--body);padding:10px 14px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);cursor:pointer}
+.q .opt:hover:not(:disabled){border-color:var(--accent)}
+.q .opt.right{border-color:var(--field);background:var(--field-soft)}
+.q .opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.q .opt:disabled{cursor:default}
+.score{font:700 1.2rem var(--display)}
+.btn{font:600 .95rem var(--body);padding:10px 16px;border-radius:6px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;align-self:flex-start}
+
+/* notes mapping */
+.notes{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.notes .n{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.notes .n q{font-family:var(--display);font-size:1.05rem;quotes:none}
+.linkbtn{font:600 .9rem var(--body);background:none;border:0;padding:0;color:var(--field);cursor:pointer;text-decoration:underline;align-self:flex-start}
+
+@media (max-width:560px){
+  .step{grid-template-columns:1fr}
+  .step-n{width:38px;height:38px;font-size:1rem}
+  .paper .dh{padding-right:0;padding-top:30px}
+}
+@media (prefers-reduced-motion:no-preference){
+  section.panel{animation:fade .25s ease-out}
+  @keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+}
+</style>
+
 </head>
 <body>
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">Guía de trabajo · Campaña 2026/27</span>
+    <h1>Circuito Agro</h1>
+    <p>Cómo se compra, cómo se vende el grano y qué pasa en el campo. Cada documento con un ejemplo armado, paso a paso.</p>
+  </header>
 
-<header class="site-header">
-  <div class="container nav">
-    <a href="#inicio" class="nav__brand">
-      <img src="assets/logo.svg" alt="Logo San Pugliese Bar">
-      San Pugliese
-    </a>
-    <nav>
-      <ul class="nav__links" id="navLinks">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#historia">Historia</a></li>
-        <li><a href="#carta">Carta</a></li>
-        <li><a href="#delivery">Delivery &amp; Take Away</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="nav__cta">
-      <a class="btn btn--whatsapp btn--sm" id="navWhatsapp" href="#" target="_blank" rel="noopener">
-        <span>WhatsApp</span> 📲
-      </a>
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <nav class="tabs" aria-label="Secciones">
+    <div class="row" role="tablist">
+      <button role="tab" data-tab="mapa" aria-selected="true">Mapa general</button>
+      <button role="tab" data-tab="compras" aria-selected="false">Compras</button>
+      <button role="tab" data-tab="ventas" aria-selected="false">Ventas de granos</button>
+      <button role="tab" data-tab="proveedores" aria-selected="false">Proveedores</button>
+      <button role="tab" data-tab="campanas" aria-selected="false">Campañas</button>
+      <button role="tab" data-tab="equipo" aria-selected="false">Equipo</button>
+      <button role="tab" data-tab="glosario" aria-selected="false">Glosario</button>
+      <button role="tab" data-tab="practica" aria-selected="false">Practicá</button>
     </div>
-  </div>
-</header>
+  </nav>
 
-<main>
-
-  <!-- ===================== HERO ===================== -->
-  <section class="hero" id="inicio">
-    <div class="container hero__grid">
-      <div class="hero__text">
-        <span class="hero__eyebrow">Bienvenidos a</span>
-        <h1>SAN PUGLIESE <em>BAR</em></h1>
-        <p class="lead">Rotisería y bar de barrio: pizzas a la piedra, empanadas caseras, entrepanes, menú del día y una buena carta de tragos. Todo para comer acá o pedir a domicilio.</p>
-        <div class="hero__actions">
-          <a href="#carta" class="btn btn--gold">Ver la carta 📋</a>
-          <a href="#" id="heroWhatsapp" class="btn btn--whatsapp" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-        </div>
-        <div class="hero__badges">
-          <div class="hero__badge"><span class="dot"></span> Delivery</div>
-          <div class="hero__badge"><span class="dot"></span> Take away</div>
-          <div class="hero__badge"><span class="dot"></span> Bebidas con alcohol</div>
-        </div>
-      </div>
-      <div class="hero__art">
-        <div class="hero__medallion" role="img" aria-label="Logo San Pugliese Bar"></div>
-      </div>
+  <!-- ===================== MAPA ===================== -->
+  <section class="panel stack-lg" id="p-mapa" data-panel="mapa">
+    <div class="stack">
+      <h2>El circuito completo</h2>
+      <p class="lead">La empresa tiene dos circuitos que se juntan en Finanzas. Por <strong>Compras</strong> sale el dinero para pagar insumos y servicios. Por <strong>Ventas</strong> entra el dinero de vender el grano que se cosecha.</p>
     </div>
-  </section>
 
-  <!-- ===================== HISTORIA ===================== -->
-  <section class="section" id="historia">
-    <div class="container historia">
-      <div class="historia__frame">
-        <img src="assets/logo.svg" alt="San Pugliese Bar">
-        <p class="cap">Desde siempre, a la mesa</p>
-      </div>
-      <div class="historia__body">
-        <span class="eyebrow">Nuestra historia</span>
-        <h2>El bar de todos los días</h2>
-        <p>San Pugliese nació de una idea simple: la de un bar de barrio donde se come bien, se sirve rápido y nadie se va con hambre. Empezamos con una rotisería chica y un mostrador de empanadas, y con el tiempo fuimos sumando pizzas a la piedra, sándwiches, un menú del día para el mediodía y la noche, y una barra con tragos para los que se quedan a tomar algo.</p>
-        <p>El nombre es un homenaje a la persona que nos enseñó el oficio: la constancia de abrir todos los días, la cocina de olla y el trato de siempre, con clientes que se volvieron parte de la familia del bar.</p>
-        <p>Hoy seguimos con esa misma idea: comida casera, buenos precios y la puerta abierta para comer en el salón, llevarte tu pedido o que te lo llevemos nosotros.</p>
-        <div class="historia__stats">
-          <div><strong>2</strong><span>franjas horarias al día</span></div>
-          <div><strong>5+</strong><span>sabores de empanadas</span></div>
-          <div><strong>100%</strong><span>casero</span></div>
-        </div>
-      </div>
+    <div class="diagram scroll-x">
+      <svg viewBox="0 0 900 400" role="img" aria-label="Diagrama del circuito de compras y ventas">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head"/></marker>
+          <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head-g"/></marker>
+        </defs>
+        <text x="20" y="30" class="lane">COMPRAS · SALE DINERO</text>
+        <rect x="20" y="42" width="140" height="58" rx="5" class="box-c"/><text x="90" y="66" text-anchor="middle" class="t1">Orden de compra</text><text x="90" y="85" text-anchor="middle" class="t2">qué, cuánto, precio</text>
+        <rect x="200" y="42" width="140" height="58" rx="5" class="box-c"/><text x="270" y="66" text-anchor="middle" class="t1">Remito</text><text x="270" y="85" text-anchor="middle" class="t2">llegó la mercadería</text>
+        <rect x="380" y="42" width="140" height="58" rx="5" class="box-c"/><text x="450" y="66" text-anchor="middle" class="t1">Factura</text><text x="450" y="85" text-anchor="middle" class="t2">el proveedor cobra</text>
+        <rect x="560" y="42" width="140" height="58" rx="5" class="box-c"/><text x="630" y="66" text-anchor="middle" class="t1">Orden de pago</text><text x="630" y="85" text-anchor="middle" class="t2">se aprueba el pago</text>
+        <rect x="740" y="42" width="140" height="58" rx="5" class="box"/><text x="810" y="66" text-anchor="middle" class="t1">Finanzas</text><text x="810" y="85" text-anchor="middle" class="t2">cheque / transferencia</text>
+        <line x1="160" y1="71" x2="198" y2="71" class="arr" marker-end="url(#ah)"/>
+        <line x1="340" y1="71" x2="378" y2="71" class="arr" marker-end="url(#ah)"/>
+        <line x1="520" y1="71" x2="558" y2="71" class="arr" marker-end="url(#ah)"/>
+        <line x1="700" y1="71" x2="738" y2="71" class="arr" marker-end="url(#ah)"/>
+
+        <rect x="20" y="170" width="160" height="56" rx="5" class="box-n"/><text x="100" y="193" text-anchor="middle" class="t1">Ingeniería</text><text x="100" y="211" text-anchor="middle" class="t2">pide insumos y servicios</text>
+        <rect x="220" y="170" width="160" height="56" rx="5" class="box-n"/><text x="300" y="193" text-anchor="middle" class="t1">Campo</text><text x="300" y="211" text-anchor="middle" class="t2">siembra y cosecha</text>
+        <line x1="90" y1="168" x2="90" y2="103" class="arr-g" marker-end="url(#ahg)"/>
+        <line x1="300" y1="228" x2="275" y2="293" class="arr-g" marker-end="url(#ahg)"/>
+
+        <text x="20" y="282" class="lane">VENTAS · ENTRA DINERO</text>
+        <rect x="20" y="295" width="140" height="58" rx="5" class="box-v"/><text x="90" y="319" text-anchor="middle" class="t1">Contrato</text><text x="90" y="338" text-anchor="middle" class="t2">ACA, Cargill, Grassi</text>
+        <rect x="200" y="295" width="140" height="58" rx="5" class="box-v"/><text x="270" y="319" text-anchor="middle" class="t1">Carta de porte</text><text x="270" y="338" text-anchor="middle" class="t2">viaja el camión</text>
+        <rect x="380" y="295" width="140" height="58" rx="5" class="box-v"/><text x="450" y="319" text-anchor="middle" class="t1">Cert. de depósito</text><text x="450" y="338" text-anchor="middle" class="t2">grano guardado</text>
+        <rect x="560" y="295" width="140" height="58" rx="5" class="box-v"/><text x="630" y="319" text-anchor="middle" class="t1">LPG</text><text x="630" y="338" text-anchor="middle" class="t2">se liquida la venta</text>
+        <rect x="740" y="295" width="140" height="58" rx="5" class="box"/><text x="810" y="319" text-anchor="middle" class="t1">Cobro</text><text x="810" y="338" text-anchor="middle" class="t2">entra el dinero</text>
+        <line x1="160" y1="324" x2="198" y2="324" class="arr" marker-end="url(#ah)"/>
+        <line x1="340" y1="324" x2="378" y2="324" class="arr" marker-end="url(#ah)"/>
+        <line x1="520" y1="324" x2="558" y2="324" class="arr" marker-end="url(#ah)"/>
+        <line x1="700" y1="324" x2="738" y2="324" class="arr" marker-end="url(#ah)"/>
+        <line x1="810" y1="293" x2="810" y2="103" class="arr" marker-end="url(#ah)"/>
+        <text x="822" y="196" class="t2">ingresa a</text><text x="822" y="212" class="t2">Finanzas</text>
+      </svg>
     </div>
-  </section>
 
-  <!-- ===================== CARTA ===================== -->
-  <section class="section bg-cream-dark" id="carta">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Para todos los gustos</span>
-        <h2>Nuestra carta</h2>
-        <p>Elegí una categoría, sumá los platos que quieras y armamos tu pedido para enviarlo directo por WhatsApp.</p>
-      </div>
+    <div class="stack">
+      <h3>Tus apuntes, ordenados</h3>
+      <p class="muted">Cada cosa que anotaste y dónde está explicada en esta guía.</p>
+      <div class="notes" id="notes"></div>
+    </div>
 
-      <div class="tabs" id="menuTabs"></div>
-      <div id="menuPanels"></div>
+    <div class="callout green">
+      <p><strong>Idea clave:</strong> en Compras, nada se paga sin que coincidan tres papeles (orden de compra, remito y factura). En Ventas, el grano no se mueve sin carta de porte y no se cobra sin LPG.</p>
     </div>
   </section>
 
-  <!-- ===================== DELIVERY / TAKE AWAY ===================== -->
-  <section class="section bg-maroon" id="delivery">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow" style="color: var(--pink-script)">Cómo pedir</span>
-        <h2>Delivery &amp; Take Away</h2>
-        <p style="color: rgba(247,241,225,0.8)">Elegí cómo lo querés recibir: te lo llevamos o lo retirás vos.</p>
-      </div>
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="icon">🛵</div>
-          <h3>Delivery</h3>
-          <p>Hacemos envíos a domicilio en la zona.</p>
-          <p>Coordinamos la dirección y el costo del envío por WhatsApp al confirmar tu pedido.</p>
-        </div>
-        <div class="info-card">
-          <div class="icon">🥡</div>
-          <h3>Take Away</h3>
-          <p>Pedilo y retiralo vos mismo en el local.</p>
-          <p><strong>Ayacucho 429</strong></p>
-        </div>
-        <div class="info-card">
-          <div class="icon">🕒</div>
-          <h3>Horarios</h3>
-          <p>Mediodía: 11:30 a 15:00 hs</p>
-          <p>Noche: 19:30 a 00:00 hs</p>
-        </div>
-      </div>
+  <!-- ===================== COMPRAS ===================== -->
+  <section class="panel stack-lg" id="p-compras" data-panel="compras" hidden>
+    <div class="stack">
+      <span class="eyebrow">Circuito de compras</span>
+      <h2>De la orden de compra al pago</h2>
+      <p class="lead">Seguimos un ejemplo real de punta a punta: la empresa <strong>Agro Ejemplo S.A.</strong> compra 20 toneladas de urea (fertilizante) para el trigo. Todos los datos son inventados y los precios, ilustrativos.</p>
     </div>
-  </section>
 
-  <!-- ===================== RESEÑAS ===================== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Lo que dicen</span>
-        <h2>Clientes de siempre</h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>"Las empanadas son un clásico del barrio, siempre calentitas y recién hechas."</p>
-          <div class="who">— Cliente habitué</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>"Pedí por delivery y llegó rapidísimo. El menú del día rinde muchísimo."</p>
-          <div class="who">— Cliente del barrio</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>"Buena onda, buenos precios y siempre tienen algo rico para tomar."</p>
-          <div class="who">— Cliente de la noche</div>
+    <div class="steps">
+      <!-- 1 OC -->
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <h3>Orden de compra (OC)</h3>
+          <div class="meta"><span class="tag gold">La emite: Compras</span><span class="tag">La pide: Ingeniería</span></div>
+          <p>Es el pedido formal al proveedor. Deja por escrito qué se compra, cuánto, a qué precio y cómo se va a pagar. Sin OC aprobada no se compra nada: así se evita que alguien pida por su cuenta o a otro precio.</p>
+          <h4>Paso a paso</h4>
+          <ul class="plain">
+            <li>El ingeniero agrónomo pide el insumo (qué producto, cuánto y para qué lote).</li>
+            <li>Compras pide precio a uno o varios proveedores y elige.</li>
+            <li>Se carga la OC en el sistema con número, proveedor, producto, cantidad, precio y forma de pago.</li>
+            <li>La aprueba quien corresponda (gerente o responsable) y se le envía al proveedor.</li>
+          </ul>
+          <details class="ex" open>
+            <summary>Ver ejemplo de orden de compra</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><b>ORDEN DE COMPRA N.º 0001-00482</b><span>Fecha: 15/09/2026</span></div>
+                <div class="kv">
+                  <div><span>Comprador:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Proveedor:</span> Insumos del Sur S.R.L.</div>
+                  <div><span>Destino:</span> Campo La Esperanza, lote 7</div>
+                  <div><span>Solicitó:</span> Ing. Lucas (Ingeniería)</div>
+                </div>
+                <table>
+                  <thead><tr><th>Producto</th><th class="r">Cantidad</th><th class="r">Precio unit.</th><th class="r">Importe</th></tr></thead>
+                  <tbody>
+                    <tr><td>Urea granulada 46 % N</td><td class="r">20 t</td><td class="r">$ 780.000</td><td class="r">$ 15.600.000</td></tr>
+                    <tr><td colspan="3">IVA 10,5 %</td><td class="r">$ 1.638.000</td></tr>
+                    <tr class="tot"><td colspan="3">TOTAL</td><td class="r">$ 17.238.000</td></tr>
+                  </tbody>
+                </table>
+                <div><span style="color:#666">Forma de pago:</span> eCheq a 30 días de la fecha de factura</div>
+                <div><span style="color:#666">Entrega:</span> en campo, antes del 25/09/2026</div>
+                <div class="sig"><div>Aprobó: Gerencia</div><div>Emitió: Compras</div></div>
+              </div>
+            </div>
+          </details>
+          <div class="callout"><p><strong>Qué mirar:</strong> que el precio sea el acordado, que la forma de pago esté escrita y que la OC esté aprobada antes de mandarla.</p></div>
         </div>
       </div>
-      <p class="form-note center mt-lg">* Reseñas de ejemplo — reemplazalas por comentarios reales de tus clientes cuando quieras.</p>
-    </div>
-  </section>
 
-  <!-- ===================== GALERÍA ===================== -->
-  <section class="section bg-maroon">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow" style="color: var(--pink-script)">Un vistazo</span>
-        <h2>Nuestros platos</h2>
-        <p style="color: rgba(247,241,225,0.8)">Espacio listo para tus fotos — subí las imágenes reales del local y los platos cuando las tengas.</p>
+      <!-- 2 Remito -->
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <h3>Remito</h3>
+          <div class="meta"><span class="tag gold">Lo emite: el proveedor</span><span class="tag">Lo firma: quien recibe</span></div>
+          <p>Es el papel que viaja con la mercadería. Prueba que se entregó, cuánto y cuándo. <strong>No es una factura</strong>: con el remito no se paga nada, solo se deja constancia de lo que llegó.</p>
+          <h4>Paso a paso</h4>
+          <ul class="plain">
+            <li>Llega el camión al campo o al depósito con el remito.</li>
+            <li>Quien recibe cuenta o pesa la mercadería y la compara con el remito.</li>
+            <li>Si está bien, firma, aclara y pone fecha. Si falta algo o llegó dañado, lo anota en el remito antes de firmar.</li>
+            <li>La copia firmada se manda a administración para cruzarla con la OC.</li>
+          </ul>
+          <details class="ex">
+            <summary>Ver ejemplo de remito</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><span class="letter">R</span><b>REMITO N.º 0003-00012877</b><span>Fecha: 22/09/2026</span></div>
+                <div class="kv">
+                  <div><span>Emisor:</span> Insumos del Sur S.R.L.</div>
+                  <div><span>Destinatario:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Ref. OC:</span> 0001-00482</div>
+                  <div><span>Transporte:</span> Patente AA000AA</div>
+                </div>
+                <table>
+                  <thead><tr><th>Descripción</th><th class="r">Cantidad</th><th>Unidad</th></tr></thead>
+                  <tbody>
+                    <tr><td>Urea granulada 46 % N, big bag 1.000 kg</td><td class="r">20</td><td>bolsón</td></tr>
+                  </tbody>
+                </table>
+                <div style="color:#666">Documento no válido como factura.</div>
+                <div class="sig"><div>Recibí conforme: firma y aclaración</div><div>Fecha de recepción</div></div>
+              </div>
+            </div>
+          </details>
+          <div class="callout warn"><p><strong>Error típico:</strong> firmar el remito sin contar. Si después falta mercadería, el remito firmado dice que llegó todo.</p></div>
+        </div>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-tile">🍕</div>
-        <div class="gallery-tile">🥟</div>
-        <div class="gallery-tile">🥪</div>
-        <div class="gallery-tile">🍹</div>
-        <div class="gallery-tile">🍗</div>
-        <div class="gallery-tile">🍺</div>
-        <div class="gallery-tile">🥗</div>
-        <div class="gallery-tile">🍔</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===================== CONTACTO ===================== -->
-  <section class="section" id="contacto">
-    <div class="container contact-grid">
-      <div>
-        <span class="eyebrow">Encontranos</span>
-        <h2>Contacto</h2>
-        <ul class="contact-list">
-          <li><span class="icon">📍</span> <span>Ayacucho 429</span></li>
-          <li><span class="icon">📲</span> <span>WhatsApp: <a href="#" id="contactWhatsapp" target="_blank" rel="noopener">3518 753 053</a></span></li>
-          <li><span class="icon">🕒</span> <span>Mediodía 11:30–15:00 hs · Noche 19:30–00:00 hs</span></li>
-          <li><span class="icon">🛵</span> <span>Delivery y take away</span></li>
-        </ul>
-        <a href="#" id="mapsLink" class="btn btn--gold mt-lg" target="_blank" rel="noopener">Cómo llegar 🗺️</a>
-      </div>
-      <div class="map-embed">
-        <iframe
-          title="Ubicación San Pugliese Bar"
-          src="https://www.google.com/maps?q=Ayacucho%20429&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <strong>San Pugliese Bar</strong> — Rotisería &amp; Bar
-    <div class="footer-social">
-      <a href="#" id="footerWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">📲</a>
-      <a href="#" id="footerInstagram" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
-    </div>
-    <p>Ayacucho 429 · Pedidos por WhatsApp al 3518 753 053</p>
-  </div>
-</footer>
-
-<!-- Botón flotante de WhatsApp -->
-<a href="#" id="floatWhatsapp" class="wsp-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">💬</a>
-
-<!-- Botón flotante del carrito -->
-<button class="cart-fab" id="cartFab" hidden>
-  🛒 <span id="cartFabLabel">Ver pedido</span>
-  <span class="cart-fab__count" id="cartFabCount">0</span>
-</button>
-
-<!-- Panel del carrito / formulario de pedido -->
-<div class="cart-overlay" id="cartOverlay" hidden>
-  <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-    <div class="cart-panel__head">
-      <h3 id="cartTitle">Tu pedido</h3>
-      <button class="cart-panel__close" id="cartClose" aria-label="Cerrar">✕</button>
-    </div>
-
-    <div id="cartItems"></div>
-    <div class="cart-summary" id="cartSummary" hidden>
-      <span>Total</span>
-      <span id="cartTotal">$0</span>
-    </div>
-
-    <form class="order-form" id="orderForm">
-      <fieldset>
-        <legend>¿Cómo lo querés?</legend>
-        <div class="radio-row">
-          <div class="radio-chip">
-            <input type="radio" name="entrega" id="entregaDelivery" value="Delivery" checked>
-            <label for="entregaDelivery">🛵 Delivery</label>
+      <!-- 3 Factura -->
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <h3>Factura</h3>
+          <div class="meta"><span class="tag gold">La emite: el proveedor</span><span class="tag">La controla: administración</span></div>
+          <p>Es el comprobante con el que el proveedor cobra. Entre empresas inscriptas en IVA se usa la <strong>factura A</strong>, que discrimina el IVA. Antes de pagarla se hace el <strong>control cruzado</strong>: la factura tiene que coincidir con la OC y con el remito.</p>
+          <details class="ex">
+            <summary>Ver ejemplo de factura</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><span class="letter">A</span><b>FACTURA N.º 0003-00004519</b><span>Fecha: 23/09/2026</span></div>
+                <div class="kv">
+                  <div><span>Emisor:</span> Insumos del Sur S.R.L.</div>
+                  <div><span>Cliente:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Remito asociado:</span> 0003-00012877</div>
+                  <div><span>Condición:</span> 30 días</div>
+                </div>
+                <table>
+                  <thead><tr><th>Detalle</th><th class="r">Cant.</th><th class="r">Unitario</th><th class="r">Subtotal</th></tr></thead>
+                  <tbody>
+                    <tr><td>Urea granulada 46 % N</td><td class="r">20 t</td><td class="r">$ 780.000</td><td class="r">$ 15.600.000</td></tr>
+                    <tr><td colspan="3">Neto gravado</td><td class="r">$ 15.600.000</td></tr>
+                    <tr><td colspan="3">IVA 10,5 %</td><td class="r">$ 1.638.000</td></tr>
+                    <tr class="tot"><td colspan="3">TOTAL</td><td class="r">$ 17.238.000</td></tr>
+                  </tbody>
+                </table>
+                <div>CAE: <span class="code">00000000000000</span> · Vto. CAE: 03/10/2026</div>
+              </div>
+            </div>
+          </details>
+          <h4>Control cruzado</h4>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Dato</th><th>Orden de compra</th><th>Remito</th><th>Factura</th><th>Resultado</th></tr></thead>
+              <tbody>
+                <tr><td>Producto</td><td>Urea 46 %</td><td>Urea 46 %</td><td>Urea 46 %</td><td class="ok">Coincide</td></tr>
+                <tr><td>Cantidad</td><td>20 t</td><td>20 bolsones</td><td>20 t</td><td class="ok">Coincide</td></tr>
+                <tr><td>Precio unitario</td><td>$ 780.000</td><td>(no lleva)</td><td>$ 780.000</td><td class="ok">Coincide</td></tr>
+                <tr><td>Condición de pago</td><td>30 días</td><td>(no lleva)</td><td>30 días</td><td class="ok">Coincide</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="radio-chip">
-            <input type="radio" name="entrega" id="entregaTakeaway" value="Take Away">
-            <label for="entregaTakeaway">🥡 Take Away</label>
+          <div class="callout warn"><p><strong>Si algo no coincide</strong> (factura con otro precio o más cantidad que el remito), no se paga. Se le pide al proveedor una <strong>nota de crédito</strong> o una factura corregida.</p></div>
+        </div>
+      </div>
+
+      <!-- 4 OP -->
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-body">
+          <h3>Orden de pago (OP) y Finanzas</h3>
+          <div class="meta"><span class="tag gold">La arma: administración</span><span class="tag">Paga: Finanzas</span></div>
+          <p>Con la factura controlada se arma la OP. Dice qué facturas se pagan, a quién, cuánto y con qué medio. También calcula las <strong>retenciones</strong>: impuestos que la empresa descuenta del pago y deposita ella misma en ARCA o en Rentas, por cuenta del proveedor.</p>
+          <h4>Paso a paso</h4>
+          <ul class="plain">
+            <li>Se juntan las facturas vencidas o a vencer de cada proveedor.</li>
+            <li>Se calculan las retenciones que correspondan (ganancias, ingresos brutos, etc.).</li>
+            <li>Se aprueba la OP y pasa a Finanzas.</li>
+            <li>Finanzas paga con <strong>eCheq</strong> (cheque electrónico, puede ser a fecha) o <strong>transferencia</strong>.</li>
+            <li>Se le manda al proveedor la OP y los certificados de retención.</li>
+          </ul>
+          <details class="ex">
+            <summary>Ver ejemplo de orden de pago</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><b>ORDEN DE PAGO N.º 0001-00211</b><span>Fecha: 23/10/2026</span></div>
+                <div class="kv">
+                  <div><span>Beneficiario:</span> Insumos del Sur S.R.L.</div>
+                  <div><span>Medio:</span> Transferencia bancaria</div>
+                </div>
+                <table>
+                  <thead><tr><th>Concepto</th><th class="r">Importe</th></tr></thead>
+                  <tbody>
+                    <tr><td>Factura A 0003-00004519</td><td class="r">$ 17.238.000</td></tr>
+                    <tr><td>Retención Ganancias (ilustrativa 2 % s/ neto)</td><td class="r">− $ 312.000</td></tr>
+                    <tr><td>Retención Ingresos Brutos (ilustrativa 1 % s/ neto)</td><td class="r">− $ 156.000</td></tr>
+                    <tr class="tot"><td>NETO A PAGAR</td><td class="r">$ 16.770.000</td></tr>
+                  </tbody>
+                </table>
+                <div class="sig"><div>Autorizó</div><div>Finanzas</div></div>
+              </div>
+              <p class="note" style="margin-top:10px">Los porcentajes de retención dependen del régimen y de la inscripción del proveedor. Acá son solo para mostrar la cuenta.</p>
+            </div>
+          </details>
+          <div class="grid-2">
+            <div class="card"><span class="tag green">Cheque (eCheq)</span><p>Se emite desde el home banking. Puede ser al día o diferido (con fecha de pago futura). El proveedor lo cobra o lo endosa.</p></div>
+            <div class="card"><span class="tag green">Transferencia</span><p>El dinero llega en el momento. Se guarda el comprobante junto con la OP.</p></div>
           </div>
         </div>
-      </fieldset>
-
-      <div class="field" id="direccionField">
-        <label for="direccionInput">Dirección de entrega</label>
-        <input type="text" id="direccionInput" name="direccion" placeholder="Calle, número, referencia">
       </div>
+    </div>
+  </section>
 
-      <div class="field">
-        <label for="nombreInput">Tu nombre</label>
-        <input type="text" id="nombreInput" name="nombre" placeholder="¿A nombre de quién?" required>
+  <!-- ===================== VENTAS ===================== -->
+  <section class="panel stack-lg" id="p-ventas" data-panel="ventas" hidden>
+    <div class="stack">
+      <span class="eyebrow">Circuito de ventas</span>
+      <h2>Del contrato al cobro del grano</h2>
+      <p class="lead">Ejemplo: <strong>Agro Ejemplo S.A.</strong> vende 30 toneladas de maíz cosechado en el campo La Esperanza. Datos inventados y precios ilustrativos.</p>
+    </div>
+
+    <div class="stack">
+      <h3>A quién se le vende</h3>
+      <div class="grid">
+        <div class="card"><span class="tag green">Cooperativa</span><h4>ACA</h4><p>Asociación de Cooperativas Argentinas. Recibe grano de productores a través de sus cooperativas y plantas, y también exporta.</p></div>
+        <div class="card"><span class="tag green">Exportador</span><h4>Cargill</h4><p>Empresa multinacional que compra grano para exportar o procesar. Tiene plantas y puertos propios.</p></div>
+        <div class="card"><span class="tag green">Corredor</span><h4>Grassi</h4><p>Corredora de cereales. No se queda con el grano: busca el mejor comprador, cierra el negocio y cobra una comisión.</p></div>
       </div>
+    </div>
 
-      <fieldset>
-        <legend>Medio de pago</legend>
-        <div class="field">
-          <select id="pagoInput" name="pago">
-            <option value="Efectivo">Efectivo</option>
-            <option value="Transferencia">Transferencia</option>
-            <option value="Tarjeta débito/crédito">Tarjeta débito/crédito</option>
-          </select>
+    <div class="steps">
+      <!-- 1 Contrato -->
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <h3>Contrato de compraventa</h3>
+          <div class="meta"><span class="tag green">Lo firman: productor y comprador</span><span class="tag">Suele intervenir: el corredor</span></div>
+          <p>Es el acuerdo de venta. Fija el grano, la cantidad, la calidad pedida, el lugar y período de entrega y cómo se define el precio.</p>
+          <div class="grid">
+            <div class="card"><span class="tag gold">Precio hecho</span><p>El precio queda cerrado al firmar. Se sabe cuánto se va a cobrar.</p></div>
+            <div class="card"><span class="tag gold">A fijar</span><p>Se entrega el grano ahora y el precio se fija después, cuando el productor decide, tomando la cotización de ese día.</p></div>
+            <div class="card"><span class="tag gold">Canje</span><p>El grano se usa para pagar insumos (semillas, fertilizantes). Se "cambia" grano por mercadería.</p></div>
+            <div class="card"><span class="tag gold">Forward</span><p>Venta de grano que todavía no se cosechó, con precio y entrega futuros.</p></div>
+          </div>
+          <details class="ex">
+            <summary>Ver ejemplo de contrato (resumen)</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><b>BOLETO DE COMPRAVENTA N.º 55120</b><span>Fecha: 10/09/2026</span></div>
+                <div class="kv">
+                  <div><span>Vendedor:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Comprador:</span> Acopio Modelo S.A.</div>
+                  <div><span>Corredor:</span> Corredora Ejemplo S.A.</div>
+                  <div><span>Grano:</span> Maíz, grado 2</div>
+                  <div><span>Cantidad:</span> 30 t (± 5 %)</div>
+                  <div><span>Entrega:</span> 15/09 al 30/09/2026</div>
+                  <div><span>Destino:</span> Planta del comprador</div>
+                  <div><span>Precio:</span> $ 220.000 por tonelada (precio hecho)</div>
+                  <div><span>Pago:</span> contra LPG</div>
+                  <div><span>Comisión corredor:</span> 1 %</div>
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
-      </fieldset>
-
-      <div class="field">
-        <label for="notasInput">Aclaraciones (opcional)</label>
-        <textarea id="notasInput" name="notas" placeholder="Sin cebolla, timbre roto, piso 3º, etc."></textarea>
       </div>
 
-      <p class="form-note">Al confirmar se abrirá WhatsApp con tu pedido ya armado, listo para enviar.</p>
-      <button type="submit" class="btn btn--whatsapp btn--block" id="submitOrder">Enviar pedido por WhatsApp 📲</button>
-    </form>
-  </div>
+      <!-- 2 CPE -->
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <h3>Carta de porte electrónica (CPE)</h3>
+          <div class="meta"><span class="tag green">La emite: el productor (titular del grano)</span><span class="tag">Se tramita ante: ARCA</span></div>
+          <p>Es el documento obligatorio para transportar granos. <strong>Ningún camión con cereal puede circular sin ella.</strong> Cada viaje genera un código único, el <strong>CTG</strong> (Código de Trazabilidad de Granos), que permite seguir el grano desde el campo hasta la planta.</p>
+          <h4>Paso a paso</h4>
+          <ul class="plain">
+            <li>Se carga el camión en el campo (desde la tolva o el silo bolsa).</li>
+            <li>Se emite la CPE con los datos del viaje: grano, kilos estimados, origen, destino, transportista, chofer y patentes.</li>
+            <li>El sistema da el CTG. El chofer viaja con ese número.</li>
+            <li>En destino, la planta pesa el camión en balanza, saca muestra (calidad y humedad) y <strong>confirma la descarga</strong>. Ahí quedan los kilos reales.</li>
+          </ul>
+          <details class="ex">
+            <summary>Ver ejemplo de carta de porte</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><b>CARTA DE PORTE ELECTRÓNICA · GRANOS</b><span>Emisión: 22/09/2026 06:40</span></div>
+                <div style="margin-bottom:10px">CTG: <span class="code">10000000000</span></div>
+                <div class="kv">
+                  <div><span>Titular:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Destinatario:</span> Acopio Modelo S.A.</div>
+                  <div><span>Corredor:</span> Corredora Ejemplo S.A.</div>
+                  <div><span>Grano:</span> Maíz · Cosecha 2025/26</div>
+                  <div><span>Kg estimados:</span> 30.000</div>
+                  <div><span>Origen:</span> Campo La Esperanza, lote 4</div>
+                  <div><span>Destino:</span> Planta Acopio Modelo</div>
+                  <div><span>Km a recorrer:</span> 48</div>
+                  <div><span>Transportista:</span> Fletes Ejemplo</div>
+                  <div><span>Chofer:</span> Juan Pérez</div>
+                  <div><span>Patente camión:</span> AA111AA</div>
+                  <div><span>Patente acoplado:</span> AA222AA</div>
+                </div>
+                <table>
+                  <thead><tr><th>Descarga en destino</th><th class="r">Kg</th></tr></thead>
+                  <tbody>
+                    <tr><td>Peso bruto (camión cargado)</td><td class="r">45.380</td></tr>
+                    <tr><td>Tara (camión vacío)</td><td class="r">14.920</td></tr>
+                    <tr class="tot"><td>Peso neto descargado</td><td class="r">30.460</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+          <div class="callout"><p><strong>Kilos estimados vs. kilos reales:</strong> al salir del campo se ponen kilos estimados. Los que valen son los de la balanza de destino.</p></div>
+        </div>
+      </div>
+
+      <!-- 3 Certificado -->
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <h3>Certificado de depósito</h3>
+          <div class="meta"><span class="tag green">Lo emite: la planta o acopio</span><span class="tag">Históricamente: formulario 1116 A</span></div>
+          <p>Si el productor entrega el grano pero todavía no lo vendió (o lo vende "a fijar"), la planta lo guarda a su nombre y emite este certificado. Acredita <strong>cuántos kilos netos</strong> tiene depositados y <strong>de qué calidad</strong>. Es como el recibo de un depósito, pero de grano.</p>
+          <h4>Cómo se llega a los kilos netos</h4>
+          <ul class="plain">
+            <li>Se parte del peso neto de la balanza.</li>
+            <li>Se descuenta la <strong>merma por humedad</strong>: si el grano llega más húmedo que la base (en maíz, 14,5 %), hay que secarlo y pierde peso.</li>
+            <li>Se descuentan impurezas (materias extrañas) si las hay.</li>
+            <li>Lo que queda son los kilos netos certificados.</li>
+          </ul>
+          <details class="ex">
+            <summary>Ver ejemplo de certificado de depósito</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><b>CERTIFICADO DE DEPÓSITO N.º 00045871</b><span>Fecha: 22/09/2026</span></div>
+                <div class="kv">
+                  <div><span>Depositante:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Depositario:</span> Acopio Modelo S.A.</div>
+                  <div><span>Grano:</span> Maíz</div>
+                  <div><span>CTG asociado:</span> 10000000000</div>
+                </div>
+                <table>
+                  <thead><tr><th>Concepto</th><th class="r">Valor</th></tr></thead>
+                  <tbody>
+                    <tr><td>Kg brutos descargados</td><td class="r">30.460</td></tr>
+                    <tr><td>Humedad de la muestra</td><td class="r">15,6 %</td></tr>
+                    <tr><td>Merma por humedad y manipuleo</td><td class="r">− 460</td></tr>
+                    <tr><td>Grado comercial</td><td class="r">2</td></tr>
+                    <tr class="tot"><td>KG NETOS CERTIFICADOS</td><td class="r">30.000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 4 LPG -->
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-body">
+          <h3>Liquidación Primaria de Granos (LPG)</h3>
+          <div class="meta"><span class="tag green">La emite: el comprador</span><span class="tag">Se registra en: ARCA (con código COE)</span></div>
+          <p>Es el documento que <strong>cierra la venta</strong>. Funciona como la factura de la venta del grano, pero la hace el comprador. Se llama "primaria" porque es la primera venta, del productor al primer comprador. Detalla kilos, precio, descuentos, gastos e impuestos, y llega al <strong>neto que cobra</strong> la empresa.</p>
+          <h4>Paso a paso para leerla</h4>
+          <ul class="plain">
+            <li>Kilos netos × precio = <strong>operación bruta</strong>.</li>
+            <li>Se aplican bonificaciones o descuentos por calidad (grado).</li>
+            <li>Se suma el <strong>IVA de granos</strong> (10,5 %).</li>
+            <li>Se restan <strong>deducciones</strong>: comisión del corredor, secada, flete u otros gastos, cada uno con su IVA.</li>
+            <li>Se restan <strong>retenciones</strong> de IVA y Ganancias, según cómo esté inscripto el productor.</li>
+            <li>Queda el <strong>importe neto a cobrar</strong>.</li>
+          </ul>
+          <details class="ex" open>
+            <summary>Ver ejemplo de LPG</summary>
+            <div class="inner">
+              <div class="paper">
+                <span class="stamp">EJEMPLO</span>
+                <div class="dh"><b>LIQUIDACIÓN PRIMARIA DE GRANOS</b><span>Fecha: 25/09/2026</span></div>
+                <div style="margin-bottom:10px">COE: <span class="code">330000000000</span></div>
+                <div class="kv">
+                  <div><span>Comprador:</span> Acopio Modelo S.A.</div>
+                  <div><span>Vendedor:</span> Agro Ejemplo S.A.</div>
+                  <div><span>Grano:</span> Maíz · grado 2</div>
+                  <div><span>Contrato:</span> 55120</div>
+                  <div><span>Kg netos:</span> 30.000</div>
+                  <div><span>Precio por t:</span> $ 220.000</div>
+                </div>
+                <table>
+                  <thead><tr><th>Operación</th><th class="r">Importe</th></tr></thead>
+                  <tbody>
+                    <tr><td>Operación bruta (30 t × $ 220.000)</td><td class="r">$ 6.600.000</td></tr>
+                    <tr><td>Descuento por calidad (1,5 %)</td><td class="r">− $ 99.000</td></tr>
+                    <tr><td>Subtotal neto</td><td class="r">$ 6.501.000</td></tr>
+                    <tr><td>IVA 10,5 %</td><td class="r">$ 682.605</td></tr>
+                    <tr class="tot"><td>Total operación</td><td class="r">$ 7.183.605</td></tr>
+                  </tbody>
+                </table>
+                <table>
+                  <thead><tr><th>Deducciones</th><th class="r">Importe</th></tr></thead>
+                  <tbody>
+                    <tr><td>Comisión corredor 1 % + IVA 21 %</td><td class="r">− $ 79.860</td></tr>
+                    <tr><td>Gastos de secada + IVA 21 %</td><td class="r">− $ 48.400</td></tr>
+                  </tbody>
+                </table>
+                <table>
+                  <thead><tr><th>Retenciones</th><th class="r">Importe</th></tr></thead>
+                  <tbody>
+                    <tr><td>Retención Ganancias (ilustrativa 2 % s/ neto)</td><td class="r">− $ 130.020</td></tr>
+                    <tr class="tot"><td>IMPORTE NETO A COBRAR</td><td class="r">$ 6.925.325</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="note" style="margin-top:10px">Las retenciones reales dependen de la inscripción del productor en el Registro Fiscal de Operadores de Granos (RFOG) y de las normas vigentes de ARCA.</p>
+            </div>
+          </details>
+          <div class="callout green"><p><strong>Por qué importa:</strong> con la LPG se controla que te pagaron los kilos correctos, al precio del contrato y sin descuentos de más. Es lo primero que se revisa cuando entra un cobro.</p></div>
+        </div>
+      </div>
+
+      <!-- 5 Cobro -->
+      <div class="step">
+        <div class="step-n">5</div>
+        <div class="step-body">
+          <h3>Cobro</h3>
+          <p>El comprador paga el neto de la LPG, normalmente por transferencia. Finanzas registra el ingreso y administración archiva la LPG junto con el contrato, las cartas de porte y el certificado.</p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Para controlar</th><th>Contra qué</th></tr></thead>
+              <tbody>
+                <tr><td>Kilos liquidados</td><td>Suma de kilos netos de las cartas de porte / certificados</td></tr>
+                <tr><td>Precio</td><td>Lo firmado en el contrato</td></tr>
+                <tr><td>Comisión</td><td>Porcentaje pactado con el corredor</td></tr>
+                <tr><td>Importe cobrado</td><td>Neto de la LPG</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROVEEDORES ===================== -->
+  <section class="panel stack-lg" id="p-proveedores" data-panel="proveedores" hidden>
+    <div class="stack">
+      <span class="eyebrow">A quién se le paga</span>
+      <h2>Tipos de proveedores</h2>
+      <p class="lead">Todos pasan por el mismo circuito de pago (factura, control, orden de pago), pero cada tipo tiene sus particularidades.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag gold">Propietarios</span>
+        <h3>Dueños de campos alquilados</h3>
+        <p>Muchas empresas agrícolas trabajan campos ajenos y pagan un alquiler (arrendamiento). Es muy común que el precio se fije en <strong>quintales de soja por hectárea</strong> y se pague en pesos al valor del día.</p>
+        <details class="ex"><summary>Ejemplo de cálculo</summary><div class="inner stack">
+          <p>Campo de 300 ha a 10 quintales de soja por hectárea:</p>
+          <ul class="plain">
+            <li>300 ha × 10 qq = 3.000 qq = <strong>300 toneladas</strong> de soja</li>
+            <li>Si la soja vale $ 300.000/t (ilustrativo): 300 × 300.000 = <strong>$ 90.000.000</strong> por año</li>
+            <li>Suele pagarse en cuotas (por ejemplo, 50 % a la siembra y 50 % a la cosecha).</li>
+          </ul>
+          <p class="note">1 quintal (qq) = 100 kg.</p>
+        </div></details>
+      </div>
+      <div class="card">
+        <span class="tag gold">Prestadores de servicios</span>
+        <h3>Contratistas</h3>
+        <p>Hacen trabajos con su maquinaria: siembra, pulverización (fumigación), cosecha, embolsado en silo bolsa y fletes. Se paga por hectárea, por tonelada o por kilómetro.</p>
+        <details class="ex"><summary>Ejemplo</summary><div class="inner stack">
+          <ul class="plain">
+            <li>Cosecha de maíz: tarifa por hectárea o % del rinde.</li>
+            <li>Flete: por tonelada transportada según los km (se cruza con las cartas de porte).</li>
+            <li>El ingeniero confirma que el trabajo se hizo antes de pagar.</li>
+          </ul>
+        </div></details>
+      </div>
+      <div class="card">
+        <span class="tag gold">Tickets</span>
+        <h3>Gastos menores</h3>
+        <p>Compras chicas del día a día: combustible en estación, repuestos de urgencia, comida en el campo, peajes. Llegan como ticket o factura simple y se rinden en planillas.</p>
+        <div class="callout"><p>Conviene confirmar internamente qué se incluye en "tickets" y cuál es el tope sin orden de compra.</p></div>
+      </div>
+      <div class="card">
+        <span class="tag gold">Compras de insumos</span>
+        <h3>Lo que se aplica al cultivo</h3>
+        <p>Semillas, fertilizantes (urea, fosfato), agroquímicos (herbicidas, insecticidas, fungicidas) y gasoil. Son las compras más grandes y siempre llevan orden de compra.</p>
+        <button class="linkbtn" data-go="compras">Ver el circuito completo con un ejemplo de insumos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAMPAÑAS ===================== -->
+  <section class="panel stack-lg" id="p-campanas" data-panel="campanas" hidden>
+    <div class="stack">
+      <span class="eyebrow">El año del campo</span>
+      <h2>Campañas y cultivos</h2>
+      <p class="lead">Una <strong>campaña</strong> es un ciclo productivo completo y se nombra con dos años, por ejemplo <strong>2026/27</strong>, porque empieza con las siembras de un año y termina con las cosechas del siguiente.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag green">Cosecha fina · invierno</span>
+        <h3>Trigo y cebada</h3>
+        <p>Se siembran en otoño e invierno (mayo a julio) y se cosechan a fines de primavera y principio de verano (noviembre a enero). También entran avena y colza.</p>
+      </div>
+      <div class="card">
+        <span class="tag gold">Cosecha gruesa · verano</span>
+        <h3>Soja, maíz, girasol y sorgo</h3>
+        <p>Se siembran en primavera y verano (septiembre a enero) y se cosechan en otoño e invierno (febrero a agosto, según el cultivo).</p>
+      </div>
+    </div>
+
+    <div class="stack">
+      <h3>Calendario típico en Córdoba</h3>
+      <div class="legend">
+        <span><i style="background:var(--sow)"></i>Siembra</span>
+        <span><i style="background:var(--grow)"></i>Cultivo creciendo</span>
+        <span><i style="background:var(--harvest)"></i>Cosecha (trilla)</span>
+        <span><i style="background:var(--accent-soft);border:1px solid var(--accent)"></i>Mes actual</span>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl cal" id="cal"></table>
+      </div>
+      <p class="note">Las fechas son orientativas y cambian según la zona, el clima y las decisiones de cada ingeniero.</p>
+    </div>
+
+    <div class="stack">
+      <h3>Qué pasa ahora (septiembre)</h3>
+      <div class="grid">
+        <div class="card"><span class="tag green">Sembrado</span><h4>Trigo y cebada</h4><p>Ya están implantados y creciendo. Se cosechan desde noviembre. Ahora pueden necesitar fertilizante o fungicidas.</p></div>
+        <div class="card"><span class="tag gold">Trillando</span><h4>Maíz</h4><p>Se está cosechando maíz de la campaña anterior, probablemente <strong>maíz tardío</strong>, que se siembra en diciembre y se cosecha tarde. Mucho movimiento de camiones: cartas de porte y LPG.</p></div>
+        <div class="card"><span class="tag">Octubre</span><h4>Siembra de girasol</h4><p>Es de los primeros cultivos de gruesa. Antes de sembrar se compran semilla, fertilizante y herbicidas: suben las órdenes de compra.</p></div>
+      </div>
+    </div>
+
+    <div class="callout"><p><strong>Cómo afecta a la administración:</strong> antes de cada siembra hay pico de compras de insumos y contratistas. Durante la cosecha hay pico de cartas de porte, certificados, LPG y cobros.</p></div>
+  </section>
+
+  <!-- ===================== EQUIPO ===================== -->
+  <section class="panel stack-lg" id="p-equipo" data-panel="equipo" hidden>
+    <div class="stack">
+      <span class="eyebrow">Quién es quién</span>
+      <h2>Ingeniería</h2>
+      <p class="lead">El área técnica decide qué se siembra, qué se aplica y cuándo se cosecha. Casi todas las compras de insumos y servicios empiezan con un pedido de ellos.</p>
+    </div>
+    <div class="org">
+      <div class="boss"><strong>Benjamín</strong><small>Gerente · Ingeniería</small></div>
+      <div class="vline"></div>
+      <div class="kids">
+        <div class="kid"><strong>Lucas</strong><small>Ingeniero agrónomo</small></div>
+        <div class="kid"><strong>Fabricio</strong><small>Ingeniero agrónomo</small></div>
+        <div class="kid"><strong>Joaquín</strong><small>Ingeniero agrónomo</small></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><h4>Qué hacen</h4><ul class="plain"><li>Recorren los lotes y deciden tratamientos.</li><li>Arman la receta de insumos por lote.</li><li>Coordinan contratistas de siembra, pulverización y cosecha.</li><li>Estiman rindes.</li></ul></div>
+      <div class="card"><h4>Qué te van a pedir</h4><ul class="plain"><li>Órdenes de compra de insumos.</li><li>Pago a contratistas por trabajos hechos.</li><li>Cartas de porte cuando se cosecha.</li></ul></div>
+      <div class="card"><h4>Qué les vas a pedir</h4><ul class="plain"><li>Aprobación de trabajos antes de pagar.</li><li>Lote y cultivo de cada gasto (para costos).</li><li>Aviso de cuándo salen camiones.</li></ul></div>
+    </div>
+    <p class="note">Los roles de Lucas, Fabricio y Joaquín están supuestos a partir de tus apuntes. Ajustalos cuando sepas qué campos o tareas tiene cada uno.</p>
+  </section>
+
+  <!-- ===================== GLOSARIO ===================== -->
+  <section class="panel stack-lg" id="p-glosario" data-panel="glosario" hidden>
+    <div class="stack">
+      <span class="eyebrow">Consulta rápida</span>
+      <h2>Glosario</h2>
+    </div>
+    <div class="gtools">
+      <label for="gq" class="muted">Buscá un término</label>
+      <input id="gq" type="search" placeholder="Ej.: merma, CTG, eCheq" autocomplete="off">
+      <div class="chips" id="gchips"></div>
+      <span class="count" id="gcount"></span>
+    </div>
+    <div class="gl" id="glist"></div>
+  </section>
+
+  <!-- ===================== PRACTICA ===================== -->
+  <section class="panel stack-lg" id="p-practica" data-panel="practica" hidden>
+    <div class="stack">
+      <span class="eyebrow">Autoevaluación</span>
+      <h2>Practicá</h2>
+      <p class="lead">Ocho preguntas para ver si quedó claro. Elegí una opción y te explico.</p>
+    </div>
+    <div class="stack" id="quiz"></div>
+    <div class="stack">
+      <span class="score" id="qscore"></span>
+      <button class="btn" id="qreset" type="button">Reiniciar</button>
+    </div>
+  </section>
 </div>
 
-<div class="toast" id="toast"></div>
+<script>
+(function(){
+  /* ---------- tabs ---------- */
+  var tabs = document.querySelectorAll('nav.tabs button');
+  var panels = document.querySelectorAll('section.panel');
+  function show(name){
+    var found = false;
+    for (var i = 0; i < panels.length; i++){
+      var on = panels[i].getAttribute('data-panel') === name;
+      panels[i].hidden = !on;
+      if (on) found = true;
+    }
+    if (!found) return show('mapa');
+    for (var j = 0; j < tabs.length; j++){
+      var sel = tabs[j].getAttribute('data-tab') === name;
+      tabs[j].setAttribute('aria-selected', sel ? 'true' : 'false');
+      if (sel && tabs[j].scrollIntoView) { try { tabs[j].scrollIntoView({block:'nearest', inline:'nearest'}); } catch(e){} }
+    }
+    try { history.replaceState(null, '', '#' + name); } catch(e){}
+    try { localStorage.setItem('circuitoAgroTab', name); } catch(e){}
+  }
+  for (var t = 0; t < tabs.length; t++){
+    tabs[t].addEventListener('click', function(){ show(this.getAttribute('data-tab')); window.scrollTo(0, 0); });
+  }
+  document.addEventListener('click', function(ev){
+    var el = ev.target;
+    if (el && el.getAttribute && el.getAttribute('data-go')) { show(el.getAttribute('data-go')); window.scrollTo(0, 0); }
+  });
+  var start = (location.hash || '').substring(1);
+  if (!start) { try { start = localStorage.getItem('circuitoAgroTab') || ''; } catch(e){} }
+  show(start || 'mapa');
 
-<script src="js/config.js"></script>
-<script src="js/menu-data.js"></script>
-<script src="js/app.js"></script>
+  /* ---------- notes mapping ---------- */
+  var notes = [
+    {q:'Orden de compra: producto, cantidad, precio, forma de pago', d:'Primer paso de toda compra.', go:'compras'},
+    {q:'Remitos', d:'Prueba de entrega de la mercadería.', go:'compras'},
+    {q:'Factura → OP → Finanzas (cheques, transferencias)', d:'Control y pago al proveedor.', go:'compras'},
+    {q:'Contrato → ACA, Cargill, Grassi', d:'Venta del grano.', go:'ventas'},
+    {q:'Carta de porte', d:'Documento para mover el grano.', go:'ventas'},
+    {q:'Certificado de depósito', d:'Grano guardado en la planta.', go:'ventas'},
+    {q:'Liquidación Primaria de Granos', d:'Cierre y cobro de la venta.', go:'ventas'},
+    {q:'Proveedores: propietarios, prestadores, tickets, insumos', d:'A quién se le paga.', go:'proveedores'},
+    {q:'Ing → Gerente Benjamín (Lucas, Fabricio, Joaquín)', d:'Área de ingeniería.', go:'equipo'},
+    {q:'Sembrado trigo y cebada · Trillando maíz · Octubre girasol', d:'Momento de la campaña.', go:'campanas'}
+  ];
+  var nbox = document.getElementById('notes');
+  for (var n = 0; n < notes.length; n++){
+    var c = document.createElement('div'); c.className = 'n';
+    var qq = document.createElement('q'); qq.textContent = notes[n].q;
+    var p = document.createElement('p'); p.className = 'muted'; p.textContent = notes[n].d;
+    var b = document.createElement('button'); b.className = 'linkbtn'; b.type = 'button';
+    b.setAttribute('data-go', notes[n].go); b.textContent = 'Ver explicación';
+    c.appendChild(qq); c.appendChild(p); c.appendChild(b); nbox.appendChild(c);
+  }
+
+  /* ---------- calendar ---------- */
+  var months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  var nowM = new Date().getMonth();
+  var crops = [
+    {n:'Trigo', s:'fina', m:['H','','','','S','S','S','C','C','C','H','H']},
+    {n:'Cebada', s:'fina', m:['','','','','','S','S','C','C','C','H','H']},
+    {n:'Girasol', s:'gruesa', m:['C','H','H','','','','','S','S','S','C','C']},
+    {n:'Maíz temprano', s:'gruesa', m:['C','C','H','H','H','','','','S','S','C','C']},
+    {n:'Maíz tardío', s:'gruesa', m:['C','C','C','C','C','H','H','H','H','','','S']},
+    {n:'Soja de primera', s:'gruesa', m:['C','C','C','H','H','','','','','S','S','C']},
+    {n:'Soja de segunda', s:'gruesa · después del trigo', m:['C','C','C','C','H','H','','','','','','S']}
+  ];
+  var cal = document.getElementById('cal');
+  var thead = document.createElement('thead'); var hr = document.createElement('tr');
+  var th0 = document.createElement('th'); th0.textContent = 'Cultivo'; th0.style.textAlign = 'left'; th0.style.paddingLeft = '12px'; hr.appendChild(th0);
+  for (var mi = 0; mi < 12; mi++){
+    var th = document.createElement('th'); th.textContent = months[mi];
+    if (mi === nowM) th.className = 'now';
+    hr.appendChild(th);
+  }
+  thead.appendChild(hr); cal.appendChild(thead);
+  var tb = document.createElement('tbody');
+  var lbl = {S:'siembra', C:'creciendo', H:'cosecha'};
+  for (var ci = 0; ci < crops.length; ci++){
+    var tr = document.createElement('tr');
+    var tdn = document.createElement('td'); tdn.className = 'crop';
+    tdn.textContent = crops[ci].n;
+    var sm = document.createElement('small'); sm.textContent = 'Cosecha ' + crops[ci].s; tdn.appendChild(sm);
+    tr.appendChild(tdn);
+    for (var mj = 0; mj < 12; mj++){
+      var code = crops[ci].m[mj];
+      var td = document.createElement('td');
+      td.className = 'm' + (code ? ' ' + code : '') + (mj === nowM ? ' now' : '');
+      if (code) { td.title = crops[ci].n + ': ' + lbl[code] + ' en ' + months[mj]; td.appendChild(document.createElement('span')); }
+      tr.appendChild(td);
+    }
+    tb.appendChild(tr);
+  }
+  cal.appendChild(tb);
+
+  /* ---------- glossary ---------- */
+  var G = [
+    ['Orden de compra (OC)','Compras','Pedido formal y aprobado al proveedor. Indica producto, cantidad, precio, forma de pago y entrega.'],
+    ['Remito','Compras','Comprobante que acompaña la mercadería y prueba la entrega. No es factura ni sirve para pagar.'],
+    ['Factura A / B / C','Compras','Comprobante de venta. La A se usa entre inscriptos en IVA y discrimina el impuesto. La B es para consumidores finales o exentos. La C la emiten monotributistas.'],
+    ['Nota de crédito','Compras','Comprobante que anula o reduce una factura (por error de precio, devolución o faltante).'],
+    ['Control cruzado','Compras','Verificar que la orden de compra, el remito y la factura coincidan antes de pagar.'],
+    ['Orden de pago (OP)','Compras','Documento interno que aprueba el pago de una o varias facturas a un proveedor, con sus retenciones.'],
+    ['Retención','Impuestos','Impuesto que el pagador descuenta del pago y deposita en nombre de quien cobra (ganancias, IVA, ingresos brutos).'],
+    ['Percepción','Impuestos','Impuesto que el vendedor cobra de más en la factura y deposita por cuenta del comprador.'],
+    ['CAE','Impuestos','Código de Autorización Electrónico que ARCA le asigna a cada factura electrónica válida.'],
+    ['ARCA','Impuestos','Agencia de Recaudación y Control Aduanero, el organismo que reemplazó a la AFIP.'],
+    ['RFOG','Impuestos','Registro Fiscal de Operadores de Granos. La inscripción del productor influye en las retenciones que le aplican.'],
+    ['eCheq','Finanzas','Cheque electrónico emitido desde el banco. Puede ser al día o de pago diferido.'],
+    ['Transferencia','Finanzas','Pago bancario inmediato de cuenta a cuenta.'],
+    ['Contrato de compraventa','Ventas','Acuerdo de venta de grano: tipo, cantidad, calidad, entrega, precio y forma de pago. También se llama boleto.'],
+    ['Precio hecho','Ventas','Contrato con el precio cerrado al momento de firmar.'],
+    ['A fijar','Ventas','Se entrega el grano y el precio se fija más adelante con la cotización del día que elija el vendedor.'],
+    ['Canje','Ventas','Pagar insumos con grano en lugar de dinero.'],
+    ['Forward','Ventas','Venta anticipada de grano que se va a cosechar, con precio y entrega futuros.'],
+    ['Corredor','Ventas','Intermediario que conecta vendedor y comprador de granos y cobra comisión. Ejemplo: Grassi.'],
+    ['Acopio','Ventas','Empresa o cooperativa que recibe, guarda, acondiciona y comercializa grano.'],
+    ['Exportador','Ventas','Empresa que compra grano para vender al exterior. Ejemplo: Cargill.'],
+    ['Pizarra','Ventas','Precio de referencia diario de los granos que publican las cámaras arbitrales, como la Bolsa de Comercio de Rosario.'],
+    ['Carta de porte (CPE)','Ventas','Documento electrónico obligatorio para transportar granos. Cada viaje tiene un CTG.'],
+    ['CTG','Ventas','Código de Trazabilidad de Granos. Número único de cada carta de porte.'],
+    ['Certificado de depósito','Ventas','Constancia de que el grano está guardado en una planta a nombre del productor, con kilos netos y calidad.'],
+    ['LPG','Ventas','Liquidación Primaria de Granos. Documento del comprador que liquida la venta: kilos, precio, descuentos, IVA, deducciones, retenciones y neto a cobrar.'],
+    ['COE','Ventas','Código de Operación Electrónico que identifica una LPG registrada en ARCA.'],
+    ['Merma','Ventas','Kilos que se descuentan por humedad, secado o manipuleo.'],
+    ['Humedad base','Ventas','Humedad de referencia de cada grano. Si llega más húmedo, se descuenta merma y se cobra secada.'],
+    ['Grado','Ventas','Calificación de calidad del grano según su norma. Puede dar bonificación o descuento en el precio.'],
+    ['Balanza / tara','Ventas','En la planta se pesa el camión lleno (bruto) y vacío (tara). La diferencia es el peso neto del grano.'],
+    ['Propietario','Proveedores','Dueño de un campo que se alquila. Cobra arrendamiento.'],
+    ['Arrendamiento','Proveedores','Alquiler de un campo. Suele pactarse en quintales de soja por hectárea.'],
+    ['Quintal (qq)','Proveedores','Unidad de 100 kg.'],
+    ['Contratista','Proveedores','Prestador de servicios con maquinaria: siembra, pulverización, cosecha, fletes.'],
+    ['Insumos','Proveedores','Semillas, fertilizantes, agroquímicos y combustible que se usan en la producción.'],
+    ['Campaña','Campo','Ciclo agrícola que se nombra con dos años, por ejemplo 2026/27.'],
+    ['Cosecha fina','Campo','Cultivos de invierno: trigo, cebada, avena, colza.'],
+    ['Cosecha gruesa','Campo','Cultivos de verano: soja, maíz, girasol, sorgo.'],
+    ['Siembra','Campo','Poner la semilla en el suelo. Se hace con sembradora.'],
+    ['Trilla','Campo','Cosecha: separar el grano de la planta con la cosechadora.'],
+    ['Lote','Campo','Porción de un campo donde se hace un mismo cultivo. Los costos suelen asignarse por lote.'],
+    ['Pulverización','Campo','Aplicación de agroquímicos sobre el cultivo o el suelo.'],
+    ['Silo bolsa','Campo','Bolsa plástica gigante donde se guarda el grano en el campo.'],
+    ['Rinde','Campo','Cantidad de grano cosechado por hectárea (kg/ha o qq/ha).'],
+    ['Ingeniero agrónomo','Campo','Profesional que planifica y controla la producción de los lotes.']
+  ];
+  var cats = ['Todos','Compras','Finanzas','Impuestos','Ventas','Proveedores','Campo'];
+  var curCat = 'Todos';
+  function plain(s){
+    var out = '', src = s.normalize ? s.normalize('NFD') : s;
+    for (var i = 0; i < src.length; i++){
+      var code = src.charCodeAt(i);
+      if (code >= 0x300 && code <= 0x36f) continue;
+      out += src.charAt(i);
+    }
+    return out.toLowerCase();
+  }
+  var chipBox = document.getElementById('gchips');
+  for (var k = 0; k < cats.length; k++){
+    var ch = document.createElement('button'); ch.type = 'button'; ch.className = 'chip';
+    ch.textContent = cats[k]; ch.setAttribute('aria-pressed', cats[k] === curCat ? 'true' : 'false');
+    ch.addEventListener('click', function(){
+      curCat = this.textContent;
+      var all = chipBox.querySelectorAll('.chip');
+      for (var z = 0; z < all.length; z++) all[z].setAttribute('aria-pressed', all[z].textContent === curCat ? 'true' : 'false');
+      renderG();
+    });
+    chipBox.appendChild(ch);
+  }
+  var gq = document.getElementById('gq');
+  gq.addEventListener('input', renderG);
+  function renderG(){
+    var q = plain(gq.value.trim());
+    var box = document.getElementById('glist'); box.innerHTML = '';
+    var shown = 0;
+    var sorted = G.slice().sort(function(a, b){ return a[0].localeCompare(b[0], 'es'); });
+    for (var i = 0; i < sorted.length; i++){
+      var it = sorted[i];
+      if (curCat !== 'Todos' && it[1] !== curCat) continue;
+      if (q && plain(it[0] + ' ' + it[2]).indexOf(q) === -1) continue;
+      var d = document.createElement('div'); d.className = 'term';
+      var h = document.createElement('h4'); h.textContent = it[0];
+      var tg = document.createElement('span'); tg.className = 'tag'; tg.textContent = it[1]; h.appendChild(tg);
+      var p = document.createElement('p'); p.textContent = it[2];
+      d.appendChild(h); d.appendChild(p); box.appendChild(d); shown++;
+    }
+    document.getElementById('gcount').textContent = shown + (shown === 1 ? ' término' : ' términos');
+    if (!shown){ var e = document.createElement('p'); e.className = 'muted'; e.textContent = 'No hay términos con esa búsqueda. Probá con otra palabra o elegí "Todos".'; box.appendChild(e); }
+  }
+  renderG();
+
+  /* ---------- quiz ---------- */
+  var Q = [
+    {q:'Llega un camión con fertilizante. ¿Qué papel firmás para dejar constancia de que lo recibiste?', o:['La factura','El remito','La orden de pago'], a:1, e:'El remito prueba la entrega. La factura sirve para cobrar y la OP es interna para pagar.'},
+    {q:'La factura dice 22 toneladas, pero la OC y el remito dicen 20. ¿Qué hacés?', o:['Pagás igual, la diferencia es chica','Pagás 22 y después reclamás','No pagás y pedís nota de crédito o factura corregida'], a:2, e:'Si el control cruzado falla, no se paga hasta que el proveedor corrija con nota de crédito o nueva factura.'},
+    {q:'¿Qué documento es obligatorio para que un camión transporte granos?', o:['Carta de porte','Certificado de depósito','LPG'], a:0, e:'Sin carta de porte (con su CTG) el grano no puede circular.'},
+    {q:'¿Quién emite la Liquidación Primaria de Granos?', o:['El productor que vende','El comprador del grano','El transportista'], a:1, e:'La LPG la hace el comprador (acopio o exportador) y la registra en ARCA con un COE.'},
+    {q:'El maíz llegó con más humedad que la base. ¿Qué pasa?', o:['Se paga más porque pesa más','Se descuenta merma y se cobra secada','Se rechaza siempre'], a:1, e:'El agua de más no es grano: se descuentan kilos (merma) y se cobra el secado.'},
+    {q:'Trigo y cebada son cultivos de…', o:['Cosecha gruesa','Cosecha fina'], a:1, e:'Son cultivos de invierno: cosecha fina. Soja, maíz y girasol son gruesa.'},
+    {q:'¿Qué hace un corredor de cereales como Grassi?', o:['Compra y guarda el grano','Conecta vendedor y comprador y cobra comisión','Transporta el grano'], a:1, e:'El corredor intermedia el negocio. No se queda con el grano.'},
+    {q:'Un arrendamiento de 200 ha a 10 qq/ha, ¿cuántas toneladas de soja son?', o:['20 t','200 t','2.000 t'], a:1, e:'200 × 10 = 2.000 quintales. Como 1 qq = 100 kg, son 200.000 kg = 200 toneladas.'}
+  ];
+  var answered = 0, right = 0;
+  function renderQ(){
+    answered = 0; right = 0;
+    var box = document.getElementById('quiz'); box.innerHTML = '';
+    document.getElementById('qscore').textContent = '';
+    for (var i = 0; i < Q.length; i++){
+      (function(item, idx){
+        var card = document.createElement('div'); card.className = 'q';
+        var h = document.createElement('h4'); h.textContent = (idx + 1) + '. ' + item.q; card.appendChild(h);
+        var opts = document.createElement('div'); opts.className = 'opts';
+        var fb = document.createElement('p'); fb.className = 'muted'; fb.hidden = true;
+        for (var j = 0; j < item.o.length; j++){
+          (function(jj){
+            var b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.textContent = item.o[jj];
+            b.addEventListener('click', function(){
+              var all = opts.querySelectorAll('.opt');
+              for (var z = 0; z < all.length; z++){ all[z].disabled = true; if (z === item.a) all[z].className = 'opt right'; }
+              if (jj !== item.a) b.className = 'opt wrong'; else right++;
+              answered++;
+              fb.hidden = false; fb.textContent = (jj === item.a ? 'Correcto. ' : 'No es esa. ') + item.e;
+              if (answered === Q.length) document.getElementById('qscore').textContent = 'Resultado: ' + right + ' de ' + Q.length;
+            });
+            opts.appendChild(b);
+          })(j);
+        }
+        card.appendChild(opts); card.appendChild(fb); box.appendChild(card);
+      })(Q[i], i);
+    }
+  }
+  document.getElementById('qreset').addEventListener('click', renderQ);
+  renderQ();
+})();
+</script>
+
 </body>
 </html>
