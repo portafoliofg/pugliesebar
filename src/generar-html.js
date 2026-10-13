@@ -289,7 +289,7 @@ function piePagina(m) {
             : '<span class="err">● Falló · sin datos</span>';
       return `<tr><td>${esc(NOMBRES_FUENTES[k] || k)}</td><td>${estado}</td><td>${esc(
         f.obtenido ? fechaHoraCorta(f.obtenido) : '—'
-      )}</td><td class="err-txt">${esc(f.estado === 'ok' ? '' : (f.error || '').slice(0, 160))}</td></tr>`;
+      )}</td><td class="err-txt">${esc(f.estado === 'ok' ? '' : (f.error || '').slice(0, 700))}</td></tr>`;
     })
     .join('');
   return `<footer class="pie">
