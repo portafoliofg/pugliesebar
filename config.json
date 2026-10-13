@@ -37,8 +37,8 @@
     "apiUrl": ""
   },
   "campos": {
-    "nota": "Repositorio y rama donde se guardan los campos (data/campos.json). Si queda vacío, se usa el repositorio del workflow.",
-    "repo": "portafoliofg/pugliesebar",
+    "nota": "Repositorio PRIVADO donde se guardan los campos (data/campos.json). Solo se puede leer y escribir con tu token de GitHub.",
+    "repo": "portafoliofg/campos-privados",
     "rama": "main"
   },
   "clima": {

@@ -44,12 +44,17 @@ Ojo: la prueba local también actualiza `data/historico.json` y `data/ultimo.jso
 
 Mapa satelital con tus campos resaltados por cultivo. Para cada campo podés indicar nombre, cultivo, campaña, hectáreas declaradas y notas. La superficie del mapa se calcula sola a partir del polígono. El clima de la zona se trae de Open-Meteo: lluvia de los últimos 7 y 30 días, pronóstico de 7 días y alerta de helada.
 
-- **Cargar:** botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo; los puntos y las líneas se ignoran.
-- **Dónde se guarda:** en este repositorio. Los datos van en `data/campos.json` y una copia de cada archivo original en `data/campos/archivos/`. Cada cambio queda como un commit.
-- **Permiso para guardar:** la primera vez que guardes, la página te pide un token de GitHub. Para crearlo, entrá a [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new), elegí *Only select repositories* con este repositorio y en *Repository permissions → Contents* elegí *Read and write*. El token queda guardado solo en ese navegador.
-- Para ver los campos no hace falta token.
+**Los campos son privados.** No se guardan en este repositorio, que es público, sino en un repositorio **privado** aparte (gratis en GitHub), configurado en `config.json → campos.repo`. Allí van `data/campos.json` y una copia de cada KML/KMZ en `data/campos/archivos/`. La página publicada no contiene ningún dato de los campos: sin tu token, la pestaña muestra "Tus campos son privados".
 
-> **Privacidad:** si el repositorio es público, `data/campos.json` y los KML/KMZ también lo son. Cualquiera que entre al repositorio puede ver los contornos y las notas de los campos.
+Configuración (una sola vez):
+
+1. Creá el repositorio en [github.com/new](https://github.com/new) con el nombre `campos-privados` y visibilidad **Private**. No hace falta agregarle archivos.
+2. Creá un token en [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new):
+   - **Repository access:** *Only select repositories* → `campos-privados`.
+   - **Permissions → Repository permissions → Contents:** *Read and write*.
+3. En la pestaña Campos tocá **Conectar GitHub** y pegá el token. Queda guardado solo en ese navegador; en otra compu o en el celular hay que pegarlo de nuevo.
+
+Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo; los puntos y las líneas se ignoran. Si el repositorio de campos llegara a ser público, la página se niega a usarlo.
 
 ## Pestaña Stock (planilla de Google)
 
@@ -80,7 +85,7 @@ Si preferís no pegar la URL en cada navegador, ponela en `config.json → stock
 | `pizarra`, `cbot`, `matbaRofex`, `dolar` | URL y parámetros de cada fuente. |
 | `diseno.fotos` | Fotos del inicio (URL o ruta dentro de `public/`). Podés poner fotos propias. |
 | `mapa.puntos` | Campos o depósitos que se marcan en el mapa del clima. |
-| `campos.repo`, `campos.rama` | Repositorio y rama donde se guardan los campos. |
+| `campos.repo`, `campos.rama` | Repositorio **privado** y rama donde se guardan los campos. |
 | `stock.apiUrl` | URL de la API de Apps Script para la pestaña Stock (opcional: si queda vacía, se pide en la página). |
 | `recargaMinutos`, `diasGrafico`, `timeoutMs` | Recarga de la página, días de los gráficos y timeout por pedido. |
 
@@ -132,7 +137,6 @@ src/plantilla/estilos.css   estilos de la página (se incluyen dentro del HTML)
 src/plantilla/cliente.js    pestañas, animaciones, gráficos y mapa (se incluye dentro del HTML)
 public/stock/               app de stock (pestaña Stock)
 public/campos/              mapa de campos (pestaña Campos): kml.js, github.js, campos.js
-data/campos.json            campos cargados desde KML/KMZ
 apps-script/                código de Apps Script de la planilla de stock
 src/lib/http.js             fetch con timeout, reintento y charset
 src/lib/formato.js          formato argentino de números y fechas

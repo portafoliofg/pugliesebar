@@ -32,6 +32,7 @@
   const CAMPANA = hoy.getMonth() >= 6 ? `${anio}/${String(anio + 1).slice(2)}` : `${anio - 1}/${String(anio).slice(2)}`;
 
   let datos = { campos: [] };
+  let bloqueado = false; // true mientras no haya token: los campos son privados
   let mapa, capaCampos, capaNuevos, capas = {};
   let filtro = 'Todos';
   let seleccionado = null;
@@ -144,7 +145,17 @@
         .map(([k, v]) => `<span><i style="background:${colorDe(k === 'Sin asignar' ? '' : k)}"></i>${esc(k)} · ${num(v, 0)} ha</span>`).join('');
   }
 
+  function vistaBloqueada() {
+    $('#panel').innerHTML = `<div class="panel-in"><div class="vacio"><div class="ico" aria-hidden="true">🔒</div>
+      <h2>Tus campos son privados</h2>
+      <p>Se guardan en tu repositorio privado <b>${esc(Repo.config.repo)}</b>. Para verlos y editarlos, conectá tu cuenta de GitHub en este navegador.</p>
+      <button class="btn btn-1" type="button" data-accion="conectar">Conectar GitHub</button></div></div>`;
+    pintarResumen();
+    if (capaCampos) dibujarCampos();
+  }
+
   function vistaLista() {
+    if (bloqueado) return vistaBloqueada();
     seleccionado = null;
     const q = ($('#buscar')?.value || '').toLowerCase();
     const cultivos = ['Todos', ...new Set(datos.campos.map((c) => c.cultivo || 'Sin asignar'))];
@@ -336,7 +347,7 @@
   }
 
   function manejarError(e, reintentar) {
-    if (e.sinToken || e.status === 401) { Repo.olvidarToken(); actualizarEstadoGH(); return pedirToken(reintentar, e.status === 401 ? e.message : ''); }
+    if (e.sinToken || e.status === 401) { Repo.olvidarToken(); actualizarEstadoGH(); bloquear(); return pedirToken(reintentar, e.status === 401 ? e.message : ''); }
     avisar(e.message || String(e), 'error');
   }
 
@@ -436,8 +447,9 @@
   // ---------- Token de GitHub ----------
   function pedirToken(despues, error) {
     abrirVentana(`<h2>Conectar con GitHub</h2>
-      <p>Para guardar campos hace falta un token de GitHub con permiso de escritura en <b>${esc(Repo.config.repo || 'el repositorio')}</b>. Se guarda solo en este navegador.</p>
+      <p>Tus campos se guardan en el repositorio <b>privado</b> <code>${esc(Repo.config.repo || '')}</code>. Para verlos y guardarlos hace falta un token de GitHub, que queda solo en este navegador.</p>
       <ol>
+        <li>Si todavía no existe, creá el repositorio en <a class="link" href="https://github.com/new" target="_blank" rel="noopener">github.com/new</a>: nombre <code>${esc((Repo.config.repo || '').split('/')[1] || '')}</code>, visibilidad <b>Private</b>.</li>
         <li>Abrí <a class="link" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>.</li>
         <li><b>Token name:</b> "Tablero campos". <b>Expiration:</b> la que prefieras (por ejemplo, 1 año).</li>
         <li><b>Repository access:</b> "Only select repositories" y elegí <code>${esc((Repo.config.repo || '').split('/')[1] || 'el repositorio')}</code>.</li>
@@ -455,6 +467,7 @@
         cerrarVentana();
         actualizarEstadoGH();
         avisar('Conectado con GitHub.');
+        if (bloqueado) await cargarDatos();
         if (despues) despues();
       } catch (err) {
         cerrarVentana();
@@ -507,7 +520,8 @@
     else if (a === 'confirmar-import') confirmarImport();
     else if (a === 'cerrar') cerrarVentana();
     else if (a === 'cambiar-token') { cerrarVentana(); pedirToken(null); }
-    else if (a === 'desconectar') { Repo.olvidarToken(); actualizarEstadoGH(); cerrarVentana(); avisar('Desconectado de GitHub.'); }
+    else if (a === 'desconectar') { Repo.olvidarToken(); actualizarEstadoGH(); cerrarVentana(); bloquear(); avisar('Desconectado de GitHub.'); }
+    else if (a === 'conectar') pedirToken(null);
   });
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
   $('#btn-gh').addEventListener('click', menuGitHub);
@@ -521,21 +535,41 @@
   }));
 
   // ---------- Arranque ----------
-  async function iniciar() {
-    if (!window.L) {
-      $('#mapa').innerHTML = '<p style="padding:20px;color:#fff">No se pudo cargar el mapa.</p>';
-    } else iniciarMapa();
-    actualizarEstadoGH();
+  function bloquear() {
+    bloqueado = true;
+    datos = { campos: [] };
+    seleccionado = null;
+    vistaBloqueada();
+  }
+
+  async function cargarDatos() {
     cargando('Cargando campos…');
     try {
       datos = await Repo.leer();
       datos.campos = Array.isArray(datos.campos) ? datos.campos : [];
+      bloqueado = false;
     } catch (e) {
+      cargando(null);
+      if (e.sinToken || e.status === 401) {
+        if (e.status === 401) { Repo.olvidarToken(); actualizarEstadoGH(); avisar(e.message, 'error'); }
+        return bloquear();
+      }
       avisar(e.message, 'error');
-    } finally { cargando(null); }
+      bloqueado = false;
+      datos = { campos: [] };
+    }
+    cargando(null);
     pintarResumen();
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
+  }
+
+  function iniciar() {
+    if (!window.L) {
+      $('#mapa').innerHTML = '<p style="padding:20px;color:#fff">No se pudo cargar el mapa.</p>';
+    } else iniciarMapa();
+    actualizarEstadoGH();
+    cargarDatos();
   }
   iniciar();
 })();

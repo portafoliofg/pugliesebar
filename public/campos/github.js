@@ -1,11 +1,12 @@
-// Guardado de los campos en el repositorio de GitHub.
+// Guardado de los campos en un repositorio PRIVADO de GitHub.
 //
 // - data/campos.json: lista de campos (nombre, cultivo, campaña, hectáreas, notas y contorno).
 // - data/campos/archivos/: copia de cada KML/KMZ que subís.
 //
-// Para leer no hace falta nada. Para guardar se usa un token de GitHub (fine-grained,
-// con permiso "Contents: Read and write" solo sobre este repositorio), que queda
-// guardado únicamente en este navegador.
+// Como el repositorio es privado, para ver y para guardar hace falta un token de GitHub
+// (fine-grained, con permiso "Contents: Read and write" solo sobre ese repositorio).
+// El token queda guardado únicamente en este navegador. La página pública nunca
+// contiene los datos de los campos.
 (function () {
   'use strict';
 
@@ -13,10 +14,6 @@
     { repo: '', rama: 'main', ruta: 'data/campos.json', carpeta: 'data/campos/archivos' },
     window.CAMPOS_CONFIG || {}
   );
-  // Si no vino en la configuración, se deduce de la URL de GitHub Pages (usuario.github.io/repo)
-  if (!CFG.repo && /\.github\.io$/.test(location.hostname)) {
-    CFG.repo = location.hostname.split('.')[0] + '/' + location.pathname.split('/')[1];
-  }
 
   const API = 'https://api.github.com';
   const CLAVE_TOKEN = 'campos-github-token';
@@ -42,7 +39,7 @@
   function mensajeError(status, detalle) {
     if (status === 401) return 'El token de GitHub no es válido o venció. Cargá uno nuevo con el botón "GitHub".';
     if (status === 403) return 'El token no tiene permiso para escribir en el repositorio (necesita "Contents: Read and write"). ' + detalle;
-    if (status === 404) return 'No se encontró el repositorio o el archivo. Revisá que el token tenga acceso a ' + CFG.repo + '.';
+    if (status === 404) return 'No se encontró el repositorio privado ' + CFG.repo + ', o el token no tiene acceso a él. Revisá que exista y que el token lo tenga elegido en "Repository access".';
     if (status === 409 || status === 422) return 'Alguien guardó cambios al mismo tiempo. Probá de nuevo.';
     return 'GitHub respondió HTTP ' + status + (detalle ? ': ' + detalle : '');
   }
@@ -71,22 +68,30 @@
     return JSON.parse(deBase64(b64));
   }
 
-  /** Lee data/campos.json. Prueba la API de GitHub (al día) y, si falla, la copia publicada. */
+  const sinToken = () => Object.assign(new Error('Tus campos están en un repositorio privado: conectá tu cuenta de GitHub para verlos.'), { sinToken: true });
+
+  /** Lee data/campos.json del repositorio privado. Sin token no se puede leer. */
   async function leer() {
-    if (CFG.repo) {
-      try {
-        return await leerJSON(CFG.rama, { cache: 'no-store' });
-      } catch (e) {
-        if (e.status === 404) return vacio(); // todavía no hay campos guardados
-        if (e.status === 401) throw e;
-      }
-    }
-    // Copia que publica el workflow junto con la página (puede tener unas horas de atraso)
+    if (!CFG.repo) throw new Error('Falta configurar el repositorio privado de los campos (campos.repo en config.json).');
+    if (!token()) throw sinToken();
     try {
-      const r = await fetch('campos.json?t=' + Date.now(), { cache: 'no-store' });
-      if (r.ok) return await r.json();
-    } catch (e) {}
-    return vacio();
+      return await leerJSON(CFG.rama, { cache: 'no-store' });
+    } catch (e) {
+      // Repositorio vacío o todavía sin campos guardados
+      if (e.status === 404 || e.status === 409) {
+        await gh(`/repos/${CFG.repo}`); // si el repositorio no existe o no hay acceso, esto da el error correcto
+        return vacio();
+      }
+      throw e;
+    }
+  }
+
+  // Un repositorio recién creado sin archivos no tiene rama: se crea con el primer campos.json
+  async function inicializar() {
+    await gh(`/repos/${CFG.repo}/contents/${CFG.ruta}`, {
+      method: 'PUT',
+      body: JSON.stringify({ message: 'Campos: crear data/campos.json', content: aBase64(JSON.stringify(vacio(), null, 1) + '\n'), branch: CFG.rama })
+    });
   }
 
   /**
@@ -95,10 +100,17 @@
    */
   async function guardar(cambiar, mensaje, archivos = []) {
     if (!CFG.repo) throw new Error('No se sabe en qué repositorio guardar (falta campos.repo en config.json).');
-    if (!token()) throw Object.assign(new Error('Para guardar, conectá tu cuenta de GitHub.'), { sinToken: true });
+    if (!token()) throw sinToken();
 
     for (let intento = 0; intento < 3; intento++) {
-      const ref = await gh(`/repos/${CFG.repo}/git/ref/heads/${encodeURIComponent(CFG.rama)}`, { cache: 'no-store' });
+      let ref;
+      try {
+        ref = await gh(`/repos/${CFG.repo}/git/ref/heads/${encodeURIComponent(CFG.rama)}`, { cache: 'no-store' });
+      } catch (e) {
+        if (e.status !== 404 && e.status !== 409) throw e;
+        await inicializar();
+        ref = await gh(`/repos/${CFG.repo}/git/ref/heads/${encodeURIComponent(CFG.rama)}`, { cache: 'no-store' });
+      }
       const base = await gh(`/repos/${CFG.repo}/git/commits/${ref.object.sha}`);
 
       // Datos actuales del commit más reciente
@@ -143,7 +155,10 @@
     guardarLS(CLAVE_TOKEN, nuevo);
     try {
       const r = await gh(`/repos/${CFG.repo}`);
-      if (!r.permissions || !r.permissions.push) throw new Error('El token no tiene permiso de escritura en ' + CFG.repo + '.');
+      if (!r.private) {
+        throw new Error('El repositorio ' + CFG.repo + ' es público. Para que solo vos veas tus campos, cambialo a privado (Settings → General → Danger Zone → Change visibility).');
+      }
+      if (r.permissions && r.permissions.push === false) throw new Error('El token no tiene permiso de escritura en ' + CFG.repo + '.');
       return true;
     } catch (e) {
       guardarLS(CLAVE_TOKEN, anterior);

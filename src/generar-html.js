@@ -529,7 +529,7 @@ export function generarConfigStock(config) {
 
 /** Contenido de public/campos/config.js (repositorio donde se guardan los campos). */
 export function generarConfigCampos(config) {
-  const repo = config.campos?.repo || process.env.GITHUB_REPOSITORY || '';
+  const repo = config.campos?.repo || '';
   const datos = { repo, rama: config.campos?.rama || 'main' };
   return `// Generado automáticamente desde config.json (campos). No editar a mano.\nwindow.CAMPOS_CONFIG = ${JSON.stringify(datos)};\n`;
 }

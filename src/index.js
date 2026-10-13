@@ -3,7 +3,7 @@
 //
 // Uso: node src/index.js
 
-import { readFile, writeFile, mkdir, access, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -166,11 +166,9 @@ async function main() {
   // URL de la API de stock para la pestaña Stock
   await mkdir(join(RAIZ, 'public', 'stock'), { recursive: true });
   await writeFile(join(RAIZ, 'public', 'stock', 'config.js'), generarConfigStock(config), 'utf8');
-  // Pestaña Campos: repositorio donde se guardan y copia de los campos para leer sin la API
+  // Pestaña Campos: solo se publica el nombre del repositorio privado, nunca los datos
   await mkdir(join(RAIZ, 'public', 'campos'), { recursive: true });
   await writeFile(join(RAIZ, 'public', 'campos', 'config.js'), generarConfigCampos(config), 'utf8');
-  const rutaCampos = join(RAIZ, 'data', 'campos.json');
-  if (await existe(rutaCampos)) await copyFile(rutaCampos, join(RAIZ, 'public', 'campos', 'campos.json'));
   await historico.guardar();
   console.log(`Página generada: ${RUTA_HTML} (${correctas}/${nombres.length} fuentes correctas)`);
 }
