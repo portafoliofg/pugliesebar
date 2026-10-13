@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T13:49:50.657Z"
+      "obtenido": "2026-10-13T13:51:50.686Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T13:49:50.657Z"
+      "obtenido": "2026-10-13T13:51:50.686Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T13:49:50.657Z"
+      "obtenido": "2026-10-13T13:51:50.686Z"
     },
     "clima": {
       "datos": {
@@ -203,7 +203,7 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T13:49:50.657Z"
+      "obtenido": "2026-10-13T13:51:50.686Z"
     },
     "hacienda": {
       "datos": {
@@ -215,8 +215,8 @@
             "filas": 7
           },
           "vaquillona": {
-            "promedio": 4480.442321687541,
-            "cabezas": 1517,
+            "promedio": 4479.613691909385,
+            "cabezas": 1545,
             "filas": 3
           },
           "vaca": {
@@ -226,7 +226,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T13:49:50.657Z"
+      "obtenido": "2026-10-13T13:51:50.686Z"
     },
     "noticias": {
       "datos": {
@@ -285,7 +285,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T13:49:50.657Z"
+      "obtenido": "2026-10-13T13:51:50.686Z"
+    },
+    "cbot": {
+      "datos": {
+        "fecha": "2026-10-13",
+        "granos": {
+          "soja": {
+            "simbolo": "ZS=F",
+            "usdBushel": 12.845,
+            "usdTonelada": 471.9728265
+          },
+          "maiz": {
+            "simbolo": "ZC=F",
+            "usdBushel": 4.8375,
+            "usdTonelada": 190.44221625
+          },
+          "trigo": {
+            "simbolo": "ZW=F",
+            "usdBushel": 6.75,
+            "usdTonelada": 248.019975
+          }
+        },
+        "errores": [],
+        "origen": "Yahoo Finance"
+      },
+      "obtenido": "2026-10-13T13:51:50.686Z"
     }
   }
 }
