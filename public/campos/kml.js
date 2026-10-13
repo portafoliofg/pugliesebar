@@ -82,18 +82,33 @@
     const campos = [];
     let sinPoligono = 0;
 
-    hijos(xml, 'Placemark').forEach((pm, i) => {
+    hijos(xml, 'Placemark').forEach((pm) => {
       const polis = hijos(pm, 'Polygon').map(poligono).filter(Boolean);
       if (!polis.length) { sinPoligono++; return; }
-      const nombre = (hijoDirecto(pm, 'name')?.textContent || '').trim() || `${base} ${i + 1}`;
+      const nombreKml = (hijoDirecto(pm, 'name')?.textContent || '').trim();
       const descripcion = (hijoDirecto(pm, 'description')?.textContent || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
       const geometria = polis.length === 1
         ? { type: 'Polygon', coordinates: polis[0] }
         : { type: 'MultiPolygon', coordinates: polis };
-      campos.push({ nombre, descripcion, geometria, ha: hectareas(geometria) });
+      campos.push({ nombreKml, descripcion, geometria, ha: hectareas(geometria) });
+    });
+
+    // El campo se llama como el archivo. Si el archivo trae varios polígonos, se numeran,
+    // y si el polígono tiene un nombre propio (no "Polígono sin título") se agrega al final.
+    campos.forEach((c, i) => {
+      const propio = c.nombreKml && !esGenerico(c.nombreKml) && c.nombreKml.toLowerCase() !== base.toLowerCase();
+      if (campos.length === 1) c.nombre = base;
+      else c.nombre = propio ? `${base} · ${c.nombreKml}` : `${base} ${i + 1}`;
     });
 
     return { campos, sinPoligono };
+  }
+
+  // Nombres que pone Google Earth (u otros programas) cuando no se le dio nombre al polígono
+  const GENERICOS = /^(pol[ií]gono|polygon|untitled|sin t[ií]tulo|placemark|marca de posici[oó]n|ruta|path|shape|forma|feature)(\s*(sin t[ií]tulo|untitled|\(?\d+\)?))*$/i;
+  function esGenerico(n) {
+    const t = String(n || '').trim();
+    return !t || GENERICOS.test(t) || /sin t[ií]tulo|untitled/i.test(t);
   }
 
   /** Lee un File (KML o KMZ) y devuelve { campos, sinPoligono }. */
@@ -139,5 +154,5 @@
     return [(minY + maxY) / 2, (minX + maxX) / 2];
   }
 
-  window.KML = { leerArchivo, leerKML, hectareas, centro };
+  window.KML = { leerArchivo, leerKML, hectareas, centro, esGenerico };
 })();

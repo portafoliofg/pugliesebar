@@ -133,6 +133,36 @@
   }
 
   // Completa la provincia de los campos viejos que no la tienen y la guarda
+  // Campos cargados antes con el nombre "Polígono sin título": pasan a llamarse como su archivo
+  function nombreDesdeArchivo(c) {
+    const original = c.archivoOriginal || String(c.archivo || '').replace(/^\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-/, '');
+    return original.replace(/\.(kml|kmz)$/i, '').replace(/_+/g, ' ').trim();
+  }
+  async function corregirNombres() {
+    const porArchivo = {};
+    datos.campos.forEach((c) => { if (c.archivo) (porArchivo[c.archivo] = porArchivo[c.archivo] || []).push(c); });
+    const cambios = [];
+    Object.values(porArchivo).forEach((lista) => {
+      const base = nombreDesdeArchivo(lista[0]);
+      if (!base) return;
+      lista.forEach((c, i) => {
+        if (!KML.esGenerico(c.nombre)) return;
+        cambios.push({ id: c.id, nombre: lista.length === 1 ? base : `${base} ${i + 1}` });
+      });
+    });
+    if (!cambios.length) return;
+    cambios.forEach((u) => { const c = datos.campos.find((x) => x.id === u.id); if (c) c.nombre = u.nombre; });
+    refrescar();
+    if (!Repo.tieneToken()) return;
+    try {
+      await Repo.guardar((actual) => {
+        cambios.forEach((u) => { const c = actual.campos.find((x) => x.id === u.id); if (c && KML.esGenerico(c.nombre)) c.nombre = u.nombre; });
+        return actual;
+      }, `Campos: usar el nombre del archivo en ${cambios.length} ${cambios.length === 1 ? 'campo' : 'campos'}`);
+      avisar(`Se renombraron ${cambios.length} ${cambios.length === 1 ? 'campo' : 'campos'} con el nombre de su archivo.`);
+    } catch (e) { /* se reintenta la próxima vez */ }
+  }
+
   async function completarUbicaciones() {
     const faltan = datos.campos.filter((c) => !c.provincia);
     if (!faltan.length) return;
@@ -624,13 +654,13 @@
       // Copia de cada archivo original, con fecha para no pisar nada
       const sello = new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-');
       const originales = [...new Set(elegidos.map((c) => c.original))];
-      const archivos = await Promise.all(originales.map(async (f) => ({ nombre: `${sello}-${f.name.replace(/[^\w.\-]+/g, '_')}`, datos: await f.arrayBuffer() })));
+      const archivos = await Promise.all(originales.map(async (f) => ({ nombre: `${sello}-${f.name.replace(/[^\p{L}\p{N}.\-]+/gu, '_')}`, datos: await f.arrayBuffer() })));
       const nombreArchivo = new Map(originales.map((f, i) => [f, archivos[i].nombre]));
       const ahora = new Date().toISOString();
       const nuevos = elegidos.map((c) => ({
         id: nuevoId(), nombre: c.nombre, cultivo, campana, ha: c.ha, haDeclaradas: null, notas: c.descripcion || '',
         provincia: c.provincia || '', departamento: c.departamento || '', localidad: c.localidad || '',
-        archivo: nombreArchivo.get(c.original), alta: ahora, actualizado: ahora, geometria: c.geometria
+        archivo: nombreArchivo.get(c.original), archivoOriginal: c.original.name, alta: ahora, actualizado: ahora, geometria: c.geometria
       }));
       cerrarVentana();
       const ok = await operar('Guardando en GitHub…', (actual) => { actual.campos = (actual.campos || []).concat(nuevos); return actual; },
@@ -785,6 +815,7 @@
     cargando(null);
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
+    await corregirNombres();
     completarUbicaciones();
   }
 
