@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T17:50:32.602Z"
+      "obtenido": "2026-10-13T18:04:33.092Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T17:50:32.602Z"
+      "obtenido": "2026-10-13T18:04:33.092Z"
     },
     "dolar": {
       "datos": {
@@ -89,7 +89,7 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T14:00:00.000Z"
+            "actualizado": "2026-10-13T15:00:00.000Z"
           },
           "mayorista": {
             "compra": 1506,
@@ -97,33 +97,33 @@
             "actualizado": "2026-10-13T13:50:00.000Z"
           },
           "mep": {
-            "compra": 1537.5,
-            "venta": 1538.4,
-            "actualizado": "2026-10-13T16:57:00.000Z"
+            "compra": 1535.8,
+            "venta": 1537.2,
+            "actualizado": "2026-10-13T17:57:00.000Z"
           },
           "ccl": {
-            "compra": 1611.9,
-            "venta": 1612.4,
-            "actualizado": "2026-10-13T16:57:00.000Z"
+            "compra": 1612.1,
+            "venta": 1612.6,
+            "actualizado": "2026-10-13T17:57:00.000Z"
           },
           "blue": {
             "compra": 1530,
             "venta": 1550,
-            "actualizado": "2026-10-13T16:57:00.000Z"
+            "actualizado": "2026-10-13T17:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T14:00:00.000Z"
+            "actualizado": "2026-10-13T15:00:00.000Z"
           },
           "cripto": {
-            "compra": 1608.25,
-            "venta": 1611.18,
-            "actualizado": "2026-10-13T16:57:00.000Z"
+            "compra": 1608.61,
+            "venta": 1611.12,
+            "actualizado": "2026-10-13T17:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-13T17:50:32.602Z"
+      "obtenido": "2026-10-13T18:04:33.092Z"
     },
     "clima": {
       "datos": {
@@ -274,7 +274,7 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T17:50:32.602Z"
+      "obtenido": "2026-10-13T18:04:33.092Z"
     },
     "noticias": {
       "datos": {
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T17:50:32.602Z"
+      "obtenido": "2026-10-13T18:04:33.092Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.86,
-            "usdTonelada": 472.52398199999993
+            "usdBushel": 12.845,
+            "usdTonelada": 471.9728265
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8375,
-            "usdTonelada": 190.44221625
+            "usdBushel": 4.8275,
+            "usdTonelada": 190.04853724999998
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.7125,
-            "usdTonelada": 246.64208625
+            "usdBushel": 6.705,
+            "usdTonelada": 246.36650849999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T17:50:32.602Z"
+      "obtenido": "2026-10-13T18:04:33.092Z"
     }
   }
 }
