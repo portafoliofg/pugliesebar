@@ -138,7 +138,7 @@
       "2026-10-13": 190.0485
     },
     "cbot.trigo": {
-      "2026-10-13": 246.3665
+      "2026-10-13": 246.1828
     }
   },
   "ejecuciones": [
@@ -288,6 +288,18 @@
     },
     {
       "momento": "2026-10-13T18:04:33.092Z",
+      "estado": {
+        "pizarra": "ok",
+        "cbot": "ok",
+        "matba": "ok",
+        "dolar": "ok",
+        "clima": "ok",
+        "noticias": "ok",
+        "feriados": "ok"
+      }
+    },
+    {
+      "momento": "2026-10-13T18:12:08.405Z",
       "estado": {
         "pizarra": "ok",
         "cbot": "ok",
