@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T15:31:24.421Z"
+      "obtenido": "2026-10-13T16:00:06.548Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T15:31:24.421Z"
+      "obtenido": "2026-10-13T16:00:06.548Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T15:31:24.421Z"
+      "obtenido": "2026-10-13T16:00:06.548Z"
     },
     "clima": {
       "datos": {
@@ -274,22 +274,28 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T15:31:24.421Z"
+      "obtenido": "2026-10-13T16:00:06.548Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
           {
-            "titulo": "Después de meses con la puerta de salida abierta y algunos ingresos “por la ventana”, el INTA retoma los concursos públicos: Cinco provincias buscan nuevos directores regionales",
-            "link": "https://bichosdecampo.com/despues-de-meses-con-la-puerta-de-salida-abierta-y-algunos-ingresos-por-la-ventana-el-inta-retoma-los-concursos-publicos-cinco-provincias-buscan-nuevos-directores-regionales/",
-            "fecha": "2026-10-13T15:15:14.000Z",
+            "titulo": "Inversión global de 35 millones de euros: una empresa argentina inauguró una terminal de cargas refrigeradas en España",
+            "link": "https://www.lanacion.com.ar/economia/campo/inversion-global-de-35-millones-de-euros-una-empresa-argentina-inauguro-una-terminal-de-cargas-nid13102026/",
+            "fecha": "2026-10-13T15:57:11.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "En el Día Mundial de los Fertilizantes, una advertencia repetida: Hay que producir más con menos tierra, pero la reposición de nutrientes sigue quedando corta",
+            "link": "https://bichosdecampo.com/en-el-dia-mundial-de-los-fertilizantes-una-advertencia-repetida-hay-que-producir-mas-con-menos-tierra-pero-la-reposicion-de-nutrientes-sigue-quedando-corta/",
+            "fecha": "2026-10-13T15:48:19.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Los díscolos del Visec volvieron a la carga: Más de 40 rurales, asociaciones y productores llamaron a “no adherir” a un sistema cuyos certificados “no tienen sustento legal”",
-            "link": "https://bichosdecampo.com/los-discolos-del-visec-volvieron-a-la-carga-mas-de-40-rurales-asociaciones-y-productores-llamaron-a-no-adherir-a-un-sistema-cuyos-certificados-no-tienen-sustento-legal/",
-            "fecha": "2026-10-13T14:59:41.000Z",
+            "titulo": "Después de meses con la puerta de salida abierta y algunos ingresos “por la ventana”, el INTA retoma los concursos públicos: Cinco provincias buscan nuevos directores regionales",
+            "link": "https://bichosdecampo.com/despues-de-meses-con-la-puerta-de-salida-abierta-y-algunos-ingresos-por-la-ventana-el-inta-retoma-los-concursos-publicos-cinco-provincias-buscan-nuevos-directores-regionales/",
+            "fecha": "2026-10-13T15:15:14.000Z",
             "fuente": "Bichos de Campo"
           },
           {
@@ -317,12 +323,6 @@
             "fuente": "Clarín Rural"
           },
           {
-            "titulo": "Inversión global de 35 millones de euros: una empresa argentina inauguró una terminal de cargas refrigeradas en España",
-            "link": "https://www.lanacion.com.ar/economia/campo/inversion-global-de-35-millones-de-euros-una-empresa-argentina-inauguro-una-terminal-de-cargas-nid13102026/",
-            "fecha": "2026-10-13T09:30:00.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
             "titulo": "Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne",
             "link": "https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html",
             "fecha": "2026-10-12T13:55:54.000Z",
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T15:31:24.421Z"
+      "obtenido": "2026-10-13T16:00:06.548Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.9625,
-            "usdTonelada": 476.29021124999997
+            "usdBushel": 12.935,
+            "usdTonelada": 475.27975949999995
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.865,
-            "usdTonelada": 191.5248335
+            "usdBushel": 4.86,
+            "usdTonelada": 191.32799400000002
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.77,
-            "usdTonelada": 248.75484899999995
+            "usdBushel": 6.7625,
+            "usdTonelada": 248.47927124999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T15:31:24.421Z"
+      "obtenido": "2026-10-13T16:00:06.548Z"
     }
   }
 }
