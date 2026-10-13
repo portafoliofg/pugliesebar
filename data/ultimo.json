@@ -1,3 +1,296 @@
 {
-  "fuentes": {}
+  "fuentes": {
+    "pizarra": {
+      "datos": {
+        "fecha": "2026-10-09",
+        "granos": {
+          "soja": {
+            "pesos": 560000,
+            "usd": 371.35,
+            "sinCotizacion": false
+          },
+          "maiz": {
+            "pesos": 292500,
+            "usd": 193.97,
+            "sinCotizacion": false
+          },
+          "girasol": {
+            "pesos": 799240,
+            "usd": null,
+            "sinCotizacion": false
+          },
+          "trigo": {
+            "pesos": 342000,
+            "usd": 226.79,
+            "sinCotizacion": false
+          }
+        }
+      },
+      "obtenido": "2026-10-13T13:47:43.104Z"
+    },
+    "matba": {
+      "datos": {
+        "fecha": "2026-10-09",
+        "granos": {
+          "soja": [
+            {
+              "posicion": "OCT26",
+              "usdTonelada": 371,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "NOV26",
+              "usdTonelada": 374.2,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "ENE27",
+              "usdTonelada": 379.1,
+              "fecha": "2026-10-09"
+            }
+          ],
+          "maiz": [
+            {
+              "posicion": "OCT26",
+              "usdTonelada": 194,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "NOV26",
+              "usdTonelada": 196,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "DIC26",
+              "usdTonelada": 198.9,
+              "fecha": "2026-10-09"
+            }
+          ],
+          "trigo": [
+            {
+              "posicion": "NOV26",
+              "usdTonelada": 223.1,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "DIC26",
+              "usdTonelada": 224.1,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "ENE27",
+              "usdTonelada": 229.1,
+              "fecha": "2026-10-09"
+            }
+          ]
+        }
+      },
+      "obtenido": "2026-10-13T13:47:43.104Z"
+    },
+    "dolar": {
+      "datos": {
+        "fecha": "2026-10-13",
+        "tipos": {
+          "oficial": {
+            "compra": 1485,
+            "venta": 1535,
+            "actualizado": "2026-10-13T10:00:00.000Z"
+          },
+          "mayorista": {
+            "compra": 1508,
+            "venta": 1517,
+            "actualizado": "2026-10-09T15:52:00.000Z"
+          },
+          "mep": {
+            "compra": 1535.9,
+            "venta": 1542.9,
+            "actualizado": "2026-10-13T12:57:00.000Z"
+          },
+          "ccl": {
+            "compra": 1605.5,
+            "venta": 1606.6,
+            "actualizado": "2026-10-13T12:57:00.000Z"
+          },
+          "blue": {
+            "compra": 1520,
+            "venta": 1540,
+            "actualizado": "2026-10-13T12:57:00.000Z"
+          },
+          "tarjeta": {
+            "compra": 1930.5,
+            "venta": 1995.5,
+            "actualizado": "2026-10-13T10:00:00.000Z"
+          },
+          "cripto": {
+            "compra": 1606.21,
+            "venta": 1609.51,
+            "actualizado": "2026-10-13T12:57:00.000Z"
+          }
+        }
+      },
+      "obtenido": "2026-10-13T13:47:43.104Z"
+    },
+    "clima": {
+      "datos": {
+        "fecha": "2026-10-13",
+        "localidades": [
+          {
+            "nombre": "Córdoba",
+            "provincia": "Córdoba",
+            "dias": [
+              {
+                "fecha": "2026-10-13",
+                "min": 11.1,
+                "max": 18.1,
+                "lluviaMm": 1.5,
+                "probLluvia": 47,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-14",
+                "min": 12.9,
+                "max": 18.6,
+                "lluviaMm": 1.3,
+                "probLluvia": 97,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-15",
+                "min": 12.2,
+                "max": 20,
+                "lluviaMm": 8.3,
+                "probLluvia": 82,
+                "codigo": 95,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-16",
+                "min": 12.2,
+                "max": 19.3,
+                "lluviaMm": 10.1,
+                "probLluvia": 77,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-17",
+                "min": 11.7,
+                "max": 16.4,
+                "lluviaMm": 16.7,
+                "probLluvia": 78,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-18",
+                "min": 11.6,
+                "max": 17.7,
+                "lluviaMm": 0.3,
+                "probLluvia": 12,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-19",
+                "min": 12,
+                "max": 16.3,
+                "lluviaMm": 2.1,
+                "probLluvia": 57,
+                "codigo": 51,
+                "helada": false
+              }
+            ],
+            "lluviaTotal": 40.300000000000004,
+            "hayHelada": false
+          }
+        ],
+        "errores": []
+      },
+      "obtenido": "2026-10-13T13:47:43.104Z"
+    },
+    "hacienda": {
+      "datos": {
+        "fecha": "2026-10-13",
+        "categorias": {
+          "novillo": {
+            "promedio": 4332.2821358921165,
+            "cabezas": 964,
+            "filas": 7
+          },
+          "vaquillona": {
+            "promedio": 4471.518496630728,
+            "cabezas": 1484,
+            "filas": 3
+          },
+          "vaca": {
+            "promedio": 3209.608513736264,
+            "cabezas": 1092,
+            "filas": 4
+          }
+        }
+      },
+      "obtenido": "2026-10-13T13:47:43.104Z"
+    },
+    "noticias": {
+      "datos": {
+        "fecha": "2026-10-13",
+        "titulares": [
+          {
+            "titulo": "¿Quién se queda con la plata del tabaco? Productores de cinco provincias llegan a Buenos Aires para denunciar maniobras de “sobrefacturación” y cobro indebido de fondos: “Es una estafa”, aseguran",
+            "link": "https://bichosdecampo.com/quien-se-queda-con-la-plata-del-tabaco-productores-de-cinco-provincias-llegan-a-buenos-aires-para-denunciar-maniobras-de-sobrefacturacion-y-cobro-indebido-de-fondos/",
+            "fecha": "2026-10-13T13:29:10.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Dólar blue: a cuánto cotizan hoy en Córdoba 13 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-13-octubre-2026/",
+            "fecha": "2026-10-13T13:10:09.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%",
+            "link": "https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html",
+            "fecha": "2026-10-13T12:54:47.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "La soja argentina es la más competitiva del mundo en el mercado internacional (pero no puertas adentro)",
+            "link": "https://bichosdecampo.com/la-soja-argentina-es-la-mas-competitiva-del-mundo-en-el-mercado-internacional-pero-no-puertas-adentro/",
+            "fecha": "2026-10-13T12:51:57.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "El Niño extremo ya impacta en el Litoral: Itaipú y Yaciretá abrieron compuertas y hay temor en las islas ganaderas",
+            "link": "https://www.infocampo.com.ar/el-nino-extremo-ya-impacta-en-el-litoral-itaipu-y-yacireta-abrieron-compuertas-y-hay-temor-en-las-islas-ganaderas/",
+            "fecha": "2026-10-13T12:00:21.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Inversión global de 35 millones de euros: una empresa argentina inauguró una terminal de cargas refrigeradas en España",
+            "link": "https://www.lanacion.com.ar/economia/campo/inversion-global-de-35-millones-de-euros-una-empresa-argentina-inauguro-una-terminal-de-cargas-nid13102026/",
+            "fecha": "2026-10-13T09:30:00.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "El agro en el Congreso, entre lo que se habla, se trata y, por ahora, no está en agenda",
+            "link": "https://www.lanacion.com.ar/economia/campo/el-agro-en-el-congreso-entre-lo-que-se-habla-se-trata-y-por-ahora-no-esta-en-agenda-nid10102026/",
+            "fecha": "2026-10-13T02:28:13.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne",
+            "link": "https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html",
+            "fecha": "2026-10-12T13:55:54.000Z",
+            "fuente": "Clarín Rural"
+          }
+        ],
+        "errores": [
+          "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
+        ]
+      },
+      "obtenido": "2026-10-13T13:47:43.104Z"
+    }
+  }
 }
