@@ -1,7 +1,9 @@
 // Chicago (CBOT): futuros continuos de la posición más cercana (USD por bushel).
-// Fuente principal: API de gráficos de Yahoo Finance (JSON público, sin clave).
-// Respaldo: Stooq (CSV público, sin clave), porque Yahoo suele responder HTTP 429
-// a los servidores de GitHub Actions.
+// Se prueban varias fuentes públicas sin clave, en orden, hasta que una responda:
+//   1. Yahoo Finance (JSON). Suele responder HTTP 429 a los servidores de GitHub Actions.
+//   2. Yahoo Finance con cookie y "crumb" de sesión (como hace un navegador).
+//   3. CME Group (JSON que usa su propia web).
+//   4. Stooq (CSV).
 
 import { obtenerJSON, obtenerTexto } from '../lib/http.js';
 import { fechaISOArgentina } from '../lib/formato.js';
@@ -30,6 +32,67 @@ async function desdeYahoo(simbolo, timeoutMs) {
   throw ultimoError;
 }
 
+// Sesión de Yahoo (cookie + crumb), se pide una sola vez por ejecución
+let sesionYahoo = null;
+async function obtenerSesionYahoo(timeoutMs) {
+  if (sesionYahoo) return sesionYahoo;
+  const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
+  const r1 = await fetch('https://fc.yahoo.com/', { headers: { 'User-Agent': ua }, redirect: 'manual', signal: AbortSignal.timeout(timeoutMs) });
+  const cookie = (r1.headers.getSetCookie?.() || []).map((c) => c.split(';')[0]).join('; ');
+  if (!cookie) throw new Error('Yahoo no entregó cookie de sesión');
+  const r2 = await fetch('https://query2.finance.yahoo.com/v1/test/getcrumb', {
+    headers: { 'User-Agent': ua, Cookie: cookie }, signal: AbortSignal.timeout(timeoutMs)
+  });
+  const crumb = (await r2.text()).trim();
+  if (!r2.ok || !crumb || crumb.length > 40) throw new Error(`Yahoo no entregó crumb (HTTP ${r2.status})`);
+  sesionYahoo = { ua, cookie, crumb };
+  return sesionYahoo;
+}
+
+async function desdeYahooConSesion(simbolo, timeoutMs) {
+  const { ua, cookie, crumb } = await obtenerSesionYahoo(timeoutMs);
+  const url = `https://query2.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(simbolo)}?range=5d&interval=1d&crumb=${encodeURIComponent(crumb)}`;
+  const json = await obtenerJSON(url, { timeoutMs, reintentos: 0, headers: { 'User-Agent': ua, Cookie: cookie } });
+  const meta = json?.chart?.result?.[0]?.meta;
+  if (!meta || typeof meta.regularMarketPrice !== 'number') throw new Error(`Sin precio para ${simbolo}`);
+  return {
+    usdBushel: (meta.currency || 'USX') === 'USX' ? meta.regularMarketPrice / 100 : meta.regularMarketPrice,
+    fecha: meta.regularMarketTime ? fechaISOArgentina(new Date(meta.regularMarketTime * 1000)) : null,
+    origen: 'Yahoo Finance'
+  };
+}
+
+// Código de producto de CME Group para cada símbolo
+const PRODUCTOS_CME = { 'ZS=F': 320, 'ZC=F': 300, 'ZW=F': 323 };
+
+/** CME expresa los granos en centavos y octavos: "1052'2" = 1052 + 2/8 centavos. */
+function parsearPrecioCME(texto) {
+  const m = String(texto || '').trim().match(/^(\d+)(?:'(\d))?/);
+  if (!m) return null;
+  return Number(m[1]) + (m[2] ? Number(m[2]) / 8 : 0);
+}
+
+async function desdeCME(simbolo, timeoutMs) {
+  const id = PRODUCTOS_CME[simbolo];
+  if (!id) throw new Error(`Sin código CME para ${simbolo}`);
+  const json = await obtenerJSON(`https://www.cmegroup.com/CmeWS/mvc/Quotes/Future/${id}/G`, {
+    timeoutMs, reintentos: 0, headers: { Referer: 'https://www.cmegroup.com/' }
+  });
+  // La primera cotización con precio es la posición más cercana
+  for (const q of json?.quotes || []) {
+    const centavos = parsearPrecioCME(q.last) ?? parsearPrecioCME(q.priorSettle);
+    if (centavos) {
+      const fecha = String(q.updated || q.tradeDate || '').match(/(\d{4})(\d{2})(\d{2})/);
+      return {
+        usdBushel: centavos / 100,
+        fecha: fecha ? `${fecha[1]}-${fecha[2]}-${fecha[3]}` : null,
+        origen: 'CME Group'
+      };
+    }
+  }
+  throw new Error(`CME sin precio para ${simbolo}`);
+}
+
 /**
  * Stooq: CSV con encabezado "Symbol,Date,Time,Open,High,Low,Close,Volume".
  * Los futuros de granos (ZS.F, ZC.F, ZW.F) cotizan en centavos por bushel.
@@ -52,16 +115,23 @@ async function desdeStooq(simbolo, timeoutMs) {
   };
 }
 
+const PROVEEDORES = [
+  ['Yahoo', desdeYahoo],
+  ['Yahoo con sesión', desdeYahooConSesion],
+  ['CME', desdeCME],
+  ['Stooq', desdeStooq]
+];
+
 async function cotizacion(simbolo, timeoutMs) {
-  try {
-    return await desdeYahoo(simbolo, timeoutMs);
-  } catch (errYahoo) {
+  const errores = [];
+  for (const [nombre, fn] of PROVEEDORES) {
     try {
-      return await desdeStooq(simbolo, timeoutMs);
-    } catch (errStooq) {
-      throw new Error(`Yahoo: ${errYahoo.message} · Stooq: ${errStooq.message}`);
+      return await fn(simbolo, timeoutMs);
+    } catch (err) {
+      errores.push(`${nombre}: ${err.message}`);
     }
   }
+  throw new Error(errores.join(' · '));
 }
 
 export async function obtenerCBOT(config) {
