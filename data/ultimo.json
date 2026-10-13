@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     },
     "dolar": {
       "datos": {
@@ -89,41 +89,41 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T15:00:00.000Z"
+            "actualizado": "2026-10-13T16:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1506,
-            "venta": 1515,
-            "actualizado": "2026-10-13T13:50:00.000Z"
+            "compra": 1503.5,
+            "venta": 1512.5,
+            "actualizado": "2026-10-13T15:47:00.000Z"
           },
           "mep": {
-            "compra": 1535.8,
-            "venta": 1537.2,
-            "actualizado": "2026-10-13T17:57:00.000Z"
+            "compra": 1537.5,
+            "venta": 1538.5,
+            "actualizado": "2026-10-13T18:57:00.000Z"
           },
           "ccl": {
-            "compra": 1612.1,
-            "venta": 1612.6,
-            "actualizado": "2026-10-13T17:57:00.000Z"
+            "compra": 1613.5,
+            "venta": 1614,
+            "actualizado": "2026-10-13T18:57:00.000Z"
           },
           "blue": {
             "compra": 1530,
             "venta": 1550,
-            "actualizado": "2026-10-13T17:57:00.000Z"
+            "actualizado": "2026-10-13T18:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T15:00:00.000Z"
+            "actualizado": "2026-10-13T16:00:00.000Z"
           },
           "cripto": {
-            "compra": 1608.61,
-            "venta": 1611.12,
-            "actualizado": "2026-10-13T17:57:00.000Z"
+            "compra": 1610.1,
+            "venta": 1612.83,
+            "actualizado": "2026-10-13T18:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     },
     "clima": {
       "datos": {
@@ -274,12 +274,30 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
+          {
+            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
+            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
+            "fecha": "2026-10-13T18:52:25.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "El efecto Dominó: la propuesta de tratamiento de semillas de Koppert para que el buen arranque se multiplique en el rinde",
+            "link": "https://bichosdecampo.com/el-efecto-domino-la-propuesta-de-tratamiento-de-semillas-de-koppert-para-que-el-buen-arranque-se-multiplique-en-el-rinde/",
+            "fecha": "2026-10-13T18:51:36.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Jason Mraz y su otra pasión con paltas y café en casi siete hectáreas en San Diego: “Necesitaba diversificar”",
+            "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
+            "fecha": "2026-10-13T18:47:25.000Z",
+            "fuente": "La Nación Campo"
+          },
           {
             "titulo": "En EEUU y Brasil, productores están en jaque por el alto endeudamiento: ¿ventaja para el campo argentino?",
             "link": "https://www.infocampo.com.ar/en-eeuu-y-brasil-productores-estan-en-jaque-por-el-alto-endeudamiento-ventaja-para-el-campo-argentino/",
@@ -293,47 +311,29 @@
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "El Niño comienza a golpear en el Litoral: alarma entre los productores por la crecida de los ríos Uruguay y Paraná",
-            "link": "https://www.clarin.com/rural/nino-comienza-golpear-litoral-alarma-productores-crecida-rios-uruguay-parana_0_e1FASn3CPT.html",
-            "fecha": "2026-10-13T17:47:45.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Portazo: En medio de la disputa entre gremiales del campo, una rural entrerriana avivó las llamas y decidió dar un paso al costado del Consejo Federal de la Sociedad Rural Argentina",
-            "link": "https://bichosdecampo.com/en-medio-de-la-disputa-entre-gremiales-del-campo-una-rural-entrerriana-avivo-las-llamas-y-decidio-dar-un-paso-al-costado-del-consejo-federal-de-la-sociedad-rural-argentina/",
-            "fecha": "2026-10-13T17:44:23.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Tras el cambio de dueños: Vassalli amplía la actividad en su fábrica y prepara una nueva generación de cosechadoras",
-            "link": "https://www.lanacion.com.ar/economia/campo/tras-el-cambio-de-duenos-vassalli-amplia-la-actividad-en-su-fabrica-y-prepara-una-nueva-generacion-nid13102026/",
-            "fecha": "2026-10-13T17:19:31.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "“La bronca es muy grande”: fuerte cuestionamiento al uso de los fondos de la tasa vial en un municipio bonaerense",
-            "link": "https://www.lanacion.com.ar/economia/campo/la-bronca-es-muy-grande-fuerte-cuestionamiento-al-uso-de-la-tasa-vial-en-un-municipio-bonaerense-nid13102026/",
-            "fecha": "2026-10-13T16:48:03.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Día Mundial de los Fertilizantes: una innovación que enfrenta el desafío de alimentar a una población mundial en constante crecimiento",
-            "link": "https://www.clarin.com/rural/dia-mundial-fertilizantes-innovacion-enfrenta-desafio-alimentar-poblacion-mundial-constante-crecimiento_0_b6eMatjB3U.html",
-            "fecha": "2026-10-13T16:46:18.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Buena calidad nutricional y menor costo: la remolacha forrajera se potencia como alternativa al maíz",
-            "link": "https://www.infocampo.com.ar/buena-calidad-nutricional-y-menor-costo-la-remolacha-forrajera-se-potencia-como-alternativa-al-maiz/",
-            "fecha": "2026-10-13T14:42:39.000Z",
+            "titulo": "Día Mundial de los Fertilizantes: de la “revolución verde” a ser garantes de la seguridad alimentaria global",
+            "link": "https://www.infocampo.com.ar/dia-mundial-de-los-fertilizantes-de-la-revolucion-verde-a-ser-garantes-de-la-seguridad-alimentaria-global/",
+            "fecha": "2026-10-13T18:11:14.000Z",
             "fuente": "Infocampo"
+          },
+          {
+            "titulo": "El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%",
+            "link": "https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html",
+            "fecha": "2026-10-13T12:54:47.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne",
+            "link": "https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html",
+            "fecha": "2026-10-12T13:55:54.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     },
     "cbot": {
       "datos": {
@@ -358,7 +358,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-13T18:47:12.999Z"
+      "obtenido": "2026-10-13T19:33:36.663Z"
     }
   }
 }
