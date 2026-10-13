@@ -67,7 +67,7 @@ Ejemplo para agregar una localidad:
 | Dato | Fuente | Tipo |
 |---|---|---|
 | Pizarra Rosario | [Cámara Arbitral de Cereales – BCR](https://www.cac.bcr.com.ar/es/precios-de-pizarra) | HTML (cheerio) |
-| Chicago (CBOT) | Yahoo Finance, futuros continuos `ZS=F`, `ZC=F`, `ZW=F`; si Yahoo responde 429, [Stooq](https://stooq.com) como respaldo | JSON / CSV |
+| Chicago (CBOT) | Yahoo Finance, futuros continuos `ZS=F`, `ZC=F`, `ZW=F`. Si responde 429, se reintenta con cookie de sesión y después se prueban CME Group y Stooq | JSON / CSV |
 | Matba-Rofex | Endpoint JSON que usa la web de Matba-Rofex (no documentado) | JSON |
 | Dólar | [DolarApi](https://dolarapi.com) y [ArgentinaDatos](https://argentinadatos.com) para el histórico inicial | JSON |
 | Clima | [Open-Meteo](https://open-meteo.com) | JSON, sin clave |
