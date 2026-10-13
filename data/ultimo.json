@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T16:32:17.194Z"
+      "obtenido": "2026-10-13T17:50:32.602Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T16:32:17.194Z"
+      "obtenido": "2026-10-13T17:50:32.602Z"
     },
     "dolar": {
       "datos": {
@@ -89,41 +89,41 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T13:00:00.000Z"
+            "actualizado": "2026-10-13T14:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1508,
-            "venta": 1517,
-            "actualizado": "2026-10-13T12:19:00.000Z"
+            "compra": 1506,
+            "venta": 1515,
+            "actualizado": "2026-10-13T13:50:00.000Z"
           },
           "mep": {
-            "compra": 1537.3,
-            "venta": 1538.7,
-            "actualizado": "2026-10-13T15:57:00.000Z"
+            "compra": 1537.5,
+            "venta": 1538.4,
+            "actualizado": "2026-10-13T16:57:00.000Z"
           },
           "ccl": {
-            "compra": 1610.5,
-            "venta": 1611,
-            "actualizado": "2026-10-13T15:57:00.000Z"
+            "compra": 1611.9,
+            "venta": 1612.4,
+            "actualizado": "2026-10-13T16:57:00.000Z"
           },
           "blue": {
-            "compra": 1535,
-            "venta": 1555,
-            "actualizado": "2026-10-13T15:57:00.000Z"
+            "compra": 1530,
+            "venta": 1550,
+            "actualizado": "2026-10-13T16:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T13:00:00.000Z"
+            "actualizado": "2026-10-13T14:00:00.000Z"
           },
           "cripto": {
-            "compra": 1607.44,
-            "venta": 1609.85,
-            "actualizado": "2026-10-13T15:57:00.000Z"
+            "compra": 1608.25,
+            "venta": 1611.18,
+            "actualizado": "2026-10-13T16:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-13T16:32:17.194Z"
+      "obtenido": "2026-10-13T17:50:32.602Z"
     },
     "clima": {
       "datos": {
@@ -138,7 +138,7 @@
                 "min": 11.1,
                 "max": 18.1,
                 "lluviaMm": 1.6,
-                "probLluvia": 55,
+                "probLluvia": 86,
                 "codigo": 51,
                 "helada": false
               },
@@ -147,7 +147,7 @@
                 "min": 12.9,
                 "max": 18.7,
                 "lluviaMm": 1.3,
-                "probLluvia": 97,
+                "probLluvia": 94,
                 "codigo": 51,
                 "helada": false
               },
@@ -165,7 +165,7 @@
                 "min": 12.2,
                 "max": 19.3,
                 "lluviaMm": 11.5,
-                "probLluvia": 63,
+                "probLluvia": 76,
                 "codigo": 80,
                 "helada": false
               },
@@ -174,7 +174,7 @@
                 "min": 11.5,
                 "max": 16.4,
                 "lluviaMm": 15.3,
-                "probLluvia": 55,
+                "probLluvia": 75,
                 "codigo": 80,
                 "helada": false
               },
@@ -183,7 +183,7 @@
                 "min": 11.4,
                 "max": 17.7,
                 "lluviaMm": 0.3,
-                "probLluvia": 35,
+                "probLluvia": 12,
                 "codigo": 51,
                 "helada": false
               },
@@ -209,7 +209,7 @@
                 "min": 11.9,
                 "max": 19.4,
                 "lluviaMm": 1.5,
-                "probLluvia": 62,
+                "probLluvia": 85,
                 "codigo": 55,
                 "helada": false
               },
@@ -218,7 +218,7 @@
                 "min": 11.4,
                 "max": 20,
                 "lluviaMm": 2.5,
-                "probLluvia": 75,
+                "probLluvia": 82,
                 "codigo": 51,
                 "helada": false
               },
@@ -227,7 +227,7 @@
                 "min": 11.9,
                 "max": 20.4,
                 "lluviaMm": 4.2,
-                "probLluvia": 53,
+                "probLluvia": 65,
                 "codigo": 80,
                 "helada": false
               },
@@ -236,7 +236,7 @@
                 "min": 10.7,
                 "max": 20.9,
                 "lluviaMm": 1.2,
-                "probLluvia": 49,
+                "probLluvia": 55,
                 "codigo": 53,
                 "helada": false
               },
@@ -245,7 +245,7 @@
                 "min": 12.2,
                 "max": 17.6,
                 "lluviaMm": 4.2,
-                "probLluvia": 18,
+                "probLluvia": 27,
                 "codigo": 53,
                 "helada": false
               },
@@ -254,7 +254,7 @@
                 "min": 12.1,
                 "max": 18.7,
                 "lluviaMm": 0,
-                "probLluvia": 26,
+                "probLluvia": 11,
                 "codigo": 3,
                 "helada": false
               },
@@ -274,34 +274,40 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T16:32:17.194Z"
+      "obtenido": "2026-10-13T17:50:32.602Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
           {
-            "titulo": "Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación",
-            "link": "https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/",
-            "fecha": "2026-10-13T16:25:23.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
-            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
-            "fecha": "2026-10-13T15:57:44.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "En el Día Mundial de los Fertilizantes, una advertencia repetida: Hay que producir más con menos tierra, pero la reposición de nutrientes sigue quedando corta",
-            "link": "https://bichosdecampo.com/en-el-dia-mundial-de-los-fertilizantes-una-advertencia-repetida-hay-que-producir-mas-con-menos-tierra-pero-la-reposicion-de-nutrientes-sigue-quedando-corta/",
-            "fecha": "2026-10-13T15:48:19.000Z",
+            "titulo": "En medio de la disputa entre gremiales del campo, una rural entrerriana avivó las llamas y decidió dar un paso al costado del Consejo Federal de la Sociedad Rural Argentina",
+            "link": "https://bichosdecampo.com/en-medio-de-la-disputa-entre-gremiales-del-campo-una-rural-entrerriana-avivo-las-llamas-y-decidio-dar-un-paso-al-costado-del-consejo-federal-de-la-sociedad-rural-argentina/",
+            "fecha": "2026-10-13T17:44:23.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Después de meses con la puerta de salida abierta y algunos ingresos “por la ventana”, el INTA retoma los concursos públicos: Cinco provincias buscan nuevos directores regionales",
-            "link": "https://bichosdecampo.com/despues-de-meses-con-la-puerta-de-salida-abierta-y-algunos-ingresos-por-la-ventana-el-inta-retoma-los-concursos-publicos-cinco-provincias-buscan-nuevos-directores-regionales/",
-            "fecha": "2026-10-13T15:15:14.000Z",
+            "titulo": "Tras el cambio de dueños: Vassalli amplía la actividad en su fábrica y prepara una nueva generación de cosechadoras",
+            "link": "https://www.lanacion.com.ar/economia/campo/tras-el-cambio-de-duenos-vassalli-amplia-la-actividad-en-su-fabrica-y-prepara-una-nueva-generacion-nid13102026/",
+            "fecha": "2026-10-13T17:19:31.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "“La bronca es muy grande”: fuerte cuestionamiento al uso de los fondos de la tasa vial en un municipio bonaerense",
+            "link": "https://www.lanacion.com.ar/economia/campo/la-bronca-es-muy-grande-fuerte-cuestionamiento-al-uso-de-la-tasa-vial-en-un-municipio-bonaerense-nid13102026/",
+            "fecha": "2026-10-13T16:48:03.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Día Mundial de los Fertilizantes: una innovación que enfrenta el desafío de alimentar a una población mundial en constante crecimiento",
+            "link": "https://www.clarin.com/rural/dia-mundial-fertilizantes-innovacion-enfrenta-desafio-alimentar-poblacion-mundial-constante-crecimiento_0_b6eMatjB3U.html",
+            "fecha": "2026-10-13T16:46:18.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "¿Quién dijo que era solo para el pancho? El INTA investiga cómo aprovechar las propiedades “biofumigantes” de la mostaza para combatir plagas y enfermedades en los cultivos",
+            "link": "https://bichosdecampo.com/quien-dijo-que-era-solo-para-el-pancho-el-inta-investiga-como-aprovechar-las-propiedades-biofumigantes-de-la-mostaza-para-combatir-plagas-y-enfermedades-en-los-cultivos/",
+            "fecha": "2026-10-13T16:40:17.000Z",
             "fuente": "Bichos de Campo"
           },
           {
@@ -321,19 +327,13 @@
             "link": "https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html",
             "fecha": "2026-10-13T12:54:47.000Z",
             "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne",
-            "link": "https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html",
-            "fecha": "2026-10-12T13:55:54.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T16:32:17.194Z"
+      "obtenido": "2026-10-13T17:50:32.602Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.885,
-            "usdTonelada": 473.4425745
+            "usdBushel": 12.86,
+            "usdTonelada": 472.52398199999993
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8525,
-            "usdTonelada": 191.03273475
+            "usdBushel": 4.8375,
+            "usdTonelada": 190.44221625
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.7375,
-            "usdTonelada": 247.56067874999997
+            "usdBushel": 6.7125,
+            "usdTonelada": 246.64208625
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T16:32:17.194Z"
+      "obtenido": "2026-10-13T17:50:32.602Z"
     }
   }
 }
