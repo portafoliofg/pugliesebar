@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T15:00:48.942Z"
+      "obtenido": "2026-10-13T15:21:57.543Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T15:00:48.942Z"
+      "obtenido": "2026-10-13T15:21:57.543Z"
     },
     "dolar": {
       "datos": {
@@ -89,41 +89,41 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T11:00:00.000Z"
+            "actualizado": "2026-10-13T12:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1510,
-            "venta": 1519,
-            "actualizado": "2026-10-13T10:29:00.000Z"
+            "compra": 1509,
+            "venta": 1518,
+            "actualizado": "2026-10-13T11:44:00.000Z"
           },
           "mep": {
-            "compra": 1536.6,
-            "venta": 1536.6,
-            "actualizado": "2026-10-13T13:57:00.000Z"
+            "compra": 1536.8,
+            "venta": 1540.7,
+            "actualizado": "2026-10-13T14:57:00.000Z"
           },
           "ccl": {
-            "compra": 1609.8,
-            "venta": 1609.8,
-            "actualizado": "2026-10-13T13:57:00.000Z"
+            "compra": 1610.4,
+            "venta": 1610.8,
+            "actualizado": "2026-10-13T14:57:00.000Z"
           },
           "blue": {
-            "compra": 1520,
-            "venta": 1540,
-            "actualizado": "2026-10-13T13:57:00.000Z"
+            "compra": 1535,
+            "venta": 1555,
+            "actualizado": "2026-10-13T14:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T11:00:00.000Z"
+            "actualizado": "2026-10-13T12:00:00.000Z"
           },
           "cripto": {
-            "compra": 1606.84,
-            "venta": 1611.4,
-            "actualizado": "2026-10-13T13:57:00.000Z"
+            "compra": 1606.71,
+            "venta": 1609.74,
+            "actualizado": "2026-10-13T14:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-13T15:00:48.942Z"
+      "obtenido": "2026-10-13T15:21:57.543Z"
     },
     "clima": {
       "datos": {
@@ -274,12 +274,18 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T15:00:48.942Z"
+      "obtenido": "2026-10-13T15:21:57.543Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
+          {
+            "titulo": "Después de meses con la puerta de salida abierta y algunos ingresos “por la ventana”, el INTA retoma los concursos públicos: Cinco provincias buscan nuevos directores regionales",
+            "link": "https://bichosdecampo.com/despues-de-meses-con-la-puerta-de-salida-abierta-y-algunos-ingresos-por-la-ventana-el-inta-retoma-los-concursos-publicos-cinco-provincias-buscan-nuevos-directores-regionales/",
+            "fecha": "2026-10-13T15:15:14.000Z",
+            "fuente": "Bichos de Campo"
+          },
           {
             "titulo": "Los díscolos del Visec volvieron a la carga: Más de 40 rurales, asociaciones y productores llamaron a “no adherir” a un sistema cuyos certificados “no tienen sustento legal”",
             "link": "https://bichosdecampo.com/los-discolos-del-visec-volvieron-a-la-carga-mas-de-40-rurales-asociaciones-y-productores-llamaron-a-no-adherir-a-un-sistema-cuyos-certificados-no-tienen-sustento-legal/",
@@ -305,12 +311,6 @@
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "¿Quién se queda con la plata del tabaco? Productores de cinco provincias llegan a Buenos Aires para denunciar maniobras de “sobrefacturación” y cobro indebido de fondos: “Es una estafa”, aseguran",
-            "link": "https://bichosdecampo.com/quien-se-queda-con-la-plata-del-tabaco-productores-de-cinco-provincias-llegan-a-buenos-aires-para-denunciar-maniobras-de-sobrefacturacion-y-cobro-indebido-de-fondos/",
-            "fecha": "2026-10-13T13:29:10.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
             "titulo": "El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%",
             "link": "https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html",
             "fecha": "2026-10-13T12:54:47.000Z",
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T15:00:48.942Z"
+      "obtenido": "2026-10-13T15:21:57.543Z"
     },
     "cbot": {
       "datos": {
@@ -341,13 +341,13 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.955,
-            "usdTonelada": 476.01463349999995
+            "usdBushel": 12.97,
+            "usdTonelada": 476.565789
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.87,
-            "usdTonelada": 191.721673
+            "usdBushel": 4.865,
+            "usdTonelada": 191.5248335
           },
           "trigo": {
             "simbolo": "ZW=F",
@@ -358,7 +358,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T15:00:48.942Z"
+      "obtenido": "2026-10-13T15:21:57.543Z"
     }
   }
 }
