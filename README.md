@@ -1,4 +1,4 @@
-# Tablero Agro
+# Sammartino · Tablero Agro
 
 Página con la información del día para el campo en Argentina (pizarra Rosario, Chicago, Matba-Rofex, dólar, clima, retenciones y noticias) el mapa de tus campos y el control de stock de la planilla de Google, organizados en pestañas.
 GitHub Actions la genera sola de lunes a viernes y la publica en GitHub Pages.

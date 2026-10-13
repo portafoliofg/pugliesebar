@@ -59,9 +59,9 @@ const ILUSTRACION = {
     '<ellipse cx="16" cy="5" rx="2.2" ry="4"/></svg>'
 };
 
-const LOGO = '<svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 30V11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>' +
-  [10, 15, 20].map((y) => `<ellipse cx="12" cy="${y}" rx="2.6" ry="4.4" transform="rotate(-32 12 ${y})"/><ellipse cx="20" cy="${y}" rx="2.6" ry="4.4" transform="rotate(32 20 ${y})"/>`).join('') +
-  '<ellipse cx="16" cy="6" rx="2.4" ry="4.4"/></svg>';
+// Logo Sammartino: una S como surco con una espiga que nace de su extremo
+const LOGO = '<svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">' +
+  '<g transform="translate(-1.5 4.5)"><path class="s-trazo" d="M41.5 20.5C39.4 15.9 35.4 13.6 30.6 13.6 24.4 13.6 20.1 17.1 20.1 22.2 20.1 28.4 26.1 30.2 31.1 31.7 36.6 33.4 42.1 35.3 42.1 41.7 42.1 47.4 37.3 51.3 30.7 51.3 24.9 51.3 20.7 48.7 18.7 44.3" stroke="currentColor" stroke-width="6.6"/><path class="s-tallo" d="M41.5 20.5 50 3.5" stroke="currentColor" stroke-width="2.2"/><g class="s-espiga" fill="currentColor"><ellipse cx="41.1" cy="14.3" rx="1.75" ry="3.50" transform="rotate(-11.4 41.1 14.3)"/><ellipse cx="46.7" cy="17.1" rx="1.75" ry="3.50" transform="rotate(64.6 46.7 17.1)"/><ellipse cx="43.0" cy="10.5" rx="1.66" ry="3.32" transform="rotate(-11.4 43.0 10.5)"/><ellipse cx="48.6" cy="13.3" rx="1.66" ry="3.32" transform="rotate(64.6 48.6 13.3)"/><ellipse cx="44.9" cy="6.8" rx="1.54" ry="3.08" transform="rotate(-11.4 44.9 6.8)"/><ellipse cx="50.4" cy="9.6" rx="1.54" ry="3.08" transform="rotate(64.6 50.4 9.6)"/><ellipse cx="50.3" cy="3.0" rx="1.6" ry="3.2" transform="rotate(26.6 50.3 3.0)"/></g></g></svg>';
 
 // Ícono del clima según código WMO de Open-Meteo
 function iconoClima(codigo) {
@@ -493,7 +493,8 @@ export function generarHTML(m) {
 ${foto0 ? `<meta property="og:image" content="${esc(foto0)}">` : ''}
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${jsonLd}</script>
-<link rel="icon" href="data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='#a4c639'/><g fill='#2b2118' transform='translate(4 3) scale(.75)'>${LOGO.replace(/<\/?svg[^>]*>/g, '')}</g></svg>`)}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -504,14 +505,16 @@ ${leerPlantilla('estilos.css')}
 </head>
 <body>
 <div class="splash" aria-hidden="true">
-  <svg viewBox="0 0 64 64"><path class="tallo" d="M32 60V18" stroke="#a4c639" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-    ${[22, 32, 42].map((y) => `<ellipse class="grano" cx="25" cy="${y}" rx="5" ry="8.5" fill="#ffc107" transform="rotate(-32 25 ${y})"/><ellipse class="grano" cx="39" cy="${y}" rx="5" ry="8.5" fill="#ff9800" transform="rotate(32 39 ${y})"/>`).join('')}
-    <ellipse class="grano" cx="32" cy="11" rx="4.5" ry="8" fill="#a4c639"/></svg>
+  <div class="splash-in"><svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(-1.5 4.5)">
+    <path class="s-trazo" d="M41.5 20.5C39.4 15.9 35.4 13.6 30.6 13.6 24.4 13.6 20.1 17.1 20.1 22.2 20.1 28.4 26.1 30.2 31.1 31.7 36.6 33.4 42.1 35.3 42.1 41.7 42.1 47.4 37.3 51.3 30.7 51.3 24.9 51.3 20.7 48.7 18.7 44.3" stroke="#6b8f14" stroke-width="6.6"/>
+    <path class="s-tallo" d="M41.5 20.5 50 3.5" stroke="#c8962e" stroke-width="2.2"/>
+    ${(LOGO.match(/<ellipse[^>]*>/g) || []).map((e, i) => e.replace('<ellipse', `<ellipse class="s-grano" fill="#ffc107" style="animation-delay:${(0.95 + i * 0.08).toFixed(2)}s"`)).join('')}</g></svg>
+    <b>${t}</b></div>
 </div>
 
 <header class="cab">
   <div class="cab-in">
-    <a class="marca" href="#inicio" data-ir="inicio" aria-label="${t}, inicio"><span class="marca-logo">${LOGO}</span><b>${t}</b></a>
+    <a class="marca" href="#inicio" data-ir="inicio" aria-label="${t}, inicio"><span class="marca-logo">${LOGO}</span><span class="marca-txt"><b>${t}</b><small>Agro · Campos · Stock</small></span></a>
     <nav class="pestanas" role="tablist" aria-label="Secciones">
       ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('campos', 'Campos')}${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
     </nav>

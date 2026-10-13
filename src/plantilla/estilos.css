@@ -87,8 +87,13 @@ button { font: inherit; color: inherit; }
   transition: opacity .6s var(--curva), visibility .6s;
 }
 .splash.fuera { opacity: 0; visibility: hidden; }
-.splash svg { width: 92px; height: 92px; }
-.splash .tallo { stroke-dasharray: 120; stroke-dashoffset: 120; animation: dibujar .9s var(--curva) forwards; }
+.splash-in { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.splash svg { width: 104px; height: 104px; }
+.splash-in b { font-family: var(--display); font-size: 1.7rem; letter-spacing: -.02em; opacity: 0; animation: aparecer .5s .9s forwards; }
+.splash .s-trazo { stroke-dasharray: 130; stroke-dashoffset: 130; animation: dibujar .9s var(--curva) forwards; }
+.splash .s-tallo { stroke-dasharray: 20; stroke-dashoffset: 20; animation: dibujar .3s .75s var(--curva) forwards; }
+@keyframes aparecer { to { opacity: 1; } }
+.splash .s-grano { opacity: 0; animation: aparecer .3s forwards; }
 .splash .grano { transform-origin: center; transform: scale(0); animation: brotar .45s var(--rebote) forwards; }
 .splash .grano:nth-of-type(2) { animation-delay: .35s; } .splash .grano:nth-of-type(3) { animation-delay: .45s; }
 .splash .grano:nth-of-type(4) { animation-delay: .55s; } .splash .grano:nth-of-type(5) { animation-delay: .65s; }
@@ -115,7 +120,11 @@ button { font: inherit; color: inherit; }
   box-shadow: 0 6px 18px color-mix(in srgb, var(--lima) 45%, transparent);
   color: #2b2118;
 }
-.marca-logo svg { width: 24px; height: 24px; transform-origin: 50% 90%; animation: mecer 4s ease-in-out infinite; }
+.marca-logo svg { width: 30px; height: 30px; }
+.marca-logo .s-espiga, .marca-logo .s-tallo { transform-origin: 41px 21px; animation: mecer 4s ease-in-out infinite; }
+.marca-txt { display: flex; flex-direction: column; line-height: 1; }
+.marca-txt small { font-size: .5rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; white-space: nowrap; }
+@media (max-width: 1360px) { .marca-txt small { display: none; } }
 .marca b { font-family: var(--display); font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
 @keyframes mecer { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
 
