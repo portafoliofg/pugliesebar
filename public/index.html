@@ -19,7 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"></noscript>
 <style>
 /* =====================================================
    TABLERO AGRO · estilos
@@ -107,7 +108,7 @@ button { font: inherit; color: inherit; }
   position: fixed; inset: 0; z-index: 100;
   display: grid; place-items: center;
   background: var(--bg);
-  transition: opacity .6s var(--curva), visibility .6s;
+  transition: opacity .3s var(--curva), visibility .3s;
 }
 .splash.fuera { opacity: 0; visibility: hidden; }
 .splash-in { display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -522,7 +523,7 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
       <button class="pestana" role="tab" id="tab-inicio" aria-controls="inicio" data-vista="inicio" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Inicio</span></button><button class="pestana" role="tab" id="tab-granos" aria-controls="granos" data-vista="granos" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5zM12 13c3 0 5-2 5-5-3 0-5 2-5 5zM12 8c-2 0-3.5-1.5-3.5-4C10.5 4 12 5.5 12 8zM12 8c2 0 3.5-1.5 3.5-4C13.5 4 12 5.5 12 8zM12 18c-3 0-5-2-5-5 3 0 5 2 5 5zM12 18c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg><span>Granos</span></button><button class="pestana" role="tab" id="tab-dolar" aria-controls="dolar" data-vista="dolar" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1-3 2.3c0 3.2 6 1.8 6 5 0 1.4-1.3 2.7-3 2.7s-3-1.1-3-2.5M12 5.5v13"/></svg><span>Dólar</span></button><button class="pestana" role="tab" id="tab-clima" aria-controls="clima" data-vista="clima" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3.5"/><path d="M8 2.5v1.5M2.5 9H4M3.9 4.9l1 1M12.1 4.9l-1 1"/><path d="M9 20h9a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.5A3 3 0 0 0 9 20z"/></svg><span>Clima</span></button><button class="pestana" role="tab" id="tab-campos" aria-controls="campos" data-vista="campos" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg><span>Campos</span></button><button class="pestana" role="tab" id="tab-noticias" aria-controls="noticias" data-vista="noticias" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5M8 16h3"/></svg><span>Noticias</span></button><button class="pestana" role="tab" id="tab-stock" aria-controls="stock" data-vista="stock" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><span>Stock</span></button>
     </nav>
     <div class="cab-der">
-      <span class="act" title="Última actualización: martes, 13 de octubre de 2026 19:09 h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>19:09 h</b></span>
+      <span class="act" title="Última actualización: martes, 13 de octubre de 2026 19:19 h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>19:19 h</b></span>
       <button class="boton-icono" id="btn-tema" type="button" aria-label="Cambiar entre modo claro y oscuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></button>
     </div>
   </div>
@@ -566,12 +567,12 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   </article><article class="card hover kpi revelar" style="--c:#3a8fd6">
     <div class="kpi-top"><div><div class="card-t">Clima hoy</div><h3>Córdoba</h3></div><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg></div>
     <div class="valor">18° <small>/ 11°</small></div>
-      <div class="sub">Llovizna · lluvia 1,4 mm</div>
+      <div class="sub">Llovizna · lluvia 1,3 mm</div>
       <div class="sub">Próximos 7 días: <b>29,4 mm</b></div>
       
       <button class="link-tab" data-ir="clima">Ver pronóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   </article>
-        <article class="card revelar"><div class="card-h"><h3>Titulares</h3><button class="link-tab" data-ir="noticias">Ver todas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><ul class="lista-noticias"><li><a href="https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/" target="_blank" rel="noopener noreferrer">Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación</a><small>La Nación Campo</small></li><li><a href="https://www.lanacion.com.ar/economia/campo/la-bronca-es-muy-grande-fuerte-cuestionamiento-al-uso-de-la-tasa-vial-en-un-municipio-bonaerense-nid13102026/" target="_blank" rel="noopener noreferrer">“La bronca es muy grande”: fuerte cuestionamiento al uso de los fondos de la tasa vial en un municipio bonaerense</a><small>La Nación Campo</small></li><li><a href="https://bichosdecampo.com/exodo-bovino-correntino-con-los-rios-parana-y-uruguay-en-crecida-los-productores-comenzaron-a-sacar-la-hacienda-de-las-islas-y-ya-se-teme-un-otono-sin-pasto/" target="_blank" rel="noopener noreferrer">Éxodo bovino correntino: Con los ríos Paraná y Uruguay en crecida, los productores comenzaron a sacar la hacienda de las islas y ya se teme un otoño sin pasto</a><small>Bichos de Campo</small></li><li><a href="https://www.infocampo.com.ar/congreso-de-ateneos-cra-los-jovenes-no-son-solo-el-futuro-del-campo-son-su-gran-potencia/" target="_blank" rel="noopener noreferrer">Congreso de Ateneos CRA: “Los jóvenes no son solo el futuro del campo; son su gran potencia”</a><small>Infocampo</small></li></ul></article>
+        <article class="card revelar"><div class="card-h"><h3>Titulares</h3><button class="link-tab" data-ir="noticias">Ver todas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><ul class="lista-noticias"><li><a href="https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/" target="_blank" rel="noopener noreferrer">Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra</a><small>La Nación Campo</small></li><li><a href="https://www.infocampo.com.ar/el-negocio-de-la-papa-esta-verde-y-goza-de-buena-salud-un-alivio-dentro-de-las-economias-regionales/" target="_blank" rel="noopener noreferrer">El negocio de la papa está “verde” y goza de buena salud: un alivio dentro de las economías regionales</a><small>Infocampo</small></li><li><a href="https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/" target="_blank" rel="noopener noreferrer">Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación</a><small>La Nación Campo</small></li><li><a href="https://bichosdecampo.com/exodo-bovino-correntino-con-los-rios-parana-y-uruguay-en-crecida-los-productores-comenzaron-a-sacar-la-hacienda-de-las-islas-y-ya-se-teme-un-otono-sin-pasto/" target="_blank" rel="noopener noreferrer">Éxodo bovino correntino: Con los ríos Paraná y Uruguay en crecida, los productores comenzaron a sacar la hacienda de las islas y ya se teme un otoño sin pasto</a><small>Bichos de Campo</small></li></ul></article>
       </div>
     </div>
   </section>
@@ -676,49 +677,49 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
             <span class="t"><b>18°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 86 %"><i style="--h:11%"></i>1,4 mm</span>
+            <span class="lluvia" title="Probabilidad: 86 %"><i style="--h:10%"></i>1,3 mm</span>
             
           </div><div class="dia">
             <span class="d">mié 14/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
             <span class="t"><b>18°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 94 %"><i style="--h:35%"></i>4,7 mm</span>
+            <span class="lluvia" title="Probabilidad: 94 %"><i style="--h:38%"></i>4,8 mm</span>
             
           </div><div class="dia">
             <span class="d">jue 15/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#8f8676"/></g><path d="M17 23l-3 5h3l-2 4" stroke="#ff9800" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="desc">Tormenta</span>
             <span class="t"><b>20°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 80 %"><i style="--h:59%"></i>7,9 mm</span>
+            <span class="lluvia" title="Probabilidad: 80 %"><i style="--h:62%"></i>7,8 mm</span>
             
           </div><div class="dia">
             <span class="d">vie 16/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Chaparrones</span>
             <span class="t"><b>19°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 76 %"><i style="--h:100%"></i>13,3 mm</span>
+            <span class="lluvia" title="Probabilidad: 76 %"><i style="--h:100%"></i>12,5 mm</span>
             
           </div><div class="dia">
             <span class="d">sáb 17/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="t"><b>17°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 75 %"><i style="--h:9%"></i>1,2 mm</span>
+            <span class="t"><b>16°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 75 %"><i style="--h:17%"></i>2,1 mm</span>
             
           </div><div class="dia">
             <span class="d">dom 18/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="t"><b>18°</b> / 10°</span>
+            <span class="t"><b>18°</b> / 11°</span>
             <span class="lluvia" title="Probabilidad: 12 %"><i style="--h:2%"></i>0,3 mm</span>
             
           </div><div class="dia">
             <span class="d">lun 19/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="t"><b>16°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 53 %"><i style="--h:5%"></i>0,6 mm</span>
+            <span class="t"><b>15°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 57 %"><i style="--h:5%"></i>0,6 mm</span>
             
           </div></div>
         </article><article class="card clima-loc revelar">
@@ -737,14 +738,14 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
             <span class="t"><b>20°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 82 %"><i style="--h:5%"></i>0,5 mm</span>
+            <span class="lluvia" title="Probabilidad: 82 %"><i style="--h:4%"></i>0,4 mm</span>
             
           </div><div class="dia">
             <span class="d">jue 15/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Chaparrones</span>
             <span class="t"><b>21°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 65 %"><i style="--h:34%"></i>3,4 mm</span>
+            <span class="lluvia" title="Probabilidad: 65 %"><i style="--h:35%"></i>3,5 mm</span>
             
           </div><div class="dia">
             <span class="d">vie 16/10</span>
@@ -764,15 +765,15 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
             <span class="d">dom 18/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#b9b09e"/></svg>
             <span class="desc">Nublado</span>
-            <span class="t"><b>19°</b> / 11°</span>
+            <span class="t"><b>18°</b> / 11°</span>
             <span class="lluvia" title="Probabilidad: 11 %"><i style="--h:0%"></i>0,0 mm</span>
             
           </div><div class="dia">
             <span class="d">lun 19/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="t"><b>18°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 37 %"><i style="--h:6%"></i>0,6 mm</span>
+            <span class="t"><b>16°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 50 %"><i style="--h:6%"></i>0,6 mm</span>
             
           </div></div>
         </article>
@@ -789,17 +790,17 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
 <section class="vista" id="noticias" role="tabpanel" aria-labelledby="tab-noticias">
     <div class="titulo-vista"><div><span class="eyebrow">Medios agro</span><h2>Noticias</h2></div>
       <div><p>Titulares del día con link a la nota original.</p><div class="estados"></div></div></div>
-    <div class="grid g-noticias"><a class="card hover noticia revelar" href="https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/" target="_blank" rel="noopener noreferrer">
+    <div class="grid g-noticias"><a class="card hover noticia revelar" href="https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">La Nación Campo</span><span class="sub">13/10/2026 19:18</span></div>
+        <h3>Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra</h3><span class="ir">Leer en La Nación Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.infocampo.com.ar/el-negocio-de-la-papa-esta-verde-y-goza-de-buena-salud-un-alivio-dentro-de-las-economias-regionales/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Infocampo</span><span class="sub">13/10/2026 19:16</span></div>
+        <h3>El negocio de la papa está “verde” y goza de buena salud: un alivio dentro de las economías regionales</h3><span class="ir">Leer en Infocampo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/" target="_blank" rel="noopener noreferrer">
         <div class="n-top"><span class="chip verde">La Nación Campo</span><span class="sub">13/10/2026 19:02</span></div>
-        <h3>Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación</h3><span class="ir">Leer en La Nación Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.lanacion.com.ar/economia/campo/la-bronca-es-muy-grande-fuerte-cuestionamiento-al-uso-de-la-tasa-vial-en-un-municipio-bonaerense-nid13102026/" target="_blank" rel="noopener noreferrer">
-        <div class="n-top"><span class="chip verde">La Nación Campo</span><span class="sub">13/10/2026 19:00</span></div>
-        <h3>“La bronca es muy grande”: fuerte cuestionamiento al uso de los fondos de la tasa vial en un municipio bonaerense</h3><span class="ir">Leer en La Nación Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://bichosdecampo.com/exodo-bovino-correntino-con-los-rios-parana-y-uruguay-en-crecida-los-productores-comenzaron-a-sacar-la-hacienda-de-las-islas-y-ya-se-teme-un-otono-sin-pasto/" target="_blank" rel="noopener noreferrer">
+        <h3>Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación</h3><span class="ir">Leer en La Nación Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://bichosdecampo.com/exodo-bovino-correntino-con-los-rios-parana-y-uruguay-en-crecida-los-productores-comenzaron-a-sacar-la-hacienda-de-las-islas-y-ya-se-teme-un-otono-sin-pasto/" target="_blank" rel="noopener noreferrer">
         <div class="n-top"><span class="chip verde">Bichos de Campo</span><span class="sub">13/10/2026 18:57</span></div>
         <h3>Éxodo bovino correntino: Con los ríos Paraná y Uruguay en crecida, los productores comenzaron a sacar la hacienda de las islas y ya se teme un otoño sin pasto</h3><span class="ir">Leer en Bichos de Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.infocampo.com.ar/congreso-de-ateneos-cra-los-jovenes-no-son-solo-el-futuro-del-campo-son-su-gran-potencia/" target="_blank" rel="noopener noreferrer">
         <div class="n-top"><span class="chip verde">Infocampo</span><span class="sub">13/10/2026 17:08</span></div>
-        <h3>Congreso de Ateneos CRA: “Los jóvenes no son solo el futuro del campo; son su gran potencia”</h3><span class="ir">Leer en Infocampo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.infocampo.com.ar/el-ano-de-la-proteina-animal-en-la-industria-de-nutricion-ven-un-momento-bisagra-para-argentina/" target="_blank" rel="noopener noreferrer">
-        <div class="n-top"><span class="chip verde">Infocampo</span><span class="sub">13/10/2026 16:54</span></div>
-        <h3>El año de la proteína animal: en la industria de nutrición ven “un momento bisagra para Argentina”</h3><span class="ir">Leer en Infocampo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/" target="_blank" rel="noopener noreferrer">
+        <h3>Congreso de Ateneos CRA: “Los jóvenes no son solo el futuro del campo; son su gran potencia”</h3><span class="ir">Leer en Infocampo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/" target="_blank" rel="noopener noreferrer">
         <div class="n-top"><span class="chip verde">Bichos de Campo</span><span class="sub">13/10/2026 16:42</span></div>
         <h3>La empresa de biotecnología Moolec anuncia que pedirá su propia liquidación y crecen las dudas sobre el futuro de la cordobesa ValoraSoy</h3><span class="ir">Leer en Bichos de Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.clarin.com/rural/remate-gran-aniversario-rosgan-recinto-colmado-momento-favorable-ganaderia-sostenido-buenos-valores-hacienda-disponibilidad-limitada_0_FErsVqeg2l.html" target="_blank" rel="noopener noreferrer">
         <div class="n-top"><span class="chip verde">Clarín Rural</span><span class="sub">13/10/2026 16:01</span></div>
@@ -812,14 +813,14 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   </section>
 <footer class="pie">
     <details><summary>Estado de las fuentes en la última ejecución <span class="chip verde">Todas OK</span></summary>
-      <div class="tabla"><table><thead><tr><th>Fuente</th><th>Estado</th><th>Último dato correcto</th><th>Detalle</th></tr></thead><tbody><tr><td>Pizarra Rosario (CAC-BCR)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>Chicago CBOT (Yahoo Finance / CME)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>Matba-Rofex</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>Dólar (DolarApi)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>Clima (Open-Meteo)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>Noticias (RSS)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>El Niño / La Niña (NOAA)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
-        <td class="err-txt"></td></tr><tr><td>Feriados (ArgentinaDatos)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:09</td>
+      <div class="tabla"><table><thead><tr><th>Fuente</th><th>Estado</th><th>Último dato correcto</th><th>Detalle</th></tr></thead><tbody><tr><td>Pizarra Rosario (CAC-BCR)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>Chicago CBOT (Yahoo Finance / CME)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>Matba-Rofex</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>Dólar (DolarApi)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>Clima (Open-Meteo)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>Noticias (RSS)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>El Niño / La Niña (NOAA)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
+        <td class="err-txt"></td></tr><tr><td>Feriados (ArgentinaDatos)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 19:19</td>
         <td class="err-txt"></td></tr></tbody></table></div>
     </details>
     <p>Información de referencia, sin valor contractual. Verificá los valores en la fuente original antes de operar. La página se recarga sola cada 30 minutos.</p>
@@ -1143,7 +1144,7 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   if (splash) {
     var visto = false;
     try { visto = sessionStorage.getItem('agro-splash') === '1'; sessionStorage.setItem('agro-splash', '1'); } catch (e) {}
-    setTimeout(function () { splash.classList.add('fuera'); setTimeout(function () { splash.remove(); }, 700); }, visto || reducido ? 0 : 1100);
+    setTimeout(function () { splash.classList.add('fuera'); setTimeout(function () { splash.remove(); }, 300); }, visto || reducido ? 0 : 400);
   }
 })();
 
