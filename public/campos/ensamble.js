@@ -44,9 +44,8 @@
 
   async function pedir(lats, lons) {
     const p = new URLSearchParams({ latitude: lats.join(','), longitude: lons.join(','), daily: 'precipitation_sum,temperature_2m_min', models: MODELO, forecast_days: '15', timezone: ZONA });
-    const r = await fetch(URL + '?' + p);
-    if (!r.ok) throw new Error('Pronóstico por conjuntos: HTTP ' + r.status);
-    const j = await r.json();
+    const url = URL + '?' + p;
+    const j = await (window.Repo ? Repo.web(url, 60) : fetch(url).then((r) => r.json())).catch((e) => { throw new Error('Pronóstico por conjuntos: ' + e.message); });
     return Array.isArray(j) ? j : [j];
   }
 
@@ -59,15 +58,12 @@
 
   /** Probabilidades para varios puntos [{lat, lon}] (de a 20 por pedido). */
   async function varios(puntos) {
-    const out = [];
-    for (let i = 0; i < puntos.length; i += 20) {
-      const g = puntos.slice(i, i + 20);
-      try {
-        const r = await pedir(g.map((x) => x.lat.toFixed(3)), g.map((x) => x.lon.toFixed(3)));
-        r.forEach((x) => out.push(procesar(x)));
-      } catch (e) { g.forEach(() => out.push(null)); }
-    }
-    return out;
+    const grupos = [];
+    for (let i = 0; i < puntos.length; i += 20) grupos.push(puntos.slice(i, i + 20));
+    // Todos los grupos a la vez
+    const res = await Promise.all(grupos.map((g) => pedir(g.map((x) => x.lat.toFixed(3)), g.map((x) => x.lon.toFixed(3)))
+      .then((r) => g.map((_, k) => (r[k] ? procesar(r[k]) : null))).catch(() => g.map(() => null))));
+    return res.flat();
   }
 
   const pct = (p) => (p == null ? '—' : Math.round(p * 100) + ' %');

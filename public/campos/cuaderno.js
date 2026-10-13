@@ -188,5 +188,15 @@
     document.body.appendChild(a); a.click(); a.remove();
   });
 
+  // Datos nuevos que llegan en segundo plano (se mostró primero la copia local)
+  window.addEventListener('repo:cambio', (e) => {
+    const { ruta, datos } = e.detail;
+    if (!$('#f-lote')) return;
+    if (ruta === 'data/labores.json') labores = (datos && datos.registros) || [];
+    else if (ruta === Repo.config.ruta) { campos = (datos && datos.campos) || []; porId = Object.fromEntries(campos.map((c) => [c.id, c])); }
+    else return;
+    dibujar();
+  });
+
   iniciar().catch((e) => error(e.message || String(e)));
 })();

@@ -46,17 +46,20 @@
     });
     const lista = [...celdas.values()];
     const porId = {};
-    for (let i = 0; i < lista.length; i += 50) {
+    estado(`Descargando clima de ${lista.length} zonas…`);
+    // Todos los grupos a la vez (antes iban de a uno) y con copia local de 30 minutos
+    const grupos = [];
+    for (let i = 0; i < lista.length; i += 50) grupos.push(i);
+    await Promise.all(grupos.map(async (i) => {
       const g = lista.slice(i, i + 50);
       const base = { latitude: g.map((x) => x.lat.toFixed(3)).join(','), longitude: g.map((x) => x.lon.toFixed(3)).join(','), timezone: ZONA };
-      estado(`Descargando clima de ${lista.length} zonas… ${Math.min(i + 50, lista.length)}/${lista.length}`);
       const [r1, r2] = await Promise.all([
-        fetch('https://api.open-meteo.com/v1/forecast?' + new URLSearchParams(Object.assign({}, base, {
+        Repo.web('https://api.open-meteo.com/v1/forecast?' + new URLSearchParams(Object.assign({}, base, {
           daily: 'precipitation_sum,temperature_2m_min,temperature_2m_max,wind_gusts_10m_max,et0_fao_evapotranspiration', past_days: '30', forecast_days: '7'
-        }))).then((r) => (r.ok ? r.json() : null)).catch(() => null),
-        fetch('https://api.open-meteo.com/v1/forecast?' + new URLSearchParams(Object.assign({}, base, {
+        })), 30).catch(() => null),
+        Repo.web('https://api.open-meteo.com/v1/forecast?' + new URLSearchParams(Object.assign({}, base, {
           hourly: 'soil_moisture_3_to_9cm,soil_moisture_9_to_27cm', forecast_days: '1'
-        }))).then((r) => (r.ok ? r.json() : null)).catch(() => null)
+        })), 30).catch(() => null)
       ]);
       const a1 = r1 ? (Array.isArray(r1) ? r1 : [r1]) : [];
       const a2 = r2 ? (Array.isArray(r2) ? r2 : [r2]) : [];
@@ -82,7 +85,7 @@
         };
         celda.ids.forEach((id) => { porId[id] = m; });
       });
-    }
+    }));
     return { porId, zonas: lista.length };
   }
 
@@ -139,12 +142,12 @@
   async function iniciar() {
     if (!Repo.tieneToken()) return error('Tus campos son privados: abrí primero la pestaña Campos y conectá GitHub en este navegador.');
     estado('Leyendo tus campos…');
+    const extras = Promise.all([NDVI.cargarResumen().catch(() => null), Agua.cargar().catch(() => null)]);
     let campos;
     try { campos = ((await Repo.leer()).campos || []).filter((c) => c.geometria); } catch (e) { return error(e.message); }
     if (!campos.length) return error('Todavía no cargaste campos.');
-    const [clima] = await Promise.all([climaDe(campos), NDVI.cargarResumen().catch(() => null), Agua.cargar().catch(() => null)]);
-    estado('Calculando escenarios de lluvia…');
-    const ens = await escenarios(campos);
+    estado('Descargando clima y escenarios de lluvia…');
+    const [clima, ens] = await Promise.all([climaDe(campos), escenarios(campos), extras]);
     todos = campos.map((c) => {
       const k = clima.porId[c.id] ? Object.assign({}, clima.porId[c.id]) : null;
       const a = Agua.de(c.id);

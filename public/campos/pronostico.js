@@ -33,12 +33,11 @@
       daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant,et0_fao_evapotranspiration,sunrise,sunset,uv_index_max',
       hourly: 'temperature_2m,relative_humidity_2m,dew_point_2m,precipitation,precipitation_probability,weather_code,wind_speed_10m,wind_gusts_10m,wind_direction_10m,soil_temperature_6cm,soil_moisture_0_to_1cm,soil_moisture_3_to_9cm,soil_moisture_9_to_27cm'
     });
-    const [r, ens] = await Promise.all([
-      fetch('https://api.open-meteo.com/v1/forecast?' + p),
+    const url = 'https://api.open-meteo.com/v1/forecast?' + p;
+    const [d, ens] = await Promise.all([
+      (window.Repo ? Repo.web(url, 30) : fetch(url).then((r) => r.json())).catch((e) => { throw new Error('Open-Meteo respondió ' + e.message); }),
       window.Ensamble ? Ensamble.cargar(lat, lon).catch(() => null) : Promise.resolve(null)
     ]);
-    if (!r.ok) throw new Error('Open-Meteo respondió HTTP ' + r.status);
-    const d = await r.json();
     d.ens = ens;
     cache.set(k, d);
     return d;

@@ -56,6 +56,11 @@
     return resumen;
   }
   const de = (id) => resumen?.campos?.[id] || null;
+  window.addEventListener('repo:cambio', (e) => {
+    const { ruta, datos } = e.detail;
+    if (ruta === 'data/ndvi/resumen.json') { resumen = datos || { campos: {} }; resumen.campos = resumen.campos || {}; }
+    else if (ruta.startsWith('data/ndvi/campos/')) { const id = ruta.slice(17, -5); series[id] = datos; delete imagenes[id]; }
+  });
 
   async function serie(id) {
     if (!(id in series)) series[id] = await Repo.leerRuta(`data/ndvi/campos/${id}.json`).catch(() => null);

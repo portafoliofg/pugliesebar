@@ -101,6 +101,29 @@
     return json.data;
   }
 
+  // Lecturas que se muestran al instante con la última copia de este navegador y después se
+  // actualizan con la respuesta de Apps Script (que tarda 1–3 s). Cualquier escritura borra la copia.
+  const LECTURAS = { getAppData: 1, getExtraData: 1 };
+  const claveCopia = (fn) => 'stock-copia:' + fn + ':' + credenciales().url;
+  const borrarCopias = () => Object.keys(LECTURAS).forEach((fn) => guardar(claveCopia(fn), ''));
+
+  function leerConCopia(fn, alExito, alFallar) {
+    const clave = claveCopia(fn);
+    const copia = leer(clave);
+    if (copia && alExito) setTimeout(() => { try { alExito(JSON.parse(copia)); } catch (e) {} }, 0);
+    llamar(fn, [])
+      .then((data) => {
+        const texto = JSON.stringify(data);
+        try { localStorage.setItem(clave, texto); } catch (e) { guardar(clave, ''); }   // si no entra, no se guarda
+        if (texto !== copia && alExito) alExito(data);
+      })
+      .catch((err) => {
+        if (!copia) return alFallar ? alFallar(err) : console.error(err);
+        console.warn('Stock: se muestran los datos guardados; no se pudo actualizar.', err);
+        if (typeof window.notify === 'function') window.notify('No se pudo actualizar: se muestran los últimos datos guardados.', 'error');
+      });
+  }
+
   /** Imita la cadena google.script.run.withSuccessHandler(...).withFailureHandler(...).funcion(...) */
   function ejecutor(alExito, alFallar) {
     return new Proxy({}, {
@@ -109,6 +132,8 @@
         if (prop === 'withFailureHandler') return (h) => ejecutor(alExito, h);
         if (prop === 'withUserObject') return () => ejecutor(alExito, alFallar);
         return (...args) => {
+          if (LECTURAS[prop] && !args.length) return leerConCopia(String(prop), alExito, alFallar);
+          borrarCopias();
           llamar(String(prop), args)
             .then((data) => alExito && alExito(data))
             .catch((err) => (alFallar ? alFallar(err) : console.error(err)));

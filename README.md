@@ -123,6 +123,13 @@ Si preferís no pegar la URL en cada navegador, ponela en `config.json → stock
 
 > La URL de la aplicación web es pública, pero sin la clave no se puede leer ni modificar nada. Usá una clave larga y no la compartas. La app original de Apps Script (`doGet`) sigue funcionando igual que antes.
 
+## Velocidad
+
+- **Campos y reportes:** los archivos del repositorio privado se guardan en este navegador (IndexedDB). La página se muestra al instante con esa copia y la revisa en segundo plano con ETag: si nada cambió, GitHub responde 304 sin mandar datos; si cambió, la página se redibuja sola. Las imágenes NDVI quedan guardadas y los pronósticos de Open-Meteo se reutilizan 30 minutos (el histórico 12 h, las normales 1991–2020, la altura y el suelo 30 días). Al tocar **Desconectar** se borra todo.
+- **Stock:** la última lectura de la planilla se muestra al instante y se actualiza cuando responde Apps Script; cualquier movimiento borra la copia.
+- **En el token de GitHub** (⚙️ Más → 🔗 GitHub) hay un botón para ver y copiar el token y usarlo en otro dispositivo.
+- Las tipografías no frenan el primer dibujo y los pedidos independientes se hacen en paralelo.
+
 ## Configuración (`config.json`)
 
 | Clave | Para qué sirve |

@@ -49,9 +49,10 @@
   }
 
   async function json(url, nombre) {
-    const r = await fetch(url);
-    if (!r.ok) throw new Error(`${nombre}: HTTP ${r.status}`);
-    return r.json();
+    // Copia local: pronóstico 30 min, histórico 12 h, altura y suelo 30 días (no cambian)
+    const minutos = /elevation|soilgrids|start_date=1991-01-01/.test(url) ? 43200 : /archive-api|climate-api/.test(url) ? 720 : 30;
+    try { return await Repo.web(url, minutos); }
+    catch (e) { throw new Error(`${nombre}: ${e.message}`); }
   }
 
   // ---------- Descargas ----------
@@ -218,6 +219,11 @@
     if (!Repo.tieneToken()) return error('Tus campos son privados: abrí primero la pestaña Campos y conectá GitHub en este navegador.');
 
     estado('Leyendo el campo…');
+    // Lo que solo depende del id se pide ya, junto con la lista de campos
+    const aguaP = window.Agua ? Agua.cargar().then(async () => ({ x: Agua.de(id), serie: await Agua.serie(id), suelo: Agua.sueloDe(id),
+      analisis: (await Agua.analisis().catch(() => [])).filter((a) => a.campo === id).sort((a, b) => b.fecha.localeCompare(a.fecha)),
+      labores: (await Agua.labores().catch(() => [])).filter((l) => l.campos.includes(id)).sort((a, b) => b.fecha.localeCompare(a.fecha)) })).catch(() => null) : Promise.resolve(null);
+    const ndviP = window.NDVI ? Promise.all([NDVI.cargarResumen(), NDVI.serie(id)]).then(async ([, serie]) => ({ x: NDVI.de(id), serie, img: await NDVI.imagen(id) })).catch(() => null) : Promise.resolve(null);
     let campo;
     try {
       const d = await Repo.leer();
@@ -229,10 +235,6 @@
     const [lat, lon] = KML.centro(campo.geometria);
     const fin = sumarDias(hoy, -6);
     estado('Descargando clima, suelo y datos históricos… (puede tardar unos segundos)');
-    const aguaP = window.Agua ? Agua.cargar().then(async () => ({ x: Agua.de(id), serie: await Agua.serie(id), suelo: Agua.sueloDe(id),
-      analisis: (await Agua.analisis().catch(() => [])).filter((a) => a.campo === id).sort((a, b) => b.fecha.localeCompare(a.fecha)),
-      labores: (await Agua.labores().catch(() => [])).filter((l) => l.campos.includes(id)).sort((a, b) => b.fecha.localeCompare(a.fecha)) })).catch(() => null) : Promise.resolve(null);
-    const ndviP = window.NDVI ? Promise.all([NDVI.cargarResumen(), NDVI.serie(id)]).then(async ([, serie]) => ({ x: NDVI.de(id), serie, img: await NDVI.imagen(id) })).catch(() => null) : Promise.resolve(null);
     const [prono, anual, normales, alt, suelo, ndvi, agua, ens] = await Promise.allSettled([
       pedirPronostico(lat, lon),
       pedirArchivo(lat, lon, sumarDias(hoy, -400), fin, 'precipitation_sum,temperature_2m_max,temperature_2m_min,temperature_2m_mean,et0_fao_evapotranspiration,shortwave_radiation_sum,sunshine_duration,wind_speed_10m_max'),

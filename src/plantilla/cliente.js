@@ -312,6 +312,6 @@
   if (splash) {
     var visto = false;
     try { visto = sessionStorage.getItem('agro-splash') === '1'; sessionStorage.setItem('agro-splash', '1'); } catch (e) {}
-    setTimeout(function () { splash.classList.add('fuera'); setTimeout(function () { splash.remove(); }, 700); }, visto || reducido ? 0 : 1100);
+    setTimeout(function () { splash.classList.add('fuera'); setTimeout(function () { splash.remove(); }, 300); }, visto || reducido ? 0 : 400);
   }
 })();

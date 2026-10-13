@@ -22,6 +22,44 @@
 
   const token = () => leerLS(CLAVE_TOKEN);
 
+  // ---------- Caché local (IndexedDB, solo en este navegador) ----------
+  // Los archivos del repositorio se muestran al instante desde la última copia y se revisan
+  // en segundo plano con ETag (si no cambiaron, GitHub responde 304 sin mandar nada).
+  // Si cambiaron, se avisa con el evento "repo:cambio" para que la página se redibuje.
+  const Cache = (() => {
+    let db = null;
+    const abrir = () => db || (db = new Promise((ok) => {
+      try {
+        const r = indexedDB.open('sammartino-campos', 1);
+        r.onupgradeneeded = () => r.result.createObjectStore('archivos');
+        r.onsuccess = () => ok(r.result);
+        r.onerror = r.onblocked = () => ok(null);
+      } catch (e) { ok(null); }
+    }));
+    const usar = async (modo, f) => {
+      const d = await abrir();
+      if (!d) return null;
+      return new Promise((ok) => {
+        try {
+          const t = d.transaction('archivos', modo);
+          const req = f(t.objectStore('archivos'));
+          t.oncomplete = () => ok(req ? req.result : null);
+          t.onerror = t.onabort = () => ok(null);
+        } catch (e) { ok(null); }
+      });
+    };
+    return {
+      get: (k) => usar('readonly', (s) => s.get(k)),
+      set: (k, v) => usar('readwrite', (s) => s.put(v, k)),
+      borrar: (k) => usar('readwrite', (s) => s.delete(k)),
+      limpiar: () => usar('readwrite', (s) => s.clear())
+    };
+  })();
+  const claveCache = (ruta) => `${CFG.repo}@${CFG.rama}:${ruta}`;
+  const enMemoria = new Map();   // ruta → datos ya revisados en esta carga de página
+  const enVuelo = new Map();     // ruta → pedido en curso (no se repite el mismo pedido)
+  const copia = (x) => (x == null ? x : structuredClone(x));
+
   async function gh(ruta, opciones = {}) {
     const headers = Object.assign({ Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }, opciones.headers || {});
     if (token()) headers.Authorization = 'Bearer ' + token();
@@ -71,17 +109,17 @@
   const sinToken = () => Object.assign(new Error('Tus campos están en un repositorio privado: conectá tu cuenta de GitHub para verlos.'), { sinToken: true });
 
   /** Lee data/campos.json del repositorio privado. Sin token no se puede leer. */
-  async function leer() {
+  async function leer(opciones) {
     if (!CFG.repo) throw new Error('Falta configurar el repositorio privado de los campos (campos.repo en config.json).');
     if (!token()) throw sinToken();
     try {
-      return await leerJSON(CFG.rama, { cache: 'no-store' });
+      const d = await leerRuta(CFG.ruta, opciones);
+      if (d) return d;
+      await gh(`/repos/${CFG.repo}`); // si el repositorio no existe o no hay acceso, esto da el error correcto
+      return vacio();
     } catch (e) {
       // Repositorio vacío o todavía sin campos guardados
-      if (e.status === 404 || e.status === 409) {
-        await gh(`/repos/${CFG.repo}`); // si el repositorio no existe o no hay acceso, esto da el error correcto
-        return vacio();
-      }
+      if (e.status === 409) return vacio();
       throw e;
     }
   }
@@ -142,6 +180,7 @@
         await gh(`/repos/${CFG.repo}/git/refs/heads/${encodeURIComponent(CFG.rama)}`, {
           method: 'PATCH', body: JSON.stringify({ sha: commit.sha, force: false })
         });
+        recordar(CFG.ruta, nuevo);
         return nuevo;
       } catch (e) {
         // Otro commit entró en el medio (por ejemplo, el workflow del tablero): se reintenta
@@ -188,26 +227,68 @@
     }
   }
 
-  /** Lee cualquier JSON del repositorio privado (null si no existe). */
-  async function leerRuta(ruta) {
+  // Pide el archivo a GitHub; con la ETag de la copia local, si no cambió responde 304 (rápido y sin gastar cupo)
+  async function traer(ruta, previo) {
+    const headers = { Accept: 'application/vnd.github.raw', 'X-GitHub-Api-Version': '2022-11-28', Authorization: 'Bearer ' + token() };
+    if (previo && previo.etag) headers['If-None-Match'] = previo.etag;
+    const res = await fetch(`${API}/repos/${CFG.repo}/contents/${ruta}?ref=${encodeURIComponent(CFG.rama)}`, { cache: 'no-store', headers });
+    if (res.status === 304 && previo) return { datos: previo.datos, cambio: false };
+    let datos = null;
+    if (res.status !== 404) {
+      if (!res.ok) throw Object.assign(new Error(mensajeError(res.status, '')), { status: res.status });
+      datos = await res.json();
+    }
+    const etag = res.status === 404 ? null : res.headers.get('ETag');
+    const cambio = !previo || JSON.stringify(previo.datos) !== JSON.stringify(datos);
+    Cache.set(claveCache(ruta), { etag, datos, t: Date.now() });
+    enMemoria.set(ruta, datos);
+    return { datos, cambio };
+  }
+
+  function revisar(ruta, previo) {
+    if (!enVuelo.has(ruta)) {
+      enVuelo.set(ruta, traer(ruta, previo).finally(() => enVuelo.delete(ruta)));
+    }
+    return enVuelo.get(ruta);
+  }
+
+  /** Lo que se acaba de guardar queda como copia local (así no se muestra una versión vieja). */
+  function recordar(ruta, datos) {
+    enMemoria.set(ruta, copia(datos));
+    Cache.set(claveCache(ruta), { etag: null, datos: copia(datos), t: Date.now() });
+  }
+
+  /**
+   * Lee cualquier JSON del repositorio privado (null si no existe).
+   * Por defecto devuelve al instante la copia local y la revisa en segundo plano;
+   * { fresco: true } espera la versión de GitHub (para leer-modificar-guardar).
+   */
+  async function leerRuta(ruta, { fresco = false } = {}) {
     if (!CFG.repo || !token()) return null;
-    const res = await fetch(`${API}/repos/${CFG.repo}/contents/${ruta}?ref=${encodeURIComponent(CFG.rama)}`, {
-      cache: 'no-store',
-      headers: { Accept: 'application/vnd.github.raw', 'X-GitHub-Api-Version': '2022-11-28', Authorization: 'Bearer ' + token() }
-    });
-    if (res.status === 404) return null;
-    if (!res.ok) throw Object.assign(new Error(mensajeError(res.status, '')), { status: res.status });
-    return res.json();
+    if (!fresco && enMemoria.has(ruta)) return copia(enMemoria.get(ruta));
+    const previo = await Cache.get(claveCache(ruta));
+    if (fresco || !previo) return copia((await revisar(ruta, previo)).datos);
+    // Copia local al instante + revisión en segundo plano
+    revisar(ruta, previo).then((r) => {
+      if (r.cambio) window.dispatchEvent(new CustomEvent('repo:cambio', { detail: { ruta, datos: copia(r.datos) } }));
+    }).catch((e) => window.dispatchEvent(new CustomEvent('repo:error', { detail: { ruta, error: e } })));
+    return copia(previo.datos);
   }
 
   /** Lee un archivo binario (imágenes NDVI) y devuelve una URL local para mostrarlo, o null. */
   async function leerBinario(ruta) {
     if (!CFG.repo || !token()) return null;
+    // Las imágenes no cambian (cada fecha es un archivo nuevo): se guardan en la caché local
+    const k = claveCache('bin:' + ruta);
+    const guardado = await Cache.get(k);
+    if (guardado && guardado.blob) return URL.createObjectURL(guardado.blob);
     const res = await fetch(`${API}/repos/${CFG.repo}/contents/${ruta}?ref=${encodeURIComponent(CFG.rama)}`, {
       headers: { Accept: 'application/vnd.github.raw', 'X-GitHub-Api-Version': '2022-11-28', Authorization: 'Bearer ' + token() }
     });
     if (!res.ok) return null;
-    return URL.createObjectURL(await res.blob());
+    const blob = await res.blob();
+    Cache.set(k, { blob, t: Date.now() });
+    return URL.createObjectURL(blob);
   }
 
   /** Guarda un JSON suelto (por ejemplo config/alertas.json) en un commit. */
@@ -220,6 +301,27 @@
       method: 'PUT',
       body: JSON.stringify({ message: mensaje, content: aBase64(JSON.stringify(datos, null, 1) + '\n'), branch: CFG.rama, sha })
     });
+    recordar(ruta, datos);
+  }
+
+  /**
+   * JSON de una API pública (pronósticos, etc.) guardado un rato en este navegador.
+   * Dentro de `minutos` se usa la copia; si la API falla, también se usa la copia vieja.
+   */
+  async function web(url, minutos = 30) {
+    const k = 'web:' + url;
+    const c = await Cache.get(k);
+    if (c && Date.now() - c.t < minutos * 6e4) return copia(c.datos);
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw Object.assign(new Error('HTTP ' + r.status), { status: r.status });
+      const datos = await r.json();
+      Cache.set(k, { datos, t: Date.now() });
+      return datos;
+    } catch (e) {
+      if (c) return copia(c.datos);
+      throw e;
+    }
   }
 
   window.Repo = {
@@ -230,7 +332,10 @@
     config: CFG,
     tieneToken: () => !!token(),
     probarToken,
-    olvidarToken: () => guardarLS(CLAVE_TOKEN, ''),
+    olvidarToken: () => { guardarLS(CLAVE_TOKEN, ''); enMemoria.clear(); Cache.limpiar(); },
+    token,
+    web,
+    recordar,
     leer,
     guardar
   };

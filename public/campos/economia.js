@@ -49,10 +49,10 @@
   }
 
   // ---------- Presupuestos guardados ----------
-  async function leer() { return (await Repo.leerRuta('data/margenes.json').catch(() => null)) || { campanas: {} }; }
+  async function leer(opciones) { return (await Repo.leerRuta('data/margenes.json', opciones).catch(() => null)) || { campanas: {} }; }
   async function guardar(cambiar, mensaje) {
     for (let i = 0; i < 3; i++) {
-      const actual = await leer();
+      const actual = await leer({ fresco: true });
       const nuevo = cambiar(actual);
       nuevo.actualizado = new Date().toISOString();
       try { await Repo.guardarRuta('data/margenes.json', nuevo, mensaje); return nuevo; }

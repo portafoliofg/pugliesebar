@@ -31,6 +31,13 @@
     return resumen;
   }
   const de = (id) => resumen?.campos?.[id] || null;
+  // Si la copia local estaba vieja, GitHub trae la nueva en segundo plano
+  window.addEventListener('repo:cambio', (e) => {
+    const { ruta, datos } = e.detail;
+    if (ruta === 'data/agua/resumen.json') resumen = datos || { campos: {} };
+    else if (ruta === 'data/suelo/inta.json') suelos = (datos && datos.campos) || {};
+    else if (ruta.startsWith('data/agua/campos/')) series[ruta.slice(17, -5)] = datos;
+  });
   const sueloDe = (id) => suelos?.[id] || null;
   async function serie(id) {
     if (!(id in series)) series[id] = await leer(`data/agua/campos/${id}.json`);
@@ -44,7 +51,7 @@
   // Lee, cambia y guarda un archivo de registros (si alguien guardó en el medio, reintenta)
   async function modificar(ruta, cambiar, mensaje) {
     for (let i = 0; i < 3; i++) {
-      const actual = (await Repo.leerRuta(ruta).catch(() => null)) || { registros: [] };
+      const actual = (await Repo.leerRuta(ruta, { fresco: true }).catch(() => null)) || { registros: [] };
       actual.registros = cambiar(actual.registros || []);
       actual.actualizado = new Date().toISOString();
       try { await Repo.guardarRuta(ruta, actual, mensaje); return actual.registros; }

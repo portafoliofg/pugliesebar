@@ -773,7 +773,7 @@
     cargando('Leyendo configuración…');
     let cfg;
     let estado = null;
-    try { [cfg, estado] = await Promise.all([Repo.leerRuta('config/alertas.json'), Repo.leerRuta('data/alertas/estado.json').catch(() => null)]); cfg = cfg || {}; } catch (e) { cargando(null); return manejarError(e); }
+    try { [cfg, estado] = await Promise.all([Repo.leerRuta('config/alertas.json', { fresco: true }), Repo.leerRuta('data/alertas/estado.json').catch(() => null)]); cfg = cfg || {}; } catch (e) { cargando(null); return manejarError(e); }
     cargando(null);
     const d = { activo: true, resumenDiario: true, helada: { activo: true, umbral: 2, dias: 3 }, lluvia: { activo: true, mmDia: 30 }, viento: { activo: true, rafagaKmh: 60 }, ndvi: { activo: true, caida: 0.1 }, precios: [] };
     cfg = Object.assign(d, cfg);
@@ -1198,6 +1198,10 @@
   function menuGitHub() {
     if (!Repo.tieneToken()) return pedirToken(null);
     abrirVentana(`<h2>GitHub</h2><p>Este navegador está conectado a tu repositorio privado <b>${esc(Repo.config.repo)}</b>.</p>
+      <p class="nota">Para usar tus campos en otro dispositivo, copiá el token y pegalo allá cuando te lo pida. No lo compartas: quien lo tenga ve tus campos.</p>
+      <div class="token-ver"><input id="token-ver" type="password" readonly value="${esc(Repo.token())}" aria-label="Token de GitHub">
+        <button class="btn" type="button" data-accion="ver-token" aria-pressed="false">👁 Ver</button>
+        <button class="btn btn-1" type="button" data-accion="copiar-token">📋 Copiar token</button></div>
       <div class="botones"><button class="btn" type="button" data-accion="cambiar-token">Cambiar token</button>
       <button class="btn btn-peligro" type="button" data-accion="desconectar">Desconectar</button><button class="btn" type="button" data-accion="cerrar">Cerrar</button></div>`);
   }
@@ -1293,6 +1297,14 @@
     else if (a === 'cerrar') cerrarVentana();
     else if (a === 'conectar') pedirToken(null);
     else if (a === 'cambiar-token') { cerrarVentana(); pedirToken(null); }
+    else if (a === 'ver-token') { const i = $('#token-ver'); const ver = i.type === 'password'; i.type = ver ? 'text' : 'password'; b.textContent = ver ? '🙈 Ocultar' : '👁 Ver'; b.setAttribute('aria-pressed', String(ver)); }
+    else if (a === 'copiar-token') {
+      const t = Repo.token();
+      const listo = () => { b.textContent = '✓ Copiado'; setTimeout(() => { b.textContent = '📋 Copiar token'; }, 2500); };
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(listo).catch(() => {
+        const i = $('#token-ver'); i.type = 'text'; i.select(); try { document.execCommand('copy'); listo(); } catch (err) { avisar('Seleccioná el token y copialo con Ctrl+C.', 'error'); }
+      });
+    }
     else if (a === 'desconectar') { Repo.olvidarToken(); Equipo.olvidar(); aplicarRol(); actualizarEstadoGH(); cerrarVentana(); bloquear(); avisar('Desconectado de GitHub.'); }
   });
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
@@ -1325,6 +1337,8 @@
 
   async function cargarDatos() {
     cargando('Cargando campos…');
+    // Todo lo que no depende de la lista de campos se pide a la vez
+    const extras = Repo.tieneToken() ? Promise.all([NDVI.cargarResumen(true), Agua.cargar(true)]).catch(() => {}) : null;
     try {
       datos = await Repo.leer();
       datos.campos = Array.isArray(datos.campos) ? datos.campos : [];
@@ -1342,10 +1356,31 @@
     cargando(null);
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
-    if (!bloqueado) Promise.all([NDVI.cargarResumen(true), Agua.cargar(true)]).then(() => { refrescar(); }).catch(() => {});
+    if (!bloqueado && extras) extras.then(() => { refrescar(); });
     abrirDesdeHash();
     if (Equipo.rol() === 'dueño') { await corregirNombres(); completarUbicaciones(); }
   }
+
+  // Datos nuevos que llegan en segundo plano (la página se mostró con la copia local)
+  const ocupado = () => !!$('.capa') || !!document.activeElement?.closest('#panel input, #panel textarea, #panel select');
+  let pendiente = null;
+  function redibujarLuego() {
+    clearTimeout(pendiente);
+    pendiente = setTimeout(() => { if (ocupado()) return redibujarLuego(); refrescar(); }, 250);
+  }
+  window.addEventListener('repo:cambio', (e) => {
+    const { ruta, datos: d } = e.detail;
+    if (ruta === Repo.config.ruta) {
+      if (bloqueado || !d) return;
+      datos = d; datos.campos = Array.isArray(datos.campos) ? datos.campos : [];
+      redibujarLuego();
+    } else if (/^data\/(agua|ndvi)\/resumen\.json$|^data\/suelo\/inta\.json$/.test(ruta)) redibujarLuego();
+    else if (ruta === 'data/labores.json' && abierto) mostrarLabores(datos.campos.find((c) => c.id === abierto));
+  });
+  window.addEventListener('repo:error', (e) => {
+    if (e.detail.error?.status !== 401) return;
+    Repo.olvidarToken(); actualizarEstadoGH(); bloquear(); avisar(e.detail.error.message, 'error');
+  });
 
   // Enlaces desde el cuaderno: #labor (o #labor=<id de lote>) abre la carga de una labor
   function abrirDesdeHash() {

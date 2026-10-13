@@ -51,7 +51,7 @@
   // Registro de accesos (sin tokens): para que el dueño sepa a quién invitó
   async function accesos() { return ((await Repo.leerRuta('data/accesos.json').catch(() => null)) || {}).accesos || []; }
   async function modificarAccesos(cambiar, mensaje) {
-    const actual = (await Repo.leerRuta('data/accesos.json').catch(() => null)) || { accesos: [] };
+    const actual = (await Repo.leerRuta('data/accesos.json', { fresco: true }).catch(() => null)) || { accesos: [] };
     actual.accesos = cambiar(actual.accesos || []);
     await Repo.guardarRuta('data/accesos.json', actual, mensaje);
     return actual.accesos;

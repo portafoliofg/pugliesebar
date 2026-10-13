@@ -276,5 +276,16 @@
     document.body.appendChild(a); a.click(); a.remove();
   });
 
+  // Datos nuevos que llegan en segundo plano (si no hay cambios sin guardar, se redibuja)
+  window.addEventListener('repo:cambio', (e) => {
+    const { ruta, datos } = e.detail;
+    if (!$('.m-lotes')) return;
+    if (ruta === 'data/labores.json') labores = (datos && datos.registros) || [];
+    else if (ruta === Repo.config.ruta) campos = ((datos && datos.campos) || []).filter((c) => c.geometria || c.ha);
+    else if (ruta === 'data/margenes.json' && !sucio) archivo = datos && datos.campanas ? datos : { campanas: {} };
+    else return;
+    if (!sucio && !document.activeElement?.matches('input, select')) dibujar();
+  });
+
   iniciar().catch((e) => error(e.message || String(e)));
 })();
