@@ -321,3 +321,27 @@ body.rol-lectura .solo-dueno, body.rol-lectura .solo-carga, body.rol-carga .solo
   background: var(--surface); box-shadow: var(--sombra-alta); display: flex; flex-direction: column; gap: 6px; }
 .menu-mas-lista .btn { justify-content: flex-start; width: 100%; color: var(--ink); background: var(--surface-2); border-color: transparent; }
 .menu-mas-lista .btn-peligro-claro { color: #b3261e; }
+
+/* ---------- Ventanas a pantalla casi completa ---------- */
+.capa { padding: 10px; }
+.ventana { width: min(1400px, 100%); max-height: calc(100vh - 20px); max-height: calc(100dvh - 20px); padding: 24px 28px; border-radius: 20px; }
+.ventana.chica { width: min(1400px, 100%); }
+/* Con más ancho, los formularios aprovechan columnas */
+.ventana .form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; align-items: start; }
+.ventana .form > * { grid-column: 1 / -1; }
+.ventana .form > .fila2, .ventana .form > .fila3 { grid-column: auto; }
+.ventana .form > .fila3 { grid-column: 1 / -1; }
+.ventana .botones { grid-column: 1 / -1; }
+/* Listas de lotes en varias columnas y con más alto */
+.ventana .lluvia-lotes { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); align-items: start; gap: 10px 18px; max-height: max(260px, calc(100dvh - 520px)); }
+.ventana .tabla-import { width: 100%; }
+@media (max-width: 760px) {
+  .capa { padding: 0; }
+  .ventana { width: 100%; height: 100%; max-height: 100dvh; border-radius: 0; border: 0; padding: 18px 16px; }
+  .ventana .form { grid-template-columns: 1fr; }
+  .ventana .form > .fila2 { grid-column: 1 / -1; }
+  .ventana .lluvia-lotes { max-height: none; }
+}
+/* Los botones de las ventanas quedan siempre visibles abajo */
+.ventana .botones { position: sticky; bottom: -24px; z-index: 2; margin: 0 -28px -24px; padding: 12px 28px 16px; background: linear-gradient(to top, var(--surface) 75%, color-mix(in srgb, var(--surface) 0%, transparent)); }
+@media (max-width: 760px) { .ventana .botones { bottom: -18px; margin: 0 -16px -18px; padding: 12px 16px 16px; } }
