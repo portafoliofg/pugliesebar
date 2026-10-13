@@ -335,6 +335,19 @@
         "enso": "ok",
         "feriados": "ok"
       }
+    },
+    {
+      "momento": "2026-10-13T20:00:53.692Z",
+      "estado": {
+        "pizarra": "ok",
+        "cbot": "ok",
+        "matba": "ok",
+        "dolar": "ok",
+        "clima": "ok",
+        "noticias": "ok",
+        "enso": "ok",
+        "feriados": "ok"
+      }
     }
   ]
 }

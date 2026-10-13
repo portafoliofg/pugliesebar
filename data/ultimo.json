@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     },
     "clima": {
       "datos": {
@@ -274,12 +274,48 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
+          {
+            "titulo": "El año de la proteína animal: en la industria de nutrición ven “un momento bisagra para Argentina”",
+            "link": "https://www.infocampo.com.ar/el-ano-de-la-proteina-animal-en-la-industria-de-nutricion-ven-un-momento-bisagra-para-argentina/",
+            "fecha": "2026-10-13T19:54:24.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Jason Mraz, el músico que produce paltas y café en San Diego: “Si una granja se maneja bien, sobrevivirá a su agricultor”",
+            "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
+            "fecha": "2026-10-13T19:42:31.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "La empresa de biotecnología Moolec anuncia que pedirá su propia liquidación y crecen las dudas sobre el futuro de la cordobesa ValoraSoy",
+            "link": "https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/",
+            "fecha": "2026-10-13T19:42:25.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Ciencia ciudadana y tecnología: En Córdoba lanzaron una aplicación para registrar lluvias y niveles de napas desde el celular",
+            "link": "https://bichosdecampo.com/ciencia-ciudadana-y-tecnologia-en-cordoba-lanzaron-una-aplicacion-para-registrar-lluvias-y-niveles-de-napas-desde-el-celular/",
+            "fecha": "2026-10-13T19:37:40.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Gran Remate Aniversario del Rosgan: recinto colmado en un momento favorable para la ganadería, sostenido por los buenos valores de la hacienda y una disponibilidad limitada",
+            "link": "https://www.clarin.com/rural/remate-gran-aniversario-rosgan-recinto-colmado-momento-favorable-ganaderia-sostenido-buenos-valores-hacienda-disponibilidad-limitada_0_FErsVqeg2l.html",
+            "fecha": "2026-10-13T19:01:28.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "\"Aumento del 329%\": una economía regional clave superó una fuerte crisis por un salto en los precios",
+            "link": "https://www.clarin.com/rural/aumento-329-economia-regional-clave-supero-fuerte-crisis-salto-precios_0_1dQ1jl6vc1.html",
+            "fecha": "2026-10-13T19:00:25.000Z",
+            "fuente": "Clarín Rural"
+          },
           {
             "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
             "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
@@ -287,53 +323,17 @@
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "El efecto Dominó: la propuesta de tratamiento de semillas de Koppert para que el buen arranque se multiplique en el rinde",
-            "link": "https://bichosdecampo.com/el-efecto-domino-la-propuesta-de-tratamiento-de-semillas-de-koppert-para-que-el-buen-arranque-se-multiplique-en-el-rinde/",
-            "fecha": "2026-10-13T18:51:36.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Jason Mraz y su otra pasión con paltas y café en casi siete hectáreas en San Diego: “Necesitaba diversificar”",
-            "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
-            "fecha": "2026-10-13T18:47:25.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
             "titulo": "En EEUU y Brasil, productores están en jaque por el alto endeudamiento: ¿ventaja para el campo argentino?",
             "link": "https://www.infocampo.com.ar/en-eeuu-y-brasil-productores-estan-en-jaque-por-el-alto-endeudamiento-ventaja-para-el-campo-argentino/",
             "fecha": "2026-10-13T18:36:32.000Z",
             "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Está cara la papa y eso les cambió la cara: Según Coninagro, las economías regionales no repuntan a pesar de la mejora en una de las actividades",
-            "link": "https://bichosdecampo.com/esta-cara-la-papa-y-eso-les-cambio-la-cara-segun-coninagro-las-economias-regionales-no-repuntan-a-pesar-de-la-mejora-en-una-de-las-actividades/",
-            "fecha": "2026-10-13T18:24:19.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Día Mundial de los Fertilizantes: de la “revolución verde” a ser garantes de la seguridad alimentaria global",
-            "link": "https://www.infocampo.com.ar/dia-mundial-de-los-fertilizantes-de-la-revolucion-verde-a-ser-garantes-de-la-seguridad-alimentaria-global/",
-            "fecha": "2026-10-13T18:11:14.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%",
-            "link": "https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html",
-            "fecha": "2026-10-13T12:54:47.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne",
-            "link": "https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html",
-            "fecha": "2026-10-12T13:55:54.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     },
     "cbot": {
       "datos": {
@@ -358,7 +358,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-13T19:33:36.663Z"
+      "obtenido": "2026-10-13T20:00:53.692Z"
     }
   }
 }
