@@ -272,3 +272,27 @@ button, input, select, textarea { font: inherit; color: inherit; }
 #form-alertas label > span { display: flex; align-items: center; gap: 6px; }
 @media (max-width: 560px) { .fila-precio { grid-template-columns: 1fr 1fr; } }
 a.btn { text-decoration: none; }
+
+/* ---------- Agua útil, suelo y lluvias ---------- */
+.agua { display: flex; flex-direction: column; gap: 10px; }
+.agua-barra { position: relative; height: 12px; border-radius: 6px; background: var(--surface-2); overflow: hidden; }
+.agua-barra i { position: absolute; inset: 0 auto 0 0; border-radius: 6px; }
+.agua-barra span { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--muted); opacity: .5; }
+.fila3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.suelo-datos { margin-bottom: 8px; }
+.suelo-datos .dato small + small { text-transform: none; letter-spacing: 0; }
+#det-suelo > div { padding-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+.lluvia-lotes { max-height: 280px; overflow: auto; border: 1px solid var(--line); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 8px; }
+.lluvia-zona { display: flex; flex-direction: column; gap: 2px; }
+.lluvia-lote { padding-left: 22px; }
+@media (max-width: 560px) { .fila3 { grid-template-columns: 1fr 1fr; } }
+.prob-lluvia { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: .85rem; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, var(--lluvia, #3a8fd6) 12%, transparent); }
+.prob-lluvia span { color: var(--muted); font-weight: 700; }
+.lluvias small + b + small, .lluvias b + small { display: block; color: var(--muted); font-size: .72rem; }
+/* Dentro de formularios, las opciones y el buscador conservan su diseño */
+.form label.opcion { flex-direction: row; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem; }
+.form label.opcion input { width: 17px; height: 17px; padding: 0; }
+.form label.opcion small { margin-left: 6px; }
+.form label.buscar { flex-direction: row; align-items: center; }
+.form label.buscar input { border: 0; padding: 0; background: transparent; box-shadow: none; }
+#form-alertas label > span { flex-direction: row; }

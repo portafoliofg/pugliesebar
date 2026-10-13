@@ -65,6 +65,12 @@ Funciones:
 - **Reporte completo del campo** (botón 📊 en la ficha): se abre en una pestaña nueva y se puede imprimir o guardar en PDF, o descargar los datos en CSV. Incluye mapa satelital del lote, indicadores, análisis escrito automático y gráficos de lluvia mensual contra el promedio 1991–2020, lluvia acumulada desde la siembra, lluvia diaria, balance hídrico, anomalías, temperaturas máximas y mínimas, heladas y días de calor, grados-día, radiación y heliofanía, humedad del suelo por profundidad, propiedades del suelo (SoilGrids: textura, pH, materia orgánica, nitrógeno, CIC, densidad), rosa de los vientos, viento y ráfagas, pronóstico de 48 horas y tabla de 16 días. La fecha de siembra se elige en el reporte y queda guardada en el navegador. Fuentes: Open-Meteo (pronóstico, reanálisis ERA5 y altitud) e ISRIC SoilGrids, todas gratuitas y sin clave.
 - **NDVI satelital** (vigor del cultivo): en la ficha de cada lote, valor actual, cambio en 30 días, porcentaje del lote con vigor bajo/medio/alto, gráfico de la serie y botón para ver la imagen NDVI sobre el mapa; también en la lista, en las capas y en el reporte del campo. Lo calcula todos los días a las 6:15 el workflow **NDVI de los campos** del repositorio privado, con imágenes Sentinel-2 (10 m, cada ~5 días si no hay nubes) de Microsoft Planetary Computer, gratis y sin clave.
 - **Reporte general** (botón 📋): todos los campos juntos, filtrable por provincia. Indicadores, análisis escrito, mapa coloreado por NDVI, lluvia de 30 días, lluvia prevista, mínima prevista o humedad del suelo; hectáreas por provincia, cultivo y campaña; distribución del NDVI; lluvia por departamento; mínimas previstas por provincia; rankings (más y menos lluvia, heladas, NDVI más alto/más bajo, mayor caída) y tabla ordenable de todos los lotes. Se imprime en PDF o se descarga en CSV.
+- **Agua útil del suelo** (primer metro): porcentaje y milímetros, estado (seco, escaso, adecuado, óptimo, perfil lleno), proyección a 7 y 16 días y gráfico con la lluvia de cada fuente. Lo calcula todos los días a las 6:40 el workflow **Agua útil de los campos** del repositorio privado, y también cada vez que cargás una lluvia.
+- **Registro de lluvias** (botón 🌧️): fecha, milímetros y lotes (por zona o uno por uno). Reemplaza al satélite en el balance.
+- **Fecha de siembra** (en "Editar" o en el reporte): el consumo de agua sigue la etapa del cultivo.
+- **Suelo** (🧪 en la ficha): carta de suelos del INTA y tus análisis de laboratorio (pH, MO, P, N, S, CE).
+- **Escenarios** (pestaña del pronóstico): probabilidad de lluvia y de helada día por día y rango de milímetros, con 51 escenarios del modelo europeo.
+- **Satélite GOES** (en Capas): nubes y tormentas en infrarrojo o color natural, de hace ~40 minutos.
 - **Alertas por WhatsApp** (botón 🔔): ver más abajo.
 
 Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo **con el nombre del archivo** (si el archivo trae varios polígonos se numeran, y si alguno tiene un nombre propio en Google Earth se agrega al final). Los nombres genéricos como "Polígono sin título" se ignoran. Los puntos y las líneas no se cargan. Si el repositorio de campos llegara a ser público, la página se niega a usarlo.
@@ -75,7 +81,7 @@ Las manda el workflow **Alertas por WhatsApp** del repositorio privado (usa tus 
 
 - **7:30**: resumen del día con pizarra Rosario, Chicago, dólar, clima de tus campos por provincia, alertas y lotes con NDVI en baja.
 - **19:00**: solo si hay alertas (si no, no manda nada).
-- Alertas: helada (mínima menor al umbral en los próximos días), lluvia fuerte, ráfagas, caída de NDVI y **precios objetivo** (avisa una sola vez cuando el precio cruza el valor).
+- Alertas: helada (mínima menor al umbral en los próximos días), lluvia fuerte, ráfagas, caída de NDVI, lotes que bajan del umbral de agua útil, normas nuevas del Boletín Oficial sobre retenciones y **precios objetivo** (avisa una sola vez cuando el precio cruza el valor).
 
 Activarlo (una sola vez):
 
@@ -84,6 +90,10 @@ Activarlo (una sola vez):
 3. **Actions → Alertas por WhatsApp → Run workflow** con modo "prueba".
 
 Qué se avisa y los umbrales se cambian con el botón **🔔 Alertas** de la pestaña Campos (se guarda en `config/alertas.json` del repositorio privado).
+
+## Retenciones
+
+Los valores están en `config.json → retenciones` (Decreto 423/2026: trigo y cebada 5,5 %; soja 24 %, maíz y sorgo 8,5 %, girasol 4,5 % durante 2026). El cronograma de baja de la soja (2027–2028) está cargado y se aplica solo el día que corresponde. Cada actualización revisa la primera sección del **Boletín Oficial** del día: si aparece una norma sobre derechos de exportación de granos, el tablero muestra un aviso con el link (y llega por WhatsApp). Después de revisarla, actualizá los valores y la fecha `verificado` en `config.json` (o agregá el id de la norma a `normasRevisadas`).
 
 ## Pestaña Stock (planilla de Google)
 
@@ -137,6 +147,19 @@ Ejemplo para agregar una localidad:
 | Clima | [Open-Meteo](https://open-meteo.com) | JSON, sin clave |
 | Feriados | ArgentinaDatos, con la lista de `config.json` como respaldo | JSON |
 | Noticias | RSS de Clarín Rural, La Nación Campo, Infocampo, Bichos de Campo, Agrofy News y TodoAgro | RSS |
+| Retenciones | `config.json` (Decreto 423/2026 y su cronograma) + monitor diario del [Boletín Oficial](https://www.boletinoficial.gob.ar) | HTML (cheerio) |
+
+**Campos (repositorio privado):**
+
+| Dato | Fuente |
+|---|---|
+| Lluvia registrada | 1) Tus registros de pluviómetro · 2) [CHIRPS v3](https://www.chc.ucsb.edu/data/chirps3) diario (satélite + estaciones, ~5 km, UC Santa Barbara) · 3) Open-Meteo solo para los últimos días que CHIRPS todavía no publicó |
+| Agua útil del suelo | Balance hídrico diario propio: lluvia − ET0 × coeficiente de cultivo FAO-56, sobre el agua útil del suelo según el INTA |
+| Suelo | [Carta de Suelos INTA 1:500.000](https://geo-backend.inta.gob.ar/geoserver) (índice de productividad, textura, drenaje, limitantes) + tus análisis de laboratorio; SoilGrids queda como referencia |
+| Pronóstico | Open-Meteo (pronóstico) + [pronóstico por conjuntos](https://open-meteo.com/en/docs/ensemble-api) ECMWF IFS de 51 escenarios (probabilidades y rangos) |
+| Satélite meteorológico | GOES-East (NOAA) vía [NASA GIBS](https://nasa-gibs.github.io/gibs-api-docs/): infrarrojo y color natural, cada 10 minutos |
+| NDVI | Sentinel-2 (ESA) vía Microsoft Planetary Computer |
+| Radar | RainViewer |
 
 Conversión de Chicago a USD por tonelada: soja y trigo × 36,7437 bushels/t; maíz × 39,3679 bushels/t.
 Las noticias muestran solo el título, el medio y el link a la nota original.
@@ -165,7 +188,7 @@ src/generar-html.js         genera public/index.html
 src/plantilla/estilos.css   estilos de la página (se incluyen dentro del HTML)
 src/plantilla/cliente.js    pestañas, animaciones, gráficos y mapa (se incluye dentro del HTML)
 public/stock/               app de stock (pestaña Stock)
-public/campos/              mapa de campos (pestaña Campos): kml.js, github.js, ndvi.js, campos.js,
+public/campos/              mapa de campos (pestaña Campos): kml.js, github.js, ndvi.js, agua.js, ensamble.js, campos.js,
                             pronostico.js, reporte.* (por campo) y general.* (todos)
 apps-script/                código de Apps Script de la planilla de stock
 src/lib/http.js             fetch con timeout, reintento y charset

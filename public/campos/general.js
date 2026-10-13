@@ -86,13 +86,31 @@
     return { porId, zonas: lista.length };
   }
 
+  // Escenarios ECMWF (probabilidad de lluvia) por celda de ~0,25°
+  async function escenarios(campos) {
+    if (!window.Ensamble) return {};
+    const celdas = new Map();
+    campos.forEach((c) => {
+      const [lat, lon] = KML.centro(c.geometria);
+      const k = `${(Math.round(lat * 4) / 4).toFixed(2)},${(Math.round(lon * 4) / 4).toFixed(2)}`;
+      if (!celdas.has(k)) celdas.set(k, { lat, lon, ids: [] });
+      celdas.get(k).ids.push(c.id);
+    });
+    const lista = [...celdas.values()];
+    const r = await Ensamble.varios(lista).catch(() => []);
+    const out = {};
+    lista.forEach((x, i) => x.ids.forEach((id) => { out[id] = r[i] || null; }));
+    return out;
+  }
+
   // ---------- Métricas para colorear el mapa ----------
   const METRICAS = {
     ndvi: { t: 'NDVI actual', u: '', d: 2, v: (f) => f.ndvi?.ndvi, color: (v) => NDVI.color(v), escala: [[0.1, '#f46d43'], [0.3, '#fee08b'], [0.5, '#a6d96a'], [0.7, '#1a9850']] },
     lluvia30p: { t: 'Lluvia últimos 30 días', u: 'mm', d: 0, v: (f) => f.clima?.lluvia30p, color: (v) => rampa(v, [[0, '#f6e7c1'], [20, '#cfe3f3'], [60, '#6aa9dd'], [120, '#1d5fa8'], [200, '#0b2f6b']]), escala: [[0, '#f6e7c1'], [20, '#cfe3f3'], [60, '#6aa9dd'], [120, '#1d5fa8'], [200, '#0b2f6b']] },
+    p10: { t: 'Prob. de ≥ 10 mm en 7 días', u: '%', d: 0, v: (f) => (f.ens ? f.ens.acum7.p10 * 100 : null), color: (v) => rampa(v, [[0, '#f6e7c1'], [25, '#cfe3f3'], [50, '#6aa9dd'], [75, '#1d5fa8'], [100, '#0b2f6b']]), escala: [[0, '#f6e7c1'], [25, '#cfe3f3'], [50, '#6aa9dd'], [75, '#1d5fa8'], [100, '#0b2f6b']] },
     lluvia7f: { t: 'Lluvia próximos 7 días', u: 'mm', d: 0, v: (f) => f.clima?.lluvia7f, color: (v) => rampa(v, [[0, '#f6e7c1'], [10, '#cfe3f3'], [30, '#6aa9dd'], [60, '#1d5fa8'], [100, '#0b2f6b']]), escala: [[0, '#f6e7c1'], [10, '#cfe3f3'], [30, '#6aa9dd'], [60, '#1d5fa8'], [100, '#0b2f6b']] },
     tmin7f: { t: 'Mínima de los próximos 7 días', u: '°C', d: 0, v: (f) => f.clima?.tmin7f, color: (v) => rampa(v, [[-4, '#3b4cc0'], [0, '#8db0fe'], [4, '#dddddd'], [10, '#f49a7b'], [16, '#b40426']]), escala: [[-4, '#3b4cc0'], [0, '#8db0fe'], [4, '#dddddd'], [10, '#f49a7b'], [16, '#b40426']] },
-    humedad: { t: 'Humedad del suelo 9–27 cm', u: '%', d: 0, v: (f) => f.clima?.humedad, color: (v) => rampa(v, [[5, '#a0522d'], [15, '#e3c56a'], [25, '#a6d96a'], [35, '#3f9b5a'], [45, '#1d5fa8']]), escala: [[5, '#a0522d'], [15, '#e3c56a'], [25, '#a6d96a'], [35, '#3f9b5a'], [45, '#1d5fa8']] }
+    agua: { t: 'Agua útil del suelo (1 m)', u: '%', d: 0, v: (f) => f.agua?.pct, color: (v) => Agua.color(v), escala: [[0, '#c0392b'], [25, '#f39c12'], [50, '#a4c639'], [75, '#2e8b57'], [95, '#1d5fa8']] }
   };
   function rampa(v, puntos) {
     if (v == null || !Number.isFinite(v)) return '#9aa3a8';
@@ -124,8 +142,16 @@
     let campos;
     try { campos = ((await Repo.leer()).campos || []).filter((c) => c.geometria); } catch (e) { return error(e.message); }
     if (!campos.length) return error('Todavía no cargaste campos.');
-    const [clima] = await Promise.all([climaDe(campos), NDVI.cargarResumen().catch(() => null)]);
-    todos = campos.map((c) => ({ campo: c, clima: clima.porId[c.id] || null, ndvi: NDVI.de(c.id) }));
+    const [clima] = await Promise.all([climaDe(campos), NDVI.cargarResumen().catch(() => null), Agua.cargar().catch(() => null)]);
+    estado('Calculando escenarios de lluvia…');
+    const ens = await escenarios(campos);
+    todos = campos.map((c) => {
+      const k = clima.porId[c.id] ? Object.assign({}, clima.porId[c.id]) : null;
+      const a = Agua.de(c.id);
+      // Lluvia pasada: la del balance (tu pluviómetro o satélite CHIRPS) en lugar del modelo
+      if (k && a) { k.lluvia7p = a.lluvia7; k.lluvia30p = a.lluvia30; k.fuenteLluvia = a.fuentes30; }
+      return { campo: c, clima: k, ndvi: NDVI.de(c.id), agua: a, ens: ens[c.id] || null };
+    });
     if (!Object.keys(clima.porId).length) avisar('No se pudo descargar el clima (Open-Meteo). Se muestran solo superficie y NDVI.', 'error');
     if (!todos.some((f) => f.ndvi)) metrica = 'lluvia30p';
     const provincias = [...new Set(campos.map((c) => c.provincia || 'Sin ubicar'))].sort(ordenar);
@@ -155,6 +181,10 @@
     const conClima = filas.filter((f) => f.clima);
     const pond = (k) => { const h = suma(conClima.map((f) => haDe(f.campo))); return h ? suma(conClima.map((f) => f.clima[k] * haDe(f.campo))) / h : null; };
     const enHelada = conClima.filter((f) => f.clima.heladas7f > 0);
+    const conAgua = filas.filter((f) => f.agua?.pct != null);
+    const haAgua = suma(conAgua.map((f) => haDe(f.campo)));
+    const aguaProm = haAgua ? suma(conAgua.map((f) => f.agua.pct * haDe(f.campo))) / haAgua : null;
+    const secos = conAgua.filter((f) => f.agua.pct < 50);
     const kpi = (t, v, d, c) => `<div class="r-kpi" style="--c:${c}"><small>${t}</small><b>${v}</b><span>${d}</span></div>`;
 
     // Rankings
@@ -166,12 +196,21 @@
     const frases = [];
     if (conClima.length) {
       frases.push(['🌧️', `En los últimos 30 días llovió en promedio <b>${num(pond('lluvia30p'), 0)} mm</b> en tus campos (ponderado por hectáreas), y para los próximos 7 días se esperan <b>${num(pond('lluvia7f'), 0)} mm</b>.`]);
+      const conEns = filas.filter((f) => f.ens);
+      if (conEns.length) {
+        const hE = suma(conEns.map((f) => haDe(f.campo)));
+        const pp = suma(conEns.map((f) => f.ens.acum7.p10 * haDe(f.campo))) / hE;
+        frases.push(['🎲', `Según los 51 escenarios del modelo europeo, la probabilidad promedio de juntar 10 mm o más en la semana es <b>${num(pp * 100, 0)} %</b>${conEns.some((f) => f.ens.acum7.p10 >= 0.7) ? `; en ${conEns.filter((f) => f.ens.acum7.p10 >= 0.7).length} lotes supera el 70 %` : ''}.`]);
+      }
       const secos = conClima.filter((f) => f.clima.balance30 < -60);
       if (secos.length) frases.push(['🏜️', `<b>${secos.length}</b> ${secos.length === 1 ? 'lote tiene' : 'lotes tienen'} un balance hídrico de 30 días muy negativo (la evapotranspiración superó a la lluvia en más de 60 mm): ${num(suma(secos.map((f) => haDe(f.campo))), 0)} ha.`]);
       if (enHelada.length) frases.push(['❄️', `Hay riesgo de <b>helada</b> en los próximos 7 días en <b>${enHelada.length}</b> ${enHelada.length === 1 ? 'lote' : 'lotes'} (${num(suma(enHelada.map((f) => haDe(f.campo))), 0)} ha). Mínima más baja: ${num(Math.min(...enHelada.map((f) => f.clima.tmin7f)), 0)} °C.`]);
       else frases.push(['✅', 'Sin heladas previstas en ningún lote para los próximos 7 días.']);
       const viento = conClima.filter((f) => f.clima.rafaga3f >= 60);
       if (viento.length) frases.push(['💨', `Ráfagas de 60 km/h o más en los próximos 3 días en ${viento.length} ${viento.length === 1 ? 'lote' : 'lotes'}: cuidado con las pulverizaciones.`]);
+    }
+    if (conAgua.length) {
+      frases.unshift(['💧', `Agua útil promedio en el primer metro: <b>${num(aguaProm, 0)} %</b> (ponderado por hectáreas). ${secos.length ? `<b>${secos.length}</b> ${secos.length === 1 ? 'lote está' : 'lotes están'} por debajo del 50 % (${num(suma(secos.map((f) => haDe(f.campo))), 0)} ha).` : 'Ningún lote está por debajo del 50 %.'} La lluvia pasada sale de tus registros y del satélite CHIRPS.`]);
     }
     if (conNdvi.length) {
       frases.push(['🛰️', `NDVI promedio ponderado: <b>${num(ndviProm, 2)}</b> (${conNdvi.length} de ${filas.length} lotes con imagen reciente). ${NDVI.lectura(ndviProm)}.`]);
@@ -197,7 +236,7 @@
         ${kpi('Lluvia 30 días', num(pond('lluvia30p'), 0) + ' mm', 'Promedio ponderado', '#3a8fd6')}
         ${kpi('Lluvia próx. 7 días', num(pond('lluvia7f'), 0) + ' mm', 'Pronóstico', '#6aa9dd')}
         ${kpi('Riesgo de helada', enHelada.length + (enHelada.length === 1 ? ' lote' : ' lotes'), 'Próximos 7 días', '#8db0fe')}
-        ${kpi('Humedad del suelo', num(pond('humedad'), 0) + ' %', '9–27 cm, promedio', '#3f9b5a')}
+        ${kpi('Agua útil del suelo', num(aguaProm, 0) + ' %', conAgua.length ? `primer metro · ${secos.length} ${secos.length === 1 ? 'lote seco o escaso' : 'lotes secos o escasos'}` : 'Sin balance todavía', Agua.color(aguaProm))}
       </section>
 
       ${frases.length ? `<section class="r-card r-analisis"><h3>Análisis</h3><ul>${frases.map(([i, t]) => `<li><i>${i}</i><span>${t}</span></li>`).join('')}</ul></section>` : ''}
@@ -230,9 +269,9 @@
       <section class="r-sec"><h2>Rankings</h2>
         <div class="r-grid g-rankings">
           ${rk('Más lluvia (30 días)', '🌧️', top(conClima, (f) => f.clima.lluvia30p, false), (f) => num(f.clima.lluvia30p, 0) + ' mm')}
-          ${rk('Menos lluvia (30 días)', '🏜️', top(conClima, (f) => f.clima.lluvia30p, true), (f) => num(f.clima.lluvia30p, 0) + ' mm')}
+          ${rk('Menos lluvia (30 días)', '☀️', top(conClima, (f) => f.clima.lluvia30p, true), (f) => num(f.clima.lluvia30p, 0) + ' mm')}
           ${rk('Mínimas más bajas (7 días)', '❄️', top(conClima, (f) => f.clima.tmin7f, true), (f) => num(f.clima.tmin7f, 0) + ' °C')}
-          ${rk('NDVI más alto', '🌿', top(conNdvi, (f) => f.ndvi.ndvi, false), (f) => num(f.ndvi.ndvi, 2))}
+          ${rk('Menos agua útil', '🏜️', top(conAgua, (f) => f.agua.pct, true), (f) => num(f.agua.pct, 0) + ' %')}
           ${rk('NDVI más bajo', '🟥', top(conNdvi, (f) => f.ndvi.ndvi, true), (f) => num(f.ndvi.ndvi, 2))}
           ${rk('Mayor caída de NDVI (30 días)', '📉', top(caidas, (f) => f.ndvi.tendencia, true), (f) => num(f.ndvi.tendencia, 2))}
         </div>
@@ -261,10 +300,12 @@
     ['l7p', 'Lluvia 7 d', (f) => f.clima?.lluvia7p ?? null, (f) => num(f.clima?.lluvia7p, 0), true],
     ['l30p', 'Lluvia 30 d', (f) => f.clima?.lluvia30p ?? null, (f) => num(f.clima?.lluvia30p, 0), true],
     ['bal', 'Balance 30 d', (f) => f.clima?.balance30 ?? null, (f) => num(f.clima?.balance30, 0), true],
+    ['p10', 'Prob. ≥10 mm 7 d', (f) => f.ens?.acum7.p10 ?? null, (f) => (f.ens ? Ensamble.pct(f.ens.acum7.p10) : '—'), true],
     ['l7f', 'Próx. 7 d', (f) => f.clima?.lluvia7f ?? null, (f) => num(f.clima?.lluvia7f, 0), true],
     ['tmin', 'Mín. 7 d', (f) => f.clima?.tmin7f ?? null, (f) => (f.clima ? num(f.clima.tmin7f, 0) + '°' + (f.clima.heladas7f ? ' ❄️' : '') : '—'), true],
     ['raf', 'Ráfaga 3 d', (f) => f.clima?.rafaga3f ?? null, (f) => num(f.clima?.rafaga3f, 0), true],
-    ['hum', 'Humedad suelo', (f) => f.clima?.humedad ?? null, (f) => (f.clima?.humedad == null ? '—' : num(f.clima.humedad, 0) + ' %'), true]
+    ['agua', 'Agua útil', (f) => f.agua?.pct ?? null, (f) => (f.agua?.pct == null ? '—' : `<span class="g-ndvi" style="--c:${Agua.color(f.agua.pct)}">${num(f.agua.pct, 0)} %</span>`), true],
+    ['proy', 'Agua en 7 d', (f) => f.agua?.proy7 ?? null, (f) => (f.agua?.proy7 == null ? '—' : num(f.agua.proy7, 0) + ' %'), true]
   ];
   function pintarTabla() {
     const col = COLUMNAS.find((c) => c[0] === orden.k);
@@ -378,10 +419,10 @@
   window.addEventListener('beforeprint', () => graficos.forEach((g) => g.resize()));
   $('#btn-csv').addEventListener('click', () => {
     if (!filas.length) return;
-    const t = [['lote', 'provincia', 'departamento', 'localidad', 'cultivo', 'campana', 'ha', 'ndvi', 'ndvi_fecha', 'ndvi_cambio_30d', 'lluvia_7d_mm', 'lluvia_30d_mm', 'balance_30d_mm', 'lluvia_prox_7d_mm', 'tmin_prox_7d_c', 'dias_helada_7d', 'rafaga_prox_3d_kmh', 'humedad_suelo_9_27cm_pct']];
+    const t = [['lote', 'provincia', 'departamento', 'localidad', 'cultivo', 'campana', 'ha', 'ndvi', 'ndvi_fecha', 'ndvi_cambio_30d', 'lluvia_7d_mm', 'lluvia_30d_mm', 'balance_30d_mm', 'lluvia_prox_7d_mm', 'prob_10mm_7d_pct', 'tmin_prox_7d_c', 'dias_helada_7d', 'rafaga_prox_3d_kmh', 'agua_util_pct', 'agua_util_mm', 'agua_util_max_mm', 'agua_util_7d_pct']];
     filas.forEach((f) => {
       const c = f.campo; const k = f.clima || {}; const n = f.ndvi || {};
-      t.push([c.nombre, c.provincia, c.departamento, c.localidad, c.cultivo, c.campana, haDe(c), n.ndvi, n.fecha, n.tendencia, k.lluvia7p, k.lluvia30p, k.balance30, k.lluvia7f, k.tmin7f, k.heladas7f, k.rafaga3f, k.humedad == null ? null : Math.round(k.humedad)]);
+      t.push([c.nombre, c.provincia, c.departamento, c.localidad, c.cultivo, c.campana, haDe(c), n.ndvi, n.fecha, n.tendencia, k.lluvia7p, k.lluvia30p, k.balance30, k.lluvia7f, f.ens ? Math.round(f.ens.acum7.p10 * 100) : null, k.tmin7f, k.heladas7f, k.rafaga3f, f.agua?.pct, f.agua?.agua, f.agua?.au, f.agua?.proy7]);
     });
     const texto = '﻿' + t.map((r) => r.map((v) => {
       if (v == null) return '';

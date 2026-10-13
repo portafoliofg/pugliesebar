@@ -459,3 +459,9 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   .heroe-fotos div:first-child { opacity: 1; }
   .cinta-pista { animation: none; }
 }
+
+/* Avisos de retenciones (Boletín Oficial y cronograma) */
+.aviso-ret { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--naranja, #ff9800) 14%, transparent); border: 1px solid color-mix(in srgb, var(--naranja, #ff9800) 45%, transparent); display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
+.aviso-ret small { color: var(--muted); }
+.aviso-ret a { font-weight: 800; }
+.txt-alerta { color: var(--baja, #c0392b); font-weight: 800; }

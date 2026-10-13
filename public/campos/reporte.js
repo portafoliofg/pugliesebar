@@ -229,14 +229,18 @@
     const [lat, lon] = KML.centro(campo.geometria);
     const fin = sumarDias(hoy, -6);
     estado('Descargando clima, suelo y datos históricos… (puede tardar unos segundos)');
+    const aguaP = window.Agua ? Agua.cargar().then(async () => ({ x: Agua.de(id), serie: await Agua.serie(id), suelo: Agua.sueloDe(id),
+      analisis: (await Agua.analisis().catch(() => [])).filter((a) => a.campo === id).sort((a, b) => b.fecha.localeCompare(a.fecha)) })).catch(() => null) : Promise.resolve(null);
     const ndviP = window.NDVI ? Promise.all([NDVI.cargarResumen(), NDVI.serie(id)]).then(async ([, serie]) => ({ x: NDVI.de(id), serie, img: await NDVI.imagen(id) })).catch(() => null) : Promise.resolve(null);
-    const [prono, anual, normales, alt, suelo, ndvi] = await Promise.allSettled([
+    const [prono, anual, normales, alt, suelo, ndvi, agua, ens] = await Promise.allSettled([
       pedirPronostico(lat, lon),
       pedirArchivo(lat, lon, sumarDias(hoy, -400), fin, 'precipitation_sum,temperature_2m_max,temperature_2m_min,temperature_2m_mean,et0_fao_evapotranspiration,shortwave_radiation_sum,sunshine_duration,wind_speed_10m_max'),
       pedirArchivo(lat, lon, '1991-01-01', '2020-12-31', 'precipitation_sum,temperature_2m_mean,temperature_2m_min'),
       pedirAltitud(lat, lon),
       pedirSuelo(lat, lon),
-      ndviP
+      ndviP,
+      aguaP,
+      window.Ensamble ? Ensamble.cargar(lat, lon) : Promise.reject(new Error('sin módulo'))
     ]);
     if (prono.status !== 'fulfilled') return error('No se pudo descargar el clima del campo (Open-Meteo). Probá de nuevo en unos minutos.');
 
@@ -248,14 +252,20 @@
       altitud: alt.status === 'fulfilled' ? alt.value.elevation?.[0] : null,
       suelo: suelo.status === 'fulfilled' ? leerSuelo(suelo.value) : null,
       ndvi: ndvi.status === 'fulfilled' ? ndvi.value : null,
+      agua: agua.status === 'fulfilled' ? agua.value : null,
+      ens: ens.status === 'fulfilled' ? ens.value : null,
       fallas: [anual, normales, alt, suelo].map((r, i) => (r.status === 'rejected' ? ['histórico anual', 'normales 1991–2020', 'altitud', 'suelo (SoilGrids)'][i] : null)).filter(Boolean)
     };
     modelo.diario = unirDiario(modelo.anual, modelo.prono.daily);
+    // La lluvia de los últimos 92 días se reemplaza por la del balance: tu pluviómetro o el satélite CHIRPS
+    const serieAgua = modelo.agua?.serie?.serie || [];
+    const lluviaMejor = Object.fromEntries(serieAgua.filter((x) => x.fu === 'propia' || x.fu === 'satelite').map((x) => [x.f, x]));
+    modelo.diario.forEach((x) => { const r = lluviaMejor[x.fecha]; if (r) { x.lluvia = r.p; x.fuente = r.fu; } });
 
     // Fecha de siembra: la guardada para este campo, o el inicio de la campaña (1 de julio)
     const clave = 'siembra:' + id;
-    let siembra = null;
-    try { siembra = localStorage.getItem(clave); } catch (e) {}
+    let siembra = campo.siembra || null;
+    if (!siembra) try { siembra = localStorage.getItem(clave); } catch (e) {}
     if (!siembra) { const y = Number(hoy.slice(0, 4)); siembra = (Number(hoy.slice(5, 7)) >= 7 ? y : y - 1) + '-07-01'; }
     $('#siembra').value = siembra;
     $('#siembra').max = hoy;
@@ -263,6 +273,12 @@
       if (!e.target.value) return;
       try { localStorage.setItem(clave, e.target.value); } catch (err) {}
       dibujar(e.target.value);
+      // Se guarda en el campo para que el balance de agua siga la etapa del cultivo
+      if (Repo.tieneToken()) {
+        Repo.guardar((actual) => { const x = actual.campos.find((k) => k.id === id); if (x) x.siembra = e.target.value; return actual; }, `Campos: fecha de siembra de "${campo.nombre}"`)
+          .then(() => avisar('Fecha de siembra guardada en el campo. El balance de agua se recalcula en unos minutos.'))
+          .catch(() => avisar('La fecha quedó en este navegador, pero no se pudo guardar en el campo.', 'error'));
+      }
     });
     dibujar(siembra);
     if (modelo.fallas.length) avisar('No se pudieron cargar: ' + modelo.fallas.join(', ') + '. El resto del reporte está completo.', 'error');
@@ -340,14 +356,31 @@
     else frases.push(['🌧️', `En los últimos 30 días llovieron <b>${num(p30, 0)} mm</b> (${num(p7, 0)} mm en la última semana).`]);
     frases.push([p30 - et30 >= 0 ? '💧' : '🔥', `Balance hídrico de 30 días: <b>${signo(p30 - et30, 0)} mm</b> (lluvia ${num(p30, 0)} mm − evapotranspiración ${num(et30, 0)} mm). ${p30 - et30 < -40 ? 'El cultivo está consumiendo más agua de la que entra.' : p30 - et30 > 40 ? 'Hubo excedentes de agua.' : 'Situación equilibrada.'}`]);
     if (nCamp != null && camp.length) frases.push(['📅', `Desde el ${etqDia(siembra)}/${siembra.slice(0, 4)} acumula <b>${num(pCamp, 0)} mm</b> contra ${num(nCamp, 0)} mm normales (${signo(pCamp - nCamp, 0)} mm).`]);
-    if (humAhora.s27 != null) frases.push(['🌱', `Humedad del suelo a 9–27 cm: <b>${num(humAhora.s27, 0)} %</b> en volumen${humHace7 != null ? `, ${humAhora.s27 - humHace7 > 1 ? 'en aumento' : humAhora.s27 - humHace7 < -1 ? 'en descenso' : 'estable'} respecto de hace una semana (${num(humHace7, 0)} %)` : ''}.`]);
+    if (humAhora.s27 != null && !(m.agua?.x?.pct != null)) frases.push(['🌱', `Humedad del suelo a 9–27 cm: <b>${num(humAhora.s27, 0)} %</b> en volumen${humHace7 != null ? `, ${humAhora.s27 - humHace7 > 1 ? 'en aumento' : humAhora.s27 - humHace7 < -1 ? 'en descenso' : 'estable'} respecto de hace una semana (${num(humHace7, 0)} %)` : ''}.`]);
+    const E = m.ens;
+    if (E) frases.push(['🎲', `Con 51 escenarios del modelo europeo: en los próximos 7 días lo más probable son <b>${num(E.acum7.q50, 0)} mm</b> (rango ${num(E.acum7.q10, 0)}–${num(E.acum7.q90, 0)} mm). Probabilidad de juntar 10 mm o más: <b>${Ensamble.pct(E.acum7.p10)}</b>; 25 mm o más: ${Ensamble.pct(E.acum7.p25)}.${E.dias.some((x) => x.helada2 >= 0.2) ? ` Helada (&lt; 2 °C): ${E.dias.filter((x) => x.helada2 >= 0.2).slice(0, 4).map((x) => `${etqDia(x.f)} ${Ensamble.pct(x.helada2)}`).join(', ')}.` : ''}`]);
     frases.push(['☔', `Próximos 7 días: <b>${num(prox7, 0)} mm</b> pronosticados (16 días: ${num(prox16, 0)} mm).${secaActual >= 7 ? ` Lleva <b>${secaActual} días seguidos</b> sin lluvias de 1 mm o más.` : ''}`]);
-    if (heladasProx.length) frases.push(['❄️', `Riesgo de helada en los próximos 16 días: ${heladasProx.slice(0, 5).map((x) => `${etqDia(x.f)} (${num(x.min, 0)} °C)`).join(', ')}.`]);
-    else frases.push(['🌡️', 'Sin riesgo de heladas en los próximos 16 días.']);
+    // Si hay escenarios, la helada se informa con probabilidad (arriba); si no, con el pronóstico simple
+    const ensHelada = E && E.dias.some((x) => x.helada2 >= 0.2);
+    if (!E) {
+      if (heladasProx.length) frases.push(['❄️', `Riesgo de helada en los próximos 16 días: ${heladasProx.slice(0, 5).map((x) => `${etqDia(x.f)} (${num(x.min, 0)} °C)`).join(', ')}.`]);
+      else frases.push(['🌡️', 'Sin riesgo de heladas en los próximos 16 días.']);
+    } else if (!ensHelada && !heladasProx.length) frases.push(['🌡️', 'Sin riesgo de heladas en los próximos 15 días (ningún escenario supera el 20 %).']);
     if (Number.isFinite(vientoMaxProx) && vientoMaxProx >= 50) frases.push(['💨', `Ojo con el viento: ráfagas de hasta <b>${num(vientoMaxProx, 0)} km/h</b> en la semana.`]);
     frases.push(['🚜', ventanas.length ? `Hay <b>${ventanas.length}</b> ${ventanas.length === 1 ? 'ventana' : 'ventanas'} para pulverizar en las próximas 72 h: ${ventanas.slice(0, 4).map((v) => `${etqDia(v.inicio.slice(0, 10))} ${v.inicio.slice(11, 16)} (${v.horas} h)`).join(', ')}.` : 'No hay ventanas aptas para pulverizar en las próximas 72 h.']);
     frases.push(['📈', `Grados-día acumulados desde la siembra (base ${base} °C${c.cultivo ? ', ' + esc(c.cultivo) : ''}): <b>${num(gdd, 0)} °C·día</b>.`]);
-    if (m.suelo) frases.push(['🧪', `Suelo (SoilGrids, 0–30 cm): textura <b>${esc(m.suelo.clase.toLowerCase())}</b>, pH ${num(m.suelo.ph, 1)} y materia orgánica estimada ${num(m.suelo.mo, 1)} % en superficie.`]);
+    const ag = m.agua?.x;
+    if (ag?.pct != null) {
+      const est = Agua.estado(ag.pct);
+      frases.unshift(['💧', `Agua útil en el primer metro: <b>${num(ag.agua, 0)} de ${num(ag.au, 0)} mm (${num(ag.pct, 0)} %, ${est.nombre.toLowerCase()})</b>. Con el pronóstico quedaría en ${num(ag.proy7, 0)} % en 7 días y ${num(ag.proy16, 0)} % en 16.`]);
+    }
+    const fu = ag?.fuentes30 || {};
+    if (fu.propia || fu.satelite) frases.push(['📡', `La lluvia de los últimos 30 días sale de ${fu.propia ? `<b>tu pluviómetro</b> (${fu.propia} días)` : ''}${fu.propia && fu.satelite ? ' y del ' : ''}${fu.satelite ? `<b>satélite CHIRPS</b> (${fu.satelite} días)` : ''}${fu.modelo ? `; los ${fu.modelo} días más recientes, del modelo hasta que se publique el dato satelital` : ''}.`]);
+    const si = Agua.lecturaSuelo(m.agua?.suelo);
+    if (si) frases.push(['🧪', `Suelo según la carta del INTA: <b>${esc(si.suelo)}</b>, textura ${esc(si.textura.toLowerCase())}, índice de productividad <b>${num(si.ip, 0)}</b> (${Agua.textoIP(si.ip)})${si.limitantes ? `, limitante ${esc(si.limitantes.toLowerCase())}` : ''}.`]);
+    const anl = m.agua?.analisis?.[0];
+    if (anl) frases.push(['🔬', `Último análisis de suelo (${etqDia(anl.fecha)}/${anl.fecha.slice(0, 4)}): ${[anl.ph != null ? `pH ${num(anl.ph, 1)}` : '', anl.mo != null ? `MO ${num(anl.mo, 1)} %` : '', anl.p != null ? `P ${num(anl.p, 0)} ppm` : '', anl.n != null ? `N-NO₃ ${num(anl.n, 0)} ppm` : ''].filter(Boolean).join(', ')}.`]);
+    else if (m.suelo && !si) frases.push(['🧪', `Suelo (SoilGrids, 0–30 cm): textura <b>${esc(m.suelo.clase.toLowerCase())}</b>, pH ${num(m.suelo.ph, 1)} y materia orgánica estimada ${num(m.suelo.mo, 1)} % en superficie.`]);
 
     const ubic = [c.localidad, c.departamento, c.provincia].filter(Boolean).join(', ');
     const generado = new Intl.DateTimeFormat('es-AR', { timeZone: ZONA, dateStyle: 'long', timeStyle: 'short' }).format(new Date());
@@ -406,14 +439,10 @@
 
       <section class="r-sec"><h2>Suelo</h2>
         <div class="r-grid">
-          <div class="r-card r-ancho"><h3>Humedad del suelo por profundidad</h3><p class="nota">Humedad volumétrica estimada por modelo (%), últimos 92 días y próximos 16. Sirve para ver tendencias; no reemplaza una medición a campo.</p><div class="r-graf alto"><canvas id="g-humedad"></canvas></div></div>
-          <div class="r-card"><h3>Humedad actual</h3>
-            <div class="r-datos">
-              <div><small>0–1 cm</small><b>${num(humAhora.s1, 0)} %</b></div><div><small>3–9 cm</small><b>${num(humAhora.s9, 0)} %</b></div>
-              <div><small>9–27 cm</small><b>${num(humAhora.s27, 0)} %</b></div><div><small>27–81 cm</small><b>${num(humAhora.s81, 0)} %</b></div>
-              <div><small>Temp. suelo 6 cm</small><b>${num(h.soil_temperature_6cm?.[iAhora], 1)} °C</b></div>
-            </div></div>
-          <div class="r-card"><h3>Propiedades del suelo</h3>
+          ${aguaHTML(m.agua)}
+          ${sueloIntaHTML(m.agua)}
+          <div class="r-card r-ancho"><h3>Humedad del modelo por profundidad (referencia)</h3><p class="nota">Humedad volumétrica estimada por Open-Meteo (%), sin conocer tu suelo ni tus lluvias. Temperatura del suelo a 6 cm: ${num(h.soil_temperature_6cm?.[iAhora], 1)} °C.</p><div class="r-graf"><canvas id="g-humedad"></canvas></div></div>
+          <div class="r-card"><h3>Propiedades estimadas (SoilGrids)</h3>
             ${s ? `<div class="r-suelo"><div class="r-graf"><canvas id="g-textura"></canvas></div>
               <div class="r-datos">
                 <div><small>Textura</small><b>${esc(s.clase)}</b></div><div><small>pH (agua)</small><b>${num(s.ph, 1)}</b></div>
@@ -436,6 +465,12 @@
 
       <section class="r-sec"><h2>Pronóstico</h2>
         <div class="r-grid">
+          ${m.ens ? `<div class="r-card r-ancho"><h3>Escenarios de lluvia · 15 días</h3><p class="nota">Pronóstico por conjuntos ECMWF (51 escenarios). Barras: rango entre el escenario 10 % más seco y el 10 % más lluvioso; línea: el valor más probable; punteada: probabilidad de 10 mm o más en el día. Más allá de una semana, mirá la probabilidad más que los milímetros.</p>
+            <div class="r-datos" style="margin-bottom:10px">
+              <div><small>7 días · probable</small><b>${num(m.ens.acum7.q50, 0)} mm</b></div><div><small>7 días · rango</small><b>${num(m.ens.acum7.q10, 0)}–${num(m.ens.acum7.q90, 0)} mm</b></div>
+              <div><small>Prob. ≥ 10 mm (7 d)</small><b>${Ensamble.pct(m.ens.acum7.p10)}</b></div><div><small>Prob. ≥ 25 mm (7 d)</small><b>${Ensamble.pct(m.ens.acum7.p25)}</b></div>
+              <div><small>14 días · probable</small><b>${num(m.ens.acum14.q50, 0)} mm</b></div><div><small>Semana seca (&lt; 5 mm)</small><b>${Ensamble.pct(m.ens.acum7.seco)}</b></div>
+            </div><div class="r-graf"><canvas id="g-ens"></canvas></div></div>` : ''}
           <div class="r-card r-ancho"><h3>Próximas 48 horas</h3><div class="r-graf"><canvas id="g-48"></canvas></div></div>
           <div class="r-card r-ancho"><h3>Próximos 16 días</h3><div class="r-tabla-wrap"><table class="r-tabla">
             <thead><tr><th>Día</th><th class="n">Máx.</th><th class="n">Mín.</th><th class="n">Lluvia</th><th class="n">Prob.</th><th class="n">Viento / ráfaga</th><th class="n">ET0</th><th class="n">UV</th></tr></thead>
@@ -464,7 +499,7 @@
         </div>${c.notas ? `<p class="nota" style="margin-top:10px">📝 ${esc(c.notas)}</p>` : ''}</div>
       </section>
 
-      <footer class="r-pie">Fuentes: Open-Meteo (pronóstico y reanálisis ERA5 de Copernicus/ECMWF), ISRIC SoilGrids, imágenes satelitales de Esri. Datos con histórico disponible desde ${datosDesde ? etqDia(datosDesde) + '/' + datosDesde.slice(0, 4) : '—'}. Los valores son estimaciones de modelos: usalos como referencia junto con las observaciones a campo.</footer>`;
+      <footer class="r-pie">Fuentes: tu pluviómetro, CHIRPS v3 (UCSB), Open-Meteo (pronóstico y reanálisis ERA5 de Copernicus/ECMWF), Carta de Suelos INTA 1:500.000, ISRIC SoilGrids, Sentinel-2, imágenes satelitales de Esri. Datos con histórico disponible desde ${datosDesde ? etqDia(datosDesde) + '/' + datosDesde.slice(0, 4) : '—'}. Los valores son estimaciones de modelos: usalos como referencia junto con las observaciones a campo.</footer>`;
 
     // ---------- Mapa ----------
     if (window.L) {
@@ -487,6 +522,19 @@
     Chart.defaults.borderColor = css('--line');
     Chart.defaults.font.family = css('--body');
     const azul = css('--lluvia') || '#3a8fd6', lima = css('--lima'), dorado = css('--dorado'), naranja = css('--naranja'), frio = css('--frio'), rojo = css('--baja'), verde = css('--sube');
+
+    // Agua útil
+    const sa = m.agua?.serie;
+    if (sa?.serie?.length) {
+      const todo = sa.serie.concat(sa.proy || []);
+      const corte = sa.serie.length;
+      grafico('g-agua', { data: { labels: todo.map((x) => etqDia(x.f)), datasets: [
+        { type: 'line', label: 'Agua útil (%)', data: todo.map((x) => x.pct), borderColor: '#2e8b57', backgroundColor: '#2e8b5722', fill: true, tension: .3, pointRadius: 0, yAxisID: 'y',
+          segment: { borderDash: (ctx) => (ctx.p0DataIndex >= corte - 1 ? [6, 4] : undefined) } },
+        { type: 'bar', label: 'Lluvia (mm)', data: todo.map((x) => x.p || null), backgroundColor: todo.map((x) => Agua.COLOR_FUENTE[x.fu]), yAxisID: 'y1' },
+        { type: 'line', label: 'Consumo del cultivo (mm/día)', data: todo.map((x) => x.eta), borderColor: naranja, borderWidth: 1.5, pointRadius: 0, tension: .3, yAxisID: 'y1' }
+      ] }, options: opciones({ scales: { x: ejeX, y: eje('% del agua útil', { min: 0, max: 100 }), y1: eje('mm', { position: 'right', beginAtZero: true, grid: { display: false } }) } }) });
+    }
 
     // NDVI
     const sn = m.ndvi?.serie?.serie || [];
@@ -604,6 +652,16 @@
       { type: 'line', label: 'Ráfagas', data: dd.wind_gusts_10m_max.slice(v0), borderColor: rojo, pointRadius: 0, tension: .3 }
     ] }, options: opciones({ scales: { x: ejeX, y: eje('km/h', { beginAtZero: true }) } }) });
 
+    // Escenarios
+    if (m.ens) {
+      grafico('g-ens', { data: { labels: m.ens.dias.map((x) => etqDia(x.f)), datasets: [
+        { type: 'bar', label: 'Rango 10–90 % (mm)', data: m.ens.dias.map((x) => [x.q10, x.q90]), backgroundColor: azul + '55', borderColor: azul, borderWidth: 1, yAxisID: 'y' },
+        { type: 'line', label: 'Más probable (mm)', data: m.ens.dias.map((x) => x.q50), borderColor: azul, backgroundColor: azul, pointRadius: 2, tension: .3, yAxisID: 'y' },
+        { type: 'line', label: 'Prob. ≥ 10 mm (%)', data: m.ens.dias.map((x) => Math.round(x.p10 * 100)), borderColor: naranja, borderDash: [4, 3], pointRadius: 0, tension: .3, yAxisID: 'y1' },
+        { type: 'line', label: 'Prob. helada (%)', data: m.ens.dias.map((x) => Math.round(x.helada2 * 100)), borderColor: frio, borderDash: [2, 3], pointRadius: 0, tension: .3, yAxisID: 'y1' }
+      ] }, options: opciones({ scales: { x: ejeX, y: eje('mm', { beginAtZero: true }), y1: eje('%', { position: 'right', min: 0, max: 100, grid: { display: false } }) } }) });
+    }
+
     // 48 horas
     const f48 = Math.min(h.time.length, iAhora + 48);
     grafico('g-48', { data: { labels: h.time.slice(iAhora, f48).map((t) => (t.slice(11, 13) === '00' ? etqDia(t.slice(0, 10)) : t.slice(11, 16))), datasets: [
@@ -614,6 +672,42 @@
     ] }, options: opciones({ scales: { x: ejeX, y: eje('°C · km/h'), y1: eje('%', { position: 'right', min: 0, max: 100, grid: { display: false } }), y2: { display: false, beginAtZero: true, suggestedMax: 10 } } }) });
 
     modelo.csv = { siembra };
+  }
+
+  // Tarjetas de agua útil y suelo INTA
+  function aguaHTML(a) {
+    const x = a?.x;
+    if (!x || x.pct == null) return '<div class="r-card r-ancho"><h3>Agua útil del suelo</h3><p class="nota">Todavía no hay balance de agua para este lote: se calcula todos los días a la mañana.</p></div>';
+    const e = Agua.estado(x.pct);
+    return `<div class="r-card r-ancho"><h3>Agua útil del suelo · primer metro</h3>
+      <p class="nota">Balance diario: lluvia (${Object.keys(x.fuentes30 || {}).map((k) => Agua.FUENTES[k]).join(', ')}) menos el consumo del cultivo (ET0 × coeficiente según cultivo y etapa), sobre el agua que retiene el suelo según el INTA. La línea punteada es la proyección con el pronóstico. Colores de las barras: <span style="color:${Agua.COLOR_FUENTE.propia}">■</span> pluviómetro, <span style="color:${Agua.COLOR_FUENTE.satelite}">■</span> satélite, <span style="color:${Agua.COLOR_FUENTE.modelo}">■</span> modelo, <span style="color:${Agua.COLOR_FUENTE.pronostico}">■</span> pronóstico.</p>
+      <div class="r-datos" style="margin-bottom:10px">
+        <div style="border-left:4px solid ${e.color}"><small>Hoy</small><b>${num(x.pct, 0)} % · ${esc(e.nombre)}</b></div>
+        <div><small>Agua disponible</small><b>${num(x.agua, 0)} / ${num(x.au, 0)} mm</b></div>
+        <div><small>En 7 días</small><b>${num(x.proy7, 0)} %</b></div><div><small>En 16 días</small><b>${num(x.proy16, 0)} %</b></div>
+        <div><small>Etapa / Kc</small><b>${esc(x.etapa || '—')} · ${num(x.kc, 2)}</b></div>
+      </div>
+      <div class="r-graf alto"><canvas id="g-agua"></canvas></div></div>`;
+  }
+  function sueloIntaHTML(a) {
+    const si = Agua.lecturaSuelo(a?.suelo);
+    const an = a?.analisis || [];
+    return `<div class="r-card"><h3>Suelo según el INTA</h3>${si ? `<div class="r-datos">
+        <div><small>Índice de productividad</small><b>${num(si.ip, 0)} (${Agua.textoIP(si.ip)})</b></div>
+        <div><small>Suelo dominante</small><b style="font-size:.95rem">${esc(si.suelo)}</b></div>
+        <div><small>Textura sup. / sub.</small><b style="font-size:.95rem">${esc(si.textura)}</b></div>
+        <div><small>Drenaje</small><b style="font-size:.95rem">${esc(si.drenaje || '—')}</b></div>
+        <div><small>Profundidad</small><b>${num(si.profundidad, 0)} cm</b></div>
+        <div><small>Alcalinidad</small><b style="font-size:.95rem">${esc(si.alcalinidad || '—')}</b></div>
+        <div><small>Limitantes</small><b style="font-size:.95rem">${esc(si.limitantes || 'Ninguna')}</b></div>
+        <div><small>Erosión / anegamiento</small><b style="font-size:.95rem">${esc([si.erosion, si.anegamiento].filter(Boolean).join(' · ') || 'No')}</b></div>
+        <div><small>Agua útil máx. (1 m)</small><b>${num(a.suelo.au, 0)} mm</b></div>
+      </div>${si.otros ? `<p class="nota" style="margin-top:8px">También en la unidad: ${esc(si.otros)}.</p>` : ''}
+      <p class="nota" style="margin-top:8px">Carta de Suelos de la República Argentina 1:500.000 (INTA), unidad ${esc(si.unidad)}. Es una escala regional: el lote puede tener manchones distintos.</p>`
+      : '<p class="nota">Sin dato del INTA para este lote todavía.</p>'}
+      ${an.length ? `<h3 style="margin-top:14px">Tus análisis de laboratorio</h3><div class="r-tabla-wrap"><table class="r-tabla"><thead><tr><th>Fecha</th><th>Prof.</th><th class="n">pH</th><th class="n">MO %</th><th class="n">P</th><th class="n">N-NO₃</th><th class="n">S</th><th class="n">CE</th></tr></thead><tbody>
+        ${an.map((x) => `<tr><td>${etqDia(x.fecha)}/${x.fecha.slice(0, 4)}</td><td>${esc(x.prof || '')}</td><td class="n">${num(x.ph, 1)}</td><td class="n">${num(x.mo, 2)}</td><td class="n">${num(x.p, 1)}</td><td class="n">${num(x.n, 1)}</td><td class="n">${num(x.s, 1)}</td><td class="n">${num(x.ce, 2)}</td></tr>`).join('')}</tbody></table></div>`
+      : '<p class="nota" style="margin-top:8px">Podés cargar tus análisis de laboratorio desde la ficha del campo (🧪 Suelo).</p>'}</div>`;
   }
 
   // Sección NDVI (vigor satelital)

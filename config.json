@@ -59,16 +59,171 @@
     "umbralHeladaC": 2
   },
   "retenciones": {
-    "actualizado": "2025-12-09",
-    "fuente": "Anuncio del Ministerio de Economía de diciembre de 2025. Verificá en el Boletín Oficial antes de usar.",
+    "actualizado": "2026-06-04",
+    "verificado": "2026-10-13",
+    "fuente": "Decreto 423/2026 (Boletín Oficial, junio 2026): trigo y cebada bajan a 5,5 %; soja, maíz, girasol y sorgo sin cambios durante 2026.",
+    "boletin": "https://www.boletinoficial.gob.ar/",
     "granos": {
       "soja": 24,
       "maiz": 8.5,
-      "trigo": 7.5,
+      "trigo": 5.5,
       "girasol": 4.5,
-      "cebada": 7.5,
+      "cebada": 5.5,
       "sorgo": 8.5
-    }
+    },
+    "nota_cronograma": "Soja según el Decreto 423/2026: −0,25 puntos por mes en 2027 (21 % en diciembre) y −0,5 por mes en 2028 (15 % en diciembre). Verificá cada valor contra el anexo del decreto.",
+    "cronograma": [
+      {
+        "desde": "2027-01-01",
+        "granos": {
+          "soja": 23.75
+        }
+      },
+      {
+        "desde": "2027-02-01",
+        "granos": {
+          "soja": 23.5
+        }
+      },
+      {
+        "desde": "2027-03-01",
+        "granos": {
+          "soja": 23.25
+        }
+      },
+      {
+        "desde": "2027-04-01",
+        "granos": {
+          "soja": 23
+        }
+      },
+      {
+        "desde": "2027-05-01",
+        "granos": {
+          "soja": 22.75
+        }
+      },
+      {
+        "desde": "2027-06-01",
+        "granos": {
+          "soja": 22.5
+        }
+      },
+      {
+        "desde": "2027-07-01",
+        "granos": {
+          "soja": 22.25
+        }
+      },
+      {
+        "desde": "2027-08-01",
+        "granos": {
+          "soja": 22
+        }
+      },
+      {
+        "desde": "2027-09-01",
+        "granos": {
+          "soja": 21.75
+        }
+      },
+      {
+        "desde": "2027-10-01",
+        "granos": {
+          "soja": 21.5
+        }
+      },
+      {
+        "desde": "2027-11-01",
+        "granos": {
+          "soja": 21.25
+        }
+      },
+      {
+        "desde": "2027-12-01",
+        "granos": {
+          "soja": 21
+        }
+      },
+      {
+        "desde": "2028-01-01",
+        "granos": {
+          "soja": 20.5
+        }
+      },
+      {
+        "desde": "2028-02-01",
+        "granos": {
+          "soja": 20
+        }
+      },
+      {
+        "desde": "2028-03-01",
+        "granos": {
+          "soja": 19.5
+        }
+      },
+      {
+        "desde": "2028-04-01",
+        "granos": {
+          "soja": 19
+        }
+      },
+      {
+        "desde": "2028-05-01",
+        "granos": {
+          "soja": 18.5
+        }
+      },
+      {
+        "desde": "2028-06-01",
+        "granos": {
+          "soja": 18
+        }
+      },
+      {
+        "desde": "2028-07-01",
+        "granos": {
+          "soja": 17.5
+        }
+      },
+      {
+        "desde": "2028-08-01",
+        "granos": {
+          "soja": 17
+        }
+      },
+      {
+        "desde": "2028-09-01",
+        "granos": {
+          "soja": 16.5
+        }
+      },
+      {
+        "desde": "2028-10-01",
+        "granos": {
+          "soja": 16
+        }
+      },
+      {
+        "desde": "2028-11-01",
+        "granos": {
+          "soja": 15.5
+        }
+      },
+      {
+        "desde": "2028-12-01",
+        "granos": {
+          "soja": 15
+        }
+      }
+    ],
+    "pendientes": [
+      {
+        "desde": "2027-01-01",
+        "texto": "Desde 2027 maíz y sorgo bajan por trimestre (7,5 % en dic-2027, 5,5 % en dic-2028) y girasol por semestre (hasta 3 %). El tablero todavía no tiene esos escalones: verificá el anexo del Decreto 423/2026 y actualizá config.json."
+      }
+    ]
   },
   "pizarra": {
     "url": "https://www.cac.bcr.com.ar/es/precios-de-pizarra",

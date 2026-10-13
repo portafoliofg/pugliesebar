@@ -21,7 +21,7 @@
     { nombre: 'Pastura', color: '#3f9b5a' }, { nombre: 'Barbecho', color: '#9c8b74' }
   ];
   const PALETA = ['#a4c639', '#ffc107', '#ff9800', '#3f9b5a', '#7aa6c2', '#c8962e', '#d95f7a', '#8e6bbf', '#b5532a', '#4fb3a9', '#e3c56a', '#9c8b74'];
-  const SIN = { cultivo: 'Sin cultivo', campana: 'Sin campaña', provincia: 'Sin ubicar', ndvi: 'Sin NDVI' };
+  const SIN = { cultivo: 'Sin cultivo', campana: 'Sin campaña', provincia: 'Sin ubicar', ndvi: 'Sin NDVI', agua: 'Sin dato de agua' };
 
   // Campaña actual: desde julio se considera la campaña que empieza ese año
   const hoy = new Date();
@@ -36,11 +36,11 @@
   let modoSeleccion = false;          // en el celular: tocar = seleccionar
   const filtros = { q: '', cultivo: 'Todos', provincia: 'Todas', campana: 'Todas' };
   let pestanaClima = 'resumen';
-  let mapa, capaCampos, capaNuevos, capaNdvi = null, graficoNdvi = null;
+  let mapa, capaCampos, capaNuevos, capaNdvi = null, graficoNdvi = null, graficoAgua = null;
   const capasBase = {};
   const superposiciones = {};
 
-  const VISTA_DEF = { base: 'satelite', colorPor: 'cultivo', ocultos: [], nombres: true, limites: true, radar: false };
+  const VISTA_DEF = { base: 'satelite', colorPor: 'cultivo', ocultos: [], nombres: true, limites: true, radar: false, goes: '' };
   let vista = Object.assign({}, VISTA_DEF);
   try { vista = Object.assign(vista, JSON.parse(localStorage.getItem('campos-vista') || '{}')); } catch (e) {}
   const guardarVista = () => { try { localStorage.setItem('campos-vista', JSON.stringify(vista)); } catch (e) {} };
@@ -72,9 +72,10 @@
   const nuevoId = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
 
   // Grupo de un campo según "colorear por"
-  const grupo = (c, por = vista.colorPor) => (por === 'ndvi' ? NDVI.grupo(NDVI.de(c.id)) : por === 'cultivo' ? c.cultivo : por === 'campana' ? c.campana : c.provincia) || SIN[por];
+  const grupo = (c, por = vista.colorPor) => (por === 'agua' ? (Agua.estado(Agua.de(c.id)?.pct)?.nombre || SIN.agua) : por === 'ndvi' ? NDVI.grupo(NDVI.de(c.id)) : por === 'cultivo' ? c.cultivo : por === 'campana' ? c.campana : c.provincia) || SIN[por];
   function colorGrupo(valor, por = vista.colorPor) {
     if (por === 'ndvi') return NDVI.colorGrupo(valor);
+    if (por === 'agua') return Agua.ESTADOS.find((e) => e.nombre === valor)?.color || '#f4eee2';
     if (por === 'cultivo') return valor === SIN.cultivo ? '#f4eee2' : (CULTIVOS.find((x) => x.nombre === valor)?.color || '#7aa6c2');
     if (valor === SIN[por]) return '#f4eee2';
     const valores = [...new Set(datos.campos.map((c) => grupo(c, por)))].filter((v) => v !== SIN[por]).sort(ordenar);
@@ -82,7 +83,8 @@
   }
   // Orden de los grupos en leyenda y capas (NDVI de mayor a menor; el resto alfabético)
   const ORDEN_NDVI = NDVI.GRUPOS.map((g) => g.nombre).concat(NDVI.SIN);
-  const ordenGrupos = (a, b) => (vista.colorPor === 'ndvi' ? ORDEN_NDVI.indexOf(a) - ORDEN_NDVI.indexOf(b) : ordenar(a, b));
+  const ORDEN_AGUA = Agua.ESTADOS.map((e) => e.nombre).concat(SIN.agua);
+  const ordenGrupos = (a, b) => (vista.colorPor === 'ndvi' ? ORDEN_NDVI.indexOf(a) - ORDEN_NDVI.indexOf(b) : vista.colorPor === 'agua' ? ORDEN_AGUA.indexOf(a) - ORDEN_AGUA.indexOf(b) : ordenar(a, b));
   const colorCultivo = (c) => colorGrupo(c.cultivo || SIN.cultivo, 'cultivo');
 
   // Filtros del panel (búsqueda, cultivo, provincia, campaña)
@@ -246,12 +248,40 @@
     }
   }
 
+  // Satélite meteorológico GOES-East (NOAA) vía NASA GIBS: imagen de hace ~30–40 minutos, cada 10 minutos.
+  // 'ir' = infrarrojo (nubes y topes fríos de tormenta, también de noche) · 'color' = color natural de día.
+  const GOES = {
+    ir: { capa: 'GOES-East_ABI_Band13_Clean_Infrared', nivel: 6, opacidad: 0.6, texto: 'infrarrojo: nubes y tormentas' },
+    color: { capa: 'GOES-East_ABI_GeoColor', nivel: 7, opacidad: 0.75, texto: 'color natural' }
+  };
+  let goesTimer = null;
+  function horaGoes() {
+    const t = new Date(Date.now() - 50 * 60000);
+    t.setUTCMinutes(Math.floor(t.getUTCMinutes() / 10) * 10, 0, 0);
+    return t.toISOString().slice(0, 19) + 'Z';
+  }
+  function activarGoes(tipo) {
+    if (superposiciones.goes) { mapa.removeLayer(superposiciones.goes); superposiciones.goes = null; }
+    clearInterval(goesTimer);
+    if (!tipo || !GOES[tipo]) return;
+    const g = GOES[tipo];
+    const hora = horaGoes();
+    superposiciones.goes = L.tileLayer(`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/${g.capa}/default/${hora}/GoogleMapsCompatible_Level${g.nivel}/{z}/{y}/{x}.png`, {
+      opacity: g.opacidad, maxNativeZoom: g.nivel, maxZoom: 19, attribution: 'GOES-East &copy; NOAA · NASA GIBS'
+    }).addTo(mapa);
+    superposiciones.goes.on('tileerror', () => { if (!superposiciones.goes._avisado) { superposiciones.goes._avisado = true; avisar('Algunas imágenes del satélite GOES no cargaron; probá de nuevo en unos minutos.', 'error'); } });
+    const local = new Date(hora).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Argentina/Buenos_Aires' });
+    avisar(`Satélite GOES (${g.texto}) de las ${local} h. Se actualiza solo cada 10 minutos.`);
+    goesTimer = setInterval(() => { if (vista.goes === tipo) activarGoes(tipo); }, 10 * 60000);
+  }
+
   function aplicarVista() {
     Object.entries(capasBase).forEach(([k, l]) => (k === vista.base ? l.addTo(mapa) : mapa.removeLayer(l)));
     if (vista.limites) superposiciones.limites.addTo(mapa); else mapa.removeLayer(superposiciones.limites);
     aplicarNombres();
     if (vista.radar && !superposiciones.radar) activarRadar(true);
     if (!vista.radar && superposiciones.radar) activarRadar(false);
+    if (vista.goes && !superposiciones.goes) activarGoes(vista.goes);
   }
 
   function estilo(c) {
@@ -290,7 +320,7 @@
     const el = $('#leyenda');
     if (!el) return;
     const grupos = [...new Set(datos.campos.map((c) => grupo(c)))].sort(ordenGrupos);
-    const titulo = { cultivo: 'Cultivo', campana: 'Campaña', provincia: 'Provincia', ndvi: 'NDVI (vigor)' }[vista.colorPor];
+    const titulo = { cultivo: 'Cultivo', campana: 'Campaña', provincia: 'Provincia', ndvi: 'NDVI (vigor)', agua: 'Agua útil (1 m)' }[vista.colorPor];
     el.innerHTML = grupos.length
       ? `<b>${titulo}</b>` + grupos.map((g) => `<span class="${vista.ocultos.includes(vista.colorPor + ':' + g) ? 'apagado' : ''}"><i class="muestra" style="background:${colorGrupo(g)}"></i>${esc(g)}</span>`).join('')
       : '<b>Sin campos cargados</b>';
@@ -308,12 +338,14 @@
       <div class="capas-sec"><b>Mapa base</b>
         ${radio('base', 'satelite', vista.base, 'Satélite')}${radio('base', 'calles', vista.base, 'Calles')}${radio('base', 'relieve', vista.base, 'Relieve')}</div>
       <div class="capas-sec"><b>Colorear campos por</b>
-        ${radio('colorPor', 'cultivo', vista.colorPor, 'Cultivo')}${radio('colorPor', 'campana', vista.colorPor, 'Campaña')}${radio('colorPor', 'provincia', vista.colorPor, 'Provincia')}${radio('colorPor', 'ndvi', vista.colorPor, 'NDVI satelital')}</div>
+        ${radio('colorPor', 'cultivo', vista.colorPor, 'Cultivo')}${radio('colorPor', 'campana', vista.colorPor, 'Campaña')}${radio('colorPor', 'provincia', vista.colorPor, 'Provincia')}${radio('colorPor', 'ndvi', vista.colorPor, 'NDVI satelital')}${radio('colorPor', 'agua', vista.colorPor, 'Agua útil del suelo')}</div>
       <div class="capas-sec"><b>Mostrar</b>
         ${Object.entries(grupos).sort((a, b) => ordenGrupos(a[0], b[0])).map(([g, ha]) => `<label class="opcion"><input type="checkbox" data-grupo="${esc(g)}" ${vista.ocultos.includes(vista.colorPor + ':' + g) ? '' : 'checked'}>
           <i class="muestra" style="background:${colorGrupo(g)}"></i> ${esc(g)} <small>${num(ha, 0)} ha</small></label>`).join('') || '<small>Sin campos</small>'}</div>
       <div class="capas-sec"><b>Superposiciones</b>
-        ${check('nombres', vista.nombres, 'Nombres de los lotes')}${check('limites', vista.limites, 'Límites y localidades')}${check('radar', vista.radar, 'Radar de lluvia (último)')}</div>`;
+        ${check('nombres', vista.nombres, 'Nombres de los lotes')}${check('limites', vista.limites, 'Límites y localidades')}${check('radar', vista.radar, 'Radar de lluvia (último)')}</div>
+      <div class="capas-sec"><b>Satélite GOES (cada 10 min)</b>
+        ${radio('goes', '', vista.goes || '', 'Ninguno')}${radio('goes', 'ir', vista.goes, 'Nubes y tormentas (infrarrojo)')}${radio('goes', 'color', vista.goes, 'Color natural (de día)')}</div>`;
   }
 
   document.addEventListener('change', (e) => {
@@ -329,6 +361,7 @@
     if (t.dataset.sup === 'nombres') { vista.nombres = t.checked; aplicarNombres(); }
     if (t.dataset.sup === 'limites') { vista.limites = t.checked; aplicarVista(); }
     if (t.dataset.sup === 'radar') { vista.radar = t.checked; activarRadar(t.checked); }
+    if (t.name === 'goes') { vista.goes = t.value; activarGoes(t.value); }
     guardarVista();
   });
 
@@ -365,6 +398,12 @@
     dibujarCampos();
   }
 
+  function chipAgua(c) {
+    const x = Agua.de(c.id);
+    if (!x || x.pct == null) return '';
+    return `<small class="ndvi-chip" title="Agua útil del primer metro: ${num(x.agua, 0)} de ${num(x.au, 0)} mm" style="--c:${Agua.color(x.pct)}">💧 ${num(x.pct, 0)} %</small>`;
+  }
+
   function chipNdvi(c) {
     const x = NDVI.de(c.id);
     if (!x || x.ndvi == null) return '';
@@ -376,6 +415,7 @@
   function quitarImagenNdvi() {
     if (capaNdvi) { mapa.removeLayer(capaNdvi); capaNdvi = null; }
     if (graficoNdvi) { graficoNdvi.destroy(); graficoNdvi = null; }
+    if (graficoAgua) { graficoAgua.destroy(); graficoAgua = null; }
   }
 
   // Sección NDVI del detalle de un campo
@@ -426,6 +466,142 @@
     dibujarCampos();
     const b = $('[data-accion="ndvi-imagen"]');
     if (b) b.textContent = (capaNdvi ? '🙈 Ocultar' : '🛰️ Ver') + ' imagen NDVI en el mapa';
+  }
+
+  // ---------- Agua útil ----------
+  async function mostrarAgua(c) {
+    const el = $('#agua');
+    if (!el) return;
+    const x = Agua.de(c.id);
+    if (!x || x.pct == null) {
+      el.innerHTML = '<p class="nota">Todavía no hay balance de agua para este lote. Se calcula todos los días a las 6:40 y cada vez que cargás una lluvia.</p>';
+      return;
+    }
+    const e = Agua.estado(x.pct);
+    const f = x.fuentes30 || {};
+    const tot = Object.values(f).reduce((a, b) => a + b, 0) || 1;
+    const sinSiembra = c.cultivo && !c.siembra;
+    el.innerHTML = `<div class="ndvi-cab">
+        <div class="ndvi-valor" style="--c:${e.color}"><b>${num(x.pct, 0)} %</b><small>${esc(e.nombre)}</small></div>
+        <div><b>${num(x.agua, 0)} de ${num(x.au, 0)} mm de agua útil</b><small class="nota">En 7 días: ${num(x.proy7, 0)} % · en 16 días: ${num(x.proy16, 0)} % (con el pronóstico).<br>Lluvia: ${num(x.lluvia7, 0)} mm en 7 días, ${num(x.lluvia30, 0)} mm en 30.</small></div>
+      </div>
+      <div class="agua-barra" title="Agua útil del primer metro"><i style="width:${Math.min(100, x.pct)}%;background:${e.color}"></i><span style="left:50%"></span></div>
+      <div class="leyenda-barras">${Object.entries(f).map(([k, n]) => `<span><i style="background:${Agua.COLOR_FUENTE[k]}"></i>${esc(Agua.FUENTES[k])} ${num((n / tot) * 100, 0)} %</span>`).join('')}</div>
+      <div class="ndvi-graf"><canvas id="graf-agua" aria-label="Evolución del agua útil"></canvas></div>
+      ${sinSiembra ? '<p class="nota">💡 Cargá la fecha de siembra (en "Editar") para que el consumo siga la etapa del cultivo.</p>' : ''}
+      <button type="button" class="btn" data-accion="lluvia">🌧️ Registrar lluvia de este lote</button>`;
+    const s = await Agua.serie(c.id);
+    if (abierto !== c.id || !s?.serie?.length || !window.Chart) return;
+    if (graficoAgua) graficoAgua.destroy();
+    const todo = s.serie.slice(-45).concat(s.proy || []);
+    const corte = s.serie.slice(-45).length;
+    const css = getComputedStyle(document.documentElement);
+    graficoAgua = new Chart($('#graf-agua'), {
+      data: { labels: todo.map((p) => fechaCorta(p.f)), datasets: [
+        { type: 'line', label: 'Agua útil %', data: todo.map((p) => p.pct), borderColor: '#2e8b57', backgroundColor: 'rgba(46,139,87,.12)', fill: true, tension: 0.3, pointRadius: 0, yAxisID: 'y',
+          segment: { borderDash: (ctx) => (ctx.p0DataIndex >= corte - 1 ? [5, 4] : undefined) } },
+        { type: 'bar', label: 'Lluvia (mm)', data: todo.map((p) => p.p || null), backgroundColor: todo.map((p) => Agua.COLOR_FUENTE[p.fu]), yAxisID: 'y1' }
+      ] },
+      options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } },
+        scales: { y: { min: 0, max: 100, ticks: { color: css.getPropertyValue('--muted'), callback: (v) => v + ' %' } }, y1: { position: 'right', beginAtZero: true, grid: { display: false }, ticks: { color: css.getPropertyValue('--muted') } },
+          x: { ticks: { color: css.getPropertyValue('--muted'), maxTicksLimit: 6 } } } }
+    });
+  }
+
+  // ---------- Suelo: INTA y análisis propios ----------
+  async function mostrarSuelo(c) {
+    const el = $('#suelo');
+    if (!el) return;
+    el.innerHTML = '<div class="esqueleto"></div>';
+    const lista = (await Agua.analisis().catch(() => [])).filter((a) => a.campo === c.id).sort((a, b) => b.fecha.localeCompare(a.fecha));
+    const s = Agua.lecturaSuelo(Agua.sueloDe(c.id));
+    const au = Agua.sueloDe(c.id);
+    if (abierto !== c.id) return;
+    el.innerHTML = `${s ? `<div class="datos suelo-datos">
+        <div class="dato"><small>Índice de productividad</small><b>${num(s.ip, 0)}</b><small>${esc(Agua.textoIP(s.ip))}</small></div>
+        <div class="dato"><small>Agua útil máx. (1 m)</small><b>${num(au.au, 0)} mm</b></div>
+      </div>
+      <p class="nota"><b>${esc(s.suelo)}</b>${s.otros ? ` · también ${esc(s.otros)}` : ''}<br>Textura ${esc(s.textura.toLowerCase())} · ${esc(String(s.drenaje || '').toLowerCase())} · ${esc(String(s.alcalinidad || '').toLowerCase())}${s.limitantes ? ` · limitante: ${esc(s.limitantes.toLowerCase())}` : ''}${s.erosion ? ` · erosión ${esc(s.erosion)}` : ''}${s.anegamiento ? ` · anegamiento ${esc(s.anegamiento.toLowerCase())}` : ''}.<br><small>Carta de Suelos INTA 1:500.000 (unidad ${esc(s.unidad)}). Es un mapa regional: el lote puede tener manchones distintos.</small></p>`
+      : '<p class="nota">Sin dato del INTA para este lote todavía.</p>'}
+      <div class="seccion-t">Análisis de laboratorio</div>
+      ${lista.length ? `<div style="overflow-x:auto"><table class="tabla-import"><thead><tr><th>Fecha</th><th>Prof.</th><th>pH</th><th>MO %</th><th>P ppm</th><th>N-NO₃</th><th>S</th><th>CE</th><th></th></tr></thead><tbody>
+        ${lista.map((a) => `<tr><td>${esc(a.fecha)}</td><td>${esc(a.prof || '')}</td><td class="num">${num(a.ph, 1)}</td><td class="num">${num(a.mo, 2)}</td><td class="num">${num(a.p, 1)}</td><td class="num">${num(a.n, 1)}</td><td class="num">${num(a.s, 1)}</td><td class="num">${num(a.ce, 2)}</td>
+          <td><button type="button" class="btn" data-borrar-analisis="${esc(a.id)}" aria-label="Borrar">✕</button></td></tr>${a.nota ? `<tr><td colspan="9" class="nota">${esc(a.nota)}</td></tr>` : ''}`).join('')}</tbody></table></div>` : '<p class="nota">Sin análisis cargados.</p>'}
+      <form class="form" id="form-analisis" autocomplete="off">
+        <div class="fila2"><label>Fecha<input name="fecha" type="date" required value="${new Date().toISOString().slice(0, 10)}"></label><label>Profundidad<input name="prof" placeholder="0-20 cm" value="0-20 cm"></label></div>
+        <div class="fila3"><label>pH<input name="ph" type="number" step="0.01"></label><label>MO %<input name="mo" type="number" step="0.01"></label><label>P (ppm)<input name="p" type="number" step="0.1"></label></div>
+        <div class="fila3"><label>N-NO₃ (ppm)<input name="n" type="number" step="0.1"></label><label>S-SO₄ (ppm)<input name="s" type="number" step="0.1"></label><label>CE (dS/m)<input name="ce" type="number" step="0.01"></label></div>
+        <label>Notas<input name="nota" placeholder="Laboratorio, Zn, CIC, textura…"></label>
+        <button class="btn btn-1" type="submit">＋ Guardar análisis</button>
+      </form>`;
+    $('#form-analisis').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const n = (k) => (fd.get(k) === '' ? null : Number(fd.get(k)));
+      const r = { campo: c.id, fecha: fd.get('fecha'), prof: String(fd.get('prof') || '').trim(), ph: n('ph'), mo: n('mo'), p: n('p'), n: n('n'), s: n('s'), ce: n('ce'), nota: String(fd.get('nota') || '').trim() };
+      if ([r.ph, r.mo, r.p, r.n, r.s, r.ce].every((v) => v == null)) return avisar('Cargá al menos un valor del análisis.', 'error');
+      conToken(async () => {
+        cargando('Guardando análisis…');
+        try { await Agua.agregarAnalisis(r); avisar('Análisis guardado.'); mostrarSuelo(c); }
+        catch (err) { manejarError(err); } finally { cargando(null); }
+      });
+    });
+  }
+
+  // ---------- Registro de lluvias ----------
+  async function ventanaLluvia(preelegidos) {
+    const ids = new Set(preelegidos && preelegidos.length ? preelegidos : []);
+    const hoyISO = new Date(Date.now() - 3 * 36e5).toISOString().slice(0, 10);
+    const zonas = {};
+    datos.campos.forEach((c) => { const z = [c.localidad || c.departamento, c.provincia].filter(Boolean).join(', ') || 'Sin ubicar'; (zonas[z] = zonas[z] || []).push(c); });
+    abrirVentana(`<h2>🌧️ Registrar lluvia</h2>
+      <p>Lo que mide tu pluviómetro reemplaza a la estimación satelital en el balance de agua de los lotes elegidos.</p>
+      <form class="form" id="form-lluvia" autocomplete="off">
+        <div class="fila2"><label>Fecha<input name="fecha" type="date" required max="${hoyISO}" value="${hoyISO}"></label>
+          <label>Milímetros<input name="mm" type="number" min="0" max="500" step="0.5" required placeholder="mm"></label></div>
+        <label>Notas<input name="nota" placeholder="Pluviómetro de la casa, granizo…"></label>
+        <div class="seccion-t">¿En qué lotes?</div>
+        <label class="buscar"><span aria-hidden="true">⌕</span><input id="lluvia-buscar" placeholder="Filtrar lotes…"></label>
+        <div class="lluvia-lotes">${Object.entries(zonas).sort((a, b) => ordenar(a[0], b[0])).map(([z, l]) => `<div class="lluvia-zona" data-zona="${esc(z)}">
+          <label class="opcion"><input type="checkbox" data-zona-todos="${esc(z)}"> <b>${esc(z)}</b> <small>(${l.length})</small></label>
+          ${l.sort((a, b) => ordenar(a.nombre, b.nombre)).map((c) => `<label class="opcion lluvia-lote"><input type="checkbox" name="campo" value="${esc(c.id)}" ${ids.has(c.id) ? 'checked' : ''}> ${esc(c.nombre)}</label>`).join('')}</div>`).join('')}</div>
+        <div class="botones"><button class="btn btn-1" type="submit">Guardar</button><button class="btn" type="button" data-accion="cerrar">Cancelar</button></div>
+      </form>
+      <div class="seccion-t">Últimos registros</div><div id="lluvias-previas"><div class="esqueleto"></div></div>`);
+    const f = $('#form-lluvia');
+    f.addEventListener('change', (e) => {
+      const z = e.target.dataset.zonaTodos;
+      if (z !== undefined) $$(`.lluvia-zona[data-zona="${CSS.escape(z)}"] input[name=campo]`).forEach((x) => { x.checked = e.target.checked; });
+    });
+    $('#lluvia-buscar').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      $$('.lluvia-lote').forEach((l) => { l.style.display = !q || l.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    });
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(f);
+      const campos = fd.getAll('campo');
+      if (!campos.length) return avisar('Elegí al menos un lote.', 'error');
+      const r = { fecha: fd.get('fecha'), mm: Number(fd.get('mm')), campos, nota: String(fd.get('nota') || '').trim() };
+      conToken(async () => {
+        cargando('Guardando lluvia…');
+        try {
+          await Agua.agregarLluvia(r);
+          cerrarVentana();
+          avisar(`Lluvia de ${num(r.mm, 1)} mm guardada en ${campos.length} ${campos.length === 1 ? 'lote' : 'lotes'}. El balance de agua se recalcula en unos minutos.`);
+        } catch (err) { manejarError(err); } finally { cargando(null); }
+      });
+    });
+    pintarLluviasPrevias();
+  }
+  async function pintarLluviasPrevias() {
+    const el = $('#lluvias-previas');
+    if (!el) return;
+    const l = (await Agua.lluvias().catch(() => [])).sort((a, b) => b.fecha.localeCompare(a.fecha)).slice(0, 15);
+    const nombre = (id) => datos.campos.find((c) => c.id === id)?.nombre || 'campo borrado';
+    el.innerHTML = l.length ? `<table class="tabla-import"><tbody>${l.map((r) => `<tr><td>${esc(r.fecha)}</td><td class="num"><b>${num(r.mm, 1)} mm</b></td>
+      <td class="nota">${esc(r.campos.length > 3 ? `${r.campos.length} lotes` : r.campos.map(nombre).join(', '))}${r.nota ? ' · ' + esc(r.nota) : ''}</td>
+      <td><button type="button" class="btn" data-borrar-lluvia="${esc(r.id)}" aria-label="Borrar">✕</button></td></tr>`).join('')}</tbody></table>` : '<p class="nota">Todavía no cargaste lluvias.</p>';
   }
 
   // ---------- Alertas por WhatsApp ----------
@@ -536,7 +712,7 @@
           <span class="franja" style="background:${colorCultivo(c)}"></span>
           <span class="item-txt"><b>${esc(c.nombre)}</b><small>${esc(c.cultivo || SIN.cultivo)}${c.campana ? ' · ' + esc(c.campana) : ''}</small>
             <small>${c.provincia ? '📍 ' + esc([c.localidad || c.departamento, c.provincia].filter(Boolean).join(', ')) : '📍 Ubicando…'}</small></span>
-          <span class="ha">${num(haDe(c), 1)} ha${chipNdvi(c)}</span></div>`).join('') || '<p class="nota">No hay campos con esos filtros.</p>'}</div>
+          <span class="ha">${num(haDe(c), 1)} ha${chipNdvi(c)}${chipAgua(c)}</span></div>`).join('') || '<p class="nota">No hay campos con esos filtros.</p>'}</div>
         <p class="nota">Tip: en el mapa, Ctrl + clic (o el botón "Seleccionar") marca varios lotes.</p>`
       : `<div class="vacio"><div class="ico" aria-hidden="true">🌾</div><h2>Cargá tu primer campo</h2>
           <p>Subí uno o varios archivos <b>KML</b> o <b>KMZ</b> (por ejemplo, exportados de Google Earth). Cada polígono se convierte en un campo.</p>
@@ -591,10 +767,13 @@
         <div class="dato"><small>Campaña</small><b>${esc(c.campana || '—')}</b></div>
       </div>
       <a class="btn btn-1 btn-reporte" href="reporte.html?id=${encodeURIComponent(c.id)}" target="_blank" rel="noopener">📊 Reporte completo del campo</a>
+      <div class="seccion-t">💧 Agua útil del suelo (primer metro)</div>
+      <div class="agua" id="agua"></div>
       <div class="seccion-t">🛰️ Vigor del cultivo (NDVI satelital)</div>
       <div class="ndvi" id="ndvi"></div>
       <div class="seccion-t">Pronóstico de la zona</div>
       <div class="clima" id="clima"><div class="esqueleto"></div></div>
+      <details class="editar" id="det-suelo"><summary>🧪 Suelo (INTA) y análisis de laboratorio</summary><div id="suelo"></div></details>
       ${c.notas ? `<div class="nota-campo">📝 ${esc(c.notas)}</div>` : ''}
       <details class="editar" ${c.cultivo ? '' : 'open'}><summary>✎ Editar nombre, cultivo, campaña y notas</summary>
         <form class="form" id="form-campo" autocomplete="off">
@@ -606,6 +785,7 @@
             <option value="__otro" ${esOtro ? 'selected' : ''}>Otro…</option></select></label>
           <label>Campaña<input name="campana" placeholder="${CAMPANA}" value="${esc(c.campana || '')}"></label>
         </div>
+        <label>Fecha de siembra<input name="siembra" type="date" value="${esc(c.siembra || '')}"><small class="nota">Con la fecha, el consumo de agua sigue la etapa del cultivo.</small></label>
         <label class="${esOtro ? '' : 'oculto'}" id="otro-cultivo">¿Cuál?<input name="otro" value="${esc(esOtro ? c.cultivo : '')}"></label>
         <div class="fila2">
           <label>Hectáreas del mapa<input value="${num(c.ha, 2)}" readonly></label>
@@ -625,6 +805,8 @@
     $('#form-campo').addEventListener('submit', (e) => { e.preventDefault(); guardarCampo(c.id, new FormData(e.target)); });
     mostrarPronostico(c.id, lat, lon);
     mostrarNdvi(c);
+    mostrarAgua(c);
+    $('#det-suelo').addEventListener('toggle', (e) => { if (e.target.open) mostrarSuelo(c); }, { once: true });
   }
 
   async function mostrarPronostico(id, lat, lon) {
@@ -663,7 +845,8 @@
       cultivo,
       campana: String(fd.get('campana') || '').trim(),
       haDeclaradas: fd.get('haDeclaradas') === '' ? null : Number(fd.get('haDeclaradas')),
-      notas: String(fd.get('notas') || '').trim()
+      notas: String(fd.get('notas') || '').trim(),
+      siembra: String(fd.get('siembra') || '') || null
     };
     conToken(async () => {
       const ok = await operar('Guardando en GitHub…', (actual) => {
@@ -885,6 +1068,17 @@
 
   document.addEventListener('click', (e) => {
     if (e.target.matches('input.sel')) return; // el checkbox lo maneja "change"
+    const bl = e.target.closest('[data-borrar-lluvia]');
+    if (bl) {
+      if (confirm('¿Borrar este registro de lluvia?')) conToken(async () => { cargando('Borrando…'); try { await Agua.borrarLluvia(bl.dataset.borrarLluvia); pintarLluviasPrevias(); } catch (err) { manejarError(err); } finally { cargando(null); } });
+      return;
+    }
+    const ba = e.target.closest('[data-borrar-analisis]');
+    if (ba) {
+      const c = datos.campos.find((x) => x.id === abierto);
+      if (c && confirm('¿Borrar este análisis?')) conToken(async () => { cargando('Borrando…'); try { await Agua.borrarAnalisis(ba.dataset.borrarAnalisis); mostrarSuelo(c); } catch (err) { manejarError(err); } finally { cargando(null); } });
+      return;
+    }
     const pc = $('#panel-capas');
     if (pc && !pc.classList.contains('oculto') && !e.target.closest('.ctrl-mapa')) pc.classList.add('oculto');
     const tab = e.target.closest('[data-pclima]');
@@ -910,6 +1104,7 @@
     }
     else if (a === 'confirmar-import') confirmarImport();
     else if (a === 'ndvi-imagen') alternarImagenNdvi();
+    else if (a === 'lluvia') conToken(() => ventanaLluvia([abierto]));
     else if (a === 'cerrar') cerrarVentana();
     else if (a === 'conectar') pedirToken(null);
     else if (a === 'cambiar-token') { cerrarVentana(); pedirToken(null); }
@@ -918,6 +1113,7 @@
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
   $('#btn-gh').addEventListener('click', menuGitHub);
   $('#btn-alertas').addEventListener('click', () => conToken(ventanaAlertas));
+  $('#btn-lluvia').addEventListener('click', () => conToken(() => ventanaLluvia(seleccion.size ? [...seleccion] : abierto ? [abierto] : [])));
   $('#btn-borrar-todo').addEventListener('click', () => conToken(confirmarBorrarTodo));
   $('#archivo').addEventListener('change', (e) => { importar(Array.from(e.target.files)); e.target.value = ''; });
 
@@ -956,7 +1152,7 @@
     cargando(null);
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
-    if (!bloqueado) NDVI.cargarResumen(true).then(() => { refrescar(); }).catch(() => {});
+    if (!bloqueado) Promise.all([NDVI.cargarResumen(true), Agua.cargar(true)]).then(() => { refrescar(); }).catch(() => {});
     await corregirNombres();
     completarUbicaciones();
   }

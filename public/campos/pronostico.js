@@ -1,5 +1,5 @@
 // Pronóstico detallado de un campo con Open-Meteo (gratis, sin clave).
-// Pestañas: Resumen · 48 horas · 16 días · Suelo.
+// Pestañas: Resumen · 48 horas · 16 días · Escenarios (probabilidades con 51 escenarios de ECMWF).
 // Incluye ventanas para pulverizar y balance hídrico (lluvia − evapotranspiración).
 (function () {
   'use strict';
@@ -33,9 +33,13 @@
       daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant,et0_fao_evapotranspiration,sunrise,sunset,uv_index_max',
       hourly: 'temperature_2m,relative_humidity_2m,dew_point_2m,precipitation,precipitation_probability,weather_code,wind_speed_10m,wind_gusts_10m,wind_direction_10m,soil_temperature_6cm,soil_moisture_0_to_1cm,soil_moisture_3_to_9cm,soil_moisture_9_to_27cm'
     });
-    const r = await fetch('https://api.open-meteo.com/v1/forecast?' + p);
+    const [r, ens] = await Promise.all([
+      fetch('https://api.open-meteo.com/v1/forecast?' + p),
+      window.Ensamble ? Ensamble.cargar(lat, lon).catch(() => null) : Promise.resolve(null)
+    ]);
     if (!r.ok) throw new Error('Open-Meteo respondió HTTP ' + r.status);
     const d = await r.json();
+    d.ens = ens;
     cache.set(k, d);
     return d;
   }
@@ -85,7 +89,11 @@
     const heladas = dd.time.map((f, i) => ({ f, min: dd.temperature_2m_min[i] })).slice(iHoy).filter((x) => x.min != null && x.min < 2);
     const ventanas = ventanasPulverizar(h, iAhora, Math.min(h.time.length, iAhora + 72));
 
-    const tabs = [['resumen', 'Resumen'], ['horas', '48 horas'], ['dias', '16 días'], ['suelo', 'Suelo']];
+    const tabs = [['resumen', 'Resumen'], ['horas', '48 horas'], ['dias', '16 días'], ['escenarios', 'Escenarios']];
+    if (pestana === 'suelo') pestana = 'escenarios';
+    const ens = d.ens;
+    const P = (x) => (window.Ensamble ? Ensamble.pct(x) : '—');
+    const heladasEns = ens ? ens.dias.filter((x) => x.helada2 >= 0.2) : [];
     let cuerpo = '';
 
     if (pestana === 'resumen') {
@@ -99,12 +107,14 @@
       }).join('');
       const balance = lluvia30 - et030;
       cuerpo = `
-        ${heladas.length ? `<div class="alerta" role="alert">❄️ Posible helada: ${heladas.slice(0, 6).map((x) => `${diaCorto(x.f)} (${num(x.min, 0)}°)`).join(', ')}</div>` : ''}
+        ${ens && heladasEns.length ? `<div class="alerta" role="alert">❄️ Probabilidad de helada (&lt; 2 °C): ${heladasEns.slice(0, 6).map((x) => `${diaCorto(x.f)} ${P(x.helada2)}`).join(', ')}</div>`
+          : heladas.length ? `<div class="alerta" role="alert">❄️ Posible helada: ${heladas.slice(0, 6).map((x) => `${diaCorto(x.f)} (${num(x.min, 0)}°)`).join(', ')}</div>` : ''}
         <div class="lluvias">
           <div><small>Últimos 7 días</small><b>${num(lluvia7, 1)} mm</b></div>
           <div><small>Últimos 30 días</small><b>${num(lluvia30, 1)} mm</b></div>
-          <div><small>Próximos 7 días</small><b>${num(prox7, 1)} mm</b></div>
+          <div><small>Próximos 7 días</small><b>${num(prox7, 1)} mm</b>${ens ? `<small title="Entre el 10 % y el 90 % de los 51 escenarios">rango ${num(ens.acum7.q10, 0)}–${num(ens.acum7.q90, 0)} mm</small>` : ''}</div>
         </div>
+        ${ens ? `<div class="prob-lluvia"><span>Probabilidad de lluvia en 7 días:</span><b>≥ 10 mm ${P(ens.acum7.p10)}</b><b>≥ 25 mm ${P(ens.acum7.p25)}</b><b>≥ 50 mm ${P(ens.acum7.p50)}</b></div>` : ''}
         <div class="lluvias">
           <div><small>Próximos 16 días</small><b>${num(prox16, 1)} mm</b></div>
           <div><small>Evapotransp. 30 días</small><b style="color:var(--naranja-tx)">${num(et030, 0)} mm</b></div>
@@ -147,22 +157,23 @@
         <p class="nota">*Viento máximo / ráfaga en km/h. ET0: evapotranspiración de referencia (mm/día). Más allá de 7 días el pronóstico es menos preciso.</p>`;
     }
 
-    if (pestana === 'suelo') {
-      const i = iAhora;
-      const pct = (v) => (v == null ? '—' : num(v * 100, 0) + ' %');
-      cuerpo = `<div class="datos">
-          <div class="dato"><small>Humedad 0–1 cm</small><b>${pct(h.soil_moisture_0_to_1cm[i])}</b></div>
-          <div class="dato"><small>Humedad 3–9 cm</small><b>${pct(h.soil_moisture_3_to_9cm[i])}</b></div>
-          <div class="dato"><small>Humedad 9–27 cm</small><b>${pct(h.soil_moisture_9_to_27cm[i])}</b></div>
-          <div class="dato"><small>Temp. suelo 6 cm</small><b>${num(h.soil_temperature_6cm[i], 1)}°</b></div>
+    if (pestana === 'escenarios') {
+      cuerpo = !ens ? '<p class="nota">No se pudo cargar el pronóstico por escenarios.</p>' : `
+        <div class="lluvias">
+          <div><small>Lluvia 7 días · probable</small><b>${num(ens.acum7.q50, 0)} mm</b><small>rango ${num(ens.acum7.q10, 0)}–${num(ens.acum7.q90, 0)}</small></div>
+          <div><small>Lluvia 14 días · probable</small><b>${num(ens.acum14.q50, 0)} mm</b><small>rango ${num(ens.acum14.q10, 0)}–${num(ens.acum14.q90, 0)}</small></div>
+          <div><small>Semana seca (&lt; 5 mm)</small><b>${P(ens.acum7.seco)}</b></div>
         </div>
-        <div class="grafico-campo alto"><canvas id="g-suelo" aria-label="Humedad del suelo"></canvas></div>
-        <p class="nota">Humedad volumétrica del suelo estimada por modelo (m³/m³ expresado en %), últimos 7 días y próximos 7. Sirve para comparar tendencias, no reemplaza una medición a campo.</p>`;
+        <div class="grafico-campo"><canvas id="g-ens" aria-label="Rango de lluvia por día"></canvas></div>
+        <div class="tabla-scroll"><table class="tabla-clima"><thead><tr><th>Día</th><th>Lluvia ≥ 1</th><th>≥ 10 mm</th><th>≥ 25 mm</th><th>Rango (mm)</th><th>Helada</th></tr></thead><tbody>
+          ${ens.dias.map((x, k) => `<tr class="${x.helada2 >= 0.3 ? 'fila-helada' : ''}"><td><b>${k === 0 ? 'Hoy' : diaCorto(x.f)}</b></td><td class="n">${P(x.p1)}</td><td class="n lluvia-tx">${P(x.p10)}</td><td class="n">${P(x.p25)}</td>
+            <td class="n">${num(x.q10, 0)}–${num(x.q90, 0)}</td><td class="n">${x.helada2 > 0 ? P(x.helada2) + (x.helada0 > 0 ? ` <small>(≤0°: ${P(x.helada0)})</small>` : '') : '—'}</td></tr>`).join('')}</tbody></table></div>
+        <p class="nota">${esc(ens.modelo)}: cada día se corre el pronóstico ${ens.escenarios} veces con pequeñas diferencias. La probabilidad es el porcentaje de escenarios en que pasa; el rango va del escenario 10 % más seco al 10 % más lluvioso. Helada: mínima &lt; 2 °C.</p>`;
     }
 
     cont.innerHTML = `<div class="tabs-clima" role="tablist">${tabs.map(([k, t]) => `<button type="button" role="tab" data-pclima="${k}" aria-selected="${k === pestana}">${t}</button>`).join('')}</div>
       <div class="clima-cuerpo">${cuerpo}</div>
-      <p class="nota">Fuente: Open-Meteo, para el centro del campo.</p>`;
+      <p class="nota">Fuente: Open-Meteo${ens ? ' (pronóstico y escenarios ECMWF)' : ''}, para el centro del campo.</p>`;
 
     const lluviaC = color('--lluvia') || '#3a8fd6';
     const naranja = color('--naranja') || '#ff9800';
@@ -194,6 +205,15 @@
           { type: 'line', label: 'Mínima', data: sl(dd.temperature_2m_min), borderColor: frio, backgroundColor: frio, pointRadius: 2, tension: .3, yAxisID: 'y' },
           { type: 'bar', label: 'Lluvia mm', data: sl(dd.precipitation_sum), backgroundColor: lluviaC, yAxisID: 'y1' }
         ] }, options: opc('°C', 'mm')
+      });
+    }
+    if (pestana === 'escenarios' && ens) {
+      grafico(cont.querySelector('#g-ens'), {
+        data: { labels: ens.dias.map((x) => diaCorto(x.f)), datasets: [
+          { type: 'bar', label: 'Rango 10–90 % (mm)', data: ens.dias.map((x) => [x.q10, x.q90]), backgroundColor: lluviaC + '55', borderColor: lluviaC, borderWidth: 1, yAxisID: 'y' },
+          { type: 'line', label: 'Mediana (mm)', data: ens.dias.map((x) => x.q50), borderColor: lluviaC, backgroundColor: lluviaC, pointRadius: 2, tension: .3, yAxisID: 'y' },
+          { type: 'line', label: 'Prob. ≥ 10 mm (%)', data: ens.dias.map((x) => Math.round(x.p10 * 100)), borderColor: naranja, borderDash: [4, 3], pointRadius: 0, tension: .3, yAxisID: 'y1' }
+        ] }, options: Object.assign(opc('mm', '%'), { scales: Object.assign(ejes('mm', '%'), { y1: { position: 'right', min: 0, max: 100, grid: { display: false }, title: { display: true, text: '%' } } }) })
       });
     }
     if (pestana === 'suelo') {
