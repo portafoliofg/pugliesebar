@@ -62,6 +62,8 @@ Funciones:
 - **Eliminar todos**: pide escribir ELIMINAR para confirmar y opcionalmente borra también las copias de los KML/KMZ.
 - **Pronóstico por campo** (Open-Meteo): resumen con lluvia de los últimos 7 y 30 días, próximos 7 y 16 días, balance hídrico (lluvia − evapotranspiración) y ventanas para pulverizar; detalle de 48 horas; tabla de 16 días con viento, ráfagas, ET0 y UV; humedad y temperatura del suelo.
 
+- **Reporte completo del campo** (botón 📊 en la ficha): se abre en una pestaña nueva y se puede imprimir o guardar en PDF, o descargar los datos en CSV. Incluye mapa satelital del lote, indicadores, análisis escrito automático y gráficos de lluvia mensual contra el promedio 1991–2020, lluvia acumulada desde la siembra, lluvia diaria, balance hídrico, anomalías, temperaturas máximas y mínimas, heladas y días de calor, grados-día, radiación y heliofanía, humedad del suelo por profundidad, propiedades del suelo (SoilGrids: textura, pH, materia orgánica, nitrógeno, CIC, densidad), rosa de los vientos, viento y ráfagas, pronóstico de 48 horas y tabla de 16 días. La fecha de siembra se elige en el reporte y queda guardada en el navegador. Fuentes: Open-Meteo (pronóstico, reanálisis ERA5 y altitud) e ISRIC SoilGrids, todas gratuitas y sin clave.
+
 Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo **con el nombre del archivo** (si el archivo trae varios polígonos se numeran, y si alguno tiene un nombre propio en Google Earth se agrega al final). Los nombres genéricos como "Polígono sin título" se ignoran. Los puntos y las líneas no se cargan. Si el repositorio de campos llegara a ser público, la página se niega a usarlo.
 
 ## Pestaña Stock (planilla de Google)

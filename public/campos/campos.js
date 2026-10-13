@@ -455,6 +455,7 @@
         <div class="dato"><small>Superficie</small><b>${num(haDe(c), 1)} ha</b></div>
         <div class="dato"><small>Campaña</small><b>${esc(c.campana || '—')}</b></div>
       </div>
+      <a class="btn btn-1 btn-reporte" href="reporte.html?id=${encodeURIComponent(c.id)}" target="_blank" rel="noopener">📊 Reporte completo del campo</a>
       <div class="seccion-t">Pronóstico de la zona</div>
       <div class="clima" id="clima"><div class="esqueleto"></div></div>
       ${c.notas ? `<div class="nota-campo">📝 ${esc(c.notas)}</div>` : ''}

@@ -1,0 +1,99 @@
+/* =====================================================
+   REPORTE DE CAMPO · estilos (usa los colores de campos.css)
+===================================================== */
+body.reporte { height: auto; background:
+  radial-gradient(900px 400px at 100% -10%, color-mix(in srgb, var(--lima) 16%, transparent), transparent 60%),
+  radial-gradient(700px 360px at -10% 20%, color-mix(in srgb, var(--dorado) 12%, transparent), transparent 60%),
+  var(--bg); }
+
+.r-barra {
+  position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 20px; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+}
+.r-barra .volver { text-decoration: none; }
+.r-siembra { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .88rem; }
+.r-siembra input { padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+
+.r-main { max-width: 1200px; margin: 0 auto; padding: 22px 20px 60px; display: flex; flex-direction: column; gap: 22px; }
+.r-cargando { min-height: 60vh; display: grid; place-items: center; text-align: center; color: var(--muted); font-weight: 700; }
+
+/* Portada */
+.r-portada {
+  position: relative; overflow: hidden; border-radius: 28px; color: #fffaf0; min-height: 260px;
+  display: grid; grid-template-columns: 1.2fr 1fr; box-shadow: var(--sombra-alta);
+  background: linear-gradient(130deg, #3f5a0c, #6b8f14 45%, #b07a0a);
+}
+.r-portada-txt { padding: 28px; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+.r-portada .eyebrow { font: 800 .74rem var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); }
+.r-portada h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; }
+.r-portada p { color: rgba(255, 250, 240, .88); }
+.r-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.r-chips span { padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, .16); font-weight: 800; font-size: .84rem; }
+#r-mapa { min-height: 260px; }
+
+/* Indicadores */
+.r-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+.r-kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 16px; box-shadow: var(--sombra); display: flex; flex-direction: column; gap: 4px; position: relative; overflow: hidden; }
+.r-kpi::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--c, var(--lima)); }
+.r-kpi small { color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.r-kpi b { font: 700 1.6rem var(--display); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.r-kpi span { color: var(--muted); font-size: .84rem; }
+.r-kpi .sube { color: var(--sube); font-weight: 800; } .r-kpi .baja { color: var(--baja); font-weight: 800; }
+
+/* Secciones */
+.r-sec { display: flex; flex-direction: column; gap: 14px; }
+.r-sec > h2 { font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
+.r-sec > h2::before { content: ""; width: 26px; height: 4px; border-radius: 3px; background: linear-gradient(90deg, var(--lima), var(--naranja)); }
+.r-sec > p.nota { margin-top: -6px; }
+.r-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.r-card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 18px; box-shadow: var(--sombra); min-width: 0; break-inside: avoid; }
+.r-card h3 { font-size: 1.12rem; margin-bottom: 4px; }
+.r-card .nota { margin-bottom: 8px; }
+.r-graf { position: relative; height: 260px; }
+.r-graf.alto { height: 320px; }
+.r-graf.rosa { height: 300px; }
+.r-ancho { grid-column: 1 / -1; }
+
+/* Análisis */
+.r-analisis { background: linear-gradient(150deg, color-mix(in srgb, var(--lima) 14%, var(--surface)), var(--surface) 60%); }
+.r-analisis ul { margin: 6px 0 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.r-analisis li { display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+.r-analisis li i { font-style: normal; font-size: 1.2rem; flex: none; }
+
+/* Tablas */
+.r-tabla { width: 100%; border-collapse: collapse; font-size: .86rem; font-variant-numeric: tabular-nums; }
+.r-tabla th { text-align: left; padding: 8px; background: var(--surface-2); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.r-tabla td { padding: 7px 8px; border-top: 1px solid var(--line); }
+.r-tabla td.n, .r-tabla th.n { text-align: right; }
+.r-tabla tr.helada td { background: var(--frio-bg); }
+.r-tabla-wrap { overflow-x: auto; }
+
+/* Suelo */
+.r-suelo { display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: center; }
+.r-suelo .r-graf { height: 220px; }
+.r-datos { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.r-datos div { padding: 12px; border-radius: 14px; background: var(--surface-2); }
+.r-datos small { display: block; color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.r-datos b { font: 700 1.15rem var(--display); }
+
+.r-pie { color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); padding-top: 14px; }
+
+@media (max-width: 760px) {
+  .r-portada { grid-template-columns: 1fr; }
+  .r-suelo { grid-template-columns: 1fr; }
+  .r-grid { grid-template-columns: 1fr; }
+}
+
+/* Impresión / PDF */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  .no-print, .avisos { display: none !important; }
+  body.reporte { background: #fff !important; color: #222; }
+  :root { --surface: #fff; --surface-2: #f4f1ea; --line: #ddd5c4; --sombra: none; --sombra-alta: none; }
+  .r-main { padding: 0; gap: 14px; max-width: none; }
+  .r-card, .r-kpi, .r-portada { box-shadow: none; }
+  .r-sec { break-inside: avoid-page; }
+  .r-graf { height: 220px; }
+  .r-portada { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .r-kpi::before, .r-sec > h2::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

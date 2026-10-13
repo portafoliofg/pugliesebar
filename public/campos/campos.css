@@ -249,3 +249,5 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .editar summary::-webkit-details-marker { display: none; }
 .editar[open] { padding-bottom: 14px; }
 .nota-campo { padding: 10px 12px; border-radius: 12px; background: var(--surface-2); font-size: .9rem; white-space: pre-wrap; }
+
+.btn-reporte { justify-content: center; text-decoration: none; }
