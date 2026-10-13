@@ -22,7 +22,7 @@ const CATEGORIAS_HACIENDA = [
 
 export const NOMBRES_FUENTES = {
   pizarra: 'Pizarra Rosario (CAC-BCR)',
-  cbot: 'Chicago CBOT (Yahoo Finance)',
+  cbot: 'Chicago CBOT (Yahoo Finance / Stooq)',
   matba: 'Matba-Rofex',
   dolar: 'Dólar (DolarApi)',
   clima: 'Clima (Open-Meteo)',

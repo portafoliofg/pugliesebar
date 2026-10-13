@@ -47,13 +47,20 @@ export async function obtenerMatba(config) {
     if (!previo || fecha > previo.fecha) porSimbolo.set(simbolo, { ...info, ajuste, fecha });
   }
 
+  // Se descartan los contratos que vencen este mes (ya casi sin operaciones) y, si hay
+  // meses de cosecha configurados, se priorizan esas posiciones.
+  const [anioHoy, mesHoy] = hasta.split('-').map(Number);
+  const vigente = (c) => c.anio > anioHoy || (c.anio === anioHoy && c.mes > mesHoy);
+
   const granos = {};
   let fechaMax = null;
   for (const [clave, producto] of Object.entries(cfg.productos)) {
-    const contratos = [...porSimbolo.values()]
-      .filter((c) => c.producto === producto)
-      .sort((a, b) => a.anio - b.anio || a.mes - b.mes)
-      .slice(0, cfg.maxPosiciones);
+    const todos = [...porSimbolo.values()]
+      .filter((c) => c.producto === producto && vigente(c))
+      .sort((a, b) => a.anio - b.anio || a.mes - b.mes);
+    const meses = (cfg.mesesCosecha?.[clave] || []).map((m) => MESES[m]).filter(Boolean);
+    const preferidos = meses.length ? todos.filter((c) => meses.includes(c.mes)) : [];
+    const contratos = (preferidos.length ? preferidos : todos).slice(0, cfg.maxPosiciones);
     if (contratos.length) {
       granos[clave] = contratos.map((c) => ({ posicion: c.etiqueta, usdTonelada: c.ajuste, fecha: c.fecha }));
       for (const c of contratos) if (!fechaMax || c.fecha > fechaMax) fechaMax = c.fecha;

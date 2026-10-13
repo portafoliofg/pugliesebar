@@ -57,7 +57,12 @@
       "maiz": "MAI.ROS",
       "trigo": "TRI.ROS"
     },
-    "maxPosiciones": 3
+    "maxPosiciones": 3,
+    "mesesCosecha": {
+      "soja": ["NOV", "MAY", "JUL"],
+      "maiz": ["DIC", "ABR", "JUL"],
+      "trigo": ["DIC", "ENE", "JUL"]
+    }
   },
 
   "dolar": {

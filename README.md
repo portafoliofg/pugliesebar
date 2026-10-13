@@ -50,6 +50,7 @@ Ojo: la prueba local también actualiza `data/historico.json` y `data/ultimo.jso
 | `noticias.feeds` | Feeds RSS de medios agro: `{ "nombre", "url" }`. |
 | `noticias.maxTitulares` / `maxPorFuente` | Cuántos titulares mostrar en total y como máximo por medio. |
 | `feriados.lista` | Feriados nacionales de respaldo, por si la API no responde. Revisala cada año. |
+| `matbaRofex.mesesCosecha` | Meses de vencimiento a mostrar por grano (posiciones de cosecha). Se descartan los contratos que vencen en el mes actual. |
 | `pizarra`, `cbot`, `matbaRofex`, `dolar`, `hacienda` | URL y parámetros de cada fuente. |
 | `recargaMinutos`, `diasGrafico`, `timeoutMs` | Recarga de la página, días de los gráficos y timeout por pedido. |
 
@@ -66,7 +67,7 @@ Ejemplo para agregar una localidad:
 | Dato | Fuente | Tipo |
 |---|---|---|
 | Pizarra Rosario | [Cámara Arbitral de Cereales – BCR](https://www.cac.bcr.com.ar/es/precios-de-pizarra) | HTML (cheerio) |
-| Chicago (CBOT) | Yahoo Finance, futuros continuos `ZS=F`, `ZC=F`, `ZW=F` | JSON |
+| Chicago (CBOT) | Yahoo Finance, futuros continuos `ZS=F`, `ZC=F`, `ZW=F`; si Yahoo responde 429, [Stooq](https://stooq.com) como respaldo | JSON / CSV |
 | Matba-Rofex | Endpoint JSON que usa la web de Matba-Rofex (no documentado) | JSON |
 | Dólar | [DolarApi](https://dolarapi.com) y [ArgentinaDatos](https://argentinadatos.com) para el histórico inicial | JSON |
 | Clima | [Open-Meteo](https://open-meteo.com) | JSON, sin clave |
