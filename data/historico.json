@@ -123,15 +123,40 @@
       "2026-10-13": 4332.2821
     },
     "hacienda.vaquillona": {
-      "2026-10-13": 4471.5185
+      "2026-10-13": 4480.4423
     },
     "hacienda.vaca": {
       "2026-10-13": 3209.6085
+    },
+    "matba.soja.MAY27": {
+      "2026-10-09": 359.5
+    },
+    "matba.soja.JUL27": {
+      "2026-10-09": 366.7
+    },
+    "matba.maiz.ABR27": {
+      "2026-10-09": 198
+    },
+    "matba.maiz.JUL27": {
+      "2026-10-09": 195
     }
   },
   "ejecuciones": [
     {
       "momento": "2026-10-13T13:47:43.104Z",
+      "estado": {
+        "pizarra": "ok",
+        "cbot": "sin-datos",
+        "matba": "ok",
+        "dolar": "ok",
+        "clima": "ok",
+        "hacienda": "ok",
+        "noticias": "ok",
+        "feriados": "ok"
+      }
+    },
+    {
+      "momento": "2026-10-13T13:49:50.657Z",
       "estado": {
         "pizarra": "ok",
         "cbot": "sin-datos",

@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T13:47:43.104Z"
+      "obtenido": "2026-10-13T13:49:50.657Z"
     },
     "matba": {
       "datos": {
@@ -34,44 +34,39 @@
         "granos": {
           "soja": [
             {
-              "posicion": "OCT26",
-              "usdTonelada": 371,
-              "fecha": "2026-10-09"
-            },
-            {
               "posicion": "NOV26",
               "usdTonelada": 374.2,
               "fecha": "2026-10-09"
             },
             {
-              "posicion": "ENE27",
-              "usdTonelada": 379.1,
+              "posicion": "MAY27",
+              "usdTonelada": 359.5,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "JUL27",
+              "usdTonelada": 366.7,
               "fecha": "2026-10-09"
             }
           ],
           "maiz": [
             {
-              "posicion": "OCT26",
-              "usdTonelada": 194,
-              "fecha": "2026-10-09"
-            },
-            {
-              "posicion": "NOV26",
-              "usdTonelada": 196,
-              "fecha": "2026-10-09"
-            },
-            {
               "posicion": "DIC26",
               "usdTonelada": 198.9,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "ABR27",
+              "usdTonelada": 198,
+              "fecha": "2026-10-09"
+            },
+            {
+              "posicion": "JUL27",
+              "usdTonelada": 195,
               "fecha": "2026-10-09"
             }
           ],
           "trigo": [
-            {
-              "posicion": "NOV26",
-              "usdTonelada": 223.1,
-              "fecha": "2026-10-09"
-            },
             {
               "posicion": "DIC26",
               "usdTonelada": 224.1,
@@ -85,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T13:47:43.104Z"
+      "obtenido": "2026-10-13T13:49:50.657Z"
     },
     "dolar": {
       "datos": {
@@ -128,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T13:47:43.104Z"
+      "obtenido": "2026-10-13T13:49:50.657Z"
     },
     "clima": {
       "datos": {
@@ -143,7 +138,7 @@
                 "min": 11.1,
                 "max": 18.1,
                 "lluviaMm": 1.5,
-                "probLluvia": 47,
+                "probLluvia": 55,
                 "codigo": 51,
                 "helada": false
               },
@@ -161,8 +156,8 @@
                 "min": 12.2,
                 "max": 20,
                 "lluviaMm": 8.3,
-                "probLluvia": 82,
-                "codigo": 95,
+                "probLluvia": 80,
+                "codigo": 80,
                 "helada": false
               },
               {
@@ -170,7 +165,7 @@
                 "min": 12.2,
                 "max": 19.3,
                 "lluviaMm": 10.1,
-                "probLluvia": 77,
+                "probLluvia": 63,
                 "codigo": 80,
                 "helada": false
               },
@@ -179,7 +174,7 @@
                 "min": 11.7,
                 "max": 16.4,
                 "lluviaMm": 16.7,
-                "probLluvia": 78,
+                "probLluvia": 55,
                 "codigo": 80,
                 "helada": false
               },
@@ -188,7 +183,7 @@
                 "min": 11.6,
                 "max": 17.7,
                 "lluviaMm": 0.3,
-                "probLluvia": 12,
+                "probLluvia": 35,
                 "codigo": 51,
                 "helada": false
               },
@@ -197,7 +192,7 @@
                 "min": 12,
                 "max": 16.3,
                 "lluviaMm": 2.1,
-                "probLluvia": 57,
+                "probLluvia": 53,
                 "codigo": 51,
                 "helada": false
               }
@@ -208,7 +203,7 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T13:47:43.104Z"
+      "obtenido": "2026-10-13T13:49:50.657Z"
     },
     "hacienda": {
       "datos": {
@@ -220,8 +215,8 @@
             "filas": 7
           },
           "vaquillona": {
-            "promedio": 4471.518496630728,
-            "cabezas": 1484,
+            "promedio": 4480.442321687541,
+            "cabezas": 1517,
             "filas": 3
           },
           "vaca": {
@@ -231,7 +226,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T13:47:43.104Z"
+      "obtenido": "2026-10-13T13:49:50.657Z"
     },
     "noticias": {
       "datos": {
@@ -290,7 +285,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T13:47:43.104Z"
+      "obtenido": "2026-10-13T13:49:50.657Z"
     }
   }
 }
