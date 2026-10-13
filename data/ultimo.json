@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T16:00:06.548Z"
+      "obtenido": "2026-10-13T16:32:17.194Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T16:00:06.548Z"
+      "obtenido": "2026-10-13T16:32:17.194Z"
     },
     "dolar": {
       "datos": {
@@ -89,41 +89,41 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T12:00:00.000Z"
+            "actualizado": "2026-10-13T13:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1509,
-            "venta": 1518,
-            "actualizado": "2026-10-13T11:44:00.000Z"
+            "compra": 1508,
+            "venta": 1517,
+            "actualizado": "2026-10-13T12:19:00.000Z"
           },
           "mep": {
-            "compra": 1536.8,
-            "venta": 1540.7,
-            "actualizado": "2026-10-13T14:57:00.000Z"
+            "compra": 1537.3,
+            "venta": 1538.7,
+            "actualizado": "2026-10-13T15:57:00.000Z"
           },
           "ccl": {
-            "compra": 1610.4,
-            "venta": 1610.8,
-            "actualizado": "2026-10-13T14:57:00.000Z"
+            "compra": 1610.5,
+            "venta": 1611,
+            "actualizado": "2026-10-13T15:57:00.000Z"
           },
           "blue": {
             "compra": 1535,
             "venta": 1555,
-            "actualizado": "2026-10-13T14:57:00.000Z"
+            "actualizado": "2026-10-13T15:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T12:00:00.000Z"
+            "actualizado": "2026-10-13T13:00:00.000Z"
           },
           "cripto": {
-            "compra": 1606.71,
-            "venta": 1609.74,
-            "actualizado": "2026-10-13T14:57:00.000Z"
+            "compra": 1607.44,
+            "venta": 1609.85,
+            "actualizado": "2026-10-13T15:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-13T16:00:06.548Z"
+      "obtenido": "2026-10-13T16:32:17.194Z"
     },
     "clima": {
       "datos": {
@@ -274,16 +274,22 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T16:00:06.548Z"
+      "obtenido": "2026-10-13T16:32:17.194Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
           {
-            "titulo": "Inversión global de 35 millones de euros: una empresa argentina inauguró una terminal de cargas refrigeradas en España",
-            "link": "https://www.lanacion.com.ar/economia/campo/inversion-global-de-35-millones-de-euros-una-empresa-argentina-inauguro-una-terminal-de-cargas-nid13102026/",
-            "fecha": "2026-10-13T15:57:11.000Z",
+            "titulo": "Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación",
+            "link": "https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/",
+            "fecha": "2026-10-13T16:25:23.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
+            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
+            "fecha": "2026-10-13T15:57:44.000Z",
             "fuente": "La Nación Campo"
           },
           {
@@ -311,12 +317,6 @@
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
-            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
-            "fecha": "2026-10-13T14:05:47.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
             "titulo": "El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%",
             "link": "https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html",
             "fecha": "2026-10-13T12:54:47.000Z",
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T16:00:06.548Z"
+      "obtenido": "2026-10-13T16:32:17.194Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.935,
-            "usdTonelada": 475.27975949999995
+            "usdBushel": 12.885,
+            "usdTonelada": 473.4425745
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.86,
-            "usdTonelada": 191.32799400000002
+            "usdBushel": 4.8525,
+            "usdTonelada": 191.03273475
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.7625,
-            "usdTonelada": 248.47927124999998
+            "usdBushel": 6.7375,
+            "usdTonelada": 247.56067874999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T16:00:06.548Z"
+      "obtenido": "2026-10-13T16:32:17.194Z"
     }
   }
 }
