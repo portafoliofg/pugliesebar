@@ -1,0 +1,19 @@
+{
+  "name": "tablero-agro",
+  "version": "1.0.0",
+  "description": "Tablero diario de información agropecuaria para Argentina, generado con GitHub Actions y publicado en GitHub Pages.",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "check": "node scripts/check.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}

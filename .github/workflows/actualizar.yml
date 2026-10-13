@@ -1,0 +1,72 @@
+name: Actualizar tablero
+
+on:
+  # Lunes a viernes 08:55, 14:55, 20:55 y 02:55 hora argentina (UTC-3).
+  # En UTC: 11:55, 17:55, 23:55 y 05:55. Ninguna cruza la medianoche UTC
+  # (20:55 ART = 23:55 UTC del mismo día; 02:55 ART = 05:55 UTC del mismo día),
+  # así que los días 1-5 (lunes a viernes) coinciden en las dos zonas.
+  # GitHub puede demorar unos minutos el inicio de las ejecuciones programadas.
+  schedule:
+    - cron: "55 5,11,17,23 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Nunca dos ejecuciones a la vez (evita conflictos al hacer commit del histórico)
+concurrency:
+  group: tablero-agro
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v5
+
+      - name: Instalar Node.js LTS
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Validar sintaxis
+        run: npm run check
+
+      - name: Buscar datos y generar la página
+        run: node src/index.js
+
+      - name: Guardar histórico y página en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data public
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar."
+          else
+            git commit -m "Actualizar tablero $(TZ=America/Argentina/Buenos_Aires date '+%Y-%m-%d %H:%M')"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir la página
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+      - name: Publicar en GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
