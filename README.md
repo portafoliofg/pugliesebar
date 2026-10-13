@@ -54,6 +54,14 @@ Configuración (una sola vez):
    - **Permissions → Repository permissions → Contents:** *Read and write*.
 3. En la pestaña Campos tocá **Conectar GitHub** y pegá el token. Queda guardado solo en ese navegador; en otra compu o en el celular hay que pegarlo de nuevo.
 
+Funciones:
+
+- **Capas** (botón sobre el mapa): mapa base satelital, calles o relieve; colorear los campos por cultivo, campaña o provincia; mostrar u ocultar cada grupo; nombres de los lotes, límites y localidades, y radar de lluvia (RainViewer).
+- **Filtros** por provincia, cultivo y campaña, y buscador. La provincia, el departamento y la localidad se detectan solos con la [API Georef](https://datosgobar.github.io/georef-ar-api/) del Gobierno argentino.
+- **Selección múltiple**: con las casillas de la lista, con Ctrl + clic en el mapa, o con el botón "Seleccionar" en el celular. A los seleccionados les podés asignar cultivo y campaña de una vez, verlos en el mapa o eliminarlos.
+- **Eliminar todos**: pide escribir ELIMINAR para confirmar y opcionalmente borra también las copias de los KML/KMZ.
+- **Pronóstico por campo** (Open-Meteo): resumen con lluvia de los últimos 7 y 30 días, próximos 7 y 16 días, balance hídrico (lluvia − evapotranspiración) y ventanas para pulverizar; detalle de 48 horas; tabla de 16 días con viento, ráfagas, ET0 y UV; humedad y temperatura del suelo.
+
 Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo; los puntos y las líneas se ignoran. Si el repositorio de campos llegara a ser público, la página se niega a usarlo.
 
 ## Pestaña Stock (planilla de Google)

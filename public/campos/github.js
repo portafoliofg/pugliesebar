@@ -98,7 +98,7 @@
    * Guarda en un solo commit: aplica `cambiar(datosActuales)` a campos.json y sube los
    * archivos extra (copias de KML/KMZ). Si alguien guardó al mismo tiempo, reintenta.
    */
-  async function guardar(cambiar, mensaje, archivos = []) {
+  async function guardar(cambiar, mensaje, archivos = [], borrar = []) {
     if (!CFG.repo) throw new Error('No se sabe en qué repositorio guardar (falta campos.repo en config.json).');
     if (!token()) throw sinToken();
 
@@ -132,6 +132,8 @@
         });
         tree.push({ path: b.path, mode: '100644', type: 'blob', sha: blob.sha });
       }
+      // Archivos a eliminar (sha null en el árbol nuevo)
+      for (const ruta of borrar) tree.push({ path: ruta, mode: '100644', type: 'blob', sha: null });
       const arbol = await gh(`/repos/${CFG.repo}/git/trees`, { method: 'POST', body: JSON.stringify({ base_tree: base.tree.sha, tree }) });
       const commit = await gh(`/repos/${CFG.repo}/git/commits`, {
         method: 'POST', body: JSON.stringify({ message: mensaje, tree: arbol.sha, parents: [ref.object.sha] })
@@ -166,7 +168,20 @@
     }
   }
 
+  /** Lista las copias de KML/KMZ guardadas (rutas completas). */
+  async function listarArchivos() {
+    if (!CFG.repo || !token()) return [];
+    try {
+      const r = await gh(`/repos/${CFG.repo}/contents/${CFG.carpeta}?ref=${encodeURIComponent(CFG.rama)}`, { cache: 'no-store' });
+      return Array.isArray(r) ? r.filter((x) => x.type === 'file').map((x) => x.path) : [];
+    } catch (e) {
+      if (e.status === 404) return [];
+      throw e;
+    }
+  }
+
   window.Repo = {
+    listarArchivos,
     config: CFG,
     tieneToken: () => !!token(),
     probarToken,

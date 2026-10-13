@@ -76,7 +76,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .estado-gh.ok { background: var(--lima); box-shadow: 0 0 0 3px rgba(164, 198, 57, .3); }
 
 /* ---------- Mapa + panel ---------- */
-.cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 390px; }
+.cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 430px; }
 #mapa { min-height: 420px; background: #2b2f26; }
 .panel { border-left: 1px solid var(--line); background: var(--surface); overflow-y: auto; display: flex; flex-direction: column; }
 .panel-in { padding: 18px; display: flex; flex-direction: column; gap: 14px; animation: entrar .4s var(--curva); }
@@ -194,3 +194,58 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ---------- Selección múltiple, filtros y capas ---------- */
+.barra .btn-peligro-claro { background: rgba(209, 59, 30, .25); border-color: rgba(255, 255, 255, .35); }
+.barra .btn-peligro-claro:hover { background: rgba(209, 59, 30, .45); }
+.filtros-sel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.filtros-sel label { display: flex; flex-direction: column; gap: 4px; font-size: .74rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.filtros-sel select { padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-size: .9rem; font-weight: 600; text-transform: none; letter-spacing: 0; min-width: 0; }
+.lista-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.opcion { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem; cursor: pointer; }
+.opcion input { width: 17px; height: 17px; accent-color: #7a9c1c; flex: none; }
+.opcion small { margin-left: auto; color: var(--muted); }
+.item { grid-template-columns: auto 6px 1fr auto; padding-left: 12px; }
+.item .sel { width: 18px; height: 18px; accent-color: #7a9c1c; cursor: pointer; }
+.item.marcado { border-color: var(--lima); background: color-mix(in srgb, var(--lima) 10%, var(--surface)); }
+.item-txt small { display: block; }
+.bloque-sel { padding: 14px; border-radius: 18px; border: 2px solid var(--lima); background: color-mix(in srgb, var(--lima) 10%, var(--surface)); display: flex; flex-direction: column; gap: 10px; animation: entrar .3s var(--curva); }
+.bloque-sel-h { display: flex; justify-content: space-between; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.ctrl-mapa { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.btn-mapa { border: 0; border-radius: 999px; padding: 8px 14px; background: var(--surface); color: var(--ink); font-weight: 800; box-shadow: var(--sombra); cursor: pointer; transition: transform .2s var(--rebote); }
+.btn-mapa:hover { transform: translateY(-2px); }
+.btn-mapa.activo { background: linear-gradient(135deg, var(--lima), var(--dorado)); color: #2b2118; }
+.panel-capas { width: 260px; max-height: 60vh; overflow-y: auto; background: var(--surface); color: var(--ink); border-radius: 18px; box-shadow: var(--sombra-alta); padding: 12px 14px; display: flex; flex-direction: column; gap: 12px; animation: entrar .25s var(--curva); }
+.capas-sec { display: flex; flex-direction: column; gap: 6px; }
+.capas-sec > b { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.leyenda .apagado { opacity: .4; text-decoration: line-through; }
+.campo-poli.marcado { stroke-dasharray: 2 0; filter: drop-shadow(0 0 6px rgba(255, 255, 255, .9)); }
+
+/* ---------- Pronóstico ---------- */
+.tabs-clima { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--surface-2); overflow-x: auto; }
+.tabs-clima button { flex: 1; border: 0; background: none; padding: 7px 10px; border-radius: 999px; font-weight: 800; font-size: .84rem; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.tabs-clima button[aria-selected="true"] { background: linear-gradient(135deg, var(--lima), var(--dorado)); color: #2b2118; }
+.clima-cuerpo { display: flex; flex-direction: column; gap: 10px; animation: entrar .3s var(--curva); }
+.grafico-campo { position: relative; height: 200px; }
+.grafico-campo.alto { height: 230px; }
+.tabla-scroll { overflow-x: auto; max-height: 340px; overflow-y: auto; border: 1px solid var(--line); border-radius: 14px; }
+.tabla-clima { width: 100%; border-collapse: collapse; font-size: .82rem; font-variant-numeric: tabular-nums; }
+.tabla-clima th { position: sticky; top: 0; background: var(--surface-2); text-align: left; padding: 7px 8px; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.tabla-clima td { padding: 6px 8px; border-top: 1px solid var(--line); white-space: nowrap; }
+.tabla-clima td.n { text-align: right; }
+.tabla-clima td.em { font-size: 1.1rem; text-align: center; }
+.tabla-clima small { color: var(--muted); }
+.tabla-clima .fila-helada { background: var(--frio-bg); }
+.lluvia-tx { color: var(--lluvia); font-weight: 700; }
+.flecha-viento { display: inline-block; font-weight: 900; color: var(--muted); }
+.ventanas { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip.ok { background: color-mix(in srgb, var(--lima) 22%, transparent); color: var(--lima-tx); }
+.datos { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+@media (max-width: 860px) { .filtros-sel { grid-template-columns: 1fr 1fr; } }
+
+.editar { border: 1px solid var(--line); border-radius: 16px; padding: 4px 14px; }
+.editar summary { cursor: pointer; padding: 10px 0; font-weight: 800; color: var(--lima-tx); list-style: none; }
+.editar summary::-webkit-details-marker { display: none; }
+.editar[open] { padding-bottom: 14px; }
+.nota-campo { padding: 10px 12px; border-radius: 12px; background: var(--surface-2); font-size: .9rem; white-space: pre-wrap; }
