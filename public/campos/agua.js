@@ -61,7 +61,7 @@
   // ---------- Textos ----------
   // La carta del INTA viene sin tildes: se corrigen las palabras más comunes
   const TILDES = { climatica: 'climática', erosion: 'erosión', eolica: 'eólica', hidrica: 'hídrica', sodico: 'sódico', excesivo: 'excesivo', tipico: 'típico', entico: 'éntico',
-    acuico: 'ácuico', udico: 'údico', ustico: 'ústico', petrocalcico: 'petrocálcico', natrico: 'nátrico', argilico: 'argílico', salinidad: 'salinidad', alcalinidad: 'alcalinidad', fluventico: 'fluvéntico', ustalfico: 'ustálfico', aridico: 'arídico', actua: 'actual' };
+    acuico: 'ácuico', molico: 'mólico', albico: 'álbico', calcico: 'cálcico', litico: 'lítico', ocrico: 'ócrico', aquico: 'áquico', argico: 'árgico', fluvico: 'flúvico', vertico: 'vértico', udico: 'údico', ustico: 'ústico', petrocalcico: 'petrocálcico', natrico: 'nátrico', argilico: 'argílico', salinidad: 'salinidad', alcalinidad: 'alcalinidad', fluventico: 'fluvéntico', ustalfico: 'ustálfico', aridico: 'arídico', actua: 'actual' };
   const tildar = (t) => (t == null ? t : String(t).replace(/[A-Za-zÁÉÍÓÚáéíóúñÑ]+/g, (w) => {
     const r = TILDES[w.toLowerCase()];
     return r ? (w[0] === w[0].toUpperCase() ? r[0].toUpperCase() + r.slice(1) : r) : w;
@@ -75,7 +75,7 @@
     return {
       ip: i.ind_prod, textura: [i.text_sups1, i.text_bs1].filter(Boolean).join(' / '),
       suelo: [i.sgrup_sue1, i.porc_sue1 && i.porc_sue1 < 100 ? `(${i.porc_sue1} %)` : ''].filter(Boolean).join(' '),
-      otros: [i.sgrup_sue2 && i.porc_sue2 ? `${i.sgrup_sue2} (${i.porc_sue2} %)` : '', i.sgrup_sue3 && i.porc_sue3 ? `${i.sgrup_sue3} (${i.porc_sue3} %)` : ''].filter(Boolean).join(', '),
+      otros: [[i.sgrup_sue2, i.porc_sue2], [i.sgrup_sue3, i.porc_sue3]].filter(([n, pc]) => n && pc && !/no clasificado/i.test(n)).map(([n, pc]) => `${n} (${pc} %)`).join(', '),
       drenaje: i.drenaje_s1, profundidad: i.profund_s1, alcalinidad: i.alcalin_s1, pendiente: i.porc_pens1,
       erosion: [i.erhidr_s1 && i.erhidr_s1 !== '-' ? `hídrica ${i.erhidr_s1.toLowerCase()}` : '', i.ereoli_s1 && i.ereoli_s1 !== '-' ? `eólica ${i.ereoli_s1.toLowerCase()}` : ''].filter(Boolean).join(', '),
       anegamiento: i.anegab_s1 && i.anegab_s1 !== '-' ? i.anegab_s1 : '', limitantes: lim.join(', '), unidad: i.simbc, posicion: i.posi_sue1
