@@ -2,377 +2,1085 @@
 <html lang="es-AR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tablero Agro · 13/10/2026</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%233d6b45'/%3E%3Cpath d='M16 7v18M16 12l-5-3M16 12l5-3M16 17l-5-3M16 17l5-3M16 22l-5-3M16 22l5-3' stroke='%23f4e6c6' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="description" content="Pizarra Rosario, Chicago, Matba-Rofex, dólar, clima y noticias del agro argentino, actualizados de lunes a viernes.">
+<meta name="theme-color" content="#a4c639">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tablero Agro">
+<meta property="og:description" content="Pizarra Rosario, Chicago, Matba-Rofex, dólar, clima y noticias del agro argentino, actualizados de lunes a viernes.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=1800&amp;q=70">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Tablero Agro","description":"Pizarra Rosario, Chicago, Matba-Rofex, dólar, clima y noticias del agro argentino, actualizados de lunes a viernes.","inLanguage":"es-AR"}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%3Crect%20width%3D'32'%20height%3D'32'%20rx%3D'9'%20fill%3D'%23a4c639'%2F%3E%3Cg%20fill%3D'%232b2118'%20transform%3D'translate(4%203)%20scale(.75)'%3E%3Cpath%20d%3D%22M16%2030V11%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%2F%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%2210%22%20rx%3D%222.6%22%20ry%3D%224.4%22%20transform%3D%22rotate(-32%2012%2010)%22%2F%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%2210%22%20rx%3D%222.6%22%20ry%3D%224.4%22%20transform%3D%22rotate(32%2020%2010)%22%2F%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%2215%22%20rx%3D%222.6%22%20ry%3D%224.4%22%20transform%3D%22rotate(-32%2012%2015)%22%2F%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%2215%22%20rx%3D%222.6%22%20ry%3D%224.4%22%20transform%3D%22rotate(32%2020%2015)%22%2F%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%2220%22%20rx%3D%222.6%22%20ry%3D%224.4%22%20transform%3D%22rotate(-32%2012%2020)%22%2F%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%2220%22%20rx%3D%222.6%22%20ry%3D%224.4%22%20transform%3D%22rotate(32%2020%2020)%22%2F%3E%3Cellipse%20cx%3D%2216%22%20cy%3D%226%22%20rx%3D%222.4%22%20ry%3D%224.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-:root{
-  --bg:#f4f5f1;--surface:#fff;--surface-2:#eef0ea;--ink:#1b241d;--muted:#5d6a60;--line:#d6dcd1;
-  --accent:#3d6b45;--accent-soft:#dde9d9;--gold:#a8740f;--gold-soft:#f6ecd3;
-  --up:#1e7a3c;--down:#b3261e;--flat:#6b7280;--warn:#9a5b00;--warn-soft:#fdf0d5;
-  --frost:#1f5fa8;--frost-soft:#dbe8f7;--rain:#3b82c4;
-  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+/* =====================================================
+   TABLERO AGRO · estilos
+   Paleta campo: lima, dorado y naranja intensos sobre beige.
+   Este archivo se incluye dentro de public/index.html al generar la página.
+===================================================== */
+
+:root {
+  --bg: #fbf7ee;
+  --bg-2: #f4eddc;
+  --surface: #ffffff;
+  --surface-2: #f8f2e4;
+  --ink: #2b2118;
+  --muted: #6e6253;
+  --line: #e8ddc8;
+  --lima: #a4c639;
+  --lima-tx: #4f6e0a;
+  --dorado: #ffc107;
+  --naranja: #ff9800;
+  --naranja-tx: #b35a00;
+  --sube: #2e8b2e;
+  --baja: #d13b1e;
+  --neutro: #8a7e6c;
+  --frio: #2f6db5;
+  --frio-bg: #e3edf9;
+  --lluvia: #3a8fd6;
+  --sombra: 0 1px 2px rgba(60, 40, 10, .05), 0 12px 32px rgba(60, 40, 10, .08);
+  --sombra-alta: 0 2px 6px rgba(60, 40, 10, .08), 0 24px 50px rgba(60, 40, 10, .16);
+  --vidrio: rgba(251, 247, 238, .72);
+  --radio: 22px;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --curva: cubic-bezier(.2, .8, .2, 1);
+  --rebote: cubic-bezier(.2, .8, .2, 1.35);
+  color-scheme: light;
 }
-@media (prefers-color-scheme:dark){:root{
-  --bg:#111613;--surface:#19201b;--surface-2:#212a24;--ink:#e6ebe4;--muted:#9aa69c;--line:#2f3a32;
-  --accent:#8cc391;--accent-soft:#1f3323;--gold:#e2b04a;--gold-soft:#3a2f16;
-  --up:#5fd38a;--down:#ff8a80;--flat:#9ca3af;--warn:#f5b84a;--warn-soft:#3a2c10;
-  --frost:#8ab8f0;--frost-soft:#1b2c42;--rain:#6fb0ea;
-}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--font);-webkit-font-smoothing:antialiased}
-.wrap{max-width:1200px;margin:0 auto;padding:0 16px 48px}
-h1,h2,h3{margin:0;line-height:1.2}
-a{color:var(--accent)}
-.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding:24px 0 18px;border-bottom:1px solid var(--line)}
-.top h1{font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.01em}
-.top .marca{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
-.top .marca span{color:var(--muted);font-size:.95rem}
-.act{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:8px 14px}
-.act .etq{display:block}
-.act strong{font-size:clamp(1.05rem,2.6vw,1.3rem);font-variant-numeric:tabular-nums}
-.act .fecha{display:block;color:var(--muted);font-size:.9rem}
-.aviso{margin:16px 0 0;padding:12px 16px;border-radius:8px;background:var(--warn-soft);color:var(--ink);border-left:4px solid var(--warn)}
-section{margin-top:28px}
-.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:12px}
-.sec-h h2,.card-h h2{font-size:1.25rem}
-.meta{margin:0;color:var(--muted);font-size:.92rem}
-.estados{display:flex;gap:8px;flex-wrap:wrap}
-.nota{color:var(--muted);font-size:.85rem;margin:6px 0 12px}
-.grid{display:grid;gap:14px}
-.granos{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.graficos{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-.dolares{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-.dos{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:28px}
-.dos>section{margin-top:0}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
-.card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.card-h h3{font-size:1.2rem}
-.card-t{font-size:.95rem;font-weight:600;color:var(--muted);margin-bottom:8px}
-.chip{font-size:.78rem;font-weight:600;background:var(--gold-soft);color:var(--gold);padding:3px 9px;border-radius:999px;white-space:nowrap}
-.badge{font-size:.75rem;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap}
-.badge.viejo{background:var(--warn-soft);color:var(--warn)}
-.badge.helada{background:var(--frost-soft);color:var(--frost)}
-.etq{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-.fila{padding:10px 0;border-top:1px solid var(--line)}
-.fila:first-of-type{border-top:0;padding-top:0}
-.valor{font-size:1.55rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.valor.chico{font-size:1.2rem}
-.valor small,.lista-valores small{font-size:.8rem;font-weight:500;color:var(--muted)}
-.sub{color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums}
-.var{display:inline-block;font-size:.85rem;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px}
-.var.sube{color:var(--up)}.var.baja{color:var(--down)}.var.neutra{color:var(--flat);font-weight:500}
-.nd{color:var(--muted);font-style:italic;margin:4px 0;font-size:.92rem}
-.posiciones{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.posiciones li{display:grid;grid-template-columns:auto 1fr;gap:0 10px;align-items:baseline;font-variant-numeric:tabular-nums}
-.posiciones li>span:first-child{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
-.posiciones li .var{grid-column:2}
-.dolar .cv{display:flex;gap:16px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
-.chart{position:relative;height:220px}
-.clima{margin-bottom:14px}
-.alerta.helada{margin:0 0 10px;padding:8px 12px;border-radius:6px;background:var(--frost-soft);color:var(--frost);font-weight:600}
-.dias{display:grid;grid-template-columns:repeat(7,minmax(96px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}
-.dia{background:var(--surface-2);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:3px;font-size:.88rem;font-variant-numeric:tabular-nums}
-.dia.es-helada{outline:2px solid var(--frost)}
-.dia .d{font-weight:700;text-transform:capitalize}
-.dia .desc{color:var(--muted);font-size:.8rem}
-.dia .temps b{font-size:1.05rem}
-.dia .lluvia{display:flex;align-items:flex-end;gap:6px;color:var(--rain);font-weight:600}
-.dia .lluvia i{display:inline-block;width:8px;height:28px;border-radius:2px;background:linear-gradient(to top,var(--rain) var(--h),var(--line) var(--h))}
-.lista-valores{list-style:none;margin:0;padding:0}
-.lista-valores li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding:9px 0;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
-.lista-valores li:first-child{border-top:0}
-.lista-valores li .var{flex-basis:100%;text-align:right;margin:0}
-.noticias{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
-.noticias a{font-weight:600;text-decoration:none;color:var(--ink)}
-.noticias a:hover{text-decoration:underline;color:var(--accent)}
-.noticias .fuente{display:block;color:var(--muted);font-size:.82rem}
-.pie{margin-top:36px;padding-top:18px;border-top:1px solid var(--line)}
-.pie h2{font-size:1rem;margin-bottom:10px}
-.tabla{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:560px}
-th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--muted);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em}
-.ok{color:var(--up)}.warn{color:var(--warn)}.err{color:var(--down)}
-.err-txt{color:var(--muted);font-family:var(--mono);font-size:.76rem;word-break:break-word}
-@media (max-width:560px){
-  .top{padding-top:16px}
-  .valor{font-size:1.35rem}
-  .dias{grid-template-columns:repeat(7,104px)}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14110c; --bg-2: #1b1710; --surface: #1e1913; --surface-2: #262016; --ink: #f4eee2; --muted: #b3a68f;
+    --line: #3a3125; --lima: #b5d84a; --lima-tx: #c9e86b; --dorado: #ffca28; --naranja: #ffa726; --naranja-tx: #ffb74d;
+    --sube: #7bd66b; --baja: #ff7a5c; --neutro: #a59a86; --frio: #8ab8f0; --frio-bg: #1b2c42; --lluvia: #6fb7f0;
+    --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
+    --sombra-alta: 0 2px 6px rgba(0, 0, 0, .45), 0 24px 50px rgba(0, 0, 0, .5);
+    --vidrio: rgba(20, 17, 12, .72);
+    color-scheme: dark;
+  }
 }
+:root[data-theme="dark"] {
+  --bg: #14110c; --bg-2: #1b1710; --surface: #1e1913; --surface-2: #262016; --ink: #f4eee2; --muted: #b3a68f;
+  --line: #3a3125; --lima: #b5d84a; --lima-tx: #c9e86b; --dorado: #ffca28; --naranja: #ffa726; --naranja-tx: #ffb74d;
+  --sube: #7bd66b; --baja: #ff7a5c; --neutro: #a59a86; --frio: #8ab8f0; --frio-bg: #1b2c42; --lluvia: #6fb7f0;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
+  --sombra-alta: 0 2px 6px rgba(0, 0, 0, .45), 0 24px 50px rgba(0, 0, 0, .5);
+  --vidrio: rgba(20, 17, 12, .72);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1000px 500px at 110% -10%, color-mix(in srgb, var(--lima) 18%, transparent), transparent 60%),
+    radial-gradient(800px 420px at -10% 30%, color-mix(in srgb, var(--dorado) 14%, transparent), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--ink);
+  font: 16px/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { margin: 0; font-family: var(--display); line-height: 1.1; letter-spacing: -.015em; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--lima-tx); }
+button { font: inherit; color: inherit; }
+.tnum { font-variant-numeric: tabular-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--dorado); outline-offset: 3px; border-radius: 8px; }
+
+/* ---------- Carga inicial ---------- */
+.splash {
+  position: fixed; inset: 0; z-index: 100;
+  display: grid; place-items: center;
+  background: var(--bg);
+  transition: opacity .6s var(--curva), visibility .6s;
+}
+.splash.fuera { opacity: 0; visibility: hidden; }
+.splash svg { width: 92px; height: 92px; }
+.splash .tallo { stroke-dasharray: 120; stroke-dashoffset: 120; animation: dibujar .9s var(--curva) forwards; }
+.splash .grano { transform-origin: center; transform: scale(0); animation: brotar .45s var(--rebote) forwards; }
+.splash .grano:nth-of-type(2) { animation-delay: .35s; } .splash .grano:nth-of-type(3) { animation-delay: .45s; }
+.splash .grano:nth-of-type(4) { animation-delay: .55s; } .splash .grano:nth-of-type(5) { animation-delay: .65s; }
+.splash .grano:nth-of-type(6) { animation-delay: .75s; } .splash .grano:nth-of-type(7) { animation-delay: .85s; }
+@keyframes dibujar { to { stroke-dashoffset: 0; } }
+@keyframes brotar { to { transform: scale(1); } }
+
+/* ---------- Cabecera ---------- */
+.cab {
+  position: sticky; top: 0; z-index: 40;
+  backdrop-filter: saturate(1.6) blur(16px);
+  -webkit-backdrop-filter: saturate(1.6) blur(16px);
+  background: var(--vidrio);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+}
+.cab-in {
+  max-width: 1280px; margin: 0 auto; padding: 10px 20px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+}
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.marca-logo {
+  width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center;
+  background: linear-gradient(140deg, var(--lima), var(--dorado) 70%, var(--naranja));
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--lima) 45%, transparent);
+  color: #2b2118;
+}
+.marca-logo svg { width: 24px; height: 24px; transform-origin: 50% 90%; animation: mecer 4s ease-in-out infinite; }
+.marca b { font-family: var(--display); font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+@keyframes mecer { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+
+.pestanas { display: flex; justify-content: center; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 4px; }
+.pestanas::-webkit-scrollbar { display: none; }
+.pestana {
+  position: relative; display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 15px; border: 0; border-radius: 999px; background: transparent;
+  color: var(--muted); font-weight: 700; font-size: .93rem; cursor: pointer; white-space: nowrap;
+  transition: color .25s ease, background .25s ease, transform .25s var(--rebote);
+}
+.pestana svg { width: 18px; height: 18px; transition: transform .35s var(--rebote); }
+.pestana:hover { color: var(--ink); background: color-mix(in srgb, var(--lima) 14%, transparent); }
+.pestana:hover svg { transform: translateY(-2px) rotate(-8deg); }
+.pestana[aria-selected="true"] {
+  color: #2b2118;
+  background: linear-gradient(135deg, var(--lima), var(--dorado));
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--lima) 40%, transparent);
+}
+.cab-der { display: flex; align-items: center; gap: 8px; }
+.act {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line); font-size: .85rem; white-space: nowrap;
+}
+.act b { font-variant-numeric: tabular-nums; }
+.punto { width: 8px; height: 8px; border-radius: 50%; background: var(--lima); position: relative; }
+.punto::after {
+  content: ""; position: absolute; inset: -4px; border-radius: 50%;
+  border: 2px solid var(--lima); animation: latido 2s ease-out infinite;
+}
+@keyframes latido { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.8); opacity: 0; } }
+.boton-icono {
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
+  display: grid; place-items: center; cursor: pointer; transition: transform .3s var(--rebote), border-color .2s;
+}
+.boton-icono:hover { transform: rotate(25deg) scale(1.06); border-color: var(--lima); }
+.boton-icono svg { width: 18px; height: 18px; }
+
+/* ---------- Estructura ---------- */
+main { max-width: 1280px; margin: 0 auto; padding: 0 20px 40px; }
+.vista { display: none; padding-top: 26px; }
+.vista.activa { display: block; animation: entrar .55s var(--curva); }
+@keyframes entrar { from { opacity: 0; transform: translateY(14px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+.titulo-vista { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 20px; margin: 10px 0 18px; }
+.titulo-vista h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); font-weight: 700; }
+.titulo-vista p { color: var(--muted); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 700 .74rem/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--naranja-tx);
+}
+.eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--lima), var(--naranja)); }
+.nota { color: var(--muted); font-size: .86rem; }
+.grid { display: grid; gap: 18px; }
+.g-granos { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.g-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start; }
+.g-dolar { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.g-kpi { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
+/* ---------- Tarjetas ---------- */
+.card {
+  position: relative; min-width: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radio);
+  padding: 20px; box-shadow: var(--sombra);
+  transition: transform .45s var(--curva), box-shadow .45s var(--curva), border-color .3s;
+}
+.card.hover:hover { transform: translateY(-6px); box-shadow: var(--sombra-alta); border-color: color-mix(in srgb, var(--lima) 55%, var(--line)); }
+.card-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.card-h h3 { font-size: 1.35rem; font-weight: 700; }
+.card-t { font: 700 .78rem/1.2 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px;
+  font-size: .78rem; font-weight: 700; white-space: nowrap;
+  background: color-mix(in srgb, var(--dorado) 22%, transparent); color: var(--naranja-tx);
+}
+.chip.verde { background: color-mix(in srgb, var(--lima) 22%, transparent); color: var(--lima-tx); }
+.chip.viejo { background: color-mix(in srgb, var(--naranja) 20%, transparent); color: var(--naranja-tx); }
+.chip.frio { background: var(--frio-bg); color: var(--frio); }
+.estados { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.valor { font: 700 clamp(1.6rem, 3vw, 2rem)/1.1 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.valor small, .valor-m small { font: 600 .8rem var(--body); color: var(--muted); letter-spacing: 0; }
+.valor-m { font: 700 1.25rem/1.2 var(--display); font-variant-numeric: tabular-nums; }
+.sub { color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }
+.var { display: inline-flex; align-items: center; gap: 4px; font-size: .86rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.var.sube { color: var(--sube); } .var.baja { color: var(--baja); } .var.neutra { color: var(--neutro); font-weight: 600; }
+.var .flecha { display: inline-block; animation: flotar 2.4s ease-in-out infinite; }
+.var.baja .flecha { animation-name: hundir; }
+@keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes hundir { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+.nd { color: var(--muted); font-style: italic; font-size: .92rem; }
+
+/* ---------- Inicio: héroe ---------- */
+.heroe {
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: clamp(380px, 56vh, 540px); border-radius: 32px; margin-top: 4px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: #fffaf0;
+  background: linear-gradient(135deg, #3f5a0c, #7a9c1c 45%, #c98a00);
+  box-shadow: var(--sombra-alta);
+}
+.heroe-fotos { position: absolute; inset: 0; z-index: -2; }
+.heroe-fotos div {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  opacity: 0; transform: scale(1.08);
+  animation: diapo 21s infinite;
+}
+.heroe-fotos div:nth-child(2) { animation-delay: 7s; }
+.heroe-fotos div:nth-child(3) { animation-delay: 14s; }
+@keyframes diapo {
+  0% { opacity: 0; transform: scale(1.08); }
+  6% { opacity: 1; }
+  33% { opacity: 1; }
+  40% { opacity: 0; transform: scale(1); }
+  100% { opacity: 0; }
+}
+.heroe::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(20, 15, 5, .05) 0%, rgba(20, 15, 5, .35) 45%, rgba(20, 15, 5, .82) 100%),
+    radial-gradient(700px 300px at 0% 100%, rgba(164, 198, 57, .45), transparent 70%);
+}
+.particulas { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.particulas i {
+  position: absolute; bottom: -10px; width: 6px; height: 10px; border-radius: 50% 50% 45% 45%;
+  background: var(--dorado); opacity: .7; animation: subir linear infinite;
+}
+@keyframes subir {
+  from { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: .8; }
+  to { transform: translateY(-560px) translateX(40px) rotate(220deg); opacity: 0; }
+}
+.heroe-in { padding: clamp(22px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+.heroe .eyebrow { color: var(--dorado); }
+.heroe h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 700; letter-spacing: -.03em; }
+.heroe h1 em { font-style: italic; font-weight: 600; background: linear-gradient(90deg, var(--lima), var(--dorado), var(--naranja)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.heroe p { font-size: 1.08rem; color: rgba(255, 250, 240, .88); max-width: 56ch; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
+  font-weight: 800; border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: transform .3s var(--rebote), box-shadow .3s ease, background .3s ease;
+}
+.btn svg { width: 18px; height: 18px; transition: transform .35s var(--rebote); }
+.btn:hover { transform: translateY(-3px); }
+.btn:hover svg { transform: translateX(4px); }
+.btn:active { transform: translateY(0) scale(.97); }
+.btn-1 { color: #2b2118; background: linear-gradient(135deg, var(--lima), var(--dorado)); box-shadow: 0 10px 26px rgba(164, 198, 57, .45); }
+.btn-1:hover { box-shadow: 0 14px 34px rgba(255, 152, 0, .45); }
+.btn-2 { color: #fffaf0; background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .35); backdrop-filter: blur(6px); }
+.btn-2:hover { background: rgba(255, 255, 255, .24); }
+
+/* Cinta de precios */
+.cinta { position: relative; overflow: hidden; border-top: 1px solid rgba(255, 255, 255, .18); background: rgba(10, 8, 3, .35); backdrop-filter: blur(8px); }
+.cinta-pista { display: flex; width: max-content; animation: cinta 40s linear infinite; }
+.cinta:hover .cinta-pista { animation-play-state: paused; }
+.cinta-item { display: inline-flex; align-items: baseline; gap: 8px; padding: 12px 26px; white-space: nowrap; font-variant-numeric: tabular-nums; border-right: 1px solid rgba(255, 255, 255, .12); }
+.cinta-item span { color: rgba(255, 250, 240, .7); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.cinta-item b { font-weight: 800; }
+.cinta-item .sube { color: #b9f58f; } .cinta-item .baja { color: #ffab91; } .cinta-item .neutra { color: #e8dfcc; }
+@keyframes cinta { to { transform: translateX(-50%); } }
+
+.aviso {
+  margin-top: 18px; display: flex; gap: 12px; align-items: center; padding: 14px 18px; border-radius: 18px;
+  background: color-mix(in srgb, var(--dorado) 18%, var(--surface)); border: 1px solid color-mix(in srgb, var(--dorado) 50%, transparent);
+}
+.aviso svg { width: 26px; height: 26px; flex: none; color: var(--naranja-tx); animation: mecer 3s ease-in-out infinite; }
+
+.bloque { margin-top: 34px; }
+.bloque-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.bloque-h h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.link-tab { border: 0; background: none; padding: 0; font-weight: 800; color: var(--lima-tx); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.link-tab svg { width: 16px; height: 16px; transition: transform .3s var(--rebote); }
+.link-tab:hover svg { transform: translateX(4px); }
+
+/* KPI con ícono y minigráfico */
+.kpi { display: flex; flex-direction: column; gap: 6px; overflow: hidden; }
+.kpi-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.kpi-ico {
+  width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; flex: none;
+  background: color-mix(in srgb, var(--c, var(--lima)) 22%, transparent);
+  color: color-mix(in srgb, var(--c, var(--lima)) 70%, var(--ink));
+  transition: transform .5s var(--rebote);
+}
+.kpi-ico svg { width: 28px; height: 28px; }
+.card.hover:hover .kpi-ico { transform: rotate(-10deg) scale(1.1); }
+.spark { width: 100%; height: 44px; margin-top: 6px; overflow: visible; }
+.spark path.linea { fill: none; stroke: var(--c, var(--lima)); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1.6s var(--curva); }
+.spark path.area { fill: color-mix(in srgb, var(--c, var(--lima)) 18%, transparent); opacity: 0; transition: opacity 1.2s ease .4s; }
+.visible .spark path.linea { stroke-dashoffset: 0; }
+.visible .spark path.area { opacity: 1; }
+
+/* ---------- Granos ---------- */
+.grano { display: flex; flex-direction: column; gap: 0; overflow: hidden; }
+.grano::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
+  background: linear-gradient(90deg, var(--c, var(--lima)), var(--dorado));
+}
+.grano .card-h { margin-bottom: 4px; }
+.grano-tit { display: flex; align-items: center; gap: 10px; }
+.fila { padding: 13px 0; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 3px; }
+.fila:first-of-type { border-top: 0; }
+.posiciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.posicion {
+  flex: 1 1 90px; padding: 8px 10px; border-radius: 14px; background: var(--surface-2);
+  display: flex; flex-direction: column; gap: 1px; font-variant-numeric: tabular-nums;
+  transition: transform .3s var(--rebote), background .3s;
+}
+.posicion:hover { transform: translateY(-3px); background: color-mix(in srgb, var(--lima) 16%, var(--surface-2)); }
+.posicion > span:first-child { font: 700 .72rem var(--mono); letter-spacing: .04em; color: var(--muted); }
+.posicion b { font-size: 1rem; }
+.posicion .var { font-size: .76rem; }
+
+.ret-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.ret-lista li { display: grid; grid-template-columns: 80px 1fr 56px; align-items: center; gap: 12px; font-weight: 700; }
+.ret-barra { height: 10px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.ret-barra i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--lima), var(--dorado), var(--naranja)); transition: width 1.4s var(--curva); }
+.visible .ret-barra i { width: var(--w); }
+.ret-lista b { text-align: right; font-variant-numeric: tabular-nums; }
+
+.grafico { position: relative; height: 260px; }
+.grafico canvas { position: relative; z-index: 1; }
+.esqueleto {
+  position: absolute; inset: 0; border-radius: 14px;
+  background: linear-gradient(100deg, var(--surface-2) 30%, color-mix(in srgb, var(--lima) 12%, var(--surface-2)) 50%, var(--surface-2) 70%);
+  background-size: 300% 100%; animation: brillo 1.6s linear infinite;
+}
+@keyframes brillo { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+
+/* ---------- Dólar ---------- */
+.dolar .cv { display: flex; justify-content: space-between; gap: 12px; margin: 6px 0; }
+.dolar .cv div { display: flex; flex-direction: column; }
+.dolar .cv small { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.dolar .cv b { font-variant-numeric: tabular-nums; }
+.dolar.destacado { background: linear-gradient(150deg, color-mix(in srgb, var(--lima) 22%, var(--surface)), var(--surface) 60%); }
+
+/* ---------- Clima ---------- */
+.mapa-card { padding: 0; overflow: hidden; }
+#mapa { height: 400px; background: var(--surface-2); }
+.leaflet-container { font-family: var(--body); }
+.pin {
+  width: 22px; height: 22px; border-radius: 50%; border: 3px solid #fff;
+  background: linear-gradient(135deg, var(--lima), var(--dorado)); box-shadow: 0 4px 12px rgba(0, 0, 0, .35); position: relative;
+}
+.pin::after { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 2px solid var(--lima); animation: latido 2.2s ease-out infinite; }
+.pin.deposito { background: linear-gradient(135deg, var(--naranja), var(--dorado)); border-radius: 7px; }
+.pin.deposito::after { border-color: var(--naranja); border-radius: 10px; }
+.pin.helada { background: linear-gradient(135deg, #8ab8f0, #2f6db5); }
+.leaflet-popup-content-wrapper { border-radius: 16px; }
+.leaflet-popup-content { margin: 12px 14px; font: 14px/1.45 var(--body); }
+.popup b { font-family: var(--display); font-size: 1.05rem; }
+
+.clima-loc { margin-top: 18px; }
+.dias { display: grid; grid-template-columns: repeat(7, minmax(108px, 1fr)); gap: 10px; overflow-x: auto; padding: 4px 2px 8px; scroll-snap-type: x mandatory; }
+.dia {
+  scroll-snap-align: start; position: relative;
+  background: var(--surface-2); border-radius: 18px; padding: 12px; display: flex; flex-direction: column; gap: 4px;
+  font-variant-numeric: tabular-nums; transition: transform .35s var(--rebote), box-shadow .35s;
+}
+.dia:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+.dia.hoy { background: linear-gradient(160deg, color-mix(in srgb, var(--lima) 28%, var(--surface-2)), var(--surface-2)); }
+.dia.es-helada { outline: 2px solid var(--frio); }
+.dia .d { font-weight: 800; text-transform: capitalize; }
+.ic { width: 34px; height: 34px; flex: none; }
+.kpi-top .ic { width: 50px; height: 50px; }
+.dia .desc { color: var(--muted); font-size: .8rem; }
+.dia .t b { font-size: 1.1rem; }
+.lluvia { display: flex; align-items: flex-end; gap: 8px; color: var(--lluvia); font-weight: 800; font-size: .88rem; }
+.lluvia i { width: 10px; height: 34px; border-radius: 5px; background: color-mix(in srgb, var(--lluvia) 18%, transparent); position: relative; overflow: hidden; }
+.lluvia i::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: var(--lluvia); border-radius: inherit; transition: height 1.2s var(--curva); }
+.visible .lluvia i::after { height: var(--h); }
+.alerta { margin-bottom: 12px; padding: 10px 14px; border-radius: 14px; background: var(--frio-bg); color: var(--frio); font-weight: 700; display: flex; gap: 8px; align-items: center; }
+.alerta svg { width: 20px; height: 20px; flex: none; animation: girar 6s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+.sol { animation: girar 18s linear infinite; transform-origin: center; transform-box: fill-box; }
+.nube { animation: deriva 5s ease-in-out infinite; }
+@keyframes deriva { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+
+/* ---------- Noticias ---------- */
+.g-noticias { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.noticia { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; overflow: hidden; }
+.noticia .n-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.noticia h3 { font-size: 1.12rem; font-weight: 600; line-height: 1.3; }
+.noticia .ir { margin-top: auto; display: inline-flex; align-items: center; gap: 6px; color: var(--lima-tx); font-weight: 800; font-size: .9rem; }
+.noticia .ir svg { width: 16px; height: 16px; transition: transform .3s var(--rebote); }
+.noticia:hover .ir svg { transform: translate(3px, -3px); }
+.noticia::after {
+  content: ""; position: absolute; inset: auto -40% -60% auto; width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--dorado) 30%, transparent), transparent 70%);
+  opacity: 0; transition: opacity .4s;
+}
+.noticia:hover::after { opacity: 1; }
+.lista-noticias { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.lista-noticias li { padding: 12px 0; border-top: 1px dashed var(--line); }
+.lista-noticias li:first-child { border-top: 0; padding-top: 0; }
+.lista-noticias a { color: var(--ink); text-decoration: none; font-weight: 700; }
+.lista-noticias a:hover { color: var(--lima-tx); }
+.lista-noticias small { display: block; color: var(--muted); }
+
+/* ---------- Stock ---------- */
+.stock-marco { border-radius: 26px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--sombra); background: var(--surface); }
+.stock-marco iframe { display: block; width: 100%; height: calc(100vh - 150px); min-height: 640px; border: 0; }
+
+/* ---------- Pie ---------- */
+.pie { margin-top: 48px; padding: 26px 0 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+.pie details { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 4px 18px; }
+.pie summary { cursor: pointer; padding: 12px 0; font-weight: 800; color: var(--ink); list-style: none; display: flex; align-items: center; gap: 10px; }
+.pie summary::-webkit-details-marker { display: none; }
+.pie summary::after { content: "+"; margin-left: auto; font-size: 1.3rem; transition: transform .3s var(--rebote); }
+.pie details[open] summary::after { transform: rotate(45deg); }
+.tabla { overflow-x: auto; padding-bottom: 12px; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ok { color: var(--sube); font-weight: 700; } .warn { color: var(--naranja-tx); font-weight: 700; } .err { color: var(--baja); font-weight: 700; }
+.err-txt { font: .74rem var(--mono); word-break: break-word; }
+.pie p { margin-top: 14px; }
+
+/* ---------- Animación al desplazarse ---------- */
+.revelar { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--curva), transform .8s var(--curva); transition-delay: var(--retraso, 0s); }
+.revelar.visible { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .cab-in { grid-template-columns: 1fr auto; padding: 10px 16px 6px; gap: 6px 12px; }
+  .pestanas { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; margin: 0 -16px; padding: 4px 16px 8px; }
+  .act .txt-largo { display: none; }
+}
+@media (max-width: 560px) {
+  main { padding: 0 16px 32px; }
+  .heroe { border-radius: 24px; }
+  .card { padding: 16px; }
+  .dias { grid-template-columns: repeat(7, 112px); }
+  .ret-lista li { grid-template-columns: 64px 1fr 48px; }
+  #mapa { height: 320px; }
+  .marca b { font-size: 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .revelar { opacity: 1; transform: none; }
+  .heroe-fotos div:first-child { opacity: 1; }
+  .cinta-pista { animation: none; }
+}
+
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="marca"><h1>Tablero Agro</h1><span>Mercados, clima y noticias del campo</span></div>
-    <div class="act" aria-live="polite">
-      <span class="etq">Última actualización</span>
-      <strong>10:51 h</strong>
-      <span class="fecha">Martes, 13 de octubre de 2026 · hora argentina</span>
+<div class="splash" aria-hidden="true">
+  <svg viewBox="0 0 64 64"><path class="tallo" d="M32 60V18" stroke="#a4c639" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <ellipse class="grano" cx="25" cy="22" rx="5" ry="8.5" fill="#ffc107" transform="rotate(-32 25 22)"/><ellipse class="grano" cx="39" cy="22" rx="5" ry="8.5" fill="#ff9800" transform="rotate(32 39 22)"/><ellipse class="grano" cx="25" cy="32" rx="5" ry="8.5" fill="#ffc107" transform="rotate(-32 25 32)"/><ellipse class="grano" cx="39" cy="32" rx="5" ry="8.5" fill="#ff9800" transform="rotate(32 39 32)"/><ellipse class="grano" cx="25" cy="42" rx="5" ry="8.5" fill="#ffc107" transform="rotate(-32 25 42)"/><ellipse class="grano" cx="39" cy="42" rx="5" ry="8.5" fill="#ff9800" transform="rotate(32 39 42)"/>
+    <ellipse class="grano" cx="32" cy="11" rx="4.5" ry="8" fill="#a4c639"/></svg>
+</div>
+
+<header class="cab">
+  <div class="cab-in">
+    <a class="marca" href="#inicio" data-ir="inicio" aria-label="Tablero Agro, inicio"><span class="marca-logo"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 30V11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="12" cy="10" rx="2.6" ry="4.4" transform="rotate(-32 12 10)"/><ellipse cx="20" cy="10" rx="2.6" ry="4.4" transform="rotate(32 20 10)"/><ellipse cx="12" cy="15" rx="2.6" ry="4.4" transform="rotate(-32 12 15)"/><ellipse cx="20" cy="15" rx="2.6" ry="4.4" transform="rotate(32 20 15)"/><ellipse cx="12" cy="20" rx="2.6" ry="4.4" transform="rotate(-32 12 20)"/><ellipse cx="20" cy="20" rx="2.6" ry="4.4" transform="rotate(32 20 20)"/><ellipse cx="16" cy="6" rx="2.4" ry="4.4"/></svg></span><b>Tablero Agro</b></a>
+    <nav class="pestanas" role="tablist" aria-label="Secciones">
+      <button class="pestana" role="tab" id="tab-inicio" aria-controls="inicio" data-vista="inicio" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Inicio</span></button><button class="pestana" role="tab" id="tab-granos" aria-controls="granos" data-vista="granos" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5zM12 13c3 0 5-2 5-5-3 0-5 2-5 5zM12 8c-2 0-3.5-1.5-3.5-4C10.5 4 12 5.5 12 8zM12 8c2 0 3.5-1.5 3.5-4C13.5 4 12 5.5 12 8zM12 18c-3 0-5-2-5-5 3 0 5 2 5 5zM12 18c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg><span>Granos</span></button><button class="pestana" role="tab" id="tab-dolar" aria-controls="dolar" data-vista="dolar" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1-3 2.3c0 3.2 6 1.8 6 5 0 1.4-1.3 2.7-3 2.7s-3-1.1-3-2.5M12 5.5v13"/></svg><span>Dólar</span></button><button class="pestana" role="tab" id="tab-clima" aria-controls="clima" data-vista="clima" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3.5"/><path d="M8 2.5v1.5M2.5 9H4M3.9 4.9l1 1M12.1 4.9l-1 1"/><path d="M9 20h9a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.5A3 3 0 0 0 9 20z"/></svg><span>Clima</span></button><button class="pestana" role="tab" id="tab-noticias" aria-controls="noticias" data-vista="noticias" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5M8 16h3"/></svg><span>Noticias</span></button><button class="pestana" role="tab" id="tab-stock" aria-controls="stock" data-vista="stock" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><span>Stock</span></button>
+    </nav>
+    <div class="cab-der">
+      <span class="act" title="Última actualización: martes, 13 de octubre de 2026 11:31 h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>11:31 h</b></span>
+      <button class="boton-icono" id="btn-tema" type="button" aria-label="Cambiar entre modo claro y oscuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></button>
     </div>
-  </header>
-  
-  <section aria-labelledby="t-granos">
-    <div class="sec-h"><h2 id="t-granos">Granos</h2><p class="meta">Pizarra del <strong>09/10/2026</strong> · Chicago al 13/10/2026 · Matba-Rofex al 09/10/2026</p>
-      <div class="estados"></div></div>
-    <p class="nota">La pizarra se publica por la tarde: en las actualizaciones de la mañana vas a ver la del día hábil anterior.</p>
-    <div class="grid granos"><article class="card grano">
-      <header class="card-h"><h3>Soja</h3><span class="chip" title="Derecho de exportación">Retención 24 %</span></header>
-      <div class="fila"><span class="etq">Pizarra Rosario</span><div class="valor">$ 560.000 <small>/t</small></div><div class="sub">US$ 371,35 /t</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Chicago · posición cercana</span><div class="valor chico">US$ 471,97 <small>/t</small></div>
-        <div class="sub">US$ 12,8450 /bushel</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Matba-Rofex · ajuste</span><ul class="posiciones"><li><span>NOV26</span><strong>US$ 374,20</strong>
-          <span class="var neutra">sin dato anterior</span></li><li><span>MAY27</span><strong>US$ 359,50</strong>
-          <span class="var neutra">sin dato anterior</span></li><li><span>JUL27</span><strong>US$ 366,70</strong>
-          <span class="var neutra">sin dato anterior</span></li></ul></div>
-    </article><article class="card grano">
-      <header class="card-h"><h3>Maíz</h3><span class="chip" title="Derecho de exportación">Retención 8,5 %</span></header>
-      <div class="fila"><span class="etq">Pizarra Rosario</span><div class="valor">$ 292.500 <small>/t</small></div><div class="sub">US$ 193,97 /t</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Chicago · posición cercana</span><div class="valor chico">US$ 190,44 <small>/t</small></div>
-        <div class="sub">US$ 4,8375 /bushel</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Matba-Rofex · ajuste</span><ul class="posiciones"><li><span>DIC26</span><strong>US$ 198,90</strong>
-          <span class="var neutra">sin dato anterior</span></li><li><span>ABR27</span><strong>US$ 198,00</strong>
-          <span class="var neutra">sin dato anterior</span></li><li><span>JUL27</span><strong>US$ 195,00</strong>
-          <span class="var neutra">sin dato anterior</span></li></ul></div>
-    </article><article class="card grano">
-      <header class="card-h"><h3>Girasol</h3><span class="chip" title="Derecho de exportación">Retención 4,5 %</span></header>
-      <div class="fila"><span class="etq">Pizarra Rosario</span><div class="valor">$ 799.240 <small>/t</small></div><div class="sub" title="Conversión al dólar mayorista, solo como referencia">≈ US$ 526,86 /t al mayorista</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Chicago · posición cercana</span><p class="nd">El girasol no cotiza en Chicago.</p></div>
-      <div class="fila"><span class="etq">Matba-Rofex · ajuste</span><p class="nd">Sin posiciones seguidas para girasol.</p></div>
-    </article><article class="card grano">
-      <header class="card-h"><h3>Trigo</h3><span class="chip" title="Derecho de exportación">Retención 7,5 %</span></header>
-      <div class="fila"><span class="etq">Pizarra Rosario</span><div class="valor">$ 342.000 <small>/t</small></div><div class="sub">US$ 226,79 /t</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Chicago · posición cercana</span><div class="valor chico">US$ 248,02 <small>/t</small></div>
-        <div class="sub">US$ 6,7500 /bushel</div>
-        <span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="etq">Matba-Rofex · ajuste</span><ul class="posiciones"><li><span>DIC26</span><strong>US$ 224,10</strong>
-          <span class="var neutra">sin dato anterior</span></li><li><span>ENE27</span><strong>US$ 229,10</strong>
-          <span class="var neutra">sin dato anterior</span></li></ul></div>
+  </div>
+</header>
+
+<main>
+<section class="vista" id="inicio" role="tabpanel" aria-labelledby="tab-inicio">
+    <div class="heroe">
+      <div class="heroe-fotos"><div role="img" aria-label="Campo de trigo al atardecer" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=1800&amp;q=70')"></div><div role="img" aria-label="Tractor trabajando en el campo" style="background-image:url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&amp;fit=crop&amp;w=1800&amp;q=70')"></div><div role="img" aria-label="Espigas de trigo" style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&amp;fit=crop&amp;w=1800&amp;q=70')"></div></div>
+      <div class="particulas" aria-hidden="true"></div>
+      <div class="heroe-in">
+        <span class="eyebrow">Martes, 13 de octubre de 2026</span>
+        <h1><span id="saludo">Hola</span>. Así está <em>el campo</em> hoy.</h1>
+        <p>Pizarra, Chicago, Matba-Rofex, dólar y clima en un solo lugar, actualizados de lunes a viernes cuatro veces por día.</p>
+        <div class="ctas">
+          <button class="btn btn-1" data-ir="granos">Ver mercados <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="btn btn-2" data-ir="stock">Abrir stock <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="cinta" aria-label="Resumen de precios"><div class="cinta-pista"><span class="cinta-item"><span>Soja Rosario</span><b>$ 560.000</b><em class="neutra">=</em></span><span class="cinta-item"><span>Maíz Rosario</span><b>$ 292.500</b><em class="neutra">=</em></span><span class="cinta-item"><span>Girasol Rosario</span><b>$ 799.240</b><em class="neutra">=</em></span><span class="cinta-item"><span>Trigo Rosario</span><b>$ 342.000</b><em class="neutra">=</em></span><span class="cinta-item"><span>Dólar oficial</span><b>$ 1.535,00</b><em class="neutra">=</em></span><span class="cinta-item"><span>Dólar MEP</span><b>$ 1.536,60</b><em class="neutra">=</em></span><span class="cinta-item"><span>Soja Chicago</span><b>US$ 473,26/t</b><em class="neutra">=</em></span><span class="cinta-item"><span>Maíz Chicago</span><b>US$ 191,82/t</b><em class="neutra">=</em></span><span class="cinta-item"><span>Trigo Chicago</span><b>US$ 249,58/t</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Soja Rosario</span><b>$ 560.000</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Maíz Rosario</span><b>$ 292.500</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Girasol Rosario</span><b>$ 799.240</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Trigo Rosario</span><b>$ 342.000</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Dólar oficial</span><b>$ 1.535,00</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Dólar MEP</span><b>$ 1.536,60</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Soja Chicago</span><b>US$ 473,26/t</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Maíz Chicago</span><b>US$ 191,82/t</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Trigo Chicago</span><b>US$ 249,58/t</b><em class="neutra">=</em></span></div></div>
+    </div>
+    
+    <div class="bloque">
+      <div class="bloque-h"><h2>Granos del día</h2><button class="link-tab" data-ir="granos">Todos los mercados <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="grid g-kpi"><article class="card hover kpi revelar" style="--c:#a4c639">
+      <div class="kpi-top"><div><div class="card-t">Pizarra Rosario</div><h3>Soja</h3></div><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M8 26C5 23 5 17 9 12s10-7 14-5c3 2 3 8-1 13s-11 9-14 6z" opacity=".35"/><circle cx="12" cy="20" r="3.2"/><circle cx="16.5" cy="15.5" r="3.2"/><circle cx="21" cy="11" r="3.2"/></svg></div></div>
+      <div class="valor"><span data-contar="560000" data-dec="0" data-pre="$ ">$ 560.000</span> <small>/t</small></div><span class="var neutra">sin dato anterior</span></article><article class="card hover kpi revelar" style="--c:#ffc107">
+      <div class="kpi-top"><div><div class="card-t">Pizarra Rosario</div><h3>Maíz</h3></div><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3c4 0 6 5 6 11s-2 12-6 12-6-6-6-12 2-11 6-11z"/><path d="M10 16c-4 2-5 8-3 13 3-2 6-5 7-9M22 16c4 2 5 8 3 13-3-2-6-5-7-9" opacity=".45"/><path d="M13 9h6M12.5 13h7M12.5 17h7M13 21h6" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/></svg></div></div>
+      <div class="valor"><span data-contar="292500" data-dec="0" data-pre="$ ">$ 292.500</span> <small>/t</small></div><span class="var neutra">sin dato anterior</span></article><article class="card hover kpi revelar" style="--c:#ff9800">
+      <div class="kpi-top"><div><div class="card-t">Pizarra Rosario</div><h3>Girasol</h3></div><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><g opacity=".55"><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(0 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(30 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(90 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(120 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(150 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(180 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(210 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(240 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(270 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(300 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(330 16 16)"/></g><circle cx="16" cy="16" r="6.5"/><circle cx="16" cy="16" r="4" fill="#5a3a12" opacity=".55"/></svg></div></div>
+      <div class="valor"><span data-contar="799240" data-dec="0" data-pre="$ ">$ 799.240</span> <small>/t</small></div><span class="var neutra">sin dato anterior</span></article><article class="card hover kpi revelar" style="--c:#c8962e">
+      <div class="kpi-top"><div><div class="card-t">Pizarra Rosario</div><h3>Trigo</h3></div><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 30V10" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12.5" cy="8" rx="2.4" ry="4" transform="rotate(-30 12.5 8)"/><ellipse cx="19.5" cy="8" rx="2.4" ry="4" transform="rotate(30 19.5 8)"/><ellipse cx="12.5" cy="13" rx="2.4" ry="4" transform="rotate(-30 12.5 13)"/><ellipse cx="19.5" cy="13" rx="2.4" ry="4" transform="rotate(30 19.5 13)"/><ellipse cx="12.5" cy="18" rx="2.4" ry="4" transform="rotate(-30 12.5 18)"/><ellipse cx="19.5" cy="18" rx="2.4" ry="4" transform="rotate(30 19.5 18)"/><ellipse cx="12.5" cy="23" rx="2.4" ry="4" transform="rotate(-30 12.5 23)"/><ellipse cx="19.5" cy="23" rx="2.4" ry="4" transform="rotate(30 19.5 23)"/><ellipse cx="16" cy="5" rx="2.2" ry="4"/></svg></div></div>
+      <div class="valor"><span data-contar="342000" data-dec="0" data-pre="$ ">$ 342.000</span> <small>/t</small></div><span class="var neutra">sin dato anterior</span></article></div>
+      <p class="nota" style="margin-top:10px">Pizarra del 09/10/2026. Se publica por la tarde: a la mañana vas a ver la del día hábil anterior.</p>
+    </div>
+    <div class="bloque">
+      <div class="grid g-2"><article class="card hover kpi revelar" style="--c:#ff9800">
+    <div class="kpi-top"><div><div class="card-t">Dólar oficial BNA</div><h3>Venta</h3></div><div class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1-3 2.3c0 3.2 6 1.8 6 5 0 1.4-1.3 2.7-3 2.7s-3-1.1-3-2.5M12 5.5v13"/></svg></div></div>
+    <div class="valor"><span data-contar="1535" data-dec="2" data-pre="$ ">$ 1.535,00</span></div><span class="var neutra" title="Respecto del 12/10/2026">= sin cambio</span><svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+    <path class="area" d="M0.00 38.00 L3.45 38.00 L6.90 38.00 L10.34 27.33 L13.79 27.33 L17.24 27.33 L20.69 27.33 L24.14 27.33 L27.59 27.33 L31.03 27.33 L34.48 27.33 L37.93 16.67 L41.38 6.00 L44.83 6.00 L48.28 6.00 L51.72 6.00 L55.17 6.00 L58.62 16.67 L62.07 6.00 L65.52 16.67 L68.97 16.67 L72.41 16.67 L75.86 16.67 L79.31 16.67 L82.76 16.67 L86.21 16.67 L89.66 27.33 L93.10 27.33 L96.55 27.33 L100.00 27.33 L100 40 L0 40 Z"/><path class="linea" d="M0.00 38.00 L3.45 38.00 L6.90 38.00 L10.34 27.33 L13.79 27.33 L17.24 27.33 L20.69 27.33 L24.14 27.33 L27.59 27.33 L31.03 27.33 L34.48 27.33 L37.93 16.67 L41.38 6.00 L44.83 6.00 L48.28 6.00 L51.72 6.00 L55.17 6.00 L58.62 16.67 L62.07 6.00 L65.52 16.67 L68.97 16.67 L72.41 16.67 L75.86 16.67 L79.31 16.67 L82.76 16.67 L86.21 16.67 L89.66 27.33 L93.10 27.33 L96.55 27.33 L100.00 27.33" vector-effect="non-scaling-stroke"/></svg>
+  </article><article class="card hover kpi revelar" style="--c:#3a8fd6">
+    <div class="kpi-top"><div><div class="card-t">Clima hoy</div><h3>Córdoba</h3></div><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg></div>
+    <div class="valor">18° <small>/ 11°</small></div>
+      <div class="sub">Llovizna · lluvia 1,6 mm</div>
+      <div class="sub">Próximos 7 días: <b>40,3 mm</b></div>
+      
+      <button class="link-tab" data-ir="clima">Ver pronóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </article>
+        <article class="card revelar"><div class="card-h"><h3>Titulares</h3><button class="link-tab" data-ir="noticias">Ver todas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><ul class="lista-noticias"><li><a href="https://www.infocampo.com.ar/precio-del-maiz-hoy-13-octubre-2026/" target="_blank" rel="noopener noreferrer">Precio del maíz en Rosario hoy 13 octubre 2026</a><small>Infocampo</small></li><li><a href="https://www.infocampo.com.ar/precio-del-trigo-hoy-13-octubre-2026/" target="_blank" rel="noopener noreferrer">Precio del Trigo en Rosario hoy 13 octubre 2026</a><small>Infocampo</small></li><li><a href="https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/" target="_blank" rel="noopener noreferrer">Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra</a><small>La Nación Campo</small></li><li><a href="https://bichosdecampo.com/quien-se-queda-con-la-plata-del-tabaco-productores-de-cinco-provincias-llegan-a-buenos-aires-para-denunciar-maniobras-de-sobrefacturacion-y-cobro-indebido-de-fondos/" target="_blank" rel="noopener noreferrer">¿Quién se queda con la plata del tabaco? Productores de cinco provincias llegan a Buenos Aires para denunciar maniobras de “sobrefacturación” y cobro indebido de fondos: “Es una estafa”, aseguran</a><small>Bichos de Campo</small></li></ul></article>
+      </div>
+    </div>
+  </section>
+<section class="vista" id="granos" role="tabpanel" aria-labelledby="tab-granos">
+    <div class="titulo-vista"><div><span class="eyebrow">Mercados</span><h2>Granos</h2></div>
+      <div><p>Pizarra del <b>09/10/2026</b> · Chicago al 13/10/2026 · Matba-Rofex al 09/10/2026</p><div class="estados"></div></div></div>
+    <div class="grid g-granos"><article class="card hover grano revelar" style="--c:#a4c639">
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M8 26C5 23 5 17 9 12s10-7 14-5c3 2 3 8-1 13s-11 9-14 6z" opacity=".35"/><circle cx="12" cy="20" r="3.2"/><circle cx="16.5" cy="15.5" r="3.2"/><circle cx="21" cy="11" r="3.2"/></svg></div><h3>Soja</h3></div>
+        <span class="chip" title="Derecho de exportación">Retención 24 %</span></div>
+      <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="560000" data-dec="0" data-pre="$ ">$ 560.000</span> <small>/t</small></div><div class="sub">US$ 371,35 /t</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 473,26 <small>/t</small></div>
+        <div class="sub">US$ 12,8800 /bushel</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><div class="posiciones"><div class="posicion"><span>NOV26</span><b>US$ 374,20</b><span class="var neutra">sin dato anterior</span></div><div class="posicion"><span>MAY27</span><b>US$ 359,50</b><span class="var neutra">sin dato anterior</span></div><div class="posicion"><span>JUL27</span><b>US$ 366,70</b><span class="var neutra">sin dato anterior</span></div></div></div>
+    </article><article class="card hover grano revelar" style="--c:#ffc107">
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3c4 0 6 5 6 11s-2 12-6 12-6-6-6-12 2-11 6-11z"/><path d="M10 16c-4 2-5 8-3 13 3-2 6-5 7-9M22 16c4 2 5 8 3 13-3-2-6-5-7-9" opacity=".45"/><path d="M13 9h6M12.5 13h7M12.5 17h7M13 21h6" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/></svg></div><h3>Maíz</h3></div>
+        <span class="chip" title="Derecho de exportación">Retención 8,5 %</span></div>
+      <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="292500" data-dec="0" data-pre="$ ">$ 292.500</span> <small>/t</small></div><div class="sub">US$ 193,97 /t</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 191,82 <small>/t</small></div>
+        <div class="sub">US$ 4,8725 /bushel</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><div class="posiciones"><div class="posicion"><span>DIC26</span><b>US$ 198,90</b><span class="var neutra">sin dato anterior</span></div><div class="posicion"><span>ABR27</span><b>US$ 198,00</b><span class="var neutra">sin dato anterior</span></div><div class="posicion"><span>JUL27</span><b>US$ 195,00</b><span class="var neutra">sin dato anterior</span></div></div></div>
+    </article><article class="card hover grano revelar" style="--c:#ff9800">
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><g opacity=".55"><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(0 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(30 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(90 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(120 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(150 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(180 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(210 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(240 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(270 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(300 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(330 16 16)"/></g><circle cx="16" cy="16" r="6.5"/><circle cx="16" cy="16" r="4" fill="#5a3a12" opacity=".55"/></svg></div><h3>Girasol</h3></div>
+        <span class="chip" title="Derecho de exportación">Retención 4,5 %</span></div>
+      <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="799240" data-dec="0" data-pre="$ ">$ 799.240</span> <small>/t</small></div><div class="sub" title="Conversión al dólar mayorista, solo como referencia">≈ US$ 526,16 /t al mayorista</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><p class="nd">El girasol no cotiza en Chicago.</p></div>
+      <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><p class="nd">Sin posiciones seguidas para girasol.</p></div>
+    </article><article class="card hover grano revelar" style="--c:#c8962e">
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 30V10" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12.5" cy="8" rx="2.4" ry="4" transform="rotate(-30 12.5 8)"/><ellipse cx="19.5" cy="8" rx="2.4" ry="4" transform="rotate(30 19.5 8)"/><ellipse cx="12.5" cy="13" rx="2.4" ry="4" transform="rotate(-30 12.5 13)"/><ellipse cx="19.5" cy="13" rx="2.4" ry="4" transform="rotate(30 19.5 13)"/><ellipse cx="12.5" cy="18" rx="2.4" ry="4" transform="rotate(-30 12.5 18)"/><ellipse cx="19.5" cy="18" rx="2.4" ry="4" transform="rotate(30 19.5 18)"/><ellipse cx="12.5" cy="23" rx="2.4" ry="4" transform="rotate(-30 12.5 23)"/><ellipse cx="19.5" cy="23" rx="2.4" ry="4" transform="rotate(30 19.5 23)"/><ellipse cx="16" cy="5" rx="2.2" ry="4"/></svg></div><h3>Trigo</h3></div>
+        <span class="chip" title="Derecho de exportación">Retención 7,5 %</span></div>
+      <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="342000" data-dec="0" data-pre="$ ">$ 342.000</span> <small>/t</small></div><div class="sub">US$ 226,79 /t</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 249,58 <small>/t</small></div>
+        <div class="sub">US$ 6,7925 /bushel</div><span class="var neutra">sin dato anterior</span></div>
+      <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><div class="posiciones"><div class="posicion"><span>DIC26</span><b>US$ 224,10</b><span class="var neutra">sin dato anterior</span></div><div class="posicion"><span>ENE27</span><b>US$ 229,10</b><span class="var neutra">sin dato anterior</span></div></div></div>
     </article></div>
-  </section>
-  <section aria-labelledby="t-evol">
-    <div class="sec-h"><h2 id="t-evol">Evolución 30 días</h2></div>
-    <div class="grid graficos">
-      <article class="card"><h3 class="card-t">Pizarra Rosario ($/t)</h3><div class="chart"><canvas id="g-granos" aria-label="Evolución de la pizarra de Rosario"></canvas></div></article>
-      <article class="card"><h3 class="card-t">Dólar oficial BNA (venta)</h3><div class="chart"><canvas id="g-dolar" aria-label="Evolución del dólar oficial"></canvas></div></article>
+    <p class="nota" style="margin-top:12px">La pizarra se publica por la tarde: en las actualizaciones de la mañana vas a ver la del día hábil anterior.</p>
+    <div class="bloque grid g-2">
+      <article class="card revelar"><div class="card-h"><h3>Pizarra Rosario · 30 días</h3><span class="chip verde">$/t</span></div>
+        <div class="grafico"><div class="esqueleto"></div><canvas id="g-granos" aria-label="Evolución de la pizarra de Rosario"></canvas></div></article>
+      <article class="card revelar"><div class="card-h"><h3>Retenciones vigentes</h3></div>
+        <ul class="ret-lista"><li><span>Soja</span><div class="ret-barra"><i style="--w:100.0%"></i></div><b>24 %</b></li><li><span>Maíz</span><div class="ret-barra"><i style="--w:35.4%"></i></div><b>8,5 %</b></li><li><span>Trigo</span><div class="ret-barra"><i style="--w:31.3%"></i></div><b>7,5 %</b></li><li><span>Girasol</span><div class="ret-barra"><i style="--w:18.8%"></i></div><b>4,5 %</b></li><li><span>Cebada</span><div class="ret-barra"><i style="--w:31.3%"></i></div><b>7,5 %</b></li><li><span>Sorgo</span><div class="ret-barra"><i style="--w:35.4%"></i></div><b>8,5 %</b></li></ul>
+        <p class="nota" style="margin-top:14px">Cargadas a mano el 09/12/2025. Anuncio del Ministerio de Economía de diciembre de 2025. Verificá en el Boletín Oficial antes de usar.</p></article>
     </div>
   </section>
-  <section aria-labelledby="t-dolar">
-    <div class="sec-h"><h2 id="t-dolar">Dólar</h2>
-      <p class="meta">Cotizaciones al 13/10/2026 07:00</p>
-      <div class="estados"></div></div>
-    <div class="grid dolares"><article class="card dolar">
-        <h3 class="card-t">Oficial BNA</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.485,00</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.535,00</strong></div>
-        </div>
-        <span class="var neutra" title="Respecto del 12/10/2026">= sin cambio</span>
-      </article><article class="card dolar">
-        <h3 class="card-t">Mayorista</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.508,00</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.517,00</strong></div>
-        </div>
-        <span class="var neutra">sin dato anterior</span>
-      </article><article class="card dolar">
-        <h3 class="card-t">MEP</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.535,90</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.542,90</strong></div>
-        </div>
-        <span class="var neutra">sin dato anterior</span>
-      </article><article class="card dolar">
-        <h3 class="card-t">CCL</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.605,50</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.606,60</strong></div>
-        </div>
-        <span class="var neutra">sin dato anterior</span>
-      </article><article class="card dolar">
-        <h3 class="card-t">Blue</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.520,00</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.540,00</strong></div>
-        </div>
-        <span class="var neutra">sin dato anterior</span>
-      </article><article class="card dolar">
-        <h3 class="card-t">Tarjeta</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.930,50</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.995,50</strong></div>
-        </div>
-        <span class="var neutra">sin dato anterior</span>
-      </article><article class="card dolar">
-        <h3 class="card-t">Cripto</h3>
-        <div class="cv">
-          <div><span class="etq">Compra</span><strong>$ 1.606,21</strong></div>
-          <div><span class="etq">Venta</span><strong class="valor chico">$ 1.609,51</strong></div>
-        </div>
-        <span class="var neutra">sin dato anterior</span>
-      </article></div>
+<section class="vista" id="dolar" role="tabpanel" aria-labelledby="tab-dolar">
+    <div class="titulo-vista"><div><span class="eyebrow">Cotizaciones</span><h2>Dólar</h2></div>
+      <div><p>Al 13/10/2026 08:00</p><div class="estados"></div></div></div>
+    <div class="grid g-dolar"><article class="card hover dolar revelar destacado">
+          <div class="card-h"><h3>Oficial BNA</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.485,00</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1535" data-dec="2" data-pre="$ ">$ 1.535,00</span></b></div></div>
+          <span class="var neutra" title="Respecto del 12/10/2026">= sin cambio</span>
+        </article><article class="card hover dolar revelar">
+          <div class="card-h"><h3>Mayorista</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.510,00</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1519" data-dec="2" data-pre="$ ">$ 1.519,00</span></b></div></div>
+          <span class="var neutra">sin dato anterior</span>
+        </article><article class="card hover dolar revelar">
+          <div class="card-h"><h3>MEP</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.536,60</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1536.6" data-dec="2" data-pre="$ ">$ 1.536,60</span></b></div></div>
+          <span class="var neutra">sin dato anterior</span>
+        </article><article class="card hover dolar revelar">
+          <div class="card-h"><h3>CCL</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.609,80</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1609.8" data-dec="2" data-pre="$ ">$ 1.609,80</span></b></div></div>
+          <span class="var neutra">sin dato anterior</span>
+        </article><article class="card hover dolar revelar">
+          <div class="card-h"><h3>Blue</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.520,00</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1540" data-dec="2" data-pre="$ ">$ 1.540,00</span></b></div></div>
+          <span class="var neutra">sin dato anterior</span>
+        </article><article class="card hover dolar revelar">
+          <div class="card-h"><h3>Tarjeta</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.930,50</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1995.5" data-dec="2" data-pre="$ ">$ 1.995,50</span></b></div></div>
+          <span class="var neutra">sin dato anterior</span>
+        </article><article class="card hover dolar revelar">
+          <div class="card-h"><h3>Cripto</h3></div>
+          <div class="cv"><div><small>Compra</small><b>$ 1.606,84</b></div>
+            <div><small>Venta</small><b class="valor-m"><span data-contar="1611.4" data-dec="2" data-pre="$ ">$ 1.611,40</span></b></div></div>
+          <span class="var neutra">sin dato anterior</span>
+        </article></div>
+    <div class="bloque"><article class="card revelar"><div class="card-h"><h3>Dólar oficial BNA · venta</h3><span class="chip verde">30 días</span></div>
+      <div class="grafico"><div class="esqueleto"></div><canvas id="g-dolar" aria-label="Evolución del dólar oficial"></canvas></div></article></div>
   </section>
-  <section aria-labelledby="t-clima">
-    <div class="sec-h"><h2 id="t-clima">Clima · próximos 7 días</h2><div class="estados"></div></div>
-    <article class="card clima">
-        <header class="card-h"><h3>Córdoba</h3>
-          <span class="chip">Lluvia 7 días: 40,3 mm</span></header>
-        
-        <div class="dias"><div class="dia">
-            <span class="d">mar 13/10</span>
+<section class="vista" id="clima" role="tabpanel" aria-labelledby="tab-clima">
+    <div class="titulo-vista"><div><span class="eyebrow">Pronóstico y campos</span><h2>Clima</h2></div>
+      <div><p>Próximos 7 días · Open-Meteo</p><div class="estados"></div></div></div>
+    <article class="card mapa-card revelar"><div id="mapa" role="region" aria-label="Mapa de localidades y campos"></div></article>
+    <p class="nota" style="margin-top:10px">Hacé clic en los puntos para ver el detalle. Las localidades y los campos se editan en <code>config.json</code>.</p>
+    <article class="card clima-loc revelar">
+          <div class="card-h"><h3>Córdoba</h3>
+            <span class="chip verde">Lluvia 7 días: 40,3 mm</span></div>
+          
+          <div class="dias"><div class="dia hoy">
+            <span class="d">Hoy</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="temps"><b>18°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 55 %">
-              <i style="--h:9%"></i>1,5 mm</span>
+            <span class="t"><b>18°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 55 %"><i style="--h:10%"></i>1,6 mm</span>
             
           </div><div class="dia">
             <span class="d">mié 14/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="temps"><b>19°</b> / 13°</span>
-            <span class="lluvia" title="Probabilidad: 97 %">
-              <i style="--h:8%"></i>1,3 mm</span>
+            <span class="t"><b>19°</b> / 13°</span>
+            <span class="lluvia" title="Probabilidad: 97 %"><i style="--h:8%"></i>1,3 mm</span>
             
           </div><div class="dia">
             <span class="d">jue 15/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Chaparrones</span>
-            <span class="temps"><b>20°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 80 %">
-              <i style="--h:50%"></i>8,3 mm</span>
+            <span class="t"><b>20°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 80 %"><i style="--h:54%"></i>8,2 mm</span>
             
           </div><div class="dia">
             <span class="d">vie 16/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Chaparrones</span>
-            <span class="temps"><b>19°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 63 %">
-              <i style="--h:60%"></i>10,1 mm</span>
+            <span class="t"><b>19°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 63 %"><i style="--h:75%"></i>11,5 mm</span>
             
           </div><div class="dia">
             <span class="d">sáb 17/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Chaparrones</span>
-            <span class="temps"><b>16°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 55 %">
-              <i style="--h:100%"></i>16,7 mm</span>
+            <span class="t"><b>16°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 55 %"><i style="--h:100%"></i>15,3 mm</span>
             
           </div><div class="dia">
             <span class="d">dom 18/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="temps"><b>18°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 35 %">
-              <i style="--h:2%"></i>0,3 mm</span>
+            <span class="t"><b>18°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 35 %"><i style="--h:2%"></i>0,3 mm</span>
             
           </div><div class="dia">
             <span class="d">lun 19/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="temps"><b>16°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 53 %">
-              <i style="--h:13%"></i>2,1 mm</span>
+            <span class="t"><b>17°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 53 %"><i style="--h:14%"></i>2,1 mm</span>
             
           </div></div>
-      </article>
+        </article><article class="card clima-loc revelar">
+          <div class="card-h"><h3>Villa del Rosario, Córdoba</h3>
+            <span class="chip verde">Lluvia 7 días: 21,4 mm</span></div>
+          
+          <div class="dias"><div class="dia hoy">
+            <span class="d">Hoy</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Llovizna</span>
+            <span class="t"><b>19°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 62 %"><i style="--h:15%"></i>1,5 mm</span>
+            
+          </div><div class="dia">
+            <span class="d">mié 14/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Llovizna</span>
+            <span class="t"><b>20°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 75 %"><i style="--h:25%"></i>2,5 mm</span>
+            
+          </div><div class="dia">
+            <span class="d">jue 15/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Chaparrones</span>
+            <span class="t"><b>20°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 53 %"><i style="--h:42%"></i>4,2 mm</span>
+            
+          </div><div class="dia">
+            <span class="d">vie 16/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Llovizna</span>
+            <span class="t"><b>21°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 49 %"><i style="--h:12%"></i>1,2 mm</span>
+            
+          </div><div class="dia">
+            <span class="d">sáb 17/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Llovizna</span>
+            <span class="t"><b>18°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 18 %"><i style="--h:42%"></i>4,2 mm</span>
+            
+          </div><div class="dia">
+            <span class="d">dom 18/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#b9b09e"/></svg>
+            <span class="desc">Nublado</span>
+            <span class="t"><b>19°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 26 %"><i style="--h:0%"></i>0,0 mm</span>
+            
+          </div><div class="dia">
+            <span class="d">lun 19/10</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Chaparrones</span>
+            <span class="t"><b>18°</b> / 12°</span>
+            <span class="lluvia" title="Probabilidad: 37 %"><i style="--h:78%"></i>7,8 mm</span>
+            
+          </div></div>
+        </article>
   </section>
-  <div class="grid dos">
-    <section aria-labelledby="t-hacienda" class="card">
-      <div class="card-h"><h2 id="t-hacienda">Hacienda · MAG Cañuelas</h2></div>
-      <ul class="lista-valores"><li><span>Novillo</span><strong>$ 4.332,28 <small>/kg</small></strong><span class="var neutra">sin dato anterior</span></li><li><span>Vaquillona</span><strong>$ 4.479,61 <small>/kg</small></strong><span class="var neutra">sin dato anterior</span></li><li><span>Ternero</span><em class="nd">Dato no disponible</em></li><li><span>Vaca</span><strong>$ 3.209,61 <small>/kg</small></strong><span class="var neutra">sin dato anterior</span></li></ul>
-      <p class="nota">Promedio ponderado por cabezas de las subcategorías del día, en $/kg vivo. Informe del 13/10/2026.</p>
-    </section>
-    <section aria-labelledby="t-ret" class="card">
-      <div class="card-h"><h2 id="t-ret">Retenciones vigentes</h2></div>
-      <ul class="lista-valores"><li><span>Soja</span><strong>24 %</strong></li><li><span>Maíz</span><strong>8,5 %</strong></li><li><span>Trigo</span><strong>7,5 %</strong></li><li><span>Girasol</span><strong>4,5 %</strong></li><li><span>Cebada</span><strong>7,5 %</strong></li><li><span>Sorgo</span><strong>8,5 %</strong></li></ul><p class="nota">Actualizado a mano el 09/12/2025. Anuncio del Ministerio de Economía de diciembre de 2025. Verificá en el Boletín Oficial antes de usar.</p>
-    </section>
-  </div>
-  <div style="margin-top:28px"><section aria-labelledby="t-noticias" class="card">
-    <div class="card-h"><h2 id="t-noticias">Noticias del agro</h2></div>
-    <ol class="noticias"><li><a href="https://bichosdecampo.com/quien-se-queda-con-la-plata-del-tabaco-productores-de-cinco-provincias-llegan-a-buenos-aires-para-denunciar-maniobras-de-sobrefacturacion-y-cobro-indebido-de-fondos/" target="_blank" rel="noopener noreferrer">¿Quién se queda con la plata del tabaco? Productores de cinco provincias llegan a Buenos Aires para denunciar maniobras de “sobrefacturación” y cobro indebido de fondos: “Es una estafa”, aseguran</a>
-          <span class="fuente">Bichos de Campo · 13/10/2026 10:29</span></li><li><a href="https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-13-octubre-2026/" target="_blank" rel="noopener noreferrer">Dólar blue: a cuánto cotizan hoy en Córdoba 13 octubre 2026</a>
-          <span class="fuente">Infocampo · 13/10/2026 10:10</span></li><li><a href="https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html" target="_blank" rel="noopener noreferrer">El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%</a>
-          <span class="fuente">Clarín Rural · 13/10/2026 09:54</span></li><li><a href="https://bichosdecampo.com/la-soja-argentina-es-la-mas-competitiva-del-mundo-en-el-mercado-internacional-pero-no-puertas-adentro/" target="_blank" rel="noopener noreferrer">La soja argentina es la más competitiva del mundo en el mercado internacional (pero no puertas adentro)</a>
-          <span class="fuente">Bichos de Campo · 13/10/2026 09:51</span></li><li><a href="https://www.infocampo.com.ar/el-nino-extremo-ya-impacta-en-el-litoral-itaipu-y-yacireta-abrieron-compuertas-y-hay-temor-en-las-islas-ganaderas/" target="_blank" rel="noopener noreferrer">El Niño extremo ya impacta en el Litoral: Itaipú y Yaciretá abrieron compuertas y hay temor en las islas ganaderas</a>
-          <span class="fuente">Infocampo · 13/10/2026 09:00</span></li><li><a href="https://www.lanacion.com.ar/economia/campo/inversion-global-de-35-millones-de-euros-una-empresa-argentina-inauguro-una-terminal-de-cargas-nid13102026/" target="_blank" rel="noopener noreferrer">Inversión global de 35 millones de euros: una empresa argentina inauguró una terminal de cargas refrigeradas en España</a>
-          <span class="fuente">La Nación Campo · 13/10/2026 06:30</span></li><li><a href="https://www.lanacion.com.ar/economia/campo/el-agro-en-el-congreso-entre-lo-que-se-habla-se-trata-y-por-ahora-no-esta-en-agenda-nid10102026/" target="_blank" rel="noopener noreferrer">El agro en el Congreso, entre lo que se habla, se trata y, por ahora, no está en agenda</a>
-          <span class="fuente">La Nación Campo · 12/10/2026 23:28</span></li><li><a href="https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html" target="_blank" rel="noopener noreferrer">Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne</a>
-          <span class="fuente">Clarín Rural · 12/10/2026 10:55</span></li></ol>
-  </section></div>
-  <footer class="pie">
-    <h2>Estado de las fuentes en la última ejecución</h2>
-    <div class="tabla"><table>
-      <thead><tr><th>Fuente</th><th>Estado</th><th>Último dato correcto</th><th>Detalle</th></tr></thead>
-      <tbody><tr><td>Pizarra Rosario (CAC-BCR)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Chicago CBOT (Yahoo Finance / Stooq)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Matba-Rofex</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Dólar (DolarApi)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Clima (Open-Meteo)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Hacienda (MAG Cañuelas)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Noticias (RSS)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr><tr><td>Feriados (ArgentinaDatos)</td><td><span class="ok">● Respondió bien</span></td><td>13/10/2026 10:51</td><td class="err-txt"></td></tr></tbody>
-    </table></div>
-    <p class="nota">Información de referencia, sin valor contractual. Verificá los valores en la fuente original antes de operar.
-    La página se recarga sola cada 30 minutos.</p>
+<section class="vista" id="noticias" role="tabpanel" aria-labelledby="tab-noticias">
+    <div class="titulo-vista"><div><span class="eyebrow">Medios agro</span><h2>Noticias</h2></div>
+      <div><p>Titulares del día con link a la nota original.</p><div class="estados"></div></div></div>
+    <div class="grid g-noticias"><a class="card hover noticia revelar" href="https://www.infocampo.com.ar/precio-del-maiz-hoy-13-octubre-2026/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Infocampo</span><span class="sub">13/10/2026 11:06</span></div>
+        <h3>Precio del maíz en Rosario hoy 13 octubre 2026</h3><span class="ir">Leer en Infocampo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.infocampo.com.ar/precio-del-trigo-hoy-13-octubre-2026/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Infocampo</span><span class="sub">13/10/2026 11:05</span></div>
+        <h3>Precio del Trigo en Rosario hoy 13 octubre 2026</h3><span class="ir">Leer en Infocampo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">La Nación Campo</span><span class="sub">13/10/2026 11:05</span></div>
+        <h3>Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra</h3><span class="ir">Leer en La Nación Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://bichosdecampo.com/quien-se-queda-con-la-plata-del-tabaco-productores-de-cinco-provincias-llegan-a-buenos-aires-para-denunciar-maniobras-de-sobrefacturacion-y-cobro-indebido-de-fondos/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Bichos de Campo</span><span class="sub">13/10/2026 10:29</span></div>
+        <h3>¿Quién se queda con la plata del tabaco? Productores de cinco provincias llegan a Buenos Aires para denunciar maniobras de “sobrefacturación” y cobro indebido de fondos: “Es una estafa”, aseguran</h3><span class="ir">Leer en Bichos de Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.clarin.com/rural/precio-carne-vacuna-sigue-planchado-septiembre-aumento-promedio-apenas-05_0_RZAmwKlqcL.html" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Clarín Rural</span><span class="sub">13/10/2026 09:54</span></div>
+        <h3>El precio de la carne vacuna sigue planchado: en septiembre aumentó en promedio apenas 0,5%</h3><span class="ir">Leer en Clarín Rural <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://bichosdecampo.com/la-soja-argentina-es-la-mas-competitiva-del-mundo-en-el-mercado-internacional-pero-no-puertas-adentro/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Bichos de Campo</span><span class="sub">13/10/2026 09:51</span></div>
+        <h3>La soja argentina es la más competitiva del mundo en el mercado internacional (pero no puertas adentro)</h3><span class="ir">Leer en Bichos de Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.lanacion.com.ar/economia/campo/inversion-global-de-35-millones-de-euros-una-empresa-argentina-inauguro-una-terminal-de-cargas-nid13102026/" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">La Nación Campo</span><span class="sub">13/10/2026 06:30</span></div>
+        <h3>Inversión global de 35 millones de euros: una empresa argentina inauguró una terminal de cargas refrigeradas en España</h3><span class="ir">Leer en La Nación Campo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="card hover noticia revelar" href="https://www.clarin.com/rural/faena-bovina-derrumbo-11-ano-peso-amortiguo-caida-produccion-carne_0_sXRcLtdFXT.html" target="_blank" rel="noopener noreferrer">
+        <div class="n-top"><span class="chip verde">Clarín Rural</span><span class="sub">12/10/2026 10:55</span></div>
+        <h3>Comenzó la fase de retención de hembras y el mayor peso de los animales permitió mantener la producción de carne</h3><span class="ir">Leer en Clarín Rural <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></div>
+  </section>
+<section class="vista" id="stock" role="tabpanel" aria-labelledby="tab-stock">
+    <div class="stock-marco"><iframe id="stock-frame" data-src="stock/" title="Control de stock" loading="lazy"></iframe></div>
+  </section>
+<footer class="pie">
+    <details><summary>Estado de las fuentes en la última ejecución <span class="chip verde">Todas OK</span></summary>
+      <div class="tabla"><table><thead><tr><th>Fuente</th><th>Estado</th><th>Último dato correcto</th><th>Detalle</th></tr></thead><tbody><tr><td>Pizarra Rosario (CAC-BCR)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr><tr><td>Chicago CBOT (Yahoo Finance / CME)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr><tr><td>Matba-Rofex</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr><tr><td>Dólar (DolarApi)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr><tr><td>Clima (Open-Meteo)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr><tr><td>Noticias (RSS)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr><tr><td>Feriados (ArgentinaDatos)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">13/10/2026 11:31</td>
+        <td class="err-txt"></td></tr></tbody></table></div>
+    </details>
+    <p>Información de referencia, sin valor contractual. Verificá los valores en la fuente original antes de operar. La página se recarga sola cada 30 minutos.</p>
   </footer>
-</div>
+</main>
 
+<script>window.TABLERO = {"titulo":"Tablero Agro","recargaMs":1800000,"graficos":{"granos":{"fechas":["2026-10-09"],"series":[{"nombre":"Soja","valores":[560000]},{"nombre":"Maíz","valores":[292500]},{"nombre":"Girasol","valores":[799240]},{"nombre":"Trigo","valores":[342000]}]},"dolar":{"fechas":["2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13"],"valores":[1530,1530,1530,1535,1535,1535,1535,1535,1535,1535,1535,1540,1545,1545,1545,1545,1545,1540,1545,1540,1540,1540,1540,1540,1540,1540,1535,1535,1535,1535]}},"mapa":[{"nombre":"Córdoba","lat":-31.4201,"lon":-64.1888,"clase":"","popup":"\u003cdiv class=\"popup\">\u003cb>Córdoba\u003c/b>\u003cbr>Hoy 18° / 11° · Llovizna\u003cbr>Lluvia 7 días: \u003cb>40,3 mm\u003c/b>\u003c/div>"},{"nombre":"Villa del Rosario","lat":-31.5536,"lon":-63.5345,"clase":"","popup":"\u003cdiv class=\"popup\">\u003cb>Villa del Rosario\u003c/b>\u003cbr>Hoy 19° / 12° · Llovizna\u003cbr>Lluvia 7 días: \u003cb>21,4 mm\u003c/b>\u003c/div>"},{"nombre":"Depósito Villa del Rosario","lat":-31.5536,"lon":-63.5345,"clase":"deposito","popup":"\u003cdiv class=\"popup\">\u003cb>Depósito Villa del Rosario\u003c/b>\u003cbr>Depósito\u003c/div>"}]};</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
 <script>
-// Recarga automática con parámetro anti-caché
-setTimeout(function () {
-  var u = new URL(location.href);
-  u.searchParams.set('t', Date.now());
-  location.replace(u.toString());
-}, 1800000);
+// =====================================================
+// TABLERO AGRO · comportamiento en el navegador
+// Pestañas, animaciones, gráficos, mapa y recarga automática.
+// Este archivo se incluye dentro de public/index.html al generar la página.
+// Los datos llegan en window.TABLERO (los escribe generar-html.js).
+// =====================================================
+(function () {
+  'use strict';
 
-// Gráficos (Chart.js desde CDN). Si el CDN no carga, la página sigue funcionando.
-var DATOS = {"granos":{"fechas":["2026-10-09"],"series":[{"nombre":"Soja","valores":[560000]},{"nombre":"Maíz","valores":[292500]},{"nombre":"Girasol","valores":[799240]},{"nombre":"Trigo","valores":[342000]}]},"dolar":{"fechas":["2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13"],"valores":[1530,1530,1530,1535,1535,1535,1535,1535,1535,1535,1535,1540,1545,1545,1545,1545,1545,1540,1545,1540,1540,1540,1540,1540,1540,1540,1535,1535,1535,1535]}};
-window.addEventListener('load', function () {
-  var vacio = function (id, texto) {
-    var c = document.getElementById(id);
-    c.parentNode.innerHTML = '<p class="nd">' + texto + '</p>';
-  };
-  if (!window.Chart) {
-    vacio('g-granos', 'No se pudo cargar el gráfico.');
-    vacio('g-dolar', 'No se pudo cargar el gráfico.');
-    return;
+  var D = window.TABLERO;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nf = function (dec) { return new Intl.NumberFormat('es-AR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
+
+  // ---------- Tema claro / oscuro ----------
+  var temaGuardado = null;
+  try { temaGuardado = localStorage.getItem('vdr-theme'); } catch (e) {}
+  if (temaGuardado) document.documentElement.setAttribute('data-theme', temaGuardado);
+
+  function temaActual() {
+    var t = document.documentElement.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
-  var css = getComputedStyle(document.documentElement);
-  var color = function (v) { return css.getPropertyValue(v).trim(); };
-  var nf = new Intl.NumberFormat('es-AR', { maximumFractionDigits: 2 });
-  Chart.defaults.color = color('--muted');
-  Chart.defaults.borderColor = color('--line');
-  Chart.defaults.font.family = color('--font');
-  var paleta = [color('--accent'), color('--gold'), color('--down'), color('--frost')];
-  var opciones = function (prefijo) {
-    return {
-      responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { position: 'bottom', labels: { boxWidth: 12 } },
-        tooltip: { callbacks: { label: function (c) { return c.dataset.label + ': ' + prefijo + nf.format(c.parsed.y); } } }
-      },
-      scales: { y: { ticks: { callback: function (v) { return prefijo + nf.format(v); } } }, x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } } }
+  $('#btn-tema').addEventListener('click', function () {
+    var t = temaActual() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    // La app de stock usa la misma clave, así quedan sincronizadas
+    try { localStorage.setItem('vdr-theme', t); } catch (e) {}
+    var f = $('#stock-frame');
+    try { if (f && f.contentWindow && f.contentWindow.applyTheme) f.contentWindow.applyTheme(t); } catch (e) {}
+    pintarGraficos();
+  });
+
+  // ---------- Saludo según la hora argentina ----------
+  var hora = Number(new Intl.DateTimeFormat('es-AR', { timeZone: 'America/Argentina/Buenos_Aires', hour: 'numeric', hour12: false }).format(new Date()));
+  var saludo = hora >= 5 && hora < 13 ? 'Buen día' : hora < 20 && hora >= 13 ? 'Buenas tardes' : 'Buenas noches';
+  var s = $('#saludo');
+  if (s) s.textContent = saludo;
+
+  // ---------- Partículas de grano en el inicio ----------
+  var part = $('.particulas');
+  if (part && !reducido) {
+    var html = '';
+    for (var i = 0; i < 18; i++) {
+      html += '<i style="left:' + (Math.random() * 100).toFixed(1) + '%;animation-duration:' +
+        (9 + Math.random() * 10).toFixed(1) + 's;animation-delay:-' + (Math.random() * 15).toFixed(1) +
+        's;transform:scale(' + (0.6 + Math.random() * 0.8).toFixed(2) + ')"></i>';
+    }
+    part.innerHTML = html;
+  }
+
+  // ---------- Pestañas ----------
+  var pestanas = $$('.pestana');
+  var vistas = $$('.vista');
+  var nombres = vistas.map(function (v) { return v.id; });
+  var actual = null;
+
+  function mostrar(nombre, empujar) {
+    if (nombres.indexOf(nombre) === -1) nombre = 'inicio';
+    if (nombre === actual) return;
+    var cambiar = function () {
+      vistas.forEach(function (v) { v.classList.toggle('activa', v.id === nombre); });
+      pestanas.forEach(function (p) {
+        var sel = p.getAttribute('data-vista') === nombre;
+        p.setAttribute('aria-selected', sel ? 'true' : 'false');
+        p.tabIndex = sel ? 0 : -1;
+        if (sel && p.scrollIntoView) { try { p.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch (e) {} }
+      });
+      actual = nombre;
+      window.scrollTo(0, 0);
+      alAbrir(nombre);
+      revelarAhora();
     };
-  };
-  var etiquetas = function (fechas) { return fechas.map(function (f) { return f.slice(8, 10) + '/' + f.slice(5, 7); }); };
-  var SIN_HISTORICO = 'Todavía no hay suficiente histórico para graficar.';
-  if (DATOS.granos.fechas.length >= 2) {
-    new Chart(document.getElementById('g-granos'), {
-      type: 'line',
-      data: { labels: etiquetas(DATOS.granos.fechas), datasets: DATOS.granos.series.map(function (s, i) {
-        return { label: s.nombre, data: s.valores, borderColor: paleta[i % paleta.length], backgroundColor: paleta[i % paleta.length], spanGaps: true, pointRadius: 2, tension: .25 };
-      }) },
-      options: opciones('$ ')
+    // Transición suave entre pestañas (View Transitions API si el navegador la tiene)
+    if (document.startViewTransition && !reducido && actual) document.startViewTransition(cambiar);
+    else cambiar();
+    if (empujar !== false) { try { history.replaceState(null, '', '#' + nombre); } catch (e) {} }
+    document.title = (nombre === 'inicio' ? '' : $('[data-vista="' + nombre + '"]').textContent.trim() + ' · ') + D.titulo;
+  }
+
+  pestanas.forEach(function (p, idx) {
+    p.addEventListener('click', function () { mostrar(p.getAttribute('data-vista')); });
+    // Flechas del teclado para moverse entre pestañas
+    p.addEventListener('keydown', function (ev) {
+      var dir = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+      if (!dir) return;
+      var sig = pestanas[(idx + dir + pestanas.length) % pestanas.length];
+      sig.focus();
+      mostrar(sig.getAttribute('data-vista'));
     });
-  } else vacio('g-granos', SIN_HISTORICO);
-  if (DATOS.dolar.fechas.length >= 2) {
-    new Chart(document.getElementById('g-dolar'), {
-      type: 'line',
-      data: { labels: etiquetas(DATOS.dolar.fechas), datasets: [{ label: 'Oficial venta', data: DATOS.dolar.valores, borderColor: paleta[0], backgroundColor: paleta[0], pointRadius: 2, tension: .25 }] },
-      options: opciones('$ ')
+  });
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest && ev.target.closest('[data-ir]');
+    if (b) { ev.preventDefault(); mostrar(b.getAttribute('data-ir')); }
+  });
+  window.addEventListener('hashchange', function () { mostrar(location.hash.slice(1), false); });
+
+  // ---------- Animación al desplazarse ----------
+  var observador = 'IntersectionObserver' in window && !reducido
+    ? new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); contar(e.target); observador.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    : null;
+
+  function revelarAhora() {
+    $$('.vista.activa .revelar:not(.visible)').forEach(function (el, i) {
+      if (!el.style.getPropertyValue('--retraso')) el.style.setProperty('--retraso', Math.min(i, 6) * 0.07 + 's');
+      if (observador) observador.observe(el);
+      else { el.classList.add('visible'); contar(el); }
     });
-  } else vacio('g-dolar', SIN_HISTORICO);
-});
+  }
+
+  // Números que "cuentan" hasta su valor al aparecer
+  function contar(raiz) {
+    $$('[data-contar]', raiz).forEach(function (el) {
+      if (el.dataset.contado) return;
+      el.dataset.contado = '1';
+      var fin = Number(el.getAttribute('data-contar'));
+      var dec = Number(el.getAttribute('data-dec') || 0);
+      var pre = el.getAttribute('data-pre') || '';
+      if (!isFinite(fin) || reducido) return;
+      var f = nf(dec);
+      var t0 = null;
+      var dur = 1100;
+      function paso(t) {
+        if (!t0) t0 = t;
+        var k = Math.min(1, (t - t0) / dur);
+        var e = 1 - Math.pow(1 - k, 3);
+        el.textContent = pre + f.format(fin * e);
+        if (k < 1) requestAnimationFrame(paso);
+        else el.textContent = pre + f.format(fin);
+      }
+      requestAnimationFrame(paso);
+    });
+  }
+
+  // ---------- Qué hacer al abrir cada pestaña ----------
+  var abiertas = {};
+  function alAbrir(nombre) {
+    if (abiertas[nombre]) return;
+    abiertas[nombre] = true;
+    if (nombre === 'granos' || nombre === 'dolar') pintarGraficos();
+    if (nombre === 'clima') cargarMapa();
+    if (nombre === 'stock') {
+      var f = $('#stock-frame');
+      if (f && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
+    }
+  }
+
+  // ---------- Gráficos (Chart.js) ----------
+  var graficos = {};
+  function color(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function sinGrafico(id, texto) {
+    var c = document.getElementById(id);
+    if (c) c.parentNode.innerHTML = '<p class="nd">' + texto + '</p>';
+  }
+  function pintarGraficos() {
+    if (!window.Chart) {
+      if (document.readyState === 'complete') { sinGrafico('g-granos', 'No se pudo cargar el gráfico.'); sinGrafico('g-dolar', 'No se pudo cargar el gráfico.'); }
+      else window.addEventListener('load', pintarGraficos, { once: true });
+      return;
+    }
+    var tinta = color('--muted');
+    var linea = color('--line');
+    Chart.defaults.color = tinta;
+    Chart.defaults.borderColor = linea;
+    Chart.defaults.font.family = color('--body');
+    var paleta = [color('--lima'), color('--dorado'), color('--naranja'), '#8b5e34'];
+    var f2 = nf(0);
+    var etiquetas = function (fechas) { return fechas.map(function (f) { return f.slice(8, 10) + '/' + f.slice(5, 7); }); };
+    var opciones = function (pre) {
+      return {
+        responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+        animation: reducido ? false : { duration: 1200, easing: 'easeOutQuart' },
+        plugins: {
+          legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, padding: 16 } },
+          tooltip: {
+            backgroundColor: color('--surface'), titleColor: color('--ink'), bodyColor: color('--ink'),
+            borderColor: linea, borderWidth: 1, padding: 12, cornerRadius: 12,
+            callbacks: { label: function (c) { return ' ' + c.dataset.label + ': ' + pre + f2.format(c.parsed.y); } }
+          }
+        },
+        scales: {
+          y: { grid: { color: linea }, ticks: { callback: function (v) { return pre + f2.format(v); } } },
+          x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } }
+        }
+      };
+    };
+    var degradado = function (ctx, c) {
+      var area = ctx.chart.chartArea;
+      if (!area) return c;
+      var g = ctx.chart.ctx.createLinearGradient(0, area.top, 0, area.bottom);
+      g.addColorStop(0, c + '55');
+      g.addColorStop(1, c + '00');
+      return g;
+    };
+
+    var G = D.graficos;
+    if (document.getElementById('g-granos')) {
+      if (G.granos.fechas.length < 2) sinGrafico('g-granos', 'Todavía no hay suficiente histórico para graficar. Se completa con los días.');
+      else {
+        if (graficos.granos) graficos.granos.destroy();
+        graficos.granos = new Chart(document.getElementById('g-granos'), {
+          type: 'line',
+          data: {
+            labels: etiquetas(G.granos.fechas),
+            datasets: G.granos.series.map(function (s, i) {
+              var c = paleta[i % paleta.length];
+              return { label: s.nombre, data: s.valores, borderColor: c, backgroundColor: c, pointRadius: 0, pointHoverRadius: 5, borderWidth: 2.5, tension: .35, spanGaps: true };
+            })
+          },
+          options: opciones('$ ')
+        });
+      }
+    }
+    if (document.getElementById('g-dolar')) {
+      if (G.dolar.fechas.length < 2) sinGrafico('g-dolar', 'Todavía no hay suficiente histórico para graficar.');
+      else {
+        if (graficos.dolar) graficos.dolar.destroy();
+        var c = paleta[0];
+        graficos.dolar = new Chart(document.getElementById('g-dolar'), {
+          type: 'line',
+          data: {
+            labels: etiquetas(G.dolar.fechas),
+            datasets: [{ label: 'Oficial venta', data: G.dolar.valores, borderColor: c, fill: true, backgroundColor: function (ctx) { return degradado(ctx, c.length === 7 ? c : '#a4c639'); }, pointRadius: 0, pointHoverRadius: 5, borderWidth: 2.5, tension: .35 }]
+          },
+          options: opciones('$ ')
+        });
+      }
+    }
+    $$('.esqueleto').forEach(function (e) { e.remove(); });
+  }
+
+  // ---------- Mapa (Leaflet) ----------
+  function cargarMapa() {
+    var cont = $('#mapa');
+    if (!cont) return;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js';
+    js.onload = function () {
+      var L = window.L;
+      var mapa = L.map(cont, { scrollWheelZoom: false, zoomControl: true });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18, attribution: '&copy; OpenStreetMap'
+      }).addTo(mapa);
+      var limites = [];
+      D.mapa.forEach(function (p) {
+        var icono = L.divIcon({ className: '', html: '<div class="pin ' + (p.clase || '') + '"></div>', iconSize: [22, 22], iconAnchor: [11, 11] });
+        L.marker([p.lat, p.lon], { icon: icono, title: p.nombre }).addTo(mapa).bindPopup(p.popup);
+        limites.push([p.lat, p.lon]);
+      });
+      if (limites.length > 1) mapa.fitBounds(limites, { padding: [50, 50], maxZoom: 9 });
+      else if (limites.length) mapa.setView(limites[0], 9);
+      else mapa.setView([-31.4, -64.2], 7);
+      // Activar el zoom con la rueda recién cuando se hace clic en el mapa
+      mapa.on('click', function () { mapa.scrollWheelZoom.enable(); });
+    };
+    js.onerror = function () { cont.innerHTML = '<p class="nd" style="padding:20px">No se pudo cargar el mapa.</p>'; };
+    document.body.appendChild(js);
+  }
+
+  // ---------- Recarga automática (con parámetro anti-caché) ----------
+  function programarRecarga() {
+    setTimeout(function () {
+      // Si estás cargando stock, no se recarga para no perder lo que estás escribiendo
+      if (actual === 'stock' || document.hidden) return programarRecarga();
+      var u = new URL(location.href);
+      u.searchParams.set('t', Date.now());
+      location.replace(u.toString());
+    }, D.recargaMs);
+  }
+  programarRecarga();
+
+  // ---------- Arranque ----------
+  mostrar(location.hash.slice(1) || 'inicio', false);
+
+  var splash = $('.splash');
+  if (splash) {
+    var visto = false;
+    try { visto = sessionStorage.getItem('agro-splash') === '1'; sessionStorage.setItem('agro-splash', '1'); } catch (e) {}
+    setTimeout(function () { splash.classList.add('fuera'); setTimeout(function () { splash.remove(); }, 700); }, visto || reducido ? 0 : 1100);
+  }
+})();
+
 </script>
 </body>
 </html>
