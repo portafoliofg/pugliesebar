@@ -152,7 +152,7 @@
   }
 
   /** Comprueba el token: que sea válido y que pueda escribir en el repositorio. */
-  async function probarToken(nuevo) {
+  async function probarToken(nuevo, { guardar = true } = {}) {
     const anterior = token();
     guardarLS(CLAVE_TOKEN, nuevo);
     try {
@@ -160,8 +160,16 @@
       if (!r.private) {
         throw new Error('El repositorio ' + CFG.repo + ' es público. Para que solo vos veas tus campos, cambialo a privado (Settings → General → Danger Zone → Change visibility).');
       }
-      if (r.permissions && r.permissions.push === false) throw new Error('El token no tiene permiso de escritura en ' + CFG.repo + '.');
-      return true;
+      // Un token de solo lectura también es válido (acceso "solo lectura" del equipo). Para saber qué
+      // permiso tiene de verdad se prueba crear un blob vacío: no toca ningún archivo y GitHub lo descarta.
+      let escritura = true;
+      try {
+        await gh(`/repos/${CFG.repo}/git/blobs`, { method: 'POST', body: JSON.stringify({ content: '', encoding: 'utf-8' }) });
+      } catch (e) {
+        if (e.status === 403 || e.status === 404) escritura = false; else throw e;
+      }
+      if (!guardar) guardarLS(CLAVE_TOKEN, anterior);   // solo se quería comprobarlo (invitaciones)
+      return { escritura };
     } catch (e) {
       guardarLS(CLAVE_TOKEN, anterior);
       throw e;

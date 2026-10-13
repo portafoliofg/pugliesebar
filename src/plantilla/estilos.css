@@ -474,3 +474,9 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
 .aviso-ret small { color: var(--muted); }
 .aviso-ret a { font-weight: 800; }
 .txt-alerta { color: var(--baja, #c0392b); font-weight: 800; }
+
+/* Perspectiva de la campaña */
+.perspectiva { margin-top: 18px; }
+.persp-zonas { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; margin-top: 14px; }
+.persp-zona { padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
+@media (max-width: 760px) { .persp-zonas { grid-template-columns: 1fr; } }

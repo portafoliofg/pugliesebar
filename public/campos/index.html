@@ -18,13 +18,21 @@
   <header class="barra">
     <h1><img class="logo-mini" src="../favicon.svg" alt="Sammartino" width="30" height="30">Mis campos</h1>
     <div class="resumen" id="resumen" aria-live="polite"></div>
+    <span class="chip rol-badge oculto" id="rol-badge"></span>
     <div class="acciones">
-      <button class="btn" id="btn-gh" type="button"><span class="estado-gh" id="estado-gh"></span>GitHub</button>
       <a class="btn" id="btn-general" href="general.html" target="_blank" rel="noopener">📋 Reporte general</a>
-      <button class="btn" id="btn-lluvia" type="button">🌧️ Lluvia</button>
-      <button class="btn" id="btn-alertas" type="button">🔔 Alertas</button>
-      <button class="btn btn-peligro-claro oculto" id="btn-borrar-todo" type="button">🗑 Eliminar todos</button>
-      <button class="btn btn-1" id="btn-cargar" type="button">＋ Cargar KML/KMZ</button>
+      <button class="btn solo-carga" id="btn-labores" type="button">📒 Labores</button>
+      <button class="btn solo-carga" id="btn-lluvia" type="button">🌧️ Lluvia</button>
+      <button class="btn btn-1 solo-dueno" id="btn-cargar" type="button">＋ Cargar KML/KMZ</button>
+      <details class="menu-mas" id="menu-mas">
+        <summary class="btn"><span class="estado-gh" id="estado-gh"></span>⚙️ Más</summary>
+        <div class="menu-mas-lista">
+          <button class="btn" id="btn-gh" type="button">🔗 GitHub</button>
+          <button class="btn solo-dueno" id="btn-alertas" type="button">🔔 Alertas por WhatsApp</button>
+          <button class="btn solo-dueno" id="btn-accesos" type="button">👥 Accesos (socio, contratista)</button>
+          <button class="btn btn-peligro-claro oculto solo-dueno" id="btn-borrar-todo" type="button">🗑 Eliminar todos</button>
+        </div>
+      </details>
       <input type="file" id="archivo" class="oculto" accept=".kml,.kmz,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz" multiple>
     </div>
   </header>
@@ -44,6 +52,7 @@
 <script src="github.js"></script>
 <script src="ndvi.js"></script>
 <script src="agua.js"></script>
+<script src="equipo.js"></script>
 <script src="campos.js"></script>
 </body>
 </html>

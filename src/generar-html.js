@@ -20,7 +20,8 @@ export const NOMBRES_FUENTES = {
   dolar: 'Dólar (DolarApi)',
   clima: 'Clima (Open-Meteo)',
   noticias: 'Noticias (RSS)',
-  feriados: 'Feriados (ArgentinaDatos)'
+  feriados: 'Feriados (ArgentinaDatos)',
+  enso: 'El Niño / La Niña (NOAA)'
 };
 
 // Color de cada grano (se usa en bordes, íconos y gráficos)
@@ -382,6 +383,12 @@ function vistaClima(m) {
     <article class="card mapa-card revelar"><div id="mapa" role="region" aria-label="Mapa de localidades y campos"></div></article>
     <p class="nota" style="margin-top:10px">Hacé clic en los puntos para ver el detalle. Las localidades y los campos se editan en <code>config.json</code>.</p>
     ${locs}
+    <article class="card perspectiva revelar" id="perspectiva">
+      <div class="card-h"><h3>Perspectiva de la campaña</h3>${chipEstado(m.fuentes.enso || {})}</div>
+      <div id="persp-enso"><div class="esqueleto"></div></div>
+      <div class="persp-zonas" id="persp-zonas"></div>
+      <p class="nota" style="margin-top:12px">El Niño / La Niña: NOAA Climate Prediction Center (ONI y Niño 3.4). Historia de lluvias: reanálisis ERA5 desde 1981 (Open-Meteo). Pronóstico estacional: Open-Meteo (modelos estacionales por escenarios). Para tus campos, mirá el reporte general en la pestaña Campos.</p>
+    </article>
   </section>`;
 }
 
@@ -470,7 +477,9 @@ export function generarHTML(m) {
     titulo: m.config.titulo,
     recargaMs: m.config.recargaMinutos * 60 * 1000,
     graficos: m.graficos,
-    mapa: puntosMapa(m)
+    mapa: puntosMapa(m),
+    enso: m.fuentes.enso?.datos || null,
+    localidades: m.config.clima.localidades.map((l) => ({ nombre: l.nombre, lat: l.lat, lon: l.lon }))
   };
   const json = JSON.stringify(datos).replace(/</g, '\\u003c');
   const foto0 = m.config.diseno?.fotos?.[0]?.url || '';
@@ -495,6 +504,7 @@ ${foto0 ? `<meta property="og:image" content="${esc(foto0)}">` : ''}
 <script type="application/ld+json">${jsonLd}</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="logo.svg">
+<script src="paisaje.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">

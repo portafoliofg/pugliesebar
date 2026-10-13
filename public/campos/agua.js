@@ -83,7 +83,14 @@
   }
   const textoIP = (ip) => (ip == null ? '' : ip >= 70 ? 'alto' : ip >= 50 ? 'medio' : ip >= 30 ? 'bajo' : 'muy bajo');
 
+  // ---------- Labores (cuaderno de campo) ----------
+  const TIPOS_LABOR = ['Siembra', 'Pulverización', 'Fertilización', 'Cosecha', 'Labranza', 'Otra'];
+  async function labores() { return ((await leer('data/labores.json')) || {}).registros || []; }
+  const agregarLabor = (r) => modificar('data/labores.json', (l) => l.concat(Object.assign({ id: nuevoId(), alta: new Date().toISOString() }, r)), `Labores: ${r.tipo.toLowerCase()} del ${r.fecha} en ${r.campos.length} ${r.campos.length === 1 ? 'lote' : 'lotes'}${r.cargadoPor ? ' (' + r.cargadoPor + ')' : ''}`);
+  const borrarLabor = (id) => modificar('data/labores.json', (l) => l.filter((x) => x.id !== id), 'Labores: borrar un registro');
+
   window.Agua = {
+    TIPOS_LABOR, labores, agregarLabor, borrarLabor,
     ESTADOS, estado, color, FUENTES, COLOR_FUENTE, cargar, de, sueloDe, serie, lluvias, analisis,
     agregarLluvia, borrarLluvia, agregarAnalisis, borrarAnalisis, lecturaSuelo, textoIP, resumen: () => resumen
   };

@@ -489,7 +489,7 @@
       <div class="leyenda-barras">${Object.entries(f).map(([k, n]) => `<span><i style="background:${Agua.COLOR_FUENTE[k]}"></i>${esc(Agua.FUENTES[k])} ${num((n / tot) * 100, 0)} %</span>`).join('')}</div>
       <div class="ndvi-graf"><canvas id="graf-agua" aria-label="Evolución del agua útil"></canvas></div>
       ${sinSiembra ? '<p class="nota">💡 Cargá la fecha de siembra (en "Editar") para que el consumo siga la etapa del cultivo.</p>' : ''}
-      <button type="button" class="btn" data-accion="lluvia">🌧️ Registrar lluvia de este lote</button>`;
+      <button type="button" class="btn solo-carga" data-accion="lluvia">🌧️ Registrar lluvia de este lote</button>`;
     const s = await Agua.serie(c.id);
     if (abierto !== c.id || !s?.serie?.length || !window.Chart) return;
     if (graficoAgua) graficoAgua.destroy();
@@ -527,7 +527,7 @@
       ${lista.length ? `<div style="overflow-x:auto"><table class="tabla-import"><thead><tr><th>Fecha</th><th>Prof.</th><th>pH</th><th>MO %</th><th>P ppm</th><th>N-NO₃</th><th>S</th><th>CE</th><th></th></tr></thead><tbody>
         ${lista.map((a) => `<tr><td>${esc(a.fecha)}</td><td>${esc(a.prof || '')}</td><td class="num">${num(a.ph, 1)}</td><td class="num">${num(a.mo, 2)}</td><td class="num">${num(a.p, 1)}</td><td class="num">${num(a.n, 1)}</td><td class="num">${num(a.s, 1)}</td><td class="num">${num(a.ce, 2)}</td>
           <td><button type="button" class="btn" data-borrar-analisis="${esc(a.id)}" aria-label="Borrar">✕</button></td></tr>${a.nota ? `<tr><td colspan="9" class="nota">${esc(a.nota)}</td></tr>` : ''}`).join('')}</tbody></table></div>` : '<p class="nota">Sin análisis cargados.</p>'}
-      <form class="form" id="form-analisis" autocomplete="off">
+      <form class="form solo-carga" id="form-analisis" autocomplete="off">
         <div class="fila2"><label>Fecha<input name="fecha" type="date" required value="${new Date().toISOString().slice(0, 10)}"></label><label>Profundidad<input name="prof" placeholder="0-20 cm" value="0-20 cm"></label></div>
         <div class="fila3"><label>pH<input name="ph" type="number" step="0.01"></label><label>MO %<input name="mo" type="number" step="0.01"></label><label>P (ppm)<input name="p" type="number" step="0.1"></label></div>
         <div class="fila3"><label>N-NO₃ (ppm)<input name="n" type="number" step="0.1"></label><label>S-SO₄ (ppm)<input name="s" type="number" step="0.1"></label><label>CE (dS/m)<input name="ce" type="number" step="0.01"></label></div>
@@ -549,11 +549,30 @@
   }
 
   // ---------- Registro de lluvias ----------
-  async function ventanaLluvia(preelegidos) {
+  // Lista de lotes agrupados por zona, con "marcar toda la zona" y filtro (lluvias y labores)
+  function selectorLotes(preelegidos) {
     const ids = new Set(preelegidos && preelegidos.length ? preelegidos : []);
-    const hoyISO = new Date(Date.now() - 3 * 36e5).toISOString().slice(0, 10);
     const zonas = {};
     datos.campos.forEach((c) => { const z = [c.localidad || c.departamento, c.provincia].filter(Boolean).join(', ') || 'Sin ubicar'; (zonas[z] = zonas[z] || []).push(c); });
+    return `<label class="buscar"><span aria-hidden="true">⌕</span><input class="lotes-buscar" placeholder="Filtrar lotes…"></label>
+        <div class="lluvia-lotes">${Object.entries(zonas).sort((a, b) => ordenar(a[0], b[0])).map(([z, l]) => `<div class="lluvia-zona" data-zona="${esc(z)}">
+          <label class="opcion"><input type="checkbox" data-zona-todos="${esc(z)}"> <b>${esc(z)}</b> <small>(${l.length})</small></label>
+          ${l.sort((a, b) => ordenar(a.nombre, b.nombre)).map((c) => `<label class="opcion lluvia-lote"><input type="checkbox" name="campo" value="${esc(c.id)}" data-ha="${haDe(c)}" ${ids.has(c.id) ? 'checked' : ''}> ${esc(c.nombre)} <small>${num(haDe(c), 0)} ha</small></label>`).join('')}</div>`).join('')}</div>`;
+  }
+  function activarSelector(f, alCambiar) {
+    f.addEventListener('change', (e) => {
+      const z = e.target.dataset.zonaTodos;
+      if (z !== undefined) $$(`.lluvia-zona[data-zona="${CSS.escape(z)}"] input[name=campo]`, f).forEach((x) => { x.checked = e.target.checked; });
+      if (alCambiar && (z !== undefined || e.target.name === 'campo')) alCambiar();
+    });
+    $('.lotes-buscar', f).addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      $$('.lluvia-lote', f).forEach((l) => { l.style.display = !q || l.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    });
+  }
+
+  async function ventanaLluvia(preelegidos) {
+    const hoyISO = new Date(Date.now() - 3 * 36e5).toISOString().slice(0, 10);
     abrirVentana(`<h2>🌧️ Registrar lluvia</h2>
       <p>Lo que mide tu pluviómetro reemplaza a la estimación satelital en el balance de agua de los lotes elegidos.</p>
       <form class="form" id="form-lluvia" autocomplete="off">
@@ -561,28 +580,18 @@
           <label>Milímetros<input name="mm" type="number" min="0" max="500" step="0.5" required placeholder="mm"></label></div>
         <label>Notas<input name="nota" placeholder="Pluviómetro de la casa, granizo…"></label>
         <div class="seccion-t">¿En qué lotes?</div>
-        <label class="buscar"><span aria-hidden="true">⌕</span><input id="lluvia-buscar" placeholder="Filtrar lotes…"></label>
-        <div class="lluvia-lotes">${Object.entries(zonas).sort((a, b) => ordenar(a[0], b[0])).map(([z, l]) => `<div class="lluvia-zona" data-zona="${esc(z)}">
-          <label class="opcion"><input type="checkbox" data-zona-todos="${esc(z)}"> <b>${esc(z)}</b> <small>(${l.length})</small></label>
-          ${l.sort((a, b) => ordenar(a.nombre, b.nombre)).map((c) => `<label class="opcion lluvia-lote"><input type="checkbox" name="campo" value="${esc(c.id)}" ${ids.has(c.id) ? 'checked' : ''}> ${esc(c.nombre)}</label>`).join('')}</div>`).join('')}</div>
+        ${selectorLotes(preelegidos)}
         <div class="botones"><button class="btn btn-1" type="submit">Guardar</button><button class="btn" type="button" data-accion="cerrar">Cancelar</button></div>
       </form>
       <div class="seccion-t">Últimos registros</div><div id="lluvias-previas"><div class="esqueleto"></div></div>`);
     const f = $('#form-lluvia');
-    f.addEventListener('change', (e) => {
-      const z = e.target.dataset.zonaTodos;
-      if (z !== undefined) $$(`.lluvia-zona[data-zona="${CSS.escape(z)}"] input[name=campo]`).forEach((x) => { x.checked = e.target.checked; });
-    });
-    $('#lluvia-buscar').addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase();
-      $$('.lluvia-lote').forEach((l) => { l.style.display = !q || l.textContent.toLowerCase().includes(q) ? '' : 'none'; });
-    });
+    activarSelector(f);
     f.addEventListener('submit', (e) => {
       e.preventDefault();
       const fd = new FormData(f);
       const campos = fd.getAll('campo');
       if (!campos.length) return avisar('Elegí al menos un lote.', 'error');
-      const r = { fecha: fd.get('fecha'), mm: Number(fd.get('mm')), campos, nota: String(fd.get('nota') || '').trim() };
+      const r = { fecha: fd.get('fecha'), mm: Number(fd.get('mm')), campos, nota: String(fd.get('nota') || '').trim(), cargadoPor: Equipo.yo().nombre || undefined };
       conToken(async () => {
         cargando('Guardando lluvia…');
         try {
@@ -602,6 +611,157 @@
     el.innerHTML = l.length ? `<table class="tabla-import"><tbody>${l.map((r) => `<tr><td>${esc(r.fecha)}</td><td class="num"><b>${num(r.mm, 1)} mm</b></td>
       <td class="nota">${esc(r.campos.length > 3 ? `${r.campos.length} lotes` : r.campos.map(nombre).join(', '))}${r.nota ? ' · ' + esc(r.nota) : ''}</td>
       <td><button type="button" class="btn" data-borrar-lluvia="${esc(r.id)}" aria-label="Borrar">✕</button></td></tr>`).join('')}</tbody></table>` : '<p class="nota">Todavía no cargaste lluvias.</p>';
+  }
+
+  // ---------- Labores (cuaderno de campo) ----------
+  const UNIDADES = ['kg/ha', 'l/ha', 'cc/ha', 'semillas/m', 'pl/ha', 'u/ha'];
+  function ventanaLabor(preelegidos) {
+    const hoyISO = new Date(Date.now() - 3 * 36e5).toISOString().slice(0, 10);
+    const quien = Equipo.yo().nombre;
+    abrirVentana(`<h2>📒 Registrar labor</h2>
+      <form class="form" id="form-labor" autocomplete="off">
+        <div class="fila2"><label>Fecha<input name="fecha" type="date" required value="${hoyISO}"></label>
+          <label>Labor<select name="tipo">${Agua.TIPOS_LABOR.map((t) => `<option>${t}</option>`).join('')}</select></label></div>
+        <div class="fila2 labor-cultivo"><label>Cultivo<select name="cultivo"><option value="">—</option>${CULTIVOS.map((x) => `<option>${x.nombre}</option>`).join('')}</select></label>
+          <label class="labor-siembra">Variedad / híbrido<input name="variedad" placeholder="Ej.: DM 46R18"></label>
+          <label class="labor-cosecha oculto">Rinde (qq/ha)<input name="rinde" type="number" min="0" step="0.1"></label></div>
+        <div class="fila3"><label class="labor-prod">Producto<input name="producto" placeholder="Ej.: glifosato, urea, semilla"></label>
+          <label>Dosis<input name="dosis" type="number" min="0" step="any"></label>
+          <label>Unidad<select name="unidad">${UNIDADES.map((u) => `<option>${u}</option>`).join('')}</select></label></div>
+        <div class="fila2"><label>Superficie (ha)<input name="superficie" type="number" min="0" step="0.1"></label>
+          <label>Contratista / operario<input name="contratista" value="${esc(quien)}"></label></div>
+        <label>Notas<input name="nota" placeholder="Condiciones, mezcla de tanque, observaciones…"></label>
+        <div class="seccion-t">¿En qué lotes?</div>
+        ${selectorLotes(preelegidos)}
+        <div class="botones"><button class="btn btn-1" type="submit">Guardar labor</button><button class="btn" type="button" data-accion="cerrar">Cancelar</button></div>
+      </form>`);
+    const f = $('#form-labor');
+    const sup = () => { f.superficie.value = Math.round($$('input[name=campo]:checked', f).reduce((s2, x) => s2 + Number(x.dataset.ha || 0), 0) * 10) / 10 || ''; };
+    const porTipo = () => {
+      const t = f.tipo.value;
+      $('.labor-cultivo', f).classList.toggle('oculto', !['Siembra', 'Cosecha'].includes(t));
+      $('.labor-siembra', f).classList.toggle('oculto', t !== 'Siembra');
+      $('.labor-cosecha', f).classList.toggle('oculto', t !== 'Cosecha');
+    };
+    f.tipo.addEventListener('change', porTipo);
+    activarSelector(f, sup);
+    sup(); porTipo();
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(f);
+      const campos = fd.getAll('campo');
+      if (!campos.length) return avisar('Elegí al menos un lote.', 'error');
+      const n = (k) => (fd.get(k) === '' || fd.get(k) == null ? null : Number(fd.get(k)));
+      const t = String(fd.get('tipo'));
+      const r = { fecha: fd.get('fecha'), tipo: t, campos, cultivo: ['Siembra', 'Cosecha'].includes(t) ? String(fd.get('cultivo') || '') || null : null,
+        variedad: t === 'Siembra' ? String(fd.get('variedad') || '').trim() || null : null, rinde: t === 'Cosecha' ? n('rinde') : null,
+        producto: String(fd.get('producto') || '').trim() || null, dosis: n('dosis'), unidad: n('dosis') != null ? String(fd.get('unidad')) : null,
+        superficie: n('superficie'), contratista: String(fd.get('contratista') || '').trim() || null, nota: String(fd.get('nota') || '').trim() || null,
+        cargadoPor: Equipo.yo().nombre || (Equipo.rol() === 'dueño' ? 'Dueño' : null) };
+      conToken(async () => {
+        cargando('Guardando labor…');
+        try {
+          await Agua.agregarLabor(r);
+          cerrarVentana();
+          avisar(`Labor guardada en ${campos.length} ${campos.length === 1 ? 'lote' : 'lotes'}.${t === 'Siembra' ? ' El balance de agua va a usar esta fecha de siembra.' : ''}`);
+          if (abierto) mostrarLabores(datos.campos.find((c) => c.id === abierto));
+        } catch (err) { manejarError(err); } finally { cargando(null); }
+      });
+    });
+  }
+
+  async function mostrarLabores(c) {
+    const el = $('#labores');
+    if (!el || !c) return;
+    const lista = (await Agua.labores().catch(() => [])).filter((l) => l.campos.includes(c.id)).sort((a, b) => b.fecha.localeCompare(a.fecha));
+    if (abierto !== c.id) return;
+    const yo = Equipo.yo();
+    const detalle = (l) => [l.cultivo, l.variedad, l.producto, l.dosis != null ? `${num(l.dosis, l.dosis % 1 ? 2 : 0)} ${l.unidad || ''}` : '', l.rinde != null ? `${num(l.rinde, 1)} qq/ha` : '', l.superficie ? `${num(l.superficie, 0)} ha` : ''].filter(Boolean).join(' · ');
+    el.innerHTML = `${lista.length ? `<ul class="labores">${lista.slice(0, 12).map((l) => `<li><span class="labor-tipo">${esc(l.tipo)}</span>
+        <div><b>${esc(fechaCorta(l.fecha))} ${l.fecha.slice(0, 4)}</b> ${esc(detalle(l))}<small>${esc([l.contratista, l.nota].filter(Boolean).join(' · '))}${l.cargadoPor ? ` · cargó ${esc(l.cargadoPor)}` : ''}</small></div>
+        ${Equipo.rol() === 'dueño' || (Equipo.puede('labores') && l.cargadoPor && l.cargadoPor === yo.nombre) ? `<button type="button" class="btn" data-borrar-labor="${esc(l.id)}" aria-label="Borrar">✕</button>` : ''}</li>`).join('')}</ul>
+        ${lista.length > 12 ? `<p class="nota">… y ${lista.length - 12} más (en el reporte completo).</p>` : ''}` : '<p class="nota">Todavía no hay labores registradas en este lote.</p>'}
+      <button type="button" class="btn solo-carga" data-accion="labor">＋ Registrar labor</button>`;
+  }
+
+  // ---------- Accesos (socio, contratista) ----------
+  async function ventanaAccesos() {
+    cargando('Leyendo accesos…');
+    const lista = await Equipo.accesos().catch(() => []);
+    cargando(null);
+    const repo = (Repo.config.repo || '').split('/')[1] || '';
+    abrirVentana(`<h2>👥 Accesos</h2>
+      <p>Invitá a tu socio (solo mira) o a un contratista (carga labores, lluvias y análisis, pero no edita ni borra campos). Cada persona usa una llave (token) de GitHub que creás vos y podés anular cuando quieras.</p>
+      ${lista.length ? `<table class="tabla-import"><thead><tr><th>Nombre</th><th>Permiso</th><th>Desde</th><th>Llave</th><th></th></tr></thead><tbody>
+        ${lista.map((a) => `<tr><td><b>${esc(a.nombre)}</b></td><td>${Equipo.ROLES[a.rol]?.icono || ''} ${esc(Equipo.ROLES[a.rol]?.nombre || a.rol)}</td><td>${esc(fechaCorta(a.alta.slice(0, 10)))}</td><td><code>…${esc(a.token4 || '')}</code></td>
+          <td><button type="button" class="btn" data-quitar-acceso="${esc(a.id)}">Quitar</button></td></tr>`).join('')}</tbody></table>` : '<p class="nota">Todavía no invitaste a nadie.</p>'}
+      <details class="editar" ${lista.length ? '' : 'open'}><summary>＋ Nueva invitación</summary>
+        <form class="form" id="form-acceso" autocomplete="off">
+          <div class="fila2"><label>Nombre<input name="nombre" required placeholder="Ej.: Juan (contratista)"></label>
+            <label>Permiso<select name="rol"><option value="lectura">👁 Solo lectura (socio)</option><option value="carga">📒 Carga de labores (contratista)</option></select></label></div>
+          <ol class="pasos-token">
+            <li>Abrí <a class="link" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a> (con <b>tu</b> cuenta).</li>
+            <li><b>Token name:</b> el nombre de la persona. <b>Expiration:</b> por ejemplo 90 días o el fin de la campaña.</li>
+            <li><b>Repository access:</b> "Only select repositories" → <code>${esc(repo)}</code>.</li>
+            <li><b>Permissions → Contents:</b> <b class="permiso-txt">"Read-only"</b>.</li>
+            <li>Generá el token, copialo y pegalo acá.</li>
+          </ol>
+          <label>Token de esa persona<input name="token" type="password" required placeholder="github_pat_…"></label>
+          <div class="botones"><button class="btn btn-1" type="submit">Crear invitación</button><button class="btn" type="button" data-accion="cerrar">Cerrar</button></div>
+        </form></details>
+      <div id="invitacion"></div>
+      <p class="nota">Para anular un acceso: borrá esa llave en <a class="link" href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">github.com/settings/personal-access-tokens</a> (deja de funcionar al instante) y tocá "Quitar" acá.</p>`);
+    const f = $('#form-acceso');
+    f.rol.addEventListener('change', () => { $('.permiso-txt', f).textContent = f.rol.value === 'lectura' ? '"Read-only"' : '"Read and write"'; });
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nombre = f.nombre.value.trim();
+      const r = f.rol.value;
+      const tk = f.token.value.trim();
+      cargando('Comprobando la llave…');
+      try {
+        const p = await Repo.probarToken(tk, { guardar: false });
+        if (r === 'lectura' && p.escritura) throw new Error('Esa llave puede escribir. Para un acceso de solo lectura, en "Contents" elegí "Read-only" y generala de nuevo.');
+        if (r === 'carga' && !p.escritura) throw new Error('Esa llave es de solo lectura. Para carga de labores, en "Contents" elegí "Read and write".');
+        await Equipo.modificarAccesos((l) => l.concat({ id: nuevoId(), nombre, rol: r, alta: new Date().toISOString(), token4: tk.slice(-4) }), `Accesos: invitar a ${nombre} (${Equipo.ROLES[r].nombre.toLowerCase()})`);
+        const url = Equipo.link(tk, nombre, r);
+        const msg = `Hola ${nombre}, te comparto el acceso a los campos de Sammartino (${Equipo.ROLES[r].nombre.toLowerCase()}). Abrí este link desde el celular o la compu: ${url}`;
+        $('#invitacion').innerHTML = `<div class="invitacion"><b>✅ Invitación lista para ${esc(nombre)}</b>
+          <p class="nota">El link contiene la llave: mandáselo solo a esa persona.</p>
+          <input readonly value="${esc(url)}" id="link-inv">
+          <div class="botones"><button class="btn" type="button" id="copiar-inv">📋 Copiar link</button>
+          <a class="btn btn-1" href="https://wa.me/?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Enviar por WhatsApp</a></div></div>`;
+        $('#copiar-inv').addEventListener('click', () => { $('#link-inv').select(); navigator.clipboard?.writeText(url).then(() => avisar('Link copiado.')).catch(() => document.execCommand('copy')); });
+        f.reset(); f.closest('details').open = false;
+      } catch (err) { avisar(err.message, 'error'); } finally { cargando(null); }
+    });
+  }
+
+  // ---------- Rol de este navegador ----------
+  function aplicarRol() {
+    const yo = Equipo.yo();
+    document.body.classList.toggle('rol-lectura', yo.rol === 'lectura');
+    document.body.classList.toggle('rol-carga', yo.rol === 'carga');
+    const b = $('#rol-badge');
+    if (b) {
+      b.classList.toggle('oculto', yo.rol === 'dueño' || !Repo.tieneToken());
+      b.textContent = `${Equipo.ROLES[yo.rol]?.icono || ''} ${yo.nombre || Equipo.ROLES[yo.rol]?.nombre || ''}`;
+      b.title = Equipo.ROLES[yo.rol]?.texto || '';
+    }
+  }
+
+  async function aceptarInvitacion(inv) {
+    if (inv.error) return avisar(inv.error, 'error');
+    if (inv.repo && inv.repo !== Repo.config.repo) return avisar('Ese link de invitación es de otro repositorio.', 'error');
+    cargando('Activando tu acceso…');
+    try {
+      const p = await Repo.probarToken(inv.t);
+      const rolFinal = inv.r === 'carga' && p.escritura ? 'carga' : 'lectura';
+      Equipo.fijar({ rol: rolFinal, nombre: inv.n || '' });
+      avisar(`¡Hola ${inv.n || ''}! Ya tenés acceso: ${Equipo.ROLES[rolFinal].nombre.toLowerCase()}.`);
+    } catch (e) {
+      avisar('El link de invitación no funciona: ' + e.message + ' Pedile uno nuevo al dueño.', 'error');
+    } finally { cargando(null); }
   }
 
   // ---------- Alertas por WhatsApp ----------
@@ -694,16 +854,18 @@
           <label>Cultivo<select data-filtro="cultivo">${opciones(cultivos, filtros.cultivo, 'Todos')}</select></label>
           <label>Campaña<select data-filtro="campana">${opciones(campanas, filtros.campana, 'Todas')}</select></label>
         </div>
-        ${elegidos.length ? `<div class="bloque-sel" role="region" aria-label="Acciones sobre la selección">
+        ${elegidos.length ? `<div class="bloque-sel solo-carga" role="region" aria-label="Acciones sobre la selección">
           <div class="bloque-sel-h"><b>${elegidos.length} ${elegidos.length === 1 ? 'seleccionado' : 'seleccionados'} · ${num(totalHa(elegidos), 1)} ha</b>
             <button type="button" class="volver" data-accion="limpiar-sel">Quitar selección</button></div>
-          <div class="fila2 form">
+          <div class="fila2 form solo-dueno">
             <label>Cultivo<select id="sel-cultivo"><option value="__igual">(no cambiar)</option><option value="">Sin cultivo</option>${CULTIVOS.map((x) => `<option>${x.nombre}</option>`).join('')}</select></label>
             <label>Campaña<input id="sel-campana" placeholder="(no cambiar)"></label>
           </div>
-          <div class="botones"><button type="button" class="btn btn-1" data-accion="aplicar-sel">Aplicar a la selección</button>
+          <div class="botones"><button type="button" class="btn btn-1 solo-dueno" data-accion="aplicar-sel">Aplicar a la selección</button>
             <button type="button" class="btn" data-accion="encuadrar-sel">Ver en el mapa</button>
-            <button type="button" class="btn btn-peligro" data-accion="borrar-sel">Eliminar seleccionados</button></div>
+            <button type="button" class="btn solo-carga" data-accion="labor-sel">📒 Labor</button>
+            <button type="button" class="btn solo-carga" data-accion="lluvia-sel">🌧️ Lluvia</button>
+            <button type="button" class="btn btn-peligro solo-dueno" data-accion="borrar-sel">Eliminar seleccionados</button></div>
         </div>` : ''}
         <div class="lista-h"><label class="opcion"><input type="checkbox" id="sel-todos" ${todosMarcados ? 'checked' : ''}> Seleccionar ${lista.length === datos.campos.length ? 'todos' : 'los filtrados'} (${lista.length})</label>
           <span class="nota">${num(totalHa(lista), 0)} ha</span></div>
@@ -773,9 +935,11 @@
       <div class="ndvi" id="ndvi"></div>
       <div class="seccion-t">Pronóstico de la zona</div>
       <div class="clima" id="clima"><div class="esqueleto"></div></div>
+      <div class="seccion-t">📒 Labores</div>
+      <div id="labores"><div class="esqueleto"></div></div>
       <details class="editar" id="det-suelo"><summary>🧪 Suelo (INTA) y análisis de laboratorio</summary><div id="suelo"></div></details>
       ${c.notas ? `<div class="nota-campo">📝 ${esc(c.notas)}</div>` : ''}
-      <details class="editar" ${c.cultivo ? '' : 'open'}><summary>✎ Editar nombre, cultivo, campaña y notas</summary>
+      <details class="editar solo-dueno" ${c.cultivo || Equipo.rol() !== 'dueño' ? '' : 'open'}><summary>✎ Editar nombre, cultivo, campaña y notas</summary>
         <form class="form" id="form-campo" autocomplete="off">
         <label>Nombre<input name="nombre" required value="${esc(c.nombre)}"></label>
         <div class="fila2">
@@ -806,6 +970,7 @@
     mostrarPronostico(c.id, lat, lon);
     mostrarNdvi(c);
     mostrarAgua(c);
+    mostrarLabores(c);
     $('#det-suelo').addEventListener('toggle', (e) => { if (e.target.open) mostrarSuelo(c); }, { once: true });
   }
 
@@ -1011,7 +1176,9 @@
       e.preventDefault();
       cargando('Comprobando el token…');
       try {
-        await Repo.probarToken(e.target.token.value.trim());
+        const p = await Repo.probarToken(e.target.token.value.trim());
+        Equipo.fijar({ rol: p.escritura ? 'dueño' : 'lectura' });
+        aplicarRol();
         cerrarVentana();
         actualizarEstadoGH();
         avisar('Conectado con GitHub.');
@@ -1073,6 +1240,17 @@
       if (confirm('¿Borrar este registro de lluvia?')) conToken(async () => { cargando('Borrando…'); try { await Agua.borrarLluvia(bl.dataset.borrarLluvia); pintarLluviasPrevias(); } catch (err) { manejarError(err); } finally { cargando(null); } });
       return;
     }
+    const bla = e.target.closest('[data-borrar-labor]');
+    if (bla) {
+      const c = datos.campos.find((x) => x.id === abierto);
+      if (confirm('¿Borrar esta labor? Si se cargó en varios lotes, se borra de todos.')) conToken(async () => { cargando('Borrando…'); try { await Agua.borrarLabor(bla.dataset.borrarLabor); mostrarLabores(c); } catch (err) { manejarError(err); } finally { cargando(null); } });
+      return;
+    }
+    const qa = e.target.closest('[data-quitar-acceso]');
+    if (qa) {
+      if (confirm('¿Quitar este acceso de la lista? Acordate de borrar también su llave en GitHub para que deje de funcionar.')) conToken(async () => { cargando('Guardando…'); try { await Equipo.modificarAccesos((l) => l.filter((x) => x.id !== qa.dataset.quitarAcceso), 'Accesos: quitar un acceso'); cerrarVentana(); ventanaAccesos(); } catch (err) { manejarError(err); } finally { cargando(null); } });
+      return;
+    }
     const ba = e.target.closest('[data-borrar-analisis]');
     if (ba) {
       const c = datos.campos.find((x) => x.id === abierto);
@@ -1105,14 +1283,22 @@
     else if (a === 'confirmar-import') confirmarImport();
     else if (a === 'ndvi-imagen') alternarImagenNdvi();
     else if (a === 'lluvia') conToken(() => ventanaLluvia([abierto]));
+    else if (a === 'labor') conToken(() => ventanaLabor([abierto]));
+    else if (a === 'labor-sel') conToken(() => ventanaLabor([...seleccion]));
+    else if (a === 'lluvia-sel') conToken(() => ventanaLluvia([...seleccion]));
     else if (a === 'cerrar') cerrarVentana();
     else if (a === 'conectar') pedirToken(null);
     else if (a === 'cambiar-token') { cerrarVentana(); pedirToken(null); }
-    else if (a === 'desconectar') { Repo.olvidarToken(); actualizarEstadoGH(); cerrarVentana(); bloquear(); avisar('Desconectado de GitHub.'); }
+    else if (a === 'desconectar') { Repo.olvidarToken(); Equipo.olvidar(); aplicarRol(); actualizarEstadoGH(); cerrarVentana(); bloquear(); avisar('Desconectado de GitHub.'); }
   });
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
+  // El menú "Más" se cierra al elegir algo o al tocar afuera
+  $('#menu-mas').addEventListener('click', (e) => { if (e.target.closest('.menu-mas-lista button')) $('#menu-mas').open = false; });
+  document.addEventListener('click', (e) => { if (!e.target.closest('#menu-mas')) $('#menu-mas').open = false; });
   $('#btn-gh').addEventListener('click', menuGitHub);
   $('#btn-alertas').addEventListener('click', () => conToken(ventanaAlertas));
+  $('#btn-labores').addEventListener('click', () => conToken(() => ventanaLabor(seleccion.size ? [...seleccion] : abierto ? [abierto] : [])));
+  $('#btn-accesos').addEventListener('click', () => conToken(ventanaAccesos));
   $('#btn-lluvia').addEventListener('click', () => conToken(() => ventanaLluvia(seleccion.size ? [...seleccion] : abierto ? [abierto] : [])));
   $('#btn-borrar-todo').addEventListener('click', () => conToken(confirmarBorrarTodo));
   $('#archivo').addEventListener('change', (e) => { importar(Array.from(e.target.files)); e.target.value = ''; });
@@ -1153,13 +1339,15 @@
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
     if (!bloqueado) Promise.all([NDVI.cargarResumen(true), Agua.cargar(true)]).then(() => { refrescar(); }).catch(() => {});
-    await corregirNombres();
-    completarUbicaciones();
+    if (Equipo.rol() === 'dueño') { await corregirNombres(); completarUbicaciones(); }
   }
 
-  function iniciar() {
+  async function iniciar() {
     if (!window.L) $('#mapa').innerHTML = '<p style="padding:20px;color:#fff">No se pudo cargar el mapa.</p>';
     else iniciarMapa();
+    const inv = Equipo.leerInvitacion();
+    if (inv) await aceptarInvitacion(inv);
+    aplicarRol();
     actualizarEstadoGH();
     cargarDatos();
   }

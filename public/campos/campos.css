@@ -298,3 +298,26 @@ a.btn { text-decoration: none; }
 #form-alertas label > span { flex-direction: row; }
 .barra h1 { display: flex; align-items: center; gap: 10px; }
 .logo-mini { width: 30px; height: 30px; border-radius: 9px; box-shadow: 0 4px 12px rgba(0,0,0,.18); }
+
+/* ---------- Roles (socio / contratista) ---------- */
+body.rol-lectura .solo-dueno, body.rol-lectura .solo-carga, body.rol-carga .solo-dueno { display: none !important; }
+.rol-badge { background: rgba(255, 255, 255, .18); color: #fffaf0; }
+.invitacion { margin-top: 12px; padding: 14px; border-radius: 16px; background: color-mix(in srgb, var(--lima) 16%, var(--surface)); display: flex; flex-direction: column; gap: 8px; }
+.invitacion input { width: 100%; padding: 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: .8rem; }
+.pasos-token { margin: 0; padding-left: 20px; font-size: .88rem; display: flex; flex-direction: column; gap: 4px; }
+
+/* ---------- Labores ---------- */
+.labores { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.labores li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: start; padding: 10px; border-radius: 14px; background: var(--surface-2); font-size: .88rem; }
+.labores small { display: block; color: var(--muted); font-size: .76rem; }
+.labor-tipo { font-size: .7rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; background: color-mix(in srgb, var(--lima) 30%, transparent); white-space: nowrap; }
+.labores .btn { padding: 4px 9px; }
+
+/* Menú "Más" del encabezado */
+.menu-mas { position: relative; }
+.menu-mas > summary { list-style: none; cursor: pointer; }
+.menu-mas > summary::-webkit-details-marker { display: none; }
+.menu-mas-lista { position: absolute; right: 0; top: calc(100% + 8px); z-index: 1200; min-width: 250px; padding: 8px; border-radius: 18px;
+  background: var(--surface); box-shadow: var(--sombra-alta); display: flex; flex-direction: column; gap: 6px; }
+.menu-mas-lista .btn { justify-content: flex-start; width: 100%; color: var(--ink); background: var(--surface-2); border-color: transparent; }
+.menu-mas-lista .btn-peligro-claro { color: #b3261e; }

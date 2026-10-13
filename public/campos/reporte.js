@@ -230,7 +230,8 @@
     const fin = sumarDias(hoy, -6);
     estado('Descargando clima, suelo y datos históricos… (puede tardar unos segundos)');
     const aguaP = window.Agua ? Agua.cargar().then(async () => ({ x: Agua.de(id), serie: await Agua.serie(id), suelo: Agua.sueloDe(id),
-      analisis: (await Agua.analisis().catch(() => [])).filter((a) => a.campo === id).sort((a, b) => b.fecha.localeCompare(a.fecha)) })).catch(() => null) : Promise.resolve(null);
+      analisis: (await Agua.analisis().catch(() => [])).filter((a) => a.campo === id).sort((a, b) => b.fecha.localeCompare(a.fecha)),
+      labores: (await Agua.labores().catch(() => [])).filter((l) => l.campos.includes(id)).sort((a, b) => b.fecha.localeCompare(a.fecha)) })).catch(() => null) : Promise.resolve(null);
     const ndviP = window.NDVI ? Promise.all([NDVI.cargarResumen(), NDVI.serie(id)]).then(async ([, serie]) => ({ x: NDVI.de(id), serie, img: await NDVI.imagen(id) })).catch(() => null) : Promise.resolve(null);
     const [prono, anual, normales, alt, suelo, ndvi, agua, ens] = await Promise.allSettled([
       pedirPronostico(lat, lon),
@@ -274,7 +275,7 @@
       try { localStorage.setItem(clave, e.target.value); } catch (err) {}
       dibujar(e.target.value);
       // Se guarda en el campo para que el balance de agua siga la etapa del cultivo
-      if (Repo.tieneToken()) {
+      if (Repo.tieneToken() && (!window.Equipo || Equipo.rol() === 'dueño')) {
         Repo.guardar((actual) => { const x = actual.campos.find((k) => k.id === id); if (x) x.siembra = e.target.value; return actual; }, `Campos: fecha de siembra de "${campo.nombre}"`)
           .then(() => avisar('Fecha de siembra guardada en el campo. El balance de agua se recalcula en unos minutos.'))
           .catch(() => avisar('La fecha quedó en este navegador, pero no se pudo guardar en el campo.', 'error'));
@@ -485,6 +486,8 @@
 
       ${ndviHTML(m.ndvi)}
 
+      ${laboresHTML(m.agua?.labores || [])}
+
       <section class="r-sec"><h2>Datos del lote</h2>
         <div class="r-card"><div class="r-datos">
           <div><small>Superficie del mapa</small><b>${num(c.ha, 2)} ha</b></div>
@@ -672,6 +675,18 @@
     ] }, options: opciones({ scales: { x: ejeX, y: eje('°C · km/h'), y1: eje('%', { position: 'right', min: 0, max: 100, grid: { display: false } }), y2: { display: false, beginAtZero: true, suggestedMax: 10 } } }) });
 
     modelo.csv = { siembra };
+  }
+
+  // Cuaderno de campo del lote
+  function laboresHTML(l) {
+    if (!l.length) return '';
+    const det = (x) => [x.cultivo, x.variedad, x.producto, x.dosis != null ? `${num(x.dosis, x.dosis % 1 ? 2 : 0)} ${x.unidad || ''}` : '', x.rinde != null ? `${num(x.rinde, 1)} qq/ha` : ''].filter(Boolean).join(' · ');
+    const cos = l.filter((x) => x.tipo === 'Cosecha' && x.rinde != null);
+    return `<section class="r-sec"><h2>Labores</h2>
+      ${cos.length ? `<p class="nota">Último rinde cosechado: <b>${num(cos[0].rinde, 1)} qq/ha</b>${cos[0].cultivo ? ' de ' + esc(cos[0].cultivo.toLowerCase()) : ''} (${etqDia(cos[0].fecha)}/${cos[0].fecha.slice(0, 4)}).</p>` : ''}
+      <div class="r-card"><div class="r-tabla-wrap"><table class="r-tabla"><thead><tr><th>Fecha</th><th>Labor</th><th>Detalle</th><th class="n">Superficie</th><th>Contratista</th><th>Notas</th></tr></thead><tbody>
+        ${l.map((x) => `<tr><td>${etqDia(x.fecha)}/${x.fecha.slice(0, 4)}</td><td><b>${esc(x.tipo)}</b></td><td>${esc(det(x))}</td><td class="n">${x.superficie ? num(x.superficie, 0) + ' ha' : '—'}</td><td>${esc(x.contratista || '')}</td><td>${esc(x.nota || '')}${x.cargadoPor ? `<br><small class="nota">cargó ${esc(x.cargadoPor)}</small>` : ''}</td></tr>`).join('')}
+      </tbody></table></div></div></section>`;
   }
 
   // Tarjetas de agua útil y suelo INTA

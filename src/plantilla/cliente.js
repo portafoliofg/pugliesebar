@@ -146,11 +146,35 @@
     if (abiertas[nombre]) return;
     abiertas[nombre] = true;
     if (nombre === 'granos' || nombre === 'dolar') pintarGraficos();
-    if (nombre === 'clima') cargarMapa();
+    if (nombre === 'clima') { cargarMapa(); cargarPerspectiva(); }
     if (nombre === 'stock' || nombre === 'campos') {
       var f = $('#' + nombre + '-frame');
       if (f && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
     }
+  }
+
+  // ---------- Perspectiva de la campaña (El Niño / La Niña) ----------
+  function cargarPerspectiva() {
+    var enso = $('#persp-enso');
+    if (!enso) return;
+    if (!D.enso) { enso.innerHTML = '<p class="nota">No se pudo leer el estado de El Niño / La Niña.</p>'; return; }
+    var js = document.createElement('script');
+    js.src = 'perspectiva.js';
+    js.onload = function () {
+      enso.innerHTML = window.Perspectiva.cabecera(D.enso);
+      var zonas = $('#persp-zonas');
+      (D.localidades || []).forEach(function (l) {
+        var div = document.createElement('div');
+        div.className = 'persp-zona';
+        div.innerHTML = '<div class="esqueleto"></div>';
+        zonas.appendChild(div);
+        window.Perspectiva.calcular(l.lat, l.lon, D.enso)
+          .then(function (d) { window.Perspectiva.render(div, d, l.nombre); })
+          .catch(function () { div.innerHTML = '<p class="nota">No se pudo calcular la perspectiva de ' + l.nombre + '.</p>'; });
+      });
+    };
+    js.onerror = function () { enso.innerHTML = '<p class="nota">No se pudo cargar la perspectiva.</p>'; };
+    document.head.appendChild(js);
   }
 
   // ---------- Gráficos (Chart.js) ----------

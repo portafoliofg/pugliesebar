@@ -277,6 +277,10 @@
         </div>
       </section>
 
+      <section class="r-sec"><h2>Perspectiva de la campaña</h2>
+        <div class="r-card"><div id="g-enso"><div class="esqueleto"></div></div><div class="persp-zonas" id="g-persp"></div></div>
+      </section>
+
       <section class="r-sec"><h2>Todos los lotes</h2>
         <div class="r-card"><div class="r-tabla-wrap"><table class="r-tabla g-tabla" id="g-tabla"></table></div>
         <p class="nota">Tocá un encabezado para ordenar. ❄️ = helada prevista en 7 días.</p></div>
@@ -285,8 +289,40 @@
       <footer class="r-pie">Fuentes: Open-Meteo (pronóstico y últimos 30 días), Sentinel-2 vía Microsoft Planetary Computer (NDVI), imágenes de Esri. Lotes a menos de ~10 km comparten el mismo dato de clima. Los valores son estimaciones de modelos y satélite.</footer>`;
 
     pintarTabla();
+    pintarPerspectiva();
     pintarMapas();
     pintarGraficos(porProv, porCultivo, porCampana, conNdvi, conClima);
+  }
+
+  // ---------- Perspectiva de la campaña (una zona por provincia de los lotes filtrados) ----------
+  let enso;
+  const perspectivas = {};
+  async function pintarPerspectiva() {
+    const cab = $('#g-enso');
+    const cont = $('#g-persp');
+    if (!cab || !window.Perspectiva) return;
+    if (enso === undefined) enso = await fetch('../enso.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    if (!document.body.contains(cab)) return;
+    cab.innerHTML = enso ? Perspectiva.cabecera(enso) : '<p class="nota">No se pudo leer el estado de El Niño / La Niña.</p>';
+    const zonas = {};
+    filas.forEach((f) => {
+      const p = f.campo.provincia || 'Sin ubicar';
+      const [lat, lon] = KML.centro(f.campo.geometria);
+      const z = zonas[p] || (zonas[p] = { lat: 0, lon: 0, ha: 0 });
+      const h = haDe(f.campo) || 1;
+      z.lat += lat * h; z.lon += lon * h; z.ha += h;
+    });
+    cont.innerHTML = '';
+    for (const [nombre, z] of Object.entries(zonas).sort((a, b) => b[1].ha - a[1].ha)) {
+      const div = document.createElement('div');
+      div.className = 'persp-zona';
+      div.innerHTML = '<div class="esqueleto"></div>';
+      cont.appendChild(div);
+      const lat = z.lat / z.ha; const lon = z.lon / z.ha;
+      if (!perspectivas[nombre]) perspectivas[nombre] = Perspectiva.calcular(lat, lon, enso);
+      perspectivas[nombre].then((d) => { if (document.body.contains(div)) Perspectiva.render(div, d, `${nombre} (${num(z.ha, 0)} ha)`); })
+        .catch(() => { div.innerHTML = `<p class="nota">No se pudo calcular la perspectiva de ${esc(nombre)}.</p>`; });
+    }
   }
 
   // ---------- Tabla ----------

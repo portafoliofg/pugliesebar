@@ -15,6 +15,7 @@ import { obtenerClima } from './fuentes/clima.js';
 import { obtenerNoticias } from './fuentes/noticias.js';
 import { verificarFeriado, esFinDeSemana } from './fuentes/feriados.js';
 import { actualizarBoletin, retencionesVigentes } from './fuentes/boletin.js';
+import { obtenerEnso } from './fuentes/enso.js';
 import { Historico } from './historico.js';
 import { generarHTML, generarConfigStock, generarConfigCampos } from './generar-html.js';
 import { fechaISOArgentina } from './lib/formato.js';
@@ -29,7 +30,8 @@ const FUENTES = {
   matba: obtenerMatba,
   dolar: obtenerDolar,
   clima: obtenerClima,
-  noticias: obtenerNoticias
+  noticias: obtenerNoticias,
+  enso: obtenerEnso
 };
 
 const GRANOS_PIZARRA = [
@@ -175,6 +177,8 @@ async function main() {
   // Pestaña Campos: solo se publica el nombre del repositorio privado, nunca los datos
   await mkdir(join(RAIZ, 'public', 'campos'), { recursive: true });
   await writeFile(join(RAIZ, 'public', 'campos', 'config.js'), generarConfigCampos(config), 'utf8');
+  // El Niño / La Niña para la perspectiva de la campaña (también la usan los reportes de Campos)
+  if (fuentes.enso.datos) await writeFile(join(RAIZ, 'public', 'enso.json'), JSON.stringify(fuentes.enso.datos) + '\n', 'utf8');
   await historico.guardar();
   console.log(`Página generada: ${RUTA_HTML} (${correctas}/${nombres.length} fuentes correctas)`);
 }

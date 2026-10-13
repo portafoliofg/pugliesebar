@@ -118,3 +118,7 @@ body.reporte { height: auto; background:
 @media print { .g-tabla { font-size: .7rem; } #g-mapa { height: 380px !important; } }
 .g-tabla td { white-space: nowrap; }
 .g-tabla td:nth-child(2) { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+.persp-zonas { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; margin-top: 14px; }
+.persp-zona { padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
+@media (max-width: 760px) { .persp-zonas { grid-template-columns: 1fr; } }
+@media print { .persp-zonas { grid-template-columns: 1fr 1fr; } }

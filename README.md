@@ -71,7 +71,10 @@ Funciones:
 - **Suelo** (🧪 en la ficha): carta de suelos del INTA y tus análisis de laboratorio (pH, MO, P, N, S, CE).
 - **Escenarios** (pestaña del pronóstico): probabilidad de lluvia y de helada día por día y rango de milímetros, con 51 escenarios del modelo europeo.
 - **Satélite GOES** (en Capas): nubes y tormentas en infrarrojo o color natural, de hace ~40 minutos.
-- **Alertas por WhatsApp** (botón 🔔): ver más abajo.
+- **Labores** (botón 📒 y en la ficha de cada lote): siembra (cultivo, variedad, densidad), pulverización, fertilización, cosecha (rinde), labranza; producto, dosis, superficie, contratista y notas. La siembra registrada pasa sola al balance de agua. Se guardan en `data/labores.json` del repositorio privado.
+- **Accesos** (⚙️ Más → 👥 Accesos): invitá a tu socio (solo lectura) o a un contratista (carga labores, lluvias y análisis, sin editar ni borrar campos). Creás una llave de GitHub para cada uno (Contents "Read-only" o "Read and write", solo para el repositorio privado) y la página arma un link de invitación para mandar por WhatsApp. Para anularlo, borrás esa llave en GitHub. La solo lectura la impone GitHub; la carga es un permiso de la página (la llave puede escribir en el repositorio).
+- **Perspectiva de la campaña** (en el reporte general): estado de El Niño / La Niña y, para cada provincia de tus lotes, cuánto llovió de octubre a marzo en las campañas con la misma fase desde 1981 y el pronóstico estacional de los próximos 3 meses.
+- **Alertas por WhatsApp** (⚙️ Más → 🔔): ver más abajo.
 
 Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo **con el nombre del archivo** (si el archivo trae varios polígonos se numeran, y si alguno tiene un nombre propio en Google Earth se agrega al final). Los nombres genéricos como "Polígono sin título" se ignoran. Los puntos y las líneas no se cargan. Si el repositorio de campos llegara a ser público, la página se niega a usarlo.
 
@@ -90,6 +93,14 @@ Activarlo (una sola vez):
 3. **Actions → Alertas por WhatsApp → Run workflow** con modo "prueba".
 
 Qué se avisa y los umbrales se cambian con el botón **🔔 Alertas** de la pestaña Campos (se guarda en `config/alertas.json` del repositorio privado).
+
+## Perspectiva de la campaña (pestaña Clima)
+
+Estado de El Niño / La Niña según la NOAA (ONI, Niño 3.4 semanal y probabilidad), lo que suele significar para la región y, para cada localidad de `config.json → clima.localidades`, la lluvia de octubre a marzo en las campañas con la misma fase desde 1981 (reanálisis ERA5) y el pronóstico estacional de los próximos 3 meses (Open-Meteo, por escenarios) comparado con lo normal 1991–2020. Se calcula en el navegador y queda guardado un mes.
+
+## Fondo animado
+
+`public/paisaje.js` dibuja un paisaje de campo en SVG detrás del contenido (lomas con surcos, molino, espigas que se mecen, nubes, pájaros, sol o luna con estrellas en modo oscuro). Con "reducir movimiento" del sistema queda quieto y no se imprime.
 
 ## Retenciones
 
@@ -147,6 +158,7 @@ Ejemplo para agregar una localidad:
 | Clima | [Open-Meteo](https://open-meteo.com) | JSON, sin clave |
 | Feriados | ArgentinaDatos, con la lista de `config.json` como respaldo | JSON |
 | Noticias | RSS de Clarín Rural, La Nación Campo, Infocampo, Bichos de Campo, Agrofy News y TodoAgro | RSS |
+| El Niño / La Niña | [NOAA CPC](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml): ONI, Niño 3.4 semanal y estado de alerta → `public/enso.json` | Texto / HTML |
 | Retenciones | `config.json` (Decreto 423/2026 y su cronograma) + monitor diario del [Boletín Oficial](https://www.boletinoficial.gob.ar) | HTML (cheerio) |
 
 **Campos (repositorio privado):**
