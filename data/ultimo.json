@@ -26,61 +26,61 @@
           }
         }
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-10-09",
+        "fecha": "2026-10-13",
         "granos": {
           "soja": [
             {
               "posicion": "NOV26",
-              "usdTonelada": 374.2,
-              "fecha": "2026-10-09"
+              "usdTonelada": 372.9,
+              "fecha": "2026-10-13"
             },
             {
               "posicion": "MAY27",
-              "usdTonelada": 359.5,
-              "fecha": "2026-10-09"
+              "usdTonelada": 358.8,
+              "fecha": "2026-10-13"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 366.7,
-              "fecha": "2026-10-09"
+              "usdTonelada": 366.5,
+              "fecha": "2026-10-13"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 198.9,
-              "fecha": "2026-10-09"
+              "usdTonelada": 198.8,
+              "fecha": "2026-10-13"
             },
             {
               "posicion": "ABR27",
               "usdTonelada": 198,
-              "fecha": "2026-10-09"
+              "fecha": "2026-10-13"
             },
             {
               "posicion": "JUL27",
               "usdTonelada": 195,
-              "fecha": "2026-10-09"
+              "fecha": "2026-10-13"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 224.1,
-              "fecha": "2026-10-09"
+              "usdTonelada": 228.2,
+              "fecha": "2026-10-13"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 229.1,
-              "fecha": "2026-10-09"
+              "usdTonelada": 233.2,
+              "fecha": "2026-10-13"
             }
           ]
         }
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     },
     "dolar": {
       "datos": {
@@ -89,7 +89,7 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T16:00:00.000Z"
+            "actualizado": "2026-10-13T18:00:00.000Z"
           },
           "mayorista": {
             "compra": 1503.5,
@@ -97,33 +97,33 @@
             "actualizado": "2026-10-13T15:47:00.000Z"
           },
           "mep": {
-            "compra": 1537.5,
-            "venta": 1538.5,
-            "actualizado": "2026-10-13T18:57:00.000Z"
+            "compra": 1534.2,
+            "venta": 1539.4,
+            "actualizado": "2026-10-13T20:57:00.000Z"
           },
           "ccl": {
-            "compra": 1613.5,
-            "venta": 1614,
-            "actualizado": "2026-10-13T18:57:00.000Z"
+            "compra": 1611.1,
+            "venta": 1613.8,
+            "actualizado": "2026-10-13T20:57:00.000Z"
           },
           "blue": {
             "compra": 1530,
             "venta": 1550,
-            "actualizado": "2026-10-13T18:57:00.000Z"
+            "actualizado": "2026-10-13T20:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T16:00:00.000Z"
+            "actualizado": "2026-10-13T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1610.1,
-            "venta": 1612.83,
-            "actualizado": "2026-10-13T18:57:00.000Z"
+            "compra": 1607.7,
+            "venta": 1610.7,
+            "actualizado": "2026-10-13T20:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     },
     "clima": {
       "datos": {
@@ -136,52 +136,52 @@
               {
                 "fecha": "2026-10-13",
                 "min": 11.1,
-                "max": 18.1,
-                "lluviaMm": 1.6,
+                "max": 18.4,
+                "lluviaMm": 1.4,
                 "probLluvia": 86,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-14",
-                "min": 12.9,
-                "max": 18.7,
-                "lluviaMm": 1.3,
+                "min": 12.2,
+                "max": 18.3,
+                "lluviaMm": 4.7,
                 "probLluvia": 94,
-                "codigo": 51,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 12.2,
-                "max": 20,
-                "lluviaMm": 8.2,
+                "min": 11.7,
+                "max": 19.7,
+                "lluviaMm": 7.9,
                 "probLluvia": 80,
-                "codigo": 80,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 12.2,
-                "max": 19.3,
-                "lluviaMm": 11.5,
+                "min": 12.4,
+                "max": 18.6,
+                "lluviaMm": 13.3,
                 "probLluvia": 76,
-                "codigo": 80,
+                "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.5,
-                "max": 16.4,
-                "lluviaMm": 15.3,
+                "min": 11.3,
+                "max": 16.5,
+                "lluviaMm": 1.2,
                 "probLluvia": 75,
-                "codigo": 80,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 11.4,
-                "max": 17.7,
+                "min": 10,
+                "max": 17.6,
                 "lluviaMm": 0.3,
                 "probLluvia": 12,
                 "codigo": 51,
@@ -189,15 +189,15 @@
               },
               {
                 "fecha": "2026-10-19",
-                "min": 11.8,
-                "max": 16.7,
-                "lluviaMm": 2.1,
+                "min": 11,
+                "max": 15.8,
+                "lluviaMm": 0.6,
                 "probLluvia": 53,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 40.300000000000004,
+            "lluviaTotal": 29.400000000000002,
             "hayHelada": false
           },
           {
@@ -207,26 +207,26 @@
               {
                 "fecha": "2026-10-13",
                 "min": 11.9,
-                "max": 19.4,
-                "lluviaMm": 1.5,
+                "max": 18.9,
+                "lluviaMm": 2.5,
                 "probLluvia": 85,
                 "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-14",
-                "min": 11.4,
+                "min": 10.6,
                 "max": 20,
-                "lluviaMm": 2.5,
+                "lluviaMm": 0.5,
                 "probLluvia": 82,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.9,
-                "max": 20.4,
-                "lluviaMm": 4.2,
+                "min": 11.6,
+                "max": 20.6,
+                "lluviaMm": 3.4,
                 "probLluvia": 65,
                 "codigo": 80,
                 "helada": false
@@ -234,8 +234,8 @@
               {
                 "fecha": "2026-10-16",
                 "min": 10.7,
-                "max": 20.9,
-                "lluviaMm": 1.2,
+                "max": 20.5,
+                "lluviaMm": 1.9,
                 "probLluvia": 55,
                 "codigo": 53,
                 "helada": false
@@ -243,16 +243,16 @@
               {
                 "fecha": "2026-10-17",
                 "min": 12.2,
-                "max": 17.6,
-                "lluviaMm": 4.2,
+                "max": 17.8,
+                "lluviaMm": 0,
                 "probLluvia": 27,
-                "codigo": 53,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 12.1,
-                "max": 18.7,
+                "min": 10.9,
+                "max": 18.6,
                 "lluviaMm": 0,
                 "probLluvia": 11,
                 "codigo": 3,
@@ -260,26 +260,50 @@
               },
               {
                 "fecha": "2026-10-19",
-                "min": 11.7,
-                "max": 18.1,
-                "lluviaMm": 7.8,
+                "min": 10.6,
+                "max": 17.7,
+                "lluviaMm": 0.6,
                 "probLluvia": 37,
-                "codigo": 80,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 21.4,
+            "lluviaTotal": 8.9,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
+          {
+            "titulo": "Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación",
+            "link": "https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/",
+            "fecha": "2026-10-13T22:02:01.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "“La bronca es muy grande”: fuerte cuestionamiento al uso de los fondos de la tasa vial en un municipio bonaerense",
+            "link": "https://www.lanacion.com.ar/economia/campo/la-bronca-es-muy-grande-fuerte-cuestionamiento-al-uso-de-la-tasa-vial-en-un-municipio-bonaerense-nid13102026/",
+            "fecha": "2026-10-13T22:00:50.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Éxodo bovino correntino: Con los ríos Paraná y Uruguay en crecida, los productores comenzaron a sacar la hacienda de las islas y ya se teme un otoño sin pasto",
+            "link": "https://bichosdecampo.com/exodo-bovino-correntino-con-los-rios-parana-y-uruguay-en-crecida-los-productores-comenzaron-a-sacar-la-hacienda-de-las-islas-y-ya-se-teme-un-otono-sin-pasto/",
+            "fecha": "2026-10-13T21:57:31.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Congreso de Ateneos CRA: “Los jóvenes no son solo el futuro del campo; son su gran potencia”",
+            "link": "https://www.infocampo.com.ar/congreso-de-ateneos-cra-los-jovenes-no-son-solo-el-futuro-del-campo-son-su-gran-potencia/",
+            "fecha": "2026-10-13T20:08:19.000Z",
+            "fuente": "Infocampo"
+          },
           {
             "titulo": "El año de la proteína animal: en la industria de nutrición ven “un momento bisagra para Argentina”",
             "link": "https://www.infocampo.com.ar/el-ano-de-la-proteina-animal-en-la-industria-de-nutricion-ven-un-momento-bisagra-para-argentina/",
@@ -287,21 +311,9 @@
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Jason Mraz, el músico que produce paltas y café en San Diego: “Si una granja se maneja bien, sobrevivirá a su agricultor”",
-            "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
-            "fecha": "2026-10-13T19:42:31.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
             "titulo": "La empresa de biotecnología Moolec anuncia que pedirá su propia liquidación y crecen las dudas sobre el futuro de la cordobesa ValoraSoy",
             "link": "https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/",
             "fecha": "2026-10-13T19:42:25.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Ciencia ciudadana y tecnología: En Córdoba lanzaron una aplicación para registrar lluvias y niveles de napas desde el celular",
-            "link": "https://bichosdecampo.com/ciencia-ciudadana-y-tecnologia-en-cordoba-lanzaron-una-aplicacion-para-registrar-lluvias-y-niveles-de-napas-desde-el-celular/",
-            "fecha": "2026-10-13T19:37:40.000Z",
             "fuente": "Bichos de Campo"
           },
           {
@@ -315,25 +327,13 @@
             "link": "https://www.clarin.com/rural/aumento-329-economia-regional-clave-supero-fuerte-crisis-salto-precios_0_1dQ1jl6vc1.html",
             "fecha": "2026-10-13T19:00:25.000Z",
             "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
-            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
-            "fecha": "2026-10-13T18:52:25.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "En EEUU y Brasil, productores están en jaque por el alto endeudamiento: ¿ventaja para el campo argentino?",
-            "link": "https://www.infocampo.com.ar/en-eeuu-y-brasil-productores-estan-en-jaque-por-el-alto-endeudamiento-ventaja-para-el-campo-argentino/",
-            "fecha": "2026-10-13T18:36:32.000Z",
-            "fuente": "Infocampo"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     },
     "cbot": {
       "datos": {
@@ -358,7 +358,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-13T20:00:53.692Z"
+      "obtenido": "2026-10-13T22:09:36.276Z"
     }
   }
 }
