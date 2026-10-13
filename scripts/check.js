@@ -19,7 +19,7 @@ async function listarJS(dir) {
 }
 
 let errores = 0;
-for (const archivo of [...(await listarJS(join(RAIZ, 'src'))), ...(await listarJS(join(RAIZ, 'scripts'))), join(RAIZ, 'public', 'stock', 'api.js'), join(RAIZ, 'public', 'campos', 'kml.js'), join(RAIZ, 'public', 'campos', 'github.js'), join(RAIZ, 'public', 'campos', 'campos.js'), join(RAIZ, 'public', 'campos', 'pronostico.js'), join(RAIZ, 'public', 'campos', 'reporte.js')]) {
+for (const archivo of [...(await listarJS(join(RAIZ, 'src'))), ...(await listarJS(join(RAIZ, 'scripts'))), join(RAIZ, 'public', 'stock', 'api.js'), join(RAIZ, 'public', 'campos', 'kml.js'), join(RAIZ, 'public', 'campos', 'github.js'), join(RAIZ, 'public', 'campos', 'campos.js'), join(RAIZ, 'public', 'campos', 'pronostico.js'), join(RAIZ, 'public', 'campos', 'reporte.js'), join(RAIZ, 'public', 'campos', 'ndvi.js'), join(RAIZ, 'public', 'campos', 'general.js')]) {
   try {
     execFileSync(process.execPath, ['--check', archivo], { stdio: 'pipe' });
     console.log(`ok  ${archivo.replace(RAIZ + '/', '')}`);

@@ -56,15 +56,34 @@ Configuración (una sola vez):
 
 Funciones:
 
-- **Capas** (botón sobre el mapa): mapa base satelital, calles o relieve; colorear los campos por cultivo, campaña o provincia; mostrar u ocultar cada grupo; nombres de los lotes, límites y localidades, y radar de lluvia (RainViewer).
+- **Capas** (botón sobre el mapa): mapa base satelital, calles o relieve; colorear los campos por cultivo, campaña, provincia o NDVI; mostrar u ocultar cada grupo; nombres de los lotes, límites y localidades, y radar de lluvia (RainViewer).
 - **Filtros** por provincia, cultivo y campaña, y buscador. La provincia, el departamento y la localidad se detectan solos con la [API Georef](https://datosgobar.github.io/georef-ar-api/) del Gobierno argentino.
 - **Selección múltiple**: con las casillas de la lista, con Ctrl + clic en el mapa, o con el botón "Seleccionar" en el celular. A los seleccionados les podés asignar cultivo y campaña de una vez, verlos en el mapa o eliminarlos.
 - **Eliminar todos**: pide escribir ELIMINAR para confirmar y opcionalmente borra también las copias de los KML/KMZ.
 - **Pronóstico por campo** (Open-Meteo): resumen con lluvia de los últimos 7 y 30 días, próximos 7 y 16 días, balance hídrico (lluvia − evapotranspiración) y ventanas para pulverizar; detalle de 48 horas; tabla de 16 días con viento, ráfagas, ET0 y UV; humedad y temperatura del suelo.
 
 - **Reporte completo del campo** (botón 📊 en la ficha): se abre en una pestaña nueva y se puede imprimir o guardar en PDF, o descargar los datos en CSV. Incluye mapa satelital del lote, indicadores, análisis escrito automático y gráficos de lluvia mensual contra el promedio 1991–2020, lluvia acumulada desde la siembra, lluvia diaria, balance hídrico, anomalías, temperaturas máximas y mínimas, heladas y días de calor, grados-día, radiación y heliofanía, humedad del suelo por profundidad, propiedades del suelo (SoilGrids: textura, pH, materia orgánica, nitrógeno, CIC, densidad), rosa de los vientos, viento y ráfagas, pronóstico de 48 horas y tabla de 16 días. La fecha de siembra se elige en el reporte y queda guardada en el navegador. Fuentes: Open-Meteo (pronóstico, reanálisis ERA5 y altitud) e ISRIC SoilGrids, todas gratuitas y sin clave.
+- **NDVI satelital** (vigor del cultivo): en la ficha de cada lote, valor actual, cambio en 30 días, porcentaje del lote con vigor bajo/medio/alto, gráfico de la serie y botón para ver la imagen NDVI sobre el mapa; también en la lista, en las capas y en el reporte del campo. Lo calcula todos los días a las 6:15 el workflow **NDVI de los campos** del repositorio privado, con imágenes Sentinel-2 (10 m, cada ~5 días si no hay nubes) de Microsoft Planetary Computer, gratis y sin clave.
+- **Reporte general** (botón 📋): todos los campos juntos, filtrable por provincia. Indicadores, análisis escrito, mapa coloreado por NDVI, lluvia de 30 días, lluvia prevista, mínima prevista o humedad del suelo; hectáreas por provincia, cultivo y campaña; distribución del NDVI; lluvia por departamento; mínimas previstas por provincia; rankings (más y menos lluvia, heladas, NDVI más alto/más bajo, mayor caída) y tabla ordenable de todos los lotes. Se imprime en PDF o se descarga en CSV.
+- **Alertas por WhatsApp** (botón 🔔): ver más abajo.
 
 Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo **con el nombre del archivo** (si el archivo trae varios polígonos se numeran, y si alguno tiene un nombre propio en Google Earth se agrega al final). Los nombres genéricos como "Polígono sin título" se ignoran. Los puntos y las líneas no se cargan. Si el repositorio de campos llegara a ser público, la página se niega a usarlo.
+
+## Alertas por WhatsApp
+
+Las manda el workflow **Alertas por WhatsApp** del repositorio privado (usa tus campos, por eso no corre acá), con [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/), que es gratis:
+
+- **7:30**: resumen del día con pizarra Rosario, Chicago, dólar, clima de tus campos por provincia, alertas y lotes con NDVI en baja.
+- **19:00**: solo si hay alertas (si no, no manda nada).
+- Alertas: helada (mínima menor al umbral en los próximos días), lluvia fuerte, ráfagas, caída de NDVI y **precios objetivo** (avisa una sola vez cuando el precio cruza el valor).
+
+Activarlo (una sola vez):
+
+1. Agendá el número de CallMeBot que figura en su página y mandale por WhatsApp `I allow callmebot to send me messages`. Te responde con tu **apikey**.
+2. En el repositorio privado: **Settings → Secrets and variables → Actions → New repository secret**, nombre `WHATSAPP_DESTINOS`, valor `+549XXXXXXXXXX:APIKEY` (varios números separados por coma).
+3. **Actions → Alertas por WhatsApp → Run workflow** con modo "prueba".
+
+Qué se avisa y los umbrales se cambian con el botón **🔔 Alertas** de la pestaña Campos (se guarda en `config/alertas.json` del repositorio privado).
 
 ## Pestaña Stock (planilla de Google)
 
@@ -146,7 +165,8 @@ src/generar-html.js         genera public/index.html
 src/plantilla/estilos.css   estilos de la página (se incluyen dentro del HTML)
 src/plantilla/cliente.js    pestañas, animaciones, gráficos y mapa (se incluye dentro del HTML)
 public/stock/               app de stock (pestaña Stock)
-public/campos/              mapa de campos (pestaña Campos): kml.js, github.js, campos.js
+public/campos/              mapa de campos (pestaña Campos): kml.js, github.js, ndvi.js, campos.js,
+                            pronostico.js, reporte.* (por campo) y general.* (todos)
 apps-script/                código de Apps Script de la planilla de stock
 src/lib/http.js             fetch con timeout, reintento y charset
 src/lib/formato.js          formato argentino de números y fechas

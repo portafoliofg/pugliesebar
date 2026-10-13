@@ -180,7 +180,44 @@
     }
   }
 
+  /** Lee cualquier JSON del repositorio privado (null si no existe). */
+  async function leerRuta(ruta) {
+    if (!CFG.repo || !token()) return null;
+    const res = await fetch(`${API}/repos/${CFG.repo}/contents/${ruta}?ref=${encodeURIComponent(CFG.rama)}`, {
+      cache: 'no-store',
+      headers: { Accept: 'application/vnd.github.raw', 'X-GitHub-Api-Version': '2022-11-28', Authorization: 'Bearer ' + token() }
+    });
+    if (res.status === 404) return null;
+    if (!res.ok) throw Object.assign(new Error(mensajeError(res.status, '')), { status: res.status });
+    return res.json();
+  }
+
+  /** Lee un archivo binario (imágenes NDVI) y devuelve una URL local para mostrarlo, o null. */
+  async function leerBinario(ruta) {
+    if (!CFG.repo || !token()) return null;
+    const res = await fetch(`${API}/repos/${CFG.repo}/contents/${ruta}?ref=${encodeURIComponent(CFG.rama)}`, {
+      headers: { Accept: 'application/vnd.github.raw', 'X-GitHub-Api-Version': '2022-11-28', Authorization: 'Bearer ' + token() }
+    });
+    if (!res.ok) return null;
+    return URL.createObjectURL(await res.blob());
+  }
+
+  /** Guarda un JSON suelto (por ejemplo config/alertas.json) en un commit. */
+  async function guardarRuta(ruta, datos, mensaje) {
+    if (!token()) throw sinToken();
+    let sha;
+    try { sha = (await gh(`/repos/${CFG.repo}/contents/${ruta}?ref=${encodeURIComponent(CFG.rama)}`, { cache: 'no-store' })).sha; }
+    catch (e) { if (e.status !== 404) throw e; }
+    await gh(`/repos/${CFG.repo}/contents/${ruta}`, {
+      method: 'PUT',
+      body: JSON.stringify({ message: mensaje, content: aBase64(JSON.stringify(datos, null, 1) + '\n'), branch: CFG.rama, sha })
+    });
+  }
+
   window.Repo = {
+    leerRuta,
+    leerBinario,
+    guardarRuta,
     listarArchivos,
     config: CFG,
     tieneToken: () => !!token(),

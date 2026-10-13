@@ -12,7 +12,7 @@ body.reporte { height: auto; background:
 }
 .r-barra .volver { text-decoration: none; }
 .r-siembra { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .88rem; }
-.r-siembra input { padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.r-siembra input, .r-siembra select { padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
 
 .r-main { max-width: 1200px; margin: 0 auto; padding: 22px 20px 60px; display: flex; flex-direction: column; gap: 22px; }
 .r-cargando { min-height: 60vh; display: grid; place-items: center; text-align: center; color: var(--muted); font-weight: 700; }
@@ -97,3 +97,24 @@ body.reporte { height: auto; background:
   .r-portada { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .r-kpi::before, .r-sec > h2::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ---------- Reporte general ---------- */
+.g-metricas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.g-metricas .btn { padding: 7px 12px; font-size: .82rem; }
+.g-escala { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; font-size: .8rem; color: var(--muted); }
+.g-escala i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; margin-right: 5px; vertical-align: -2px; }
+.g-rankings { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g-rank { margin: 6px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.g-rank li { display: grid; grid-template-columns: 1fr auto; column-gap: 8px; }
+.g-rank li small { grid-column: 1; color: var(--muted); font-size: .76rem; }
+.g-rank li b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-variant-numeric: tabular-nums; }
+.g-tabla th[data-orden] { cursor: pointer; white-space: nowrap; user-select: none; }
+.g-tabla tfoot td { border-top: 2px solid var(--line); }
+.g-ndvi { display: inline-block; min-width: 42px; text-align: center; padding: 1px 6px; border-radius: 8px; font-weight: 800; background: color-mix(in srgb, var(--c) 35%, transparent); border: 1px solid var(--c); }
+.ndvi-escala { display: flex; align-items: center; gap: 6px; font-size: .75rem; margin-top: 8px; }
+.ndvi-escala i { flex: 1; height: 10px; border-radius: 5px; }
+@media (max-width: 960px) { .g-rankings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .g-rankings { grid-template-columns: 1fr; } }
+@media print { .g-tabla { font-size: .7rem; } #g-mapa { height: 380px !important; } }
+.g-tabla td { white-space: nowrap; }
+.g-tabla td:nth-child(2) { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }

@@ -229,12 +229,14 @@
     const [lat, lon] = KML.centro(campo.geometria);
     const fin = sumarDias(hoy, -6);
     estado('Descargando clima, suelo y datos históricos… (puede tardar unos segundos)');
-    const [prono, anual, normales, alt, suelo] = await Promise.allSettled([
+    const ndviP = window.NDVI ? Promise.all([NDVI.cargarResumen(), NDVI.serie(id)]).then(async ([, serie]) => ({ x: NDVI.de(id), serie, img: await NDVI.imagen(id) })).catch(() => null) : Promise.resolve(null);
+    const [prono, anual, normales, alt, suelo, ndvi] = await Promise.allSettled([
       pedirPronostico(lat, lon),
       pedirArchivo(lat, lon, sumarDias(hoy, -400), fin, 'precipitation_sum,temperature_2m_max,temperature_2m_min,temperature_2m_mean,et0_fao_evapotranspiration,shortwave_radiation_sum,sunshine_duration,wind_speed_10m_max'),
       pedirArchivo(lat, lon, '1991-01-01', '2020-12-31', 'precipitation_sum,temperature_2m_mean,temperature_2m_min'),
       pedirAltitud(lat, lon),
-      pedirSuelo(lat, lon)
+      pedirSuelo(lat, lon),
+      ndviP
     ]);
     if (prono.status !== 'fulfilled') return error('No se pudo descargar el clima del campo (Open-Meteo). Probá de nuevo en unos minutos.');
 
@@ -245,6 +247,7 @@
       normales: normales.status === 'fulfilled' ? normalesMensuales(normales.value.daily) : null,
       altitud: alt.status === 'fulfilled' ? alt.value.elevation?.[0] : null,
       suelo: suelo.status === 'fulfilled' ? leerSuelo(suelo.value) : null,
+      ndvi: ndvi.status === 'fulfilled' ? ndvi.value : null,
       fallas: [anual, normales, alt, suelo].map((r, i) => (r.status === 'rejected' ? ['histórico anual', 'normales 1991–2020', 'altitud', 'suelo (SoilGrids)'][i] : null)).filter(Boolean)
     };
     modelo.diario = unirDiario(modelo.anual, modelo.prono.daily);
@@ -445,6 +448,8 @@
         </div>
       </section>
 
+      ${ndviHTML(m.ndvi)}
+
       <section class="r-sec"><h2>Datos del lote</h2>
         <div class="r-card"><div class="r-datos">
           <div><small>Superficie del mapa</small><b>${num(c.ha, 2)} ha</b></div>
@@ -467,6 +472,13 @@
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: '&copy; Esri' }).addTo(mapa);
       const capa = L.geoJSON(c.geometria, { style: { color: '#ffffff', weight: 3, fillColor: '#ffc107', fillOpacity: 0.25 } }).addTo(mapa);
       mapa.fitBounds(capa.getBounds(), { padding: [20, 20], maxZoom: 16 });
+      if (m.ndvi?.img) {
+        const mapaN = L.map('r-mapa-ndvi', { zoomControl: false, attributionControl: true, scrollWheelZoom: false });
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: '&copy; Esri · Sentinel-2' }).addTo(mapaN);
+        L.imageOverlay(m.ndvi.img.url, m.ndvi.img.bounds).addTo(mapaN);
+        L.geoJSON(c.geometria, { style: { color: '#ffffff', weight: 2, fill: false } }).addTo(mapaN);
+        mapaN.fitBounds(m.ndvi.img.bounds, { padding: [10, 10], maxZoom: 17 });
+      }
     }
 
     // ---------- Gráficos ----------
@@ -475,6 +487,16 @@
     Chart.defaults.borderColor = css('--line');
     Chart.defaults.font.family = css('--body');
     const azul = css('--lluvia') || '#3a8fd6', lima = css('--lima'), dorado = css('--dorado'), naranja = css('--naranja'), frio = css('--frio'), rojo = css('--baja'), verde = css('--sube');
+
+    // NDVI
+    const sn = m.ndvi?.serie?.serie || [];
+    if (sn.length) {
+      grafico('g-ndvi', { type: 'line', data: { labels: sn.map((p) => etqDia(p.fecha)), datasets: [
+        { label: 'NDVI promedio', data: sn.map((p) => p.ndvi), borderColor: '#1a9850', backgroundColor: '#1a985026', fill: true, tension: .3, pointRadius: 3, pointBackgroundColor: sn.map((p) => NDVI.color(p.ndvi)) },
+        { label: 'Zona más baja (p10)', data: sn.map((p) => p.p10), borderColor: '#f46d43', borderDash: [5, 4], pointRadius: 0, tension: .3 },
+        { label: 'Zona más alta (p90)', data: sn.map((p) => p.p90), borderColor: '#006837', borderDash: [5, 4], pointRadius: 0, tension: .3 }
+      ] }, options: opciones({ scales: { x: ejeX, y: eje('NDVI', { min: 0, max: 1 }) } }) });
+    }
 
     // Lluvia mensual vs normal
     grafico('g-lluvia-mes', { data: { labels: meses.map(etqMes), datasets: [
@@ -592,6 +614,30 @@
     ] }, options: opciones({ scales: { x: ejeX, y: eje('°C · km/h'), y1: eje('%', { position: 'right', min: 0, max: 100, grid: { display: false } }), y2: { display: false, beginAtZero: true, suggestedMax: 10 } } }) });
 
     modelo.csv = { siembra };
+  }
+
+  // Sección NDVI (vigor satelital)
+  function ndviHTML(n) {
+    if (!n?.x || n.x.ndvi == null) {
+      return `<section class="r-sec"><h2>Vigor del cultivo (NDVI)</h2><div class="r-card"><p class="nota">Todavía no hay datos satelitales para este lote. El NDVI se calcula todos los días con imágenes Sentinel-2 (cada ~5 días, si no hay nubes).</p></div></section>`;
+    }
+    const x = n.x; const cl = x.clases || [];
+    const sn = n.serie?.serie || [];
+    const max = sn.length ? sn.reduce((a, b) => (b.ndvi > a.ndvi ? b : a)) : null;
+    return `<section class="r-sec"><h2>Vigor del cultivo (NDVI)</h2>
+      <p class="nota">Índice de vegetación del satélite Sentinel-2 (10 m por píxel). 0 = suelo desnudo, 1 = vegetación muy densa.</p>
+      <div class="r-kpis">
+        <div class="r-kpi" style="--c:${NDVI.color(x.ndvi)}"><small>NDVI actual</small><b>${num(x.ndvi, 2)}</b><span>Imagen del ${etqDia(x.fecha)}</span></div>
+        <div class="r-kpi" style="--c:${x.tendencia == null ? '#9aa3a8' : x.tendencia >= 0 ? css('--sube') : css('--baja')}"><small>Cambio en 30 días</small><b>${x.tendencia == null ? '—' : signo(x.tendencia, 2)}</b><span>${x.tendencia == null ? 'Sin dato anterior' : x.tendencia >= 0.03 ? 'Creciendo' : x.tendencia <= -0.03 ? 'En baja' : 'Estable'}</span></div>
+        <div class="r-kpi" style="--c:#fee08b"><small>Uniformidad</small><b>${x.cv == null ? '—' : num((1 - Math.min(1, x.cv)) * 100, 0) + ' %'}</b><span>Rango ${num(x.p10, 2)}–${num(x.p90, 2)}</span></div>
+        ${max ? `<div class="r-kpi" style="--c:#1a9850"><small>Máximo de la serie</small><b>${num(max.ndvi, 2)}</b><span>${etqDia(max.fecha)}</span></div>` : ''}
+      </div>
+      <div class="r-card r-analisis"><ul><li><i>🛰️</i><span>${esc(NDVI.lectura(x.ndvi))}.${cl.length === 3 ? ` El ${num(cl[2] * 100, 0)} % del lote tiene vigor alto (≥ 0,6), el ${num(cl[1] * 100, 0)} % medio y el ${num(cl[0] * 100, 0)} % bajo (&lt; 0,3).` : ''}</span></li></ul></div>
+      <div class="r-grid">
+        <div class="r-card"><h3>Mapa de vigor</h3><p class="nota">${n.img ? 'Imagen del ' + etqDia(n.img.fecha) + '. Verde: más vigor; rojo: menos.' : 'Sin imagen disponible.'}</p>${n.img ? `<div id="r-mapa-ndvi" style="height:280px;border-radius:14px"></div>${NDVI.leyendaHTML()}` : ''}</div>
+        <div class="r-card"><h3>Evolución del NDVI</h3><p class="nota">Cada punto es una pasada del satélite sin nubes.</p><div class="r-graf rosa"><canvas id="g-ndvi"></canvas></div></div>
+      </div>
+    </section>`;
   }
 
   // ---------- Exportar ----------

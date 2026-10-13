@@ -19,6 +19,8 @@
     <div class="resumen" id="resumen" aria-live="polite"></div>
     <div class="acciones">
       <button class="btn" id="btn-gh" type="button"><span class="estado-gh" id="estado-gh"></span>GitHub</button>
+      <a class="btn" id="btn-general" href="general.html" target="_blank" rel="noopener">📋 Reporte general</a>
+      <button class="btn" id="btn-alertas" type="button">🔔 Alertas</button>
       <button class="btn btn-peligro-claro oculto" id="btn-borrar-todo" type="button">🗑 Eliminar todos</button>
       <button class="btn btn-1" id="btn-cargar" type="button">＋ Cargar KML/KMZ</button>
       <input type="file" id="archivo" class="oculto" accept=".kml,.kmz,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz" multiple>
@@ -37,6 +39,7 @@
 <script src="kml.js"></script>
 <script src="pronostico.js"></script>
 <script src="github.js"></script>
+<script src="ndvi.js"></script>
 <script src="campos.js"></script>
 </body>
 </html>

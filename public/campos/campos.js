@@ -21,7 +21,7 @@
     { nombre: 'Pastura', color: '#3f9b5a' }, { nombre: 'Barbecho', color: '#9c8b74' }
   ];
   const PALETA = ['#a4c639', '#ffc107', '#ff9800', '#3f9b5a', '#7aa6c2', '#c8962e', '#d95f7a', '#8e6bbf', '#b5532a', '#4fb3a9', '#e3c56a', '#9c8b74'];
-  const SIN = { cultivo: 'Sin cultivo', campana: 'Sin campaña', provincia: 'Sin ubicar' };
+  const SIN = { cultivo: 'Sin cultivo', campana: 'Sin campaña', provincia: 'Sin ubicar', ndvi: 'Sin NDVI' };
 
   // Campaña actual: desde julio se considera la campaña que empieza ese año
   const hoy = new Date();
@@ -36,7 +36,7 @@
   let modoSeleccion = false;          // en el celular: tocar = seleccionar
   const filtros = { q: '', cultivo: 'Todos', provincia: 'Todas', campana: 'Todas' };
   let pestanaClima = 'resumen';
-  let mapa, capaCampos, capaNuevos;
+  let mapa, capaCampos, capaNuevos, capaNdvi = null, graficoNdvi = null;
   const capasBase = {};
   const superposiciones = {};
 
@@ -72,13 +72,17 @@
   const nuevoId = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
 
   // Grupo de un campo según "colorear por"
-  const grupo = (c, por = vista.colorPor) => (por === 'cultivo' ? c.cultivo : por === 'campana' ? c.campana : c.provincia) || SIN[por];
+  const grupo = (c, por = vista.colorPor) => (por === 'ndvi' ? NDVI.grupo(NDVI.de(c.id)) : por === 'cultivo' ? c.cultivo : por === 'campana' ? c.campana : c.provincia) || SIN[por];
   function colorGrupo(valor, por = vista.colorPor) {
+    if (por === 'ndvi') return NDVI.colorGrupo(valor);
     if (por === 'cultivo') return valor === SIN.cultivo ? '#f4eee2' : (CULTIVOS.find((x) => x.nombre === valor)?.color || '#7aa6c2');
     if (valor === SIN[por]) return '#f4eee2';
     const valores = [...new Set(datos.campos.map((c) => grupo(c, por)))].filter((v) => v !== SIN[por]).sort(ordenar);
     return PALETA[Math.max(0, valores.indexOf(valor)) % PALETA.length];
   }
+  // Orden de los grupos en leyenda y capas (NDVI de mayor a menor; el resto alfabético)
+  const ORDEN_NDVI = NDVI.GRUPOS.map((g) => g.nombre).concat(NDVI.SIN);
+  const ordenGrupos = (a, b) => (vista.colorPor === 'ndvi' ? ORDEN_NDVI.indexOf(a) - ORDEN_NDVI.indexOf(b) : ordenar(a, b));
   const colorCultivo = (c) => colorGrupo(c.cultivo || SIN.cultivo, 'cultivo');
 
   // Filtros del panel (búsqueda, cultivo, provincia, campaña)
@@ -258,7 +262,7 @@
       color: sel || ab ? '#ffffff' : color,
       weight: sel ? 4 : ab ? 3.5 : 2.5,
       fillColor: color,
-      fillOpacity: sel ? 0.6 : ab ? 0.5 : 0.33,
+      fillOpacity: ab && capaNdvi ? 0 : sel ? 0.6 : ab ? 0.5 : 0.33,
       className: 'campo-poli' + (ab ? ' sel' : '') + (sel ? ' marcado' : '')
     };
   }
@@ -285,8 +289,8 @@
   function pintarLeyenda() {
     const el = $('#leyenda');
     if (!el) return;
-    const grupos = [...new Set(datos.campos.map((c) => grupo(c)))].sort(ordenar);
-    const titulo = { cultivo: 'Cultivo', campana: 'Campaña', provincia: 'Provincia' }[vista.colorPor];
+    const grupos = [...new Set(datos.campos.map((c) => grupo(c)))].sort(ordenGrupos);
+    const titulo = { cultivo: 'Cultivo', campana: 'Campaña', provincia: 'Provincia', ndvi: 'NDVI (vigor)' }[vista.colorPor];
     el.innerHTML = grupos.length
       ? `<b>${titulo}</b>` + grupos.map((g) => `<span class="${vista.ocultos.includes(vista.colorPor + ':' + g) ? 'apagado' : ''}"><i class="muestra" style="background:${colorGrupo(g)}"></i>${esc(g)}</span>`).join('')
       : '<b>Sin campos cargados</b>';
@@ -304,9 +308,9 @@
       <div class="capas-sec"><b>Mapa base</b>
         ${radio('base', 'satelite', vista.base, 'Satélite')}${radio('base', 'calles', vista.base, 'Calles')}${radio('base', 'relieve', vista.base, 'Relieve')}</div>
       <div class="capas-sec"><b>Colorear campos por</b>
-        ${radio('colorPor', 'cultivo', vista.colorPor, 'Cultivo')}${radio('colorPor', 'campana', vista.colorPor, 'Campaña')}${radio('colorPor', 'provincia', vista.colorPor, 'Provincia')}</div>
+        ${radio('colorPor', 'cultivo', vista.colorPor, 'Cultivo')}${radio('colorPor', 'campana', vista.colorPor, 'Campaña')}${radio('colorPor', 'provincia', vista.colorPor, 'Provincia')}${radio('colorPor', 'ndvi', vista.colorPor, 'NDVI satelital')}</div>
       <div class="capas-sec"><b>Mostrar</b>
-        ${Object.entries(grupos).sort((a, b) => ordenar(a[0], b[0])).map(([g, ha]) => `<label class="opcion"><input type="checkbox" data-grupo="${esc(g)}" ${vista.ocultos.includes(vista.colorPor + ':' + g) ? '' : 'checked'}>
+        ${Object.entries(grupos).sort((a, b) => ordenGrupos(a[0], b[0])).map(([g, ha]) => `<label class="opcion"><input type="checkbox" data-grupo="${esc(g)}" ${vista.ocultos.includes(vista.colorPor + ':' + g) ? '' : 'checked'}>
           <i class="muestra" style="background:${colorGrupo(g)}"></i> ${esc(g)} <small>${num(ha, 0)} ha</small></label>`).join('') || '<small>Sin campos</small>'}</div>
       <div class="capas-sec"><b>Superposiciones</b>
         ${check('nombres', vista.nombres, 'Nombres de los lotes')}${check('limites', vista.limites, 'Límites y localidades')}${check('radar', vista.radar, 'Radar de lluvia (último)')}</div>`;
@@ -361,10 +365,140 @@
     dibujarCampos();
   }
 
+  function chipNdvi(c) {
+    const x = NDVI.de(c.id);
+    if (!x || x.ndvi == null) return '';
+    const t = x.tendencia == null ? '' : x.tendencia > 0.03 ? ' ↑' : x.tendencia < -0.03 ? ' ↓' : '';
+    return `<small class="ndvi-chip" title="NDVI del ${esc(fechaCorta(x.fecha))}" style="--c:${NDVI.color(x.ndvi)}">NDVI ${num(x.ndvi, 2)}${t}</small>`;
+  }
+  const fechaCorta = (iso) => (iso ? new Date(iso + 'T12:00:00').toLocaleDateString('es-AR', { day: 'numeric', month: 'short' }) : '');
+
+  function quitarImagenNdvi() {
+    if (capaNdvi) { mapa.removeLayer(capaNdvi); capaNdvi = null; }
+    if (graficoNdvi) { graficoNdvi.destroy(); graficoNdvi = null; }
+  }
+
+  // Sección NDVI del detalle de un campo
+  async function mostrarNdvi(c) {
+    const el = $('#ndvi');
+    if (!el) return;
+    const x = NDVI.de(c.id);
+    if (!x || x.ndvi == null) {
+      el.innerHTML = `<p class="nota">Todavía no hay NDVI para este lote. Se calcula todos los días a la mañana con imágenes del satélite Sentinel-2 (pasa cada ~5 días; con nubes no hay dato).</p>`;
+      return;
+    }
+    const cl = x.clases || [];
+    const tend = x.tendencia == null ? '—' : (x.tendencia > 0 ? '+' : '') + num(x.tendencia, 2);
+    el.innerHTML = `<div class="ndvi-cab">
+        <div class="ndvi-valor" style="--c:${NDVI.color(x.ndvi)}"><b>${num(x.ndvi, 2)}</b><small>NDVI · ${esc(fechaCorta(x.fecha))}</small></div>
+        <div><b>${esc(NDVI.lectura(x.ndvi))}</b><small class="nota">Últimos 30 días: ${tend} · rango del lote ${num(x.p10, 2)}–${num(x.p90, 2)}</small></div>
+      </div>
+      ${cl.length === 3 ? `<div class="ndvi-clases" title="Porcentaje del lote por vigor">
+        <span style="flex:${cl[0]};background:#f46d43">${cl[0] >= 0.12 ? num(cl[0] * 100, 0) + '%' : ''}</span>
+        <span style="flex:${cl[1]};background:#fee08b">${cl[1] >= 0.12 ? num(cl[1] * 100, 0) + '%' : ''}</span>
+        <span style="flex:${cl[2]};background:#1a9850;color:#fff">${cl[2] >= 0.12 ? num(cl[2] * 100, 0) + '%' : ''}</span></div>
+        <div class="leyenda-barras"><span><i style="background:#f46d43"></i>Bajo &lt;0,3</span><span><i style="background:#fee08b"></i>Medio</span><span><i style="background:#1a9850"></i>Alto ≥0,6</span></div>` : ''}
+      <div class="ndvi-graf"><canvas id="graf-ndvi" aria-label="Evolución del NDVI"></canvas></div>
+      ${x.imagen ? `<button type="button" class="btn" data-accion="ndvi-imagen">${capaNdvi ? '🙈 Ocultar' : '🛰️ Ver'} imagen NDVI en el mapa</button>` : ''}`;
+    const s = await NDVI.serie(c.id);
+    if (abierto !== c.id || !s?.serie?.length || !window.Chart) return;
+    if (graficoNdvi) graficoNdvi.destroy();
+    const css = getComputedStyle(document.documentElement);
+    graficoNdvi = new Chart($('#graf-ndvi'), {
+      type: 'line',
+      data: { labels: s.serie.map((p) => fechaCorta(p.fecha)), datasets: [{ data: s.serie.map((p) => p.ndvi), borderColor: '#1a9850', backgroundColor: 'rgba(26,152,80,.15)', fill: true, tension: 0.3, pointRadius: 2.5, pointBackgroundColor: s.serie.map((p) => NDVI.color(p.ndvi)) }] },
+      options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (t) => 'NDVI ' + num(t.parsed.y, 2) } } },
+        scales: { y: { min: 0, max: 1, ticks: { color: css.getPropertyValue('--muted') } }, x: { ticks: { color: css.getPropertyValue('--muted'), maxTicksLimit: 6 } } } }
+    });
+  }
+
+  async function alternarImagenNdvi() {
+    if (capaNdvi) { mapa.removeLayer(capaNdvi); capaNdvi = null; }
+    else {
+      cargando('Bajando imagen satelital…');
+      const img = await NDVI.imagen(abierto).catch(() => null);
+      cargando(null);
+      if (!img) return avisar('No se pudo cargar la imagen NDVI.', 'error');
+      capaNdvi = L.imageOverlay(img.url, img.bounds, { opacity: 0.9, interactive: false }).addTo(mapa);
+      mapa.flyToBounds(img.bounds, { padding: [60, 60], maxZoom: 16, duration: 1 });
+      avisar(`Imagen NDVI del ${fechaCorta(img.fecha)}: verde = más vigor, rojo = menos.`);
+    }
+    dibujarCampos();
+    const b = $('[data-accion="ndvi-imagen"]');
+    if (b) b.textContent = (capaNdvi ? '🙈 Ocultar' : '🛰️ Ver') + ' imagen NDVI en el mapa';
+  }
+
+  // ---------- Alertas por WhatsApp ----------
+  async function ventanaAlertas() {
+    cargando('Leyendo configuración…');
+    let cfg;
+    let estado = null;
+    try { [cfg, estado] = await Promise.all([Repo.leerRuta('config/alertas.json'), Repo.leerRuta('data/alertas/estado.json').catch(() => null)]); cfg = cfg || {}; } catch (e) { cargando(null); return manejarError(e); }
+    cargando(null);
+    const d = { activo: true, resumenDiario: true, helada: { activo: true, umbral: 2, dias: 3 }, lluvia: { activo: true, mmDia: 30 }, viento: { activo: true, rafagaKmh: 60 }, ndvi: { activo: true, caida: 0.1 }, precios: [] };
+    cfg = Object.assign(d, cfg);
+    const filaPrecio = (o = {}) => `<div class="fila-precio">
+        <select name="p-fuente"><option value="pizarra" ${o.fuente === 'pizarra' ? 'selected' : ''}>Pizarra Rosario ($/t)</option><option value="cbot" ${o.fuente === 'cbot' ? 'selected' : ''}>Chicago (US$/t)</option><option value="dolar" ${o.fuente === 'dolar' ? 'selected' : ''}>Dólar ($)</option></select>
+        <select name="p-grano">${['soja', 'maiz', 'trigo', 'girasol', 'oficial', 'mep', 'blue', 'ccl'].map((g) => `<option value="${g}" ${o.grano === g ? 'selected' : ''}>${{ soja: 'Soja', maiz: 'Maíz', trigo: 'Trigo', girasol: 'Girasol', oficial: 'Oficial', mep: 'MEP', blue: 'Blue', ccl: 'CCL' }[g]}</option>`).join('')}</select>
+        <select name="p-cond"><option value="&gt;=" ${o.condicion !== '<=' ? 'selected' : ''}>≥</option><option value="&lt;=" ${o.condicion === '<=' ? 'selected' : ''}>≤</option></select>
+        <input name="p-valor" type="number" min="0" step="any" placeholder="Valor" value="${o.valor ?? ''}">
+        <button type="button" class="btn" data-quitar-precio aria-label="Quitar">✕</button></div>`;
+    const ultimo = estado?.ultimoEnvio;
+    abrirVentana(`<h2>🔔 Alertas por WhatsApp</h2>
+      <p>Te llegan al WhatsApp a las <b>7:30</b> (resumen del día con precios, dólar, clima de tus campos y alertas) y a las <b>19:00</b> (solo si hay alguna alerta).</p>
+      <form class="form" id="form-alertas">
+        <label class="opcion"><input type="checkbox" name="activo" ${cfg.activo ? 'checked' : ''}> Alertas activadas</label>
+        <label class="opcion"><input type="checkbox" name="resumenDiario" ${cfg.resumenDiario ? 'checked' : ''}> Mandar el resumen de la mañana aunque no haya alertas</label>
+        <div class="seccion-t">Clima en tus campos</div>
+        <div class="fila2">
+          <label><span><input type="checkbox" name="helada" ${cfg.helada.activo ? 'checked' : ''}> Helada: mínima menor a (°C)</span><input name="heladaUmbral" type="number" step="0.5" value="${cfg.helada.umbral}"></label>
+          <label>Días a mirar<input name="heladaDias" type="number" min="1" max="7" value="${cfg.helada.dias}"></label>
+        </div>
+        <div class="fila2">
+          <label><span><input type="checkbox" name="lluvia" ${cfg.lluvia.activo ? 'checked' : ''}> Lluvia fuerte (mm en un día)</span><input name="lluviaMm" type="number" min="1" value="${cfg.lluvia.mmDia}"></label>
+          <label><span><input type="checkbox" name="viento" ${cfg.viento.activo ? 'checked' : ''}> Ráfagas (km/h)</span><input name="vientoKmh" type="number" min="10" value="${cfg.viento.rafagaKmh}"></label>
+        </div>
+        <label><span><input type="checkbox" name="ndvi" ${cfg.ndvi.activo ? 'checked' : ''}> NDVI en baja: caída en 30 días mayor a</span><input name="ndviCaida" type="number" min="0.02" max="1" step="0.01" value="${cfg.ndvi.caida}"></label>
+        <div class="seccion-t">Precios objetivo (avisa una vez cuando se cruza)</div>
+        <div id="precios">${cfg.precios.map(filaPrecio).join('')}</div>
+        <button type="button" class="btn" id="agregar-precio">＋ Agregar precio objetivo</button>
+        <details class="editar"><summary>¿Cómo activo WhatsApp? (una sola vez)</summary>
+          <ol>
+            <li>Agendá el número de CallMeBot que figura en <a class="link" href="https://www.callmebot.com/blog/free-api-whatsapp-messages/" target="_blank" rel="noopener">callmebot.com</a> y mandale por WhatsApp: <code>I allow callmebot to send me messages</code>.</li>
+            <li>Te responde con tu <b>apikey</b>.</li>
+            <li>En GitHub abrí <a class="link" href="https://github.com/${esc(Repo.config.repo)}/settings/secrets/actions/new" target="_blank" rel="noopener">Settings → Secrets → Actions</a> del repositorio privado y creá <code>WHATSAPP_DESTINOS</code> con el valor <code>+549XXXXXXXXXX:APIKEY</code> (varios, separados por coma).</li>
+            <li>Probalo en <a class="link" href="https://github.com/${esc(Repo.config.repo)}/actions/workflows/alertas.yml" target="_blank" rel="noopener">Actions → Alertas por WhatsApp → Run workflow</a> con "prueba".</li>
+          </ol></details>
+        ${ultimo ? `<p class="nota">Último envío: ${esc(new Date(ultimo.fecha).toLocaleString('es-AR'))}</p>` : ''}
+        <div class="botones"><button class="btn btn-1" type="submit">Guardar</button><button class="btn" type="button" data-accion="cerrar">Cancelar</button></div>
+      </form>`);
+    const cont = $('#precios');
+    $('#agregar-precio').addEventListener('click', () => cont.insertAdjacentHTML('beforeend', filaPrecio()));
+    cont.addEventListener('click', (e) => { if (e.target.closest('[data-quitar-precio]')) e.target.closest('.fila-precio').remove(); });
+    $('#form-alertas').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const n = (v, def) => (v === '' || !Number.isFinite(Number(v)) ? def : Number(v));
+      const nuevo = {
+        activo: f.activo.checked, resumenDiario: f.resumenDiario.checked,
+        helada: { activo: f.helada.checked, umbral: n(f.heladaUmbral.value, 2), dias: n(f.heladaDias.value, 3) },
+        lluvia: { activo: f.lluvia.checked, mmDia: n(f.lluviaMm.value, 30) },
+        viento: { activo: f.viento.checked, rafagaKmh: n(f.vientoKmh.value, 60) },
+        ndvi: { activo: f.ndvi.checked, caida: n(f.ndviCaida.value, 0.1) },
+        precios: $$('.fila-precio', cont).map((r) => ({ fuente: r.querySelector('[name=p-fuente]').value, grano: r.querySelector('[name=p-grano]').value, condicion: r.querySelector('[name=p-cond]').value, valor: Number(r.querySelector('[name=p-valor]').value) }))
+          .filter((o) => o.valor > 0)
+      };
+      cargando('Guardando en GitHub…');
+      try { await Repo.guardarRuta('config/alertas.json', nuevo, 'Alertas: actualizar configuración'); cerrarVentana(); avisar('Configuración de alertas guardada.'); }
+      catch (err) { manejarError(err); } finally { cargando(null); }
+    });
+  }
+
   function vistaLista() {
     if (bloqueado) return vistaBloqueada();
     abierto = null;
     Pronostico.limpiar();
+    quitarImagenNdvi();
     // Si un filtro quedó apuntando a un valor que ya no existe, se resetea
     const cultivos = [...new Set(datos.campos.map((c) => c.cultivo || SIN.cultivo))].sort(ordenar);
     const provincias = [...new Set(datos.campos.map((c) => c.provincia || SIN.provincia))].sort(ordenar);
@@ -402,7 +536,7 @@
           <span class="franja" style="background:${colorCultivo(c)}"></span>
           <span class="item-txt"><b>${esc(c.nombre)}</b><small>${esc(c.cultivo || SIN.cultivo)}${c.campana ? ' · ' + esc(c.campana) : ''}</small>
             <small>${c.provincia ? '📍 ' + esc([c.localidad || c.departamento, c.provincia].filter(Boolean).join(', ')) : '📍 Ubicando…'}</small></span>
-          <span class="ha">${num(haDe(c), 1)} ha</span></div>`).join('') || '<p class="nota">No hay campos con esos filtros.</p>'}</div>
+          <span class="ha">${num(haDe(c), 1)} ha${chipNdvi(c)}</span></div>`).join('') || '<p class="nota">No hay campos con esos filtros.</p>'}</div>
         <p class="nota">Tip: en el mapa, Ctrl + clic (o el botón "Seleccionar") marca varios lotes.</p>`
       : `<div class="vacio"><div class="ico" aria-hidden="true">🌾</div><h2>Cargá tu primer campo</h2>
           <p>Subí uno o varios archivos <b>KML</b> o <b>KMZ</b> (por ejemplo, exportados de Google Earth). Cada polígono se convierte en un campo.</p>
@@ -439,6 +573,7 @@
   function abrirCampo(id, volar = true) {
     const c = datos.campos.find((x) => x.id === id);
     if (!c) return vistaLista();
+    if (abierto !== id) quitarImagenNdvi();
     abierto = id;
     dibujarCampos();
     const capa = capaCampos.getLayers().find((l) => l.campoId === id);
@@ -456,6 +591,8 @@
         <div class="dato"><small>Campaña</small><b>${esc(c.campana || '—')}</b></div>
       </div>
       <a class="btn btn-1 btn-reporte" href="reporte.html?id=${encodeURIComponent(c.id)}" target="_blank" rel="noopener">📊 Reporte completo del campo</a>
+      <div class="seccion-t">🛰️ Vigor del cultivo (NDVI satelital)</div>
+      <div class="ndvi" id="ndvi"></div>
       <div class="seccion-t">Pronóstico de la zona</div>
       <div class="clima" id="clima"><div class="esqueleto"></div></div>
       ${c.notas ? `<div class="nota-campo">📝 ${esc(c.notas)}</div>` : ''}
@@ -487,6 +624,7 @@
     $('#form-campo').cultivo.addEventListener('change', (e) => $('#otro-cultivo').classList.toggle('oculto', e.target.value !== '__otro'));
     $('#form-campo').addEventListener('submit', (e) => { e.preventDefault(); guardarCampo(c.id, new FormData(e.target)); });
     mostrarPronostico(c.id, lat, lon);
+    mostrarNdvi(c);
   }
 
   async function mostrarPronostico(id, lat, lon) {
@@ -771,6 +909,7 @@
       if (capas.length) mapa.flyToBounds(L.featureGroup(capas).getBounds(), { padding: [50, 50], maxZoom: 15, duration: 1.4 });
     }
     else if (a === 'confirmar-import') confirmarImport();
+    else if (a === 'ndvi-imagen') alternarImagenNdvi();
     else if (a === 'cerrar') cerrarVentana();
     else if (a === 'conectar') pedirToken(null);
     else if (a === 'cambiar-token') { cerrarVentana(); pedirToken(null); }
@@ -778,6 +917,7 @@
   });
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
   $('#btn-gh').addEventListener('click', menuGitHub);
+  $('#btn-alertas').addEventListener('click', () => conToken(ventanaAlertas));
   $('#btn-borrar-todo').addEventListener('click', () => conToken(confirmarBorrarTodo));
   $('#archivo').addEventListener('change', (e) => { importar(Array.from(e.target.files)); e.target.value = ''; });
 
@@ -816,6 +956,7 @@
     cargando(null);
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
+    if (!bloqueado) NDVI.cargarResumen(true).then(() => { refrescar(); }).catch(() => {});
     await corregirNombres();
     completarUbicaciones();
   }
