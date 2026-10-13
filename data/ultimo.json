@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T14:31:45.396Z"
+      "obtenido": "2026-10-13T14:37:51.514Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T14:31:45.396Z"
+      "obtenido": "2026-10-13T14:37:51.514Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T14:31:45.396Z"
+      "obtenido": "2026-10-13T14:37:51.514Z"
     },
     "clima": {
       "datos": {
@@ -137,15 +137,15 @@
                 "fecha": "2026-10-13",
                 "min": 11.1,
                 "max": 18.1,
-                "lluviaMm": 1.6,
-                "probLluvia": 55,
+                "lluviaMm": 1.5,
+                "probLluvia": 47,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-14",
                 "min": 12.9,
-                "max": 18.7,
+                "max": 18.6,
                 "lluviaMm": 1.3,
                 "probLluvia": 97,
                 "codigo": 51,
@@ -155,44 +155,44 @@
                 "fecha": "2026-10-15",
                 "min": 12.2,
                 "max": 20,
-                "lluviaMm": 8.2,
-                "probLluvia": 80,
-                "codigo": 80,
+                "lluviaMm": 8.3,
+                "probLluvia": 82,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
                 "min": 12.2,
                 "max": 19.3,
-                "lluviaMm": 11.5,
-                "probLluvia": 63,
+                "lluviaMm": 10.1,
+                "probLluvia": 77,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.5,
+                "min": 11.7,
                 "max": 16.4,
-                "lluviaMm": 15.3,
-                "probLluvia": 55,
+                "lluviaMm": 16.7,
+                "probLluvia": 78,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 11.4,
+                "min": 11.6,
                 "max": 17.7,
                 "lluviaMm": 0.3,
-                "probLluvia": 35,
+                "probLluvia": 12,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 11.8,
-                "max": 16.7,
+                "min": 12,
+                "max": 16.3,
                 "lluviaMm": 2.1,
-                "probLluvia": 53,
+                "probLluvia": 57,
                 "codigo": 51,
                 "helada": false
               }
@@ -206,64 +206,64 @@
             "dias": [
               {
                 "fecha": "2026-10-13",
-                "min": 11.9,
-                "max": 19.4,
+                "min": 12,
+                "max": 19.3,
                 "lluviaMm": 1.5,
-                "probLluvia": 62,
+                "probLluvia": 57,
                 "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-14",
                 "min": 11.4,
-                "max": 20,
-                "lluviaMm": 2.5,
-                "probLluvia": 75,
+                "max": 19.8,
+                "lluviaMm": 2.4,
+                "probLluvia": 73,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.9,
+                "min": 12,
                 "max": 20.4,
-                "lluviaMm": 4.2,
-                "probLluvia": 53,
+                "lluviaMm": 4.3,
+                "probLluvia": 63,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 10.7,
+                "min": 10.8,
                 "max": 20.9,
                 "lluviaMm": 1.2,
-                "probLluvia": 49,
+                "probLluvia": 55,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 12.2,
-                "max": 17.6,
+                "min": 12.3,
+                "max": 17.8,
                 "lluviaMm": 4.2,
-                "probLluvia": 18,
+                "probLluvia": 15,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 12.1,
-                "max": 18.7,
+                "min": 12.5,
+                "max": 18.9,
                 "lluviaMm": 0,
-                "probLluvia": 26,
+                "probLluvia": 8,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 11.7,
-                "max": 18.1,
+                "min": 12.4,
+                "max": 16.1,
                 "lluviaMm": 7.8,
-                "probLluvia": 37,
+                "probLluvia": 50,
                 "codigo": 80,
                 "helada": false
               }
@@ -274,22 +274,22 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T14:31:45.396Z"
+      "obtenido": "2026-10-13T14:37:51.514Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
         "titulares": [
           {
-            "titulo": "Precio del maíz en Rosario hoy 13 octubre 2026",
-            "link": "https://www.infocampo.com.ar/precio-del-maiz-hoy-13-octubre-2026/",
-            "fecha": "2026-10-13T14:06:06.000Z",
+            "titulo": "Dólar blue: a cuánto cotizan hoy en Mendoza 13 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-mendoza-13-octubre-2026/",
+            "fecha": "2026-10-13T14:35:10.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Precio del Trigo en Rosario hoy 13 octubre 2026",
-            "link": "https://www.infocampo.com.ar/precio-del-trigo-hoy-13-octubre-2026/",
-            "fecha": "2026-10-13T14:05:53.000Z",
+            "titulo": "Euro BLUE HOY: precio y cotización de este 13 octubre 2026",
+            "link": "https://www.infocampo.com.ar/euro-blue-euro-hoy-euro-oficial-13-octubre-2026/",
+            "fecha": "2026-10-13T14:35:09.000Z",
             "fuente": "Infocampo"
           },
           {
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T14:31:45.396Z"
+      "obtenido": "2026-10-13T14:37:51.514Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.88,
-            "usdTonelada": 473.258856
+            "usdBushel": 12.8975,
+            "usdTonelada": 473.90187075
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8725,
-            "usdTonelada": 191.82009275
+            "usdBushel": 4.875,
+            "usdTonelada": 191.9185125
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.7925,
-            "usdTonelada": 249.58158225
+            "usdBushel": 6.79,
+            "usdTonelada": 249.48972299999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T14:31:45.396Z"
+      "obtenido": "2026-10-13T14:37:51.514Z"
     }
   }
 }
