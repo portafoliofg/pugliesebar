@@ -122,3 +122,61 @@ body.reporte { height: auto; background:
 .persp-zona { padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
 @media (max-width: 760px) { .persp-zonas { grid-template-columns: 1fr; } }
 @media print { .persp-zonas { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Margen bruto ---------- */
+.m-portada { grid-template-columns: 1.1fr 1fr; background: linear-gradient(130deg, #2f4a0a, #5b7a10 50%, #a47a10); }
+.m-precios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 22px; align-content: center; }
+.m-precios div { background: rgba(255, 255, 255, .12); border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column; }
+.m-precios small { font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); }
+.m-precios b { font: 700 1.3rem var(--display); } .m-precios i { font-style: normal; font-size: .8rem; opacity: .7; }
+.m-precios span { font-size: .72rem; opacity: .8; }
+.m-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.m-tabs button { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); font-weight: 800; cursor: pointer; color: var(--ink); }
+.m-tabs button[aria-selected="true"] { background: linear-gradient(120deg, var(--lima), var(--dorado)); color: #2b2118; border-color: transparent; }
+.m-plantilla { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.m-form { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.m-grupo { display: flex; flex-direction: column; gap: 8px; }
+.m-grupo > b { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.m-resultado { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 70px; }
+.m-mb { padding: 14px 16px; border-radius: 18px; background: var(--surface-2); border-left: 6px solid var(--sube); }
+.m-mb.neg { border-left-color: var(--baja); }
+.m-mb small { display: block; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.m-mb b { font: 700 2rem var(--display); } .m-mb i { font-style: normal; font-size: 1rem; color: var(--muted); }
+.m-cuenta { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.m-cuenta td { padding: 5px 4px; border-bottom: 1px dashed var(--line); } .m-cuenta td:last-child { text-align: right; }
+.m-cuenta tr.sub td { font-weight: 800; } .m-cuenta tr.total td { font-weight: 800; font-size: 1.05rem; border-top: 2px solid var(--ink); border-bottom: 0; }
+.m-sens { width: 100%; border-collapse: separate; border-spacing: 4px; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.m-sens caption { text-align: left; font-weight: 800; font-size: .78rem; color: var(--muted); padding-bottom: 4px; }
+.m-sens th { font-size: .72rem; color: var(--muted); text-align: center; } .m-sens th small { display: block; font-weight: 600; }
+.m-sens td { text-align: center; padding: 8px 4px; border-radius: 10px; font-weight: 800; }
+.m-sens td.pos { background: color-mix(in srgb, var(--sube) 16%, transparent); } .m-sens td.neg { background: color-mix(in srgb, var(--baja) 16%, transparent); }
+.m-sens td.actual { outline: 2px solid var(--ink); }
+.m-lotes input, .m-lotes select { width: 100%; min-width: 70px; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-align: right; }
+.m-lotes select { text-align: left; min-width: 100px; }
+.m-lotes td small { display: block; }
+.r-tabla td.pos { color: var(--sube); } .r-tabla td.neg { color: var(--baja); }
+@media (max-width: 1100px) { .m-plantilla { grid-template-columns: 1fr; } .m-resultado { position: static; } .m-form { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .m-portada { grid-template-columns: 1fr; } .m-precios { grid-template-columns: repeat(2, 1fr); } .m-form { grid-template-columns: 1fr; } }
+@media print { .m-lotes input, .m-lotes select { border: 0; padding: 0; } }
+
+/* ---------- Cuaderno de campo ---------- */
+.c-portada { background: linear-gradient(130deg, #4a3410, #7a5a14 50%, #5b7a10); }
+.c-linea { padding: 22px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.c-linea div { background: rgba(255, 255, 255, .12); border-radius: 12px; padding: 8px 12px; display: flex; flex-direction: column; }
+.c-linea span { font-size: .78rem; opacity: .85; }
+.c-lotes { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 14px; margin-top: 12px; }
+.c-lote { border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; background: var(--surface); break-inside: avoid; }
+.c-lote-h { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: flex-start; margin-bottom: 8px; }
+.c-lote-h h3 { font-size: 1.1rem; }
+.c-rindes { display: flex; gap: 6px; flex-wrap: wrap; }
+.c-rindes span { padding: 4px 8px; border-radius: 10px; background: color-mix(in srgb, var(--dorado) 22%, transparent); font-size: .8rem; text-align: center; }
+.c-rindes small { display: block; font-size: .64rem; color: var(--muted); }
+.c-camp { margin-top: 8px; }
+.c-camp-t { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.c-tiempo { list-style: none; margin: 6px 0 0; padding: 0 0 0 14px; border-left: 2px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+.c-tiempo li { display: flex; gap: 8px; font-size: .88rem; position: relative; }
+.c-tiempo .c-ico { margin-left: -26px; width: 22px; height: 22px; border-radius: 50%; background: var(--surface-2); display: grid; place-items: center; font-size: .75rem; flex: none; }
+.c-tiempo small { display: block; color: var(--muted); font-size: .76rem; }
+#f-lote { border: 0; background: transparent; flex: 1; color: var(--ink); font: inherit; }
+@media (max-width: 760px) { .c-lotes { grid-template-columns: 1fr; } }
+.m-lotes tr.m-resaltado td { background: color-mix(in srgb, var(--dorado, #c8962e) 22%, transparent); }

@@ -630,6 +630,8 @@
           <label>Unidad<select name="unidad">${UNIDADES.map((u) => `<option>${u}</option>`).join('')}</select></label></div>
         <div class="fila2"><label>Superficie (ha)<input name="superficie" type="number" min="0" step="0.1"></label>
           <label>Contratista / operario<input name="contratista" value="${esc(quien)}"></label></div>
+        <div class="fila2"><label>Costo (US$/ha)<input name="costo" type="number" min="0" step="0.1" placeholder="Insumo + labor"></label>
+          <span class="nota" style="align-self:end">Opcional. Suma al costo real del lote en el cuaderno y en el margen bruto.</span></div>
         <label>Notas<input name="nota" placeholder="Condiciones, mezcla de tanque, observaciones…"></label>
         <div class="seccion-t">¿En qué lotes?</div>
         ${selectorLotes(preelegidos)}
@@ -656,7 +658,7 @@
       const r = { fecha: fd.get('fecha'), tipo: t, campos, cultivo: ['Siembra', 'Cosecha'].includes(t) ? String(fd.get('cultivo') || '') || null : null,
         variedad: t === 'Siembra' ? String(fd.get('variedad') || '').trim() || null : null, rinde: t === 'Cosecha' ? n('rinde') : null,
         producto: String(fd.get('producto') || '').trim() || null, dosis: n('dosis'), unidad: n('dosis') != null ? String(fd.get('unidad')) : null,
-        superficie: n('superficie'), contratista: String(fd.get('contratista') || '').trim() || null, nota: String(fd.get('nota') || '').trim() || null,
+        superficie: n('superficie'), costo: n('costo'), contratista: String(fd.get('contratista') || '').trim() || null, nota: String(fd.get('nota') || '').trim() || null,
         cargadoPor: Equipo.yo().nombre || (Equipo.rol() === 'dueño' ? 'Dueño' : null) };
       conToken(async () => {
         cargando('Guardando labor…');
@@ -676,12 +678,14 @@
     const lista = (await Agua.labores().catch(() => [])).filter((l) => l.campos.includes(c.id)).sort((a, b) => b.fecha.localeCompare(a.fecha));
     if (abierto !== c.id) return;
     const yo = Equipo.yo();
-    const detalle = (l) => [l.cultivo, l.variedad, l.producto, l.dosis != null ? `${num(l.dosis, l.dosis % 1 ? 2 : 0)} ${l.unidad || ''}` : '', l.rinde != null ? `${num(l.rinde, 1)} qq/ha` : '', l.superficie ? `${num(l.superficie, 0)} ha` : ''].filter(Boolean).join(' · ');
+    const detalle = (l) => [l.cultivo, l.variedad, l.producto, l.dosis != null ? `${num(l.dosis, l.dosis % 1 ? 2 : 0)} ${l.unidad || ''}` : '', l.rinde != null ? `${num(l.rinde, 1)} qq/ha` : '', l.superficie ? `${num(l.superficie, 0)} ha` : '', l.costo != null ? `US$ ${num(l.costo, 0)}/ha` : ''].filter(Boolean).join(' · ');
     el.innerHTML = `${lista.length ? `<ul class="labores">${lista.slice(0, 12).map((l) => `<li><span class="labor-tipo">${esc(l.tipo)}</span>
         <div><b>${esc(fechaCorta(l.fecha))} ${l.fecha.slice(0, 4)}</b> ${esc(detalle(l))}<small>${esc([l.contratista, l.nota].filter(Boolean).join(' · '))}${l.cargadoPor ? ` · cargó ${esc(l.cargadoPor)}` : ''}</small></div>
         ${Equipo.rol() === 'dueño' || (Equipo.puede('labores') && l.cargadoPor && l.cargadoPor === yo.nombre) ? `<button type="button" class="btn" data-borrar-labor="${esc(l.id)}" aria-label="Borrar">✕</button>` : ''}</li>`).join('')}</ul>
         ${lista.length > 12 ? `<p class="nota">… y ${lista.length - 12} más (en el reporte completo).</p>` : ''}` : '<p class="nota">Todavía no hay labores registradas en este lote.</p>'}
-      <button type="button" class="btn solo-carga" data-accion="labor">＋ Registrar labor</button>`;
+      <div class="botones-lote"><button type="button" class="btn solo-carga" data-accion="labor">＋ Registrar labor</button>
+        <a class="btn" href="cuaderno.html?lote=${encodeURIComponent(c.id)}" target="_blank" rel="noopener">📚 Cuaderno del lote</a>
+        <a class="btn solo-dueno" href="margen.html?lote=${encodeURIComponent(c.id)}" target="_blank" rel="noopener">💵 Margen bruto</a></div>`;
   }
 
   // ---------- Accesos (socio, contratista) ----------
@@ -1294,7 +1298,7 @@
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
   // El menú "Más" se cierra al elegir algo o al tocar afuera
   $('#menu-mas').addEventListener('click', (e) => { if (e.target.closest('.menu-mas-lista button')) $('#menu-mas').open = false; });
-  document.addEventListener('click', (e) => { if (!e.target.closest('#menu-mas')) $('#menu-mas').open = false; });
+  document.addEventListener('click', (e) => { ['#menu-mas', '#menu-reportes'].forEach((m) => { if (!e.target.closest(m) || e.target.closest(m + ' .menu-mas-lista a')) $(m).open = false; }); });
   $('#btn-gh').addEventListener('click', menuGitHub);
   $('#btn-alertas').addEventListener('click', () => conToken(ventanaAlertas));
   $('#btn-labores').addEventListener('click', () => conToken(() => ventanaLabor(seleccion.size ? [...seleccion] : abierto ? [abierto] : [])));
@@ -1339,7 +1343,17 @@
     vistaLista();
     if (mapa) setTimeout(() => encuadrar(true), 300);
     if (!bloqueado) Promise.all([NDVI.cargarResumen(true), Agua.cargar(true)]).then(() => { refrescar(); }).catch(() => {});
+    abrirDesdeHash();
     if (Equipo.rol() === 'dueño') { await corregirNombres(); completarUbicaciones(); }
+  }
+
+  // Enlaces desde el cuaderno: #labor (o #labor=<id de lote>) abre la carga de una labor
+  function abrirDesdeHash() {
+    const m = location.hash.match(/^#labor(?:=(.+))?$/);
+    if (!m || !Equipo.puede('labores')) return;
+    history.replaceState(null, '', location.pathname + location.search);
+    const id = m[1] ? decodeURIComponent(m[1]) : null;
+    conToken(() => ventanaLabor(id && datos.campos.some((c) => c.id === id) ? [id] : []));
   }
 
   async function iniciar() {

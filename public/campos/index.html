@@ -20,7 +20,14 @@
     <div class="resumen" id="resumen" aria-live="polite"></div>
     <span class="chip rol-badge oculto" id="rol-badge"></span>
     <div class="acciones">
-      <a class="btn" id="btn-general" href="general.html" target="_blank" rel="noopener">📋 Reporte general</a>
+      <details class="menu-mas" id="menu-reportes">
+        <summary class="btn">📊 Reportes</summary>
+        <div class="menu-mas-lista">
+          <a class="btn" id="btn-general" href="general.html" target="_blank" rel="noopener">📋 Reporte general</a>
+          <a class="btn" id="btn-cuaderno" href="cuaderno.html" target="_blank" rel="noopener">📚 Cuaderno de campo</a>
+          <a class="btn solo-dueno" id="btn-margen" href="margen.html" target="_blank" rel="noopener">💵 Margen bruto</a>
+        </div>
+      </details>
       <button class="btn solo-carga" id="btn-labores" type="button">📒 Labores</button>
       <button class="btn solo-carga" id="btn-lluvia" type="button">🌧️ Lluvia</button>
       <button class="btn btn-1 solo-dueno" id="btn-cargar" type="button">＋ Cargar KML/KMZ</button>

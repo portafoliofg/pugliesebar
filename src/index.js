@@ -177,6 +177,15 @@ async function main() {
   // Pestaña Campos: solo se publica el nombre del repositorio privado, nunca los datos
   await mkdir(join(RAIZ, 'public', 'campos'), { recursive: true });
   await writeFile(join(RAIZ, 'public', 'campos', 'config.js'), generarConfigCampos(config), 'utf8');
+  // Precios para el margen bruto de Campos (solo datos públicos del mercado)
+  await writeFile(join(RAIZ, 'public', 'precios.json'), JSON.stringify({
+    generado: momento,
+    matba: fuentes.matba.datos || null,
+    pizarra: fuentes.pizarra.datos || null,
+    cbot: fuentes.cbot.datos || null,
+    dolar: fuentes.dolar.datos ? { oficial: fuentes.dolar.datos.tipos?.oficial?.venta ?? null, mayorista: fuentes.dolar.datos.tipos?.mayorista?.venta ?? null } : null,
+    retenciones: retenciones.granos
+  }) + '\n', 'utf8');
   // El Niño / La Niña para la perspectiva de la campaña (también la usan los reportes de Campos)
   if (fuentes.enso.datos) await writeFile(join(RAIZ, 'public', 'enso.json'), JSON.stringify(fuentes.enso.datos) + '\n', 'utf8');
   await historico.guardar();

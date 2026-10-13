@@ -345,3 +345,5 @@ body.rol-lectura .solo-dueno, body.rol-lectura .solo-carga, body.rol-carga .solo
 /* Los botones de las ventanas quedan siempre visibles abajo */
 .ventana .botones { position: sticky; bottom: -24px; z-index: 2; margin: 0 -28px -24px; padding: 12px 28px 16px; background: linear-gradient(to top, var(--surface) 75%, color-mix(in srgb, var(--surface) 0%, transparent)); }
 @media (max-width: 760px) { .ventana .botones { bottom: -18px; margin: 0 -16px -18px; padding: 12px 16px 16px; } }
+#menu-reportes .menu-mas-lista { left: 0; right: auto; }
+.botones-lote { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }

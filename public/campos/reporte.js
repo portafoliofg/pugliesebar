@@ -680,7 +680,7 @@
   // Cuaderno de campo del lote
   function laboresHTML(l) {
     if (!l.length) return '';
-    const det = (x) => [x.cultivo, x.variedad, x.producto, x.dosis != null ? `${num(x.dosis, x.dosis % 1 ? 2 : 0)} ${x.unidad || ''}` : '', x.rinde != null ? `${num(x.rinde, 1)} qq/ha` : ''].filter(Boolean).join(' · ');
+    const det = (x) => [x.cultivo, x.variedad, x.producto, x.dosis != null ? `${num(x.dosis, x.dosis % 1 ? 2 : 0)} ${x.unidad || ''}` : '', x.rinde != null ? `${num(x.rinde, 1)} qq/ha` : '', x.costo != null ? `US$ ${num(x.costo, 0)}/ha` : ''].filter(Boolean).join(' · ');
     const cos = l.filter((x) => x.tipo === 'Cosecha' && x.rinde != null);
     return `<section class="r-sec"><h2>Labores</h2>
       ${cos.length ? `<p class="nota">Último rinde cosechado: <b>${num(cos[0].rinde, 1)} qq/ha</b>${cos[0].cultivo ? ' de ' + esc(cos[0].cultivo.toLowerCase()) : ''} (${etqDia(cos[0].fecha)}/${cos[0].fecha.slice(0, 4)}).</p>` : ''}
