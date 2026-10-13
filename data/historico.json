@@ -132,13 +132,13 @@
       "2026-10-09": 195
     },
     "cbot.soja": {
-      "2026-10-13": 471.9728
+      "2026-10-13": 471.3298
     },
     "cbot.maiz": {
       "2026-10-13": 190.0485
     },
     "cbot.trigo": {
-      "2026-10-13": 246.1828
+      "2026-10-13": 245.5398
     }
   },
   "ejecuciones": [
@@ -307,6 +307,19 @@
         "dolar": "ok",
         "clima": "ok",
         "noticias": "ok",
+        "feriados": "ok"
+      }
+    },
+    {
+      "momento": "2026-10-13T18:47:12.999Z",
+      "estado": {
+        "pizarra": "ok",
+        "cbot": "ok",
+        "matba": "ok",
+        "dolar": "ok",
+        "clima": "ok",
+        "noticias": "ok",
+        "enso": "ok",
         "feriados": "ok"
       }
     }
