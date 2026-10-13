@@ -66,13 +66,25 @@
     let { url, clave } = credenciales();
     if (!url || !clave) ({ url, clave } = await pedirCredenciales());
 
-    const res = await fetch(url, {
-      method: 'POST',
-      // text/plain evita la consulta previa de CORS, que Apps Script no responde
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ fn, args, key: clave }),
-      redirect: 'follow'
-    });
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec\/?$/.test(url)) {
+      throw new Error('La URL no parece de una aplicación web de Apps Script. Tiene que ser https://script.google.com/macros/s/…/exec (no la del editor ni la que termina en /dev). Cambiala con el botón 🔑 Conexión.');
+    }
+
+    let res;
+    try {
+      res = await fetch(url, {
+        method: 'POST',
+        // text/plain evita la consulta previa de CORS, que Apps Script no responde
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ fn, args, key: clave }),
+        redirect: 'follow'
+      });
+    } catch (e) {
+      // "Failed to fetch": Google respondió con una página de inicio de sesión o de error
+      throw new Error('No se pudo conectar con Apps Script. Revisá: 1) que la implementación tenga acceso "Cualquier usuario"; ' +
+        '2) que hayas hecho una implementación NUEVA después de agregar Api.gs (o editado la existente eligiendo "Versión nueva"); ' +
+        '3) que la URL sea la de esa implementación.');
+    }
     if (!res.ok) throw new Error('La API respondió HTTP ' + res.status);
 
     let json;
