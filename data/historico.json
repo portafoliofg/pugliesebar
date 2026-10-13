@@ -119,15 +119,6 @@
     "dolar.cripto": {
       "2026-10-13": 1609.51
     },
-    "hacienda.novillo": {
-      "2026-10-13": 4332.2821
-    },
-    "hacienda.vaquillona": {
-      "2026-10-13": 4479.6137
-    },
-    "hacienda.vaca": {
-      "2026-10-13": 3209.6085
-    },
     "matba.soja.MAY27": {
       "2026-10-09": 359.5
     },
@@ -159,7 +150,6 @@
         "matba": "ok",
         "dolar": "ok",
         "clima": "ok",
-        "hacienda": "ok",
         "noticias": "ok",
         "feriados": "ok"
       }
@@ -172,7 +162,6 @@
         "matba": "ok",
         "dolar": "ok",
         "clima": "ok",
-        "hacienda": "ok",
         "noticias": "ok",
         "feriados": "ok"
       }
@@ -185,7 +174,6 @@
         "matba": "ok",
         "dolar": "ok",
         "clima": "ok",
-        "hacienda": "ok",
         "noticias": "ok",
         "feriados": "ok"
       }

@@ -1,0 +1,291 @@
+// =====================================================
+// TABLERO AGRO · comportamiento en el navegador
+// Pestañas, animaciones, gráficos, mapa y recarga automática.
+// Este archivo se incluye dentro de public/index.html al generar la página.
+// Los datos llegan en window.TABLERO (los escribe generar-html.js).
+// =====================================================
+(function () {
+  'use strict';
+
+  var D = window.TABLERO;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nf = function (dec) { return new Intl.NumberFormat('es-AR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
+
+  // ---------- Tema claro / oscuro ----------
+  var temaGuardado = null;
+  try { temaGuardado = localStorage.getItem('vdr-theme'); } catch (e) {}
+  if (temaGuardado) document.documentElement.setAttribute('data-theme', temaGuardado);
+
+  function temaActual() {
+    var t = document.documentElement.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  $('#btn-tema').addEventListener('click', function () {
+    var t = temaActual() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    // La app de stock usa la misma clave, así quedan sincronizadas
+    try { localStorage.setItem('vdr-theme', t); } catch (e) {}
+    var f = $('#stock-frame');
+    try { if (f && f.contentWindow && f.contentWindow.applyTheme) f.contentWindow.applyTheme(t); } catch (e) {}
+    pintarGraficos();
+  });
+
+  // ---------- Saludo según la hora argentina ----------
+  var hora = Number(new Intl.DateTimeFormat('es-AR', { timeZone: 'America/Argentina/Buenos_Aires', hour: 'numeric', hour12: false }).format(new Date()));
+  var saludo = hora >= 5 && hora < 13 ? 'Buen día' : hora < 20 && hora >= 13 ? 'Buenas tardes' : 'Buenas noches';
+  var s = $('#saludo');
+  if (s) s.textContent = saludo;
+
+  // ---------- Partículas de grano en el inicio ----------
+  var part = $('.particulas');
+  if (part && !reducido) {
+    var html = '';
+    for (var i = 0; i < 18; i++) {
+      html += '<i style="left:' + (Math.random() * 100).toFixed(1) + '%;animation-duration:' +
+        (9 + Math.random() * 10).toFixed(1) + 's;animation-delay:-' + (Math.random() * 15).toFixed(1) +
+        's;transform:scale(' + (0.6 + Math.random() * 0.8).toFixed(2) + ')"></i>';
+    }
+    part.innerHTML = html;
+  }
+
+  // ---------- Pestañas ----------
+  var pestanas = $$('.pestana');
+  var vistas = $$('.vista');
+  var nombres = vistas.map(function (v) { return v.id; });
+  var actual = null;
+
+  function mostrar(nombre, empujar) {
+    if (nombres.indexOf(nombre) === -1) nombre = 'inicio';
+    if (nombre === actual) return;
+    var cambiar = function () {
+      vistas.forEach(function (v) { v.classList.toggle('activa', v.id === nombre); });
+      pestanas.forEach(function (p) {
+        var sel = p.getAttribute('data-vista') === nombre;
+        p.setAttribute('aria-selected', sel ? 'true' : 'false');
+        p.tabIndex = sel ? 0 : -1;
+        if (sel && p.scrollIntoView) { try { p.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch (e) {} }
+      });
+      actual = nombre;
+      window.scrollTo(0, 0);
+      alAbrir(nombre);
+      revelarAhora();
+    };
+    // Transición suave entre pestañas (View Transitions API si el navegador la tiene)
+    if (document.startViewTransition && !reducido && actual) document.startViewTransition(cambiar);
+    else cambiar();
+    if (empujar !== false) { try { history.replaceState(null, '', '#' + nombre); } catch (e) {} }
+    document.title = (nombre === 'inicio' ? '' : $('[data-vista="' + nombre + '"]').textContent.trim() + ' · ') + D.titulo;
+  }
+
+  pestanas.forEach(function (p, idx) {
+    p.addEventListener('click', function () { mostrar(p.getAttribute('data-vista')); });
+    // Flechas del teclado para moverse entre pestañas
+    p.addEventListener('keydown', function (ev) {
+      var dir = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+      if (!dir) return;
+      var sig = pestanas[(idx + dir + pestanas.length) % pestanas.length];
+      sig.focus();
+      mostrar(sig.getAttribute('data-vista'));
+    });
+  });
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest && ev.target.closest('[data-ir]');
+    if (b) { ev.preventDefault(); mostrar(b.getAttribute('data-ir')); }
+  });
+  window.addEventListener('hashchange', function () { mostrar(location.hash.slice(1), false); });
+
+  // ---------- Animación al desplazarse ----------
+  var observador = 'IntersectionObserver' in window && !reducido
+    ? new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); contar(e.target); observador.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    : null;
+
+  function revelarAhora() {
+    $$('.vista.activa .revelar:not(.visible)').forEach(function (el, i) {
+      if (!el.style.getPropertyValue('--retraso')) el.style.setProperty('--retraso', Math.min(i, 6) * 0.07 + 's');
+      if (observador) observador.observe(el);
+      else { el.classList.add('visible'); contar(el); }
+    });
+  }
+
+  // Números que "cuentan" hasta su valor al aparecer
+  function contar(raiz) {
+    $$('[data-contar]', raiz).forEach(function (el) {
+      if (el.dataset.contado) return;
+      el.dataset.contado = '1';
+      var fin = Number(el.getAttribute('data-contar'));
+      var dec = Number(el.getAttribute('data-dec') || 0);
+      var pre = el.getAttribute('data-pre') || '';
+      if (!isFinite(fin) || reducido) return;
+      var f = nf(dec);
+      var t0 = null;
+      var dur = 1100;
+      function paso(t) {
+        if (!t0) t0 = t;
+        var k = Math.min(1, (t - t0) / dur);
+        var e = 1 - Math.pow(1 - k, 3);
+        el.textContent = pre + f.format(fin * e);
+        if (k < 1) requestAnimationFrame(paso);
+        else el.textContent = pre + f.format(fin);
+      }
+      requestAnimationFrame(paso);
+    });
+  }
+
+  // ---------- Qué hacer al abrir cada pestaña ----------
+  var abiertas = {};
+  function alAbrir(nombre) {
+    if (abiertas[nombre]) return;
+    abiertas[nombre] = true;
+    if (nombre === 'granos' || nombre === 'dolar') pintarGraficos();
+    if (nombre === 'clima') cargarMapa();
+    if (nombre === 'stock') {
+      var f = $('#stock-frame');
+      if (f && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
+    }
+  }
+
+  // ---------- Gráficos (Chart.js) ----------
+  var graficos = {};
+  function color(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function sinGrafico(id, texto) {
+    var c = document.getElementById(id);
+    if (c) c.parentNode.innerHTML = '<p class="nd">' + texto + '</p>';
+  }
+  function pintarGraficos() {
+    if (!window.Chart) {
+      if (document.readyState === 'complete') { sinGrafico('g-granos', 'No se pudo cargar el gráfico.'); sinGrafico('g-dolar', 'No se pudo cargar el gráfico.'); }
+      else window.addEventListener('load', pintarGraficos, { once: true });
+      return;
+    }
+    var tinta = color('--muted');
+    var linea = color('--line');
+    Chart.defaults.color = tinta;
+    Chart.defaults.borderColor = linea;
+    Chart.defaults.font.family = color('--body');
+    var paleta = [color('--lima'), color('--dorado'), color('--naranja'), '#8b5e34'];
+    var f2 = nf(0);
+    var etiquetas = function (fechas) { return fechas.map(function (f) { return f.slice(8, 10) + '/' + f.slice(5, 7); }); };
+    var opciones = function (pre) {
+      return {
+        responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+        animation: reducido ? false : { duration: 1200, easing: 'easeOutQuart' },
+        plugins: {
+          legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, padding: 16 } },
+          tooltip: {
+            backgroundColor: color('--surface'), titleColor: color('--ink'), bodyColor: color('--ink'),
+            borderColor: linea, borderWidth: 1, padding: 12, cornerRadius: 12,
+            callbacks: { label: function (c) { return ' ' + c.dataset.label + ': ' + pre + f2.format(c.parsed.y); } }
+          }
+        },
+        scales: {
+          y: { grid: { color: linea }, ticks: { callback: function (v) { return pre + f2.format(v); } } },
+          x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } }
+        }
+      };
+    };
+    var degradado = function (ctx, c) {
+      var area = ctx.chart.chartArea;
+      if (!area) return c;
+      var g = ctx.chart.ctx.createLinearGradient(0, area.top, 0, area.bottom);
+      g.addColorStop(0, c + '55');
+      g.addColorStop(1, c + '00');
+      return g;
+    };
+
+    var G = D.graficos;
+    if (document.getElementById('g-granos')) {
+      if (G.granos.fechas.length < 2) sinGrafico('g-granos', 'Todavía no hay suficiente histórico para graficar. Se completa con los días.');
+      else {
+        if (graficos.granos) graficos.granos.destroy();
+        graficos.granos = new Chart(document.getElementById('g-granos'), {
+          type: 'line',
+          data: {
+            labels: etiquetas(G.granos.fechas),
+            datasets: G.granos.series.map(function (s, i) {
+              var c = paleta[i % paleta.length];
+              return { label: s.nombre, data: s.valores, borderColor: c, backgroundColor: c, pointRadius: 0, pointHoverRadius: 5, borderWidth: 2.5, tension: .35, spanGaps: true };
+            })
+          },
+          options: opciones('$ ')
+        });
+      }
+    }
+    if (document.getElementById('g-dolar')) {
+      if (G.dolar.fechas.length < 2) sinGrafico('g-dolar', 'Todavía no hay suficiente histórico para graficar.');
+      else {
+        if (graficos.dolar) graficos.dolar.destroy();
+        var c = paleta[0];
+        graficos.dolar = new Chart(document.getElementById('g-dolar'), {
+          type: 'line',
+          data: {
+            labels: etiquetas(G.dolar.fechas),
+            datasets: [{ label: 'Oficial venta', data: G.dolar.valores, borderColor: c, fill: true, backgroundColor: function (ctx) { return degradado(ctx, c.length === 7 ? c : '#a4c639'); }, pointRadius: 0, pointHoverRadius: 5, borderWidth: 2.5, tension: .35 }]
+          },
+          options: opciones('$ ')
+        });
+      }
+    }
+    $$('.esqueleto').forEach(function (e) { e.remove(); });
+  }
+
+  // ---------- Mapa (Leaflet) ----------
+  function cargarMapa() {
+    var cont = $('#mapa');
+    if (!cont) return;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js';
+    js.onload = function () {
+      var L = window.L;
+      var mapa = L.map(cont, { scrollWheelZoom: false, zoomControl: true });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18, attribution: '&copy; OpenStreetMap'
+      }).addTo(mapa);
+      var limites = [];
+      D.mapa.forEach(function (p) {
+        var icono = L.divIcon({ className: '', html: '<div class="pin ' + (p.clase || '') + '"></div>', iconSize: [22, 22], iconAnchor: [11, 11] });
+        L.marker([p.lat, p.lon], { icon: icono, title: p.nombre }).addTo(mapa).bindPopup(p.popup);
+        limites.push([p.lat, p.lon]);
+      });
+      if (limites.length > 1) mapa.fitBounds(limites, { padding: [50, 50], maxZoom: 9 });
+      else if (limites.length) mapa.setView(limites[0], 9);
+      else mapa.setView([-31.4, -64.2], 7);
+      // Activar el zoom con la rueda recién cuando se hace clic en el mapa
+      mapa.on('click', function () { mapa.scrollWheelZoom.enable(); });
+    };
+    js.onerror = function () { cont.innerHTML = '<p class="nd" style="padding:20px">No se pudo cargar el mapa.</p>'; };
+    document.body.appendChild(js);
+  }
+
+  // ---------- Recarga automática (con parámetro anti-caché) ----------
+  function programarRecarga() {
+    setTimeout(function () {
+      // Si estás cargando stock, no se recarga para no perder lo que estás escribiendo
+      if (actual === 'stock' || document.hidden) return programarRecarga();
+      var u = new URL(location.href);
+      u.searchParams.set('t', Date.now());
+      location.replace(u.toString());
+    }, D.recargaMs);
+  }
+  programarRecarga();
+
+  // ---------- Arranque ----------
+  mostrar(location.hash.slice(1) || 'inicio', false);
+
+  var splash = $('.splash');
+  if (splash) {
+    var visto = false;
+    try { visto = sessionStorage.getItem('agro-splash') === '1'; sessionStorage.setItem('agro-splash', '1'); } catch (e) {}
+    setTimeout(function () { splash.classList.add('fuera'); setTimeout(function () { splash.remove(); }, 700); }, visto || reducido ? 0 : 1100);
+  }
+})();

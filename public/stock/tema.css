@@ -1,0 +1,229 @@
+/* =====================================================
+   TEMA "TABLERO AGRO" PARA LA APP DE STOCK
+   Se carga después de los estilos originales y los sobrescribe:
+   paleta campo (lima, dorado, naranja), tipografías y animaciones.
+===================================================== */
+
+:root {
+  --navy: #2b2118;
+  --navy2: #4a3a2a;
+  --blue: #5b7a10;
+  --blue2: #7a9c1c;
+  --cyan: #c27c00;
+  --green: #4f8a10;
+  --green2: #7aa61c;
+  --green-bg: #eef6d9;
+  --red: #c8381c;
+  --red-bg: #fdebe5;
+  --amber: #e08a00;
+  --amber-bg: #fff4d6;
+  --bg: #fbf7ee;
+  --white: #ffffff;
+  --text: #2b2118;
+  --muted: #6e6253;
+  --border: #e8ddc8;
+  --border-dark: #d6c7aa;
+  --shadow: 0 1px 2px rgba(60, 40, 10, .05), 0 10px 30px rgba(60, 40, 10, .07);
+  --shadow-hover: 0 2px 4px rgba(60, 40, 10, .07), 0 18px 40px rgba(60, 40, 10, .12);
+  --radius: 18px;
+  --lima: #a4c639;
+  --dorado: #ffc107;
+  --naranja: #ff9800;
+}
+
+[data-theme="dark"] {
+  --navy: #f4eee2;
+  --navy2: #e2d8c4;
+  --blue: #c4e25a;
+  --green: #9fd14a;
+  --green-bg: #1f2a12;
+  --red-bg: #2e1610;
+  --amber-bg: #2e2410;
+  --bg: #14110c;
+  --white: #1e1913;
+  --text: #f4eee2;
+  --muted: #b3a68f;
+  --border: #3a3125;
+  --border-dark: #4d4232;
+}
+
+body {
+  font-family: "Manrope", "DM Sans", system-ui, sans-serif;
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(164, 198, 57, .16), transparent 60%),
+    radial-gradient(700px 380px at -10% 10%, rgba(255, 193, 7, .14), transparent 60%),
+    #fbf7ee;
+}
+[data-theme="dark"] body {
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(164, 198, 57, .10), transparent 60%),
+    radial-gradient(700px 380px at -10% 10%, rgba(255, 152, 0, .08), transparent 60%),
+    #14110c;
+}
+
+/* ---------- Barra superior ---------- */
+.topbar {
+  background:
+    radial-gradient(600px 200px at 85% 0, rgba(255, 193, 7, .35), transparent 70%),
+    linear-gradient(120deg, #3f5a0c 0%, #5b7a10 45%, #8a6a12 100%);
+  border-bottom: 0;
+  box-shadow: 0 10px 30px rgba(63, 90, 12, .25);
+}
+.topbar::after { background: rgba(255, 193, 7, .14); }
+.brand h1, .page-heading h2, .panel-title, .modal-head h3, .intro-title h1 {
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -.01em;
+}
+.brand-mark { background: linear-gradient(145deg, var(--lima), var(--dorado)); border: 0; color: #2b2118; }
+.brand-mark span { color: #2b2118; }
+
+/* Dentro del tablero: la barra queda más compacta */
+html.embebido .topbar { padding: 12px 20px; border-radius: 0 0 22px 22px; }
+html.embebido .page { padding-top: 18px; }
+
+/* ---------- Botones ---------- */
+.btn {
+  border-radius: 999px;
+  border-color: var(--border-dark);
+  background: var(--white);
+  color: var(--text);
+  transition: transform .2s cubic-bezier(.2, .8, .2, 1.2), box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn:hover {
+  border-color: var(--lima);
+  background: #f7fbe8;
+  box-shadow: 0 6px 16px rgba(91, 122, 16, .16);
+  transform: translateY(-2px);
+}
+.btn:active { transform: translateY(0) scale(.97); }
+.btn-primary, [data-theme="dark"] .btn-primary {
+  color: #2b2118;
+  background: linear-gradient(135deg, var(--lima), var(--dorado));
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(164, 198, 57, .35);
+}
+.btn-primary:hover, [data-theme="dark"] .btn-primary:hover {
+  color: #2b2118;
+  background: linear-gradient(135deg, #b5d84a, var(--naranja));
+  box-shadow: 0 10px 26px rgba(255, 152, 0, .35);
+}
+.topbar .btn { background: rgba(255, 255, 255, .14); color: #fff; border-color: rgba(255, 255, 255, .3); }
+.topbar .btn:hover { background: rgba(255, 255, 255, .24); }
+.topbar .btn-primary { background: linear-gradient(135deg, var(--dorado), var(--naranja)); color: #2b2118; border: 0; }
+[data-theme="dark"] .btn { background: #241e16; color: var(--text); border-color: var(--border-dark); }
+[data-theme="dark"] .btn:hover { background: #2c2519; border-color: var(--lima); }
+
+/* ---------- Tarjetas de resumen ---------- */
+.stat, [data-theme="dark"] .stat {
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s ease;
+}
+.stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.stat-icon { border-radius: 16px; transition: transform .4s cubic-bezier(.2, .8, .2, 1.4); }
+.stat:hover .stat-icon { transform: rotate(-8deg) scale(1.08); }
+.s-blue .stat-icon, [data-theme="dark"] .s-blue .stat-icon { background: linear-gradient(135deg, #eef6d9, #dcedb0); }
+.s-green .stat-icon, [data-theme="dark"] .s-green .stat-icon { background: linear-gradient(135deg, #e3f3c9, #c7e58a); }
+.s-amber .stat-icon, [data-theme="dark"] .s-amber .stat-icon { background: linear-gradient(135deg, #fff1c7, #ffe08a); }
+.s-cyan .stat-icon, [data-theme="dark"] .s-cyan .stat-icon { background: linear-gradient(135deg, #ffe7c4, #ffcf8a); }
+.stat-value { font-family: "Fraunces", Georgia, serif; font-weight: 700; letter-spacing: -.02em; }
+
+/* ---------- Pestañas internas ---------- */
+.tabs, [data-theme="dark"] .tabs { background: #f1ead9; border: 1px solid var(--border); }
+[data-theme="dark"] .tabs { background: #241e16; }
+.tab, [data-theme="dark"] .tab { color: var(--muted); }
+.tab:hover, [data-theme="dark"] .tab:hover { color: var(--text); background: rgba(164, 198, 57, .14); }
+.tab.active, [data-theme="dark"] .tab.active {
+  color: #2b2118;
+  background: linear-gradient(135deg, var(--lima), var(--dorado));
+  box-shadow: 0 6px 16px rgba(164, 198, 57, .35);
+}
+
+/* ---------- Paneles y tablas ---------- */
+.panel, [data-theme="dark"] .panel { border-radius: 22px; border: 1px solid var(--border); background: var(--white); }
+.panel-head, [data-theme="dark"] .panel-head { background: transparent; border-bottom: 1px solid var(--border); }
+.table-meta, [data-theme="dark"] .table-meta { background: transparent; }
+thead th { background: #f6f0e2; color: #6e6253; border-bottom: 1.5px solid var(--border); }
+[data-theme="dark"] thead th { background: #241e16; color: var(--muted); border-bottom-color: var(--border); }
+tbody tr:hover { background: #f7fbe8; }
+[data-theme="dark"] tbody tr:hover { background: #262013; }
+
+/* Filtros */
+.quick-filter.active, [data-theme="dark"] .quick-filter.active {
+  color: #2b2118;
+  background: linear-gradient(135deg, var(--lima), var(--dorado));
+}
+.search-pill:focus-within, [data-theme="dark"] .search-pill:focus-within {
+  border-color: var(--lima);
+  box-shadow: 0 0 0 4px rgba(164, 198, 57, .2);
+}
+
+/* ---------- Ventanas ---------- */
+.modal { border-radius: 24px; border: 1px solid var(--border); }
+.modal-head { background: linear-gradient(120deg, #3f5a0c, #5b7a10 55%, #8a6a12); }
+.deposit-choice input:checked + .deposit-choice-content {
+  border-color: var(--lima);
+  background: #f4fae3;
+  box-shadow: 0 6px 18px rgba(164, 198, 57, .25);
+}
+[data-theme="dark"] .deposit-choice input:checked + .deposit-choice-content { background: #222b12; }
+
+/* Acuerdo fiduciario */
+.fid-card { border-left-color: var(--lima); border-radius: 22px; }
+
+/* ---------- Pantalla de carga ---------- */
+.intro { --plant-a: #6f9a1c; --plant-b: #a4c639; --plant-c: #c9e06a; }
+.intro-logo { color: #2b2118; background: linear-gradient(145deg, var(--lima), var(--dorado)); }
+.intro-bar i { background: linear-gradient(90deg, var(--lima), var(--dorado), var(--naranja)) !important; }
+
+/* ---------- Formulario de conexión (api.js) ---------- */
+.api-capa {
+  position: fixed; inset: 0; z-index: 100000;
+  display: grid; place-items: center; padding: 16px;
+  background: radial-gradient(800px 400px at 50% 0, rgba(164, 198, 57, .35), transparent 70%), rgba(20, 17, 12, .55);
+  backdrop-filter: blur(8px);
+  animation: apiFade .35s ease-out;
+}
+.api-card {
+  width: min(440px, 100%);
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 26px;
+  background: var(--white); color: var(--text);
+  border: 1px solid var(--border); border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
+  animation: apiUp .45s cubic-bezier(.2, .8, .2, 1);
+}
+.api-card h2 { margin: 0; font-family: "Fraunces", Georgia, serif; font-size: 24px; }
+.api-card p { margin: 0; color: var(--muted); }
+.api-card code { background: var(--green-bg); padding: 1px 6px; border-radius: 6px; }
+.api-ico { font-size: 34px; animation: apiSway 2.4s ease-in-out infinite; transform-origin: bottom center; }
+.api-card label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: 13px; }
+.api-card input {
+  font: inherit; padding: 12px 14px; border-radius: 14px;
+  border: 1px solid var(--border-dark); background: var(--bg); color: var(--text);
+}
+.api-card input:focus { outline: none; border-color: var(--lima); box-shadow: 0 0 0 4px rgba(164, 198, 57, .25); }
+.api-card button {
+  font: inherit; font-weight: 800; padding: 13px; border: 0; border-radius: 999px; cursor: pointer;
+  color: #2b2118; background: linear-gradient(135deg, var(--lima), var(--dorado));
+  box-shadow: 0 10px 24px rgba(164, 198, 57, .4);
+  transition: transform .2s ease;
+}
+.api-card button:hover { transform: translateY(-2px); }
+.api-card small { color: var(--muted); text-align: center; }
+.api-error { padding: 10px 12px; border-radius: 12px; background: var(--red-bg); color: var(--red); font-weight: 700; }
+
+@keyframes apiFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes apiUp { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes apiSway { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* Acuerdo fiduciario: barra y cajas con la paleta del tablero */
+.fid-bar i { background: linear-gradient(90deg, var(--lima), var(--dorado), var(--naranja)); }
+.fid-box { background: #fbf7ee; border-color: var(--border); }
+[data-theme="dark"] .fid-box { background: #241e16; border-color: var(--border); }
+[data-theme="dark"] .fid-bar { background: #2c2519; }

@@ -12,11 +12,10 @@ import { obtenerCBOT } from './fuentes/cbot.js';
 import { obtenerMatba } from './fuentes/matba.js';
 import { obtenerDolar, obtenerHistoricoOficial, TIPOS_DOLAR } from './fuentes/dolar.js';
 import { obtenerClima } from './fuentes/clima.js';
-import { obtenerHacienda } from './fuentes/hacienda.js';
 import { obtenerNoticias } from './fuentes/noticias.js';
 import { verificarFeriado, esFinDeSemana } from './fuentes/feriados.js';
 import { Historico } from './historico.js';
-import { generarHTML } from './generar-html.js';
+import { generarHTML, generarConfigStock } from './generar-html.js';
 import { fechaISOArgentina } from './lib/formato.js';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,7 +28,6 @@ const FUENTES = {
   matba: obtenerMatba,
   dolar: obtenerDolar,
   clima: obtenerClima,
-  hacienda: obtenerHacienda,
   noticias: obtenerNoticias
 };
 
@@ -105,14 +103,10 @@ async function main() {
       for (const p of posiciones) historico.registrar(`matba.${g}.${p.posicion}`, p.fecha, p.usdTonelada);
     }
   }
-  // Dólar y hacienda: solo en días hábiles, para no cargar valores repetidos de feriados
+  // Dólar: solo en días hábiles, para no cargar valores repetidos de feriados
   const dl = fuentes.dolar.estado === 'ok' ? fuentes.dolar.datos : null;
   if (dl && diaHabil) {
     for (const t of TIPOS_DOLAR) historico.registrar(`dolar.${t.clave}`, dl.fecha, dl.tipos[t.clave]?.venta);
-  }
-  const hc = fuentes.hacienda.estado === 'ok' ? fuentes.hacienda.datos : null;
-  if (hc && diaHabil) {
-    for (const [c, x] of Object.entries(hc.categorias)) historico.registrar(`hacienda.${c}`, hc.fecha, x.promedio);
   }
 
   // La primera vez, completamos el dólar oficial con datos históricos para que el gráfico no arranque vacío
@@ -141,8 +135,6 @@ async function main() {
   }
   const dlv = fuentes.dolar.datos;
   if (dlv) for (const t of TIPOS_DOLAR) variaciones[`dolar.${t.clave}`] = historico.variacion(`dolar.${t.clave}`, dlv.fecha, dlv.tipos[t.clave]?.venta);
-  const hcv = fuentes.hacienda.datos;
-  if (hcv) for (const [c, x] of Object.entries(hcv.categorias)) variaciones[`hacienda.${c}`] = historico.variacion(`hacienda.${c}`, hcv.fecha, x.promedio);
 
   // ---- Datos para los gráficos (últimos N días con dato) ----
   const n = config.diasGrafico;
@@ -160,12 +152,20 @@ async function main() {
     dolar: { fechas: dolarOficial.map((p) => p.fecha), valores: dolarOficial.map((p) => p.valor) }
   };
 
+  // Minigráficos de las tarjetas del inicio
+  const sparks = {};
+  for (const [g] of GRANOS_PIZARRA) sparks[`pizarra.${g}`] = historico.ultimos(`pizarra.${g}`, n).map((p) => p.valor);
+  sparks['dolar.oficial'] = dolarOficial.map((p) => p.valor);
+
   // ---- Página ----
   const html = generarHTML({
-    config, generado: ahora, hoyISO, feriado, finDeSemana, fuentes, variaciones, graficos
+    config, generado: ahora, hoyISO, feriado, finDeSemana, fuentes, variaciones, graficos, sparks
   });
   await mkdir(dirname(RUTA_HTML), { recursive: true });
   await writeFile(RUTA_HTML, html, 'utf8');
+  // URL de la API de stock para la pestaña Stock
+  await mkdir(join(RAIZ, 'public', 'stock'), { recursive: true });
+  await writeFile(join(RAIZ, 'public', 'stock', 'config.js'), generarConfigStock(config), 'utf8');
   await historico.guardar();
   console.log(`Página generada: ${RUTA_HTML} (${correctas}/${nombres.length} fuentes correctas)`);
 }

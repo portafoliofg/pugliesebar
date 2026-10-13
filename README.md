@@ -1,6 +1,6 @@
 # Tablero Agro
 
-Página con la información del día para el campo en Argentina: pizarra Rosario, Chicago, Matba-Rofex, dólar, clima, hacienda, retenciones y noticias.
+Página con la información del día para el campo en Argentina (pizarra Rosario, Chicago, Matba-Rofex, dólar, clima, retenciones y noticias) y el control de stock de la planilla de Google, organizados en pestañas.
 GitHub Actions la genera sola de lunes a viernes y la publica en GitHub Pages.
 
 ## Cómo funciona
@@ -40,6 +40,21 @@ npm start         # busca los datos y genera public/index.html
 Después abrí `public/index.html` en el navegador.
 Ojo: la prueba local también actualiza `data/historico.json` y `data/ultimo.json`. Si no querés subir esos cambios, descartalos con `git checkout data public`.
 
+## Pestaña Stock (planilla de Google)
+
+La pestaña Stock es la misma app de control de stock de Apps Script, con todas sus funciones (existencias, catálogo, movimientos, anulaciones, productos nuevos, descripciones, historial, semillas, Campo Agro, stocks anteriores, acuerdo fiduciario y exportación a Excel/CSV). Los datos siguen en la planilla de Google: la página se conecta a Apps Script mediante una API protegida con clave.
+
+Pasos (una sola vez):
+
+1. En la planilla: **Extensiones → Apps Script**. Dejá tu código como está y agregá un archivo nuevo `Api.gs` con el contenido de [`apps-script/Api.gs`](apps-script/Api.gs). En `apps-script/Codigo.gs` está la copia del código actual de referencia.
+2. **Configuración del proyecto (⚙) → Propiedades de la secuencia de comandos → Agregar propiedad**: nombre `API_KEY`, valor una clave larga (por ejemplo 24 caracteres al azar).
+3. **Implementar → Nueva implementación → Tipo: Aplicación web**. Ejecutar como: **Yo**. Quién tiene acceso: **Cualquier usuario**. Autorizá los permisos y copiá la URL que termina en `/exec`.
+4. Abrí la pestaña Stock del tablero, pegá la URL y la clave, y tocá **Conectar**. Quedan guardadas en ese navegador. Para cambiarlas está el botón **🔑 Conexión**.
+
+Si preferís no pegar la URL en cada navegador, ponela en `config.json → stock.apiUrl`. La clave nunca se guarda en el repositorio.
+
+> La URL de la aplicación web es pública, pero sin la clave no se puede leer ni modificar nada. Usá una clave larga y no la compartas. La app original de Apps Script (`doGet`) sigue funcionando igual que antes.
+
 ## Configuración (`config.json`)
 
 | Clave | Para qué sirve |
@@ -51,7 +66,10 @@ Ojo: la prueba local también actualiza `data/historico.json` y `data/ultimo.jso
 | `noticias.maxTitulares` / `maxPorFuente` | Cuántos titulares mostrar en total y como máximo por medio. |
 | `feriados.lista` | Feriados nacionales de respaldo, por si la API no responde. Revisala cada año. |
 | `matbaRofex.mesesCosecha` | Meses de vencimiento a mostrar por grano (posiciones de cosecha). Se descartan los contratos que vencen en el mes actual. |
-| `pizarra`, `cbot`, `matbaRofex`, `dolar`, `hacienda` | URL y parámetros de cada fuente. |
+| `pizarra`, `cbot`, `matbaRofex`, `dolar` | URL y parámetros de cada fuente. |
+| `diseno.fotos` | Fotos del inicio (URL o ruta dentro de `public/`). Podés poner fotos propias. |
+| `mapa.puntos` | Campos o depósitos que se marcan en el mapa del clima. |
+| `stock.apiUrl` | URL de la API de Apps Script para la pestaña Stock (opcional: si queda vacía, se pide en la página). |
 | `recargaMinutos`, `diasGrafico`, `timeoutMs` | Recarga de la página, días de los gráficos y timeout por pedido. |
 
 Ejemplo para agregar una localidad:
@@ -71,7 +89,6 @@ Ejemplo para agregar una localidad:
 | Matba-Rofex | Endpoint JSON que usa la web de Matba-Rofex (no documentado) | JSON |
 | Dólar | [DolarApi](https://dolarapi.com) y [ArgentinaDatos](https://argentinadatos.com) para el histórico inicial | JSON |
 | Clima | [Open-Meteo](https://open-meteo.com) | JSON, sin clave |
-| Hacienda | [Mercado Agroganadero de Cañuelas](https://www.mercadoagroganadero.com.ar) | HTML (cheerio) |
 | Feriados | ArgentinaDatos, con la lista de `config.json` como respaldo | JSON |
 | Noticias | RSS de Clarín Rural, La Nación Campo, Infocampo, Bichos de Campo, Agrofy News y TodoAgro | RSS |
 
@@ -84,7 +101,7 @@ Las noticias muestran solo el título, el medio y el link a la nota original.
 - Si una fuente falla, se muestra su último dato correcto (`data/ultimo.json`) con la etiqueta **"Sin actualizar"** y su fecha. Si nunca hubo dato, aparece **"Dato no disponible"**.
 - Al pie de la página hay una tabla con el estado de cada fuente en la última ejecución.
 - Si fallan todas las fuentes, no se sobrescribe la página anterior.
-- En feriados nacionales y fines de semana aparece un aviso arriba y se mantienen los últimos datos. Ese día no se registran en el histórico valores de dólar ni de hacienda.
+- En feriados nacionales y fines de semana aparece un aviso arriba y se mantienen los últimos datos. Ese día no se registran valores de dólar en el histórico.
 
 ## Histórico y variaciones
 
@@ -99,6 +116,10 @@ config.json                 configuración editable
 src/index.js                orquestador
 src/historico.js            histórico, variaciones y último dato válido
 src/generar-html.js         genera public/index.html
+src/plantilla/estilos.css   estilos de la página (se incluyen dentro del HTML)
+src/plantilla/cliente.js    pestañas, animaciones, gráficos y mapa (se incluye dentro del HTML)
+public/stock/               app de stock (pestaña Stock)
+apps-script/                código de Apps Script de la planilla de stock
 src/lib/http.js             fetch con timeout, reintento y charset
 src/lib/formato.js          formato argentino de números y fechas
 src/fuentes/*.js            un archivo por fuente
@@ -110,4 +131,4 @@ public/index.html           página publicada
 ## Si una fuente deja de andar
 
 Los sitios cambian de formato sin aviso. Si en el pie una fuente aparece con error varios días seguidos, revisá su archivo en `src/fuentes/` y la URL en `config.json`.
-Los parsers de pizarra y hacienda buscan por texto (el nombre del grano o la categoría, y la columna "Promedio") en lugar de clases CSS exactas, para aguantar cambios chicos de diseño.
+El parser de la pizarra busca por texto (el nombre del grano y el precio) en lugar de clases CSS exactas, para aguantar cambios chicos de diseño.

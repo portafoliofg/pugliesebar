@@ -205,29 +205,6 @@
       },
       "obtenido": "2026-10-13T13:51:50.686Z"
     },
-    "hacienda": {
-      "datos": {
-        "fecha": "2026-10-13",
-        "categorias": {
-          "novillo": {
-            "promedio": 4332.2821358921165,
-            "cabezas": 964,
-            "filas": 7
-          },
-          "vaquillona": {
-            "promedio": 4479.613691909385,
-            "cabezas": 1545,
-            "filas": 3
-          },
-          "vaca": {
-            "promedio": 3209.608513736264,
-            "cabezas": 1092,
-            "filas": 4
-          }
-        }
-      },
-      "obtenido": "2026-10-13T13:51:50.686Z"
-    },
     "noticias": {
       "datos": {
         "fecha": "2026-10-13",
