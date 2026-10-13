@@ -38,6 +38,7 @@ const ICONOS = {
   dolar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1-3 2.3c0 3.2 6 1.8 6 5 0 1.4-1.3 2.7-3 2.7s-3-1.1-3-2.5M12 5.5v13"/></svg>',
   clima: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3.5"/><path d="M8 2.5v1.5M2.5 9H4M3.9 4.9l1 1M12.1 4.9l-1 1"/><path d="M9 20h9a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.5A3 3 0 0 0 9 20z"/></svg>',
   noticias: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5M8 16h3"/></svg>',
+  campos: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>',
   stock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
   flecha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   externo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>',
@@ -378,6 +379,12 @@ function vistaNoticias(m) {
   </section>`;
 }
 
+function vistaCampos() {
+  return `<section class="vista" id="campos" role="tabpanel" aria-labelledby="tab-campos">
+    <div class="stock-marco"><iframe id="campos-frame" data-src="campos/" title="Mis campos" loading="lazy"></iframe></div>
+  </section>`;
+}
+
 function vistaStock() {
   return `<section class="vista" id="stock" role="tabpanel" aria-labelledby="tab-stock">
     <div class="stock-marco"><iframe id="stock-frame" data-src="stock/" title="Control de stock" loading="lazy"></iframe></div>
@@ -485,7 +492,7 @@ ${leerPlantilla('estilos.css')}
   <div class="cab-in">
     <a class="marca" href="#inicio" data-ir="inicio" aria-label="${t}, inicio"><span class="marca-logo">${LOGO}</span><b>${t}</b></a>
     <nav class="pestanas" role="tablist" aria-label="Secciones">
-      ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
+      ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('campos', 'Campos')}${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
     </nav>
     <div class="cab-der">
       <span class="act" title="Última actualización: ${esc(fecha)} ${esc(hora)} h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>${esc(hora)} h</b></span>
@@ -499,6 +506,7 @@ ${vistaInicio(m)}
 ${vistaGranos(m)}
 ${vistaDolar(m)}
 ${vistaClima(m)}
+${vistaCampos()}
 ${vistaNoticias(m)}
 ${vistaStock()}
 ${piePagina(m)}
@@ -517,4 +525,11 @@ ${leerPlantilla('cliente.js')}
 /** Contenido de public/stock/config.js (URL de la API de Apps Script desde config.json). */
 export function generarConfigStock(config) {
   return `// Generado automáticamente desde config.json (stock.apiUrl). No editar a mano.\nwindow.STOCK_API_URL = ${JSON.stringify(config.stock?.apiUrl || '')};\n`;
+}
+
+/** Contenido de public/campos/config.js (repositorio donde se guardan los campos). */
+export function generarConfigCampos(config) {
+  const repo = config.campos?.repo || process.env.GITHUB_REPOSITORY || '';
+  const datos = { repo, rama: config.campos?.rama || 'main' };
+  return `// Generado automáticamente desde config.json (campos). No editar a mano.\nwindow.CAMPOS_CONFIG = ${JSON.stringify(datos)};\n`;
 }

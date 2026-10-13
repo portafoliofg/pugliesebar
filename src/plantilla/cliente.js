@@ -28,8 +28,10 @@
     document.documentElement.setAttribute('data-theme', t);
     // La app de stock usa la misma clave, así quedan sincronizadas
     try { localStorage.setItem('vdr-theme', t); } catch (e) {}
-    var f = $('#stock-frame');
-    try { if (f && f.contentWindow && f.contentWindow.applyTheme) f.contentWindow.applyTheme(t); } catch (e) {}
+    ['#stock-frame', '#campos-frame'].forEach(function (sel) {
+      var f = $(sel);
+      try { if (f && f.contentWindow && f.contentWindow.applyTheme) f.contentWindow.applyTheme(t); } catch (e) {}
+    });
     pintarGraficos();
   });
 
@@ -145,8 +147,8 @@
     abiertas[nombre] = true;
     if (nombre === 'granos' || nombre === 'dolar') pintarGraficos();
     if (nombre === 'clima') cargarMapa();
-    if (nombre === 'stock') {
-      var f = $('#stock-frame');
+    if (nombre === 'stock' || nombre === 'campos') {
+      var f = $('#' + nombre + '-frame');
       if (f && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
     }
   }
@@ -270,8 +272,8 @@
   // ---------- Recarga automática (con parámetro anti-caché) ----------
   function programarRecarga() {
     setTimeout(function () {
-      // Si estás cargando stock, no se recarga para no perder lo que estás escribiendo
-      if (actual === 'stock' || document.hidden) return programarRecarga();
+      // En Stock o Campos no se recarga, para no perder lo que estás cargando
+      if (actual === 'stock' || actual === 'campos' || document.hidden) return programarRecarga();
       var u = new URL(location.href);
       u.searchParams.set('t', Date.now());
       location.replace(u.toString());

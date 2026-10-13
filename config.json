@@ -36,6 +36,11 @@
     "nota": "URL de la aplicación web de Apps Script (termina en /exec). Opcional: si queda vacía, se pide en la pestaña Stock.",
     "apiUrl": ""
   },
+  "campos": {
+    "nota": "Repositorio y rama donde se guardan los campos (data/campos.json). Si queda vacío, se usa el repositorio del workflow.",
+    "repo": "portafoliofg/pugliesebar",
+    "rama": "main"
+  },
   "clima": {
     "localidades": [
       {

@@ -3,7 +3,7 @@
 //
 // Uso: node src/index.js
 
-import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, access, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -15,7 +15,7 @@ import { obtenerClima } from './fuentes/clima.js';
 import { obtenerNoticias } from './fuentes/noticias.js';
 import { verificarFeriado, esFinDeSemana } from './fuentes/feriados.js';
 import { Historico } from './historico.js';
-import { generarHTML, generarConfigStock } from './generar-html.js';
+import { generarHTML, generarConfigStock, generarConfigCampos } from './generar-html.js';
 import { fechaISOArgentina } from './lib/formato.js';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -166,6 +166,11 @@ async function main() {
   // URL de la API de stock para la pestaña Stock
   await mkdir(join(RAIZ, 'public', 'stock'), { recursive: true });
   await writeFile(join(RAIZ, 'public', 'stock', 'config.js'), generarConfigStock(config), 'utf8');
+  // Pestaña Campos: repositorio donde se guardan y copia de los campos para leer sin la API
+  await mkdir(join(RAIZ, 'public', 'campos'), { recursive: true });
+  await writeFile(join(RAIZ, 'public', 'campos', 'config.js'), generarConfigCampos(config), 'utf8');
+  const rutaCampos = join(RAIZ, 'data', 'campos.json');
+  if (await existe(rutaCampos)) await copyFile(rutaCampos, join(RAIZ, 'public', 'campos', 'campos.json'));
   await historico.guardar();
   console.log(`Página generada: ${RUTA_HTML} (${correctas}/${nombres.length} fuentes correctas)`);
 }

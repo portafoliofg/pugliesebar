@@ -1,6 +1,6 @@
 # Tablero Agro
 
-Página con la información del día para el campo en Argentina (pizarra Rosario, Chicago, Matba-Rofex, dólar, clima, retenciones y noticias) y el control de stock de la planilla de Google, organizados en pestañas.
+Página con la información del día para el campo en Argentina (pizarra Rosario, Chicago, Matba-Rofex, dólar, clima, retenciones y noticias) el mapa de tus campos y el control de stock de la planilla de Google, organizados en pestañas.
 GitHub Actions la genera sola de lunes a viernes y la publica en GitHub Pages.
 
 ## Cómo funciona
@@ -40,6 +40,17 @@ npm start         # busca los datos y genera public/index.html
 Después abrí `public/index.html` en el navegador.
 Ojo: la prueba local también actualiza `data/historico.json` y `data/ultimo.json`. Si no querés subir esos cambios, descartalos con `git checkout data public`.
 
+## Pestaña Campos (KML/KMZ)
+
+Mapa satelital con tus campos resaltados por cultivo. Para cada campo podés indicar nombre, cultivo, campaña, hectáreas declaradas y notas. La superficie del mapa se calcula sola a partir del polígono. El clima de la zona se trae de Open-Meteo: lluvia de los últimos 7 y 30 días, pronóstico de 7 días y alerta de helada.
+
+- **Cargar:** botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada polígono del archivo se convierte en un campo; los puntos y las líneas se ignoran.
+- **Dónde se guarda:** en este repositorio. Los datos van en `data/campos.json` y una copia de cada archivo original en `data/campos/archivos/`. Cada cambio queda como un commit.
+- **Permiso para guardar:** la primera vez que guardes, la página te pide un token de GitHub. Para crearlo, entrá a [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new), elegí *Only select repositories* con este repositorio y en *Repository permissions → Contents* elegí *Read and write*. El token queda guardado solo en ese navegador.
+- Para ver los campos no hace falta token.
+
+> **Privacidad:** si el repositorio es público, `data/campos.json` y los KML/KMZ también lo son. Cualquiera que entre al repositorio puede ver los contornos y las notas de los campos.
+
 ## Pestaña Stock (planilla de Google)
 
 La pestaña Stock es la misma app de control de stock de Apps Script, con todas sus funciones (existencias, catálogo, movimientos, anulaciones, productos nuevos, descripciones, historial, semillas, Campo Agro, stocks anteriores, acuerdo fiduciario y exportación a Excel/CSV). Los datos siguen en la planilla de Google: la página se conecta a Apps Script mediante una API protegida con clave.
@@ -69,6 +80,7 @@ Si preferís no pegar la URL en cada navegador, ponela en `config.json → stock
 | `pizarra`, `cbot`, `matbaRofex`, `dolar` | URL y parámetros de cada fuente. |
 | `diseno.fotos` | Fotos del inicio (URL o ruta dentro de `public/`). Podés poner fotos propias. |
 | `mapa.puntos` | Campos o depósitos que se marcan en el mapa del clima. |
+| `campos.repo`, `campos.rama` | Repositorio y rama donde se guardan los campos. |
 | `stock.apiUrl` | URL de la API de Apps Script para la pestaña Stock (opcional: si queda vacía, se pide en la página). |
 | `recargaMinutos`, `diasGrafico`, `timeoutMs` | Recarga de la página, días de los gráficos y timeout por pedido. |
 
@@ -119,6 +131,8 @@ src/generar-html.js         genera public/index.html
 src/plantilla/estilos.css   estilos de la página (se incluyen dentro del HTML)
 src/plantilla/cliente.js    pestañas, animaciones, gráficos y mapa (se incluye dentro del HTML)
 public/stock/               app de stock (pestaña Stock)
+public/campos/              mapa de campos (pestaña Campos): kml.js, github.js, campos.js
+data/campos.json            campos cargados desde KML/KMZ
 apps-script/                código de Apps Script de la planilla de stock
 src/lib/http.js             fetch con timeout, reintento y charset
 src/lib/formato.js          formato argentino de números y fechas
