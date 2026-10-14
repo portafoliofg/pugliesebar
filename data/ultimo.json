@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     },
     "dolar": {
       "datos": {
@@ -89,41 +89,41 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-14T13:00:00.000Z"
+            "actualizado": "2026-10-14T18:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1507,
-            "venta": 1516,
-            "actualizado": "2026-10-14T10:35:00.000Z"
+            "compra": 1504,
+            "venta": 1513,
+            "actualizado": "2026-10-14T16:06:00.000Z"
           },
           "mep": {
-            "compra": 1538.3,
-            "venta": 1539.6,
-            "actualizado": "2026-10-14T16:00:00.000Z"
+            "compra": 1534,
+            "venta": 1539.7,
+            "actualizado": "2026-10-14T20:59:00.000Z"
           },
           "ccl": {
-            "compra": 1614.1,
-            "venta": 1614.8,
-            "actualizado": "2026-10-14T16:00:00.000Z"
+            "compra": 1615.8,
+            "venta": 1617.3,
+            "actualizado": "2026-10-14T20:59:00.000Z"
           },
           "blue": {
             "compra": 1530,
             "venta": 1550,
-            "actualizado": "2026-10-14T16:00:00.000Z"
+            "actualizado": "2026-10-14T20:59:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-14T13:00:00.000Z"
+            "actualizado": "2026-10-14T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1611.03,
-            "venta": 1614.51,
-            "actualizado": "2026-10-14T16:00:00.000Z"
+            "compra": 1613,
+            "venta": 1615.8,
+            "actualizado": "2026-10-14T20:59:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     },
     "clima": {
       "datos": {
@@ -136,43 +136,43 @@
               {
                 "fecha": "2026-10-14",
                 "min": 11.4,
-                "max": 19.2,
-                "lluviaMm": 2.1,
-                "probLluvia": 96,
-                "codigo": 53,
+                "max": 19.1,
+                "lluviaMm": 6.2,
+                "probLluvia": 100,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.1,
+                "min": 10.5,
                 "max": 20.2,
-                "lluviaMm": 6.1,
-                "probLluvia": 90,
-                "codigo": 95,
+                "lluviaMm": 11,
+                "probLluvia": 89,
+                "codigo": 96,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 12.2,
-                "max": 19.4,
-                "lluviaMm": 3.7,
-                "probLluvia": 92,
-                "codigo": 55,
+                "min": 11.9,
+                "max": 19.1,
+                "lluviaMm": 3.1,
+                "probLluvia": 80,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.4,
-                "max": 14.1,
-                "lluviaMm": 3.8,
-                "probLluvia": 86,
-                "codigo": 53,
+                "min": 11.7,
+                "max": 14.9,
+                "lluviaMm": 6.5,
+                "probLluvia": 96,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 10.2,
-                "max": 17.2,
+                "min": 9.4,
+                "max": 17,
                 "lluviaMm": 0,
                 "probLluvia": 22,
                 "codigo": 3,
@@ -181,23 +181,23 @@
               {
                 "fecha": "2026-10-19",
                 "min": 9.9,
-                "max": 14.1,
-                "lluviaMm": 7.8,
-                "probLluvia": 69,
-                "codigo": 80,
+                "max": 14.6,
+                "lluviaMm": 1.5,
+                "probLluvia": 63,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.7,
-                "max": 16.1,
-                "lluviaMm": 4.2,
+                "min": 11.2,
+                "max": 16.4,
+                "lluviaMm": 9.9,
                 "probLluvia": 43,
-                "codigo": 51,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 27.7,
+            "lluviaTotal": 38.2,
             "hayHelada": false
           },
           {
@@ -207,125 +207,125 @@
               {
                 "fecha": "2026-10-14",
                 "min": 11.3,
-                "max": 20.7,
-                "lluviaMm": 0.9,
-                "probLluvia": 59,
-                "codigo": 51,
+                "max": 20.6,
+                "lluviaMm": 2.1,
+                "probLluvia": 68,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.3,
+                "min": 11.2,
                 "max": 20.9,
-                "lluviaMm": 0.6,
-                "probLluvia": 73,
+                "lluviaMm": 0.2,
+                "probLluvia": 62,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 10.7,
-                "max": 20.4,
-                "lluviaMm": 2.1,
-                "probLluvia": 61,
+                "min": 10.4,
+                "max": 20.1,
+                "lluviaMm": 0.9,
+                "probLluvia": 54,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 10.6,
-                "max": 16.4,
-                "lluviaMm": 0,
-                "probLluvia": 20,
-                "codigo": 3,
+                "min": 11.9,
+                "max": 16.7,
+                "lluviaMm": 2.3,
+                "probLluvia": 29,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 10.9,
-                "max": 19.8,
+                "min": 10.2,
+                "max": 18.9,
                 "lluviaMm": 0,
-                "probLluvia": 2,
+                "probLluvia": 4,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.5,
-                "max": 16.2,
-                "lluviaMm": 3.9,
-                "probLluvia": 43,
-                "codigo": 55,
+                "min": 10.2,
+                "max": 17,
+                "lluviaMm": 0.3,
+                "probLluvia": 55,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.8,
-                "max": 18.1,
-                "lluviaMm": 14.1,
+                "min": 11.7,
+                "max": 19.2,
+                "lluviaMm": 6.9,
                 "probLluvia": 36,
-                "codigo": 80,
+                "codigo": 55,
                 "helada": false
               }
             ],
-            "lluviaTotal": 21.6,
+            "lluviaTotal": 12.7,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-14",
         "titulares": [
           {
-            "titulo": "El secreto de la cabaña Agromelú del Norte para producir más carne con menos alimento: Selección de reproductores eficientes y una apuesta por la genética de precisión",
-            "link": "https://bichosdecampo.com/el-secreto-de-la-cabana-agromelu-del-norte-para-producir-mas-carne-con-menos-alimento-seleccion-de-reproductores-eficientes-y-una-apuesta-por-la-genetica-de-precision/",
-            "fecha": "2026-10-14T16:17:43.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "El Niño, una oportunidad para fortalecer la nutrición: por qué la fertilización “apilada” marca la diferencia",
-            "link": "https://www.infocampo.com.ar/el-nino-una-oportunidad-para-fortalecer-la-nutricion-por-que-la-fertilizacion-apilada-marca-la-diferencia/",
-            "fecha": "2026-10-14T15:41:38.000Z",
+            "titulo": "“Hay 30 días o menos”: la carrera contrarreloj para salvar 30.000 cabezas en las islas del Paraná",
+            "link": "https://www.infocampo.com.ar/hay-30-dias-o-menos-la-carrera-contrarreloj-para-salvar-30-000-cabezas-en-las-islas-del-parana/",
+            "fecha": "2026-10-14T21:02:19.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Una buena noticia que no alcanza para festejar: La deforestación mundial cayó 15% en 2025, pero el planeta sigue perdiendo más bosques de los que debería",
-            "link": "https://bichosdecampo.com/una-buena-noticia-que-no-alcanza-para-festejar-la-deforestacion-mundial-cayo-15-en-2025-pero-el-planeta-sigue-perdiendo-mas-bosques-de-los-que-deberia/",
-            "fecha": "2026-10-14T15:12:52.000Z",
+            "titulo": "¿Pueden las sembradoras tener sentimientos? Una empresa argentina dice que sí y desarrolló tecnología para que detecten fallas y tomen decisiones",
+            "link": "https://bichosdecampo.com/pueden-las-sembradoras-tener-sentimientos-una-empresa-argentina-dice-que-si-y-desarrollo-tecnologia-para-que-detecten-fallas-y-tomen-decisiones/",
+            "fecha": "2026-10-14T21:01:06.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "¿Qué se puede hacer en el periurbano de la región agrícola por excelencia? Frutillas, como hizo Pablo Flores en las afueras de Pergamino",
+            "link": "https://bichosdecampo.com/que-se-puede-hacer-en-el-periurbano-de-la-region-agricola-por-excelencia-frutillas-como-hizo-pablo-flores-en-las-afueras-de-pergamino/",
+            "fecha": "2026-10-14T20:50:37.000Z",
             "fuente": "Bichos de Campo"
           },
           {
             "titulo": "Thiago Príncipe tiene 14 años, construyó un tractor con piezas recuperadas y ahora quiere automatizarlo: “Sentí la innovación”",
             "link": "https://www.lanacion.com.ar/economia/campo/thiago-principe-tiene-14-anos-construyo-un-tractor-con-piezas-recuperadas-y-ahora-quiere-nid14102026/",
-            "fecha": "2026-10-14T15:09:37.000Z",
+            "fecha": "2026-10-14T20:41:12.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "El Niño: un sistema en Corrientes estima el riesgo de inundación de un campo y la carga por hectárea que soporta",
-            "link": "https://www.infocampo.com.ar/el-nino-un-sistema-en-corrientes-estima-el-riesgo-de-inundacion-de-un-campo-y-la-carga-por-hectarea-que-soporta/",
-            "fecha": "2026-10-14T14:51:14.000Z",
+            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
+            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
+            "fecha": "2026-10-14T20:38:12.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Gran expectativa de los frigoríficos para la SIAL París: “El tema comercial con Europa está muy interesante”",
+            "link": "https://www.infocampo.com.ar/gran-expectativa-de-los-frigorificos-para-la-sial-paris-el-tema-comercial-con-europa-esta-muy-interesante/",
+            "fecha": "2026-10-14T19:39:52.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Súper Niño: una simulación anticipó cuánto pueden aumentar los rindes de los cultivos y dónde hay riesgos",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-nino-una-simulacion-anticipo-cuanto-pueden-aumentar-los-rindes-de-los-cultivos-y-donde-hay-nid13102026/",
-            "fecha": "2026-10-14T14:37:06.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Licitación del Belgrano Cargas: reclaman que se garanticen obras clave para el norte del país",
-            "link": "https://www.clarin.com/rural/licitacion-belgrano-cargas-reclaman-garanticen-obras-clave-norte-pais_0_4NrGggjkXd.html",
-            "fecha": "2026-10-14T12:29:13.000Z",
+            "titulo": "Realizaron un remate de más de 10 horas en Rosario: 15.000 cabezas de 9 provincias con precios sostenidos",
+            "link": "https://www.clarin.com/rural/realizaron-remate-10-horas-rosario-15000-cabezas-9-provincias-precios-sostenidos_0_b6Fi8AGJIu.html",
+            "fecha": "2026-10-14T17:30:33.000Z",
             "fuente": "Clarín Rural"
           },
           {
-            "titulo": "Gran Remate Aniversario del Rosgan: recinto colmado en un momento favorable para la ganadería, sostenido por los buenos valores de la hacienda y una disponibilidad limitada",
-            "link": "https://www.clarin.com/rural/remate-gran-aniversario-rosgan-recinto-colmado-momento-favorable-ganaderia-sostenido-buenos-valores-hacienda-disponibilidad-limitada_0_FErsVqeg2l.html",
-            "fecha": "2026-10-13T19:01:28.000Z",
+            "titulo": "“Están totalmente desesperados”: la odisea de los productores para sacar más de 60.000 animales de las islas por la crecida del Paraná",
+            "link": "https://www.clarin.com/rural/totalmente-desesperados-odisea-productores-sacar-60000-animales-islas-crecida-parana_0_ABVNeKp1Ld.html",
+            "fecha": "2026-10-14T17:28:11.000Z",
             "fuente": "Clarín Rural"
           }
         ],
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.755,
-            "usdTonelada": 468.6658935
+            "usdBushel": 12.775,
+            "usdTonelada": 469.4007675
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.795,
-            "usdTonelada": 188.7690805
+            "usdBushel": 4.81,
+            "usdTonelada": 189.35959899999997
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.685,
-            "usdTonelada": 245.63163449999996
+            "usdBushel": 6.735,
+            "usdTonelada": 247.4688195
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-14T16:18:25.290Z"
+      "obtenido": "2026-10-14T21:10:47.415Z"
     }
   }
 }
