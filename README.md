@@ -86,8 +86,8 @@ Uso: botón **＋ Cargar KML/KMZ**, o arrastrá los archivos sobre el mapa. Cada
 
 Las manda el workflow **Alertas por WhatsApp** del repositorio privado (usa tus campos, por eso no corre acá), con [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/), que es gratis:
 
-- **7:30**: resumen del día con pizarra Rosario, Chicago, dólar, clima de tus campos por provincia, alertas y lotes con NDVI en baja.
-- **19:00**: solo si hay alertas (si no, no manda nada).
+- **08:55 de lunes a viernes** (hora argentina; si GitHub atrasa la ejecución, hay respaldos a las 09:25 y 10:10 que no repiten el mensaje): resumen del día con pizarra Rosario, Chicago, dólar, clima de tus campos por provincia, alertas y lotes con NDVI en baja.
+- **19:00 de lunes a viernes**: solo si hay alertas (si no, no manda nada).
 - Alertas: helada (mínima menor al umbral en los próximos días), lluvia fuerte, ráfagas, caída de NDVI, lotes que bajan del umbral de agua útil y **precios objetivo** (avisa una sola vez cuando el precio cruza el valor).
 
 Activarlo (una sola vez):
