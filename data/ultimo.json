@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     },
     "clima": {
       "datos": {
@@ -135,9 +135,9 @@
             "dias": [
               {
                 "fecha": "2026-10-14",
-                "min": 11.1,
-                "max": 19.3,
-                "lluviaMm": 5.8,
+                "min": 11.2,
+                "max": 19.2,
+                "lluviaMm": 5.7,
                 "probLluvia": 96,
                 "codigo": 80,
                 "helada": false
@@ -146,7 +146,7 @@
                 "fecha": "2026-10-15",
                 "min": 11.5,
                 "max": 19.8,
-                "lluviaMm": 3.2,
+                "lluviaMm": 3.3,
                 "probLluvia": 90,
                 "codigo": 53,
                 "helada": false
@@ -155,7 +155,7 @@
                 "fecha": "2026-10-16",
                 "min": 12.1,
                 "max": 19.3,
-                "lluviaMm": 4.8,
+                "lluviaMm": 4.6,
                 "probLluvia": 92,
                 "codigo": 80,
                 "helada": false
@@ -163,15 +163,15 @@
               {
                 "fecha": "2026-10-17",
                 "min": 11.4,
-                "max": 15.7,
-                "lluviaMm": 3,
+                "max": 15.1,
+                "lluviaMm": 3.2,
                 "probLluvia": 86,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 10.9,
+                "min": 11.6,
                 "max": 18,
                 "lluviaMm": 0,
                 "probLluvia": 22,
@@ -180,7 +180,7 @@
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.5,
+                "min": 10.4,
                 "max": 17.2,
                 "lluviaMm": 0.6,
                 "probLluvia": 69,
@@ -189,15 +189,15 @@
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.8,
-                "max": 16.1,
-                "lluviaMm": 4.2,
-                "probLluvia": 43,
+                "min": 12.8,
+                "max": 15.3,
+                "lluviaMm": 3.8,
+                "probLluvia": 55,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 21.6,
+            "lluviaTotal": 21.200000000000003,
             "hayHelada": false
           },
           {
@@ -206,8 +206,8 @@
             "dias": [
               {
                 "fecha": "2026-10-14",
-                "min": 10.8,
-                "max": 21,
+                "min": 10.9,
+                "max": 20.9,
                 "lluviaMm": 1.8,
                 "probLluvia": 59,
                 "codigo": 53,
@@ -215,7 +215,7 @@
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.4,
+                "min": 11.5,
                 "max": 20.6,
                 "lluviaMm": 0.6,
                 "probLluvia": 73,
@@ -224,7 +224,7 @@
               },
               {
                 "fecha": "2026-10-16",
-                "min": 11.1,
+                "min": 11.2,
                 "max": 20.1,
                 "lluviaMm": 1.3,
                 "probLluvia": 61,
@@ -234,7 +234,7 @@
               {
                 "fecha": "2026-10-17",
                 "min": 11.7,
-                "max": 17,
+                "max": 16.8,
                 "lluviaMm": 0,
                 "probLluvia": 20,
                 "codigo": 3,
@@ -242,8 +242,8 @@
               },
               {
                 "fecha": "2026-10-18",
-                "min": 10.9,
-                "max": 19.7,
+                "min": 11,
+                "max": 19.3,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 3,
@@ -252,7 +252,7 @@
               {
                 "fecha": "2026-10-19",
                 "min": 9.9,
-                "max": 19,
+                "max": 18.9,
                 "lluviaMm": 0,
                 "probLluvia": 43,
                 "codigo": 3,
@@ -260,36 +260,48 @@
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.8,
-                "max": 18.1,
-                "lluviaMm": 14.1,
-                "probLluvia": 36,
+                "min": 13,
+                "max": 17.1,
+                "lluviaMm": 12.2,
+                "probLluvia": 57,
                 "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 17.8,
+            "lluviaTotal": 15.899999999999999,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-14",
         "titulares": [
           {
-            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 14 octubre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-14-octubre-2026/",
-            "fecha": "2026-10-14T10:00:31.000Z",
+            "titulo": "En un año, cayó 5% el empleo en la maquinaria agrícola: se perdieron unos 700 puestos formales",
+            "link": "https://www.infocampo.com.ar/en-un-ano-cayo-5-el-empleo-en-la-maquinaria-agricola-se-perdieron-unos-700-puestos-formales/",
+            "fecha": "2026-10-14T11:37:33.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Clima en Mendoza hoy 14 octubre 2026",
-            "link": "https://www.infocampo.com.ar/clima-en-mendoza-hoy-14-octubre-2026/",
-            "fecha": "2026-10-14T09:00:14.000Z",
+            "titulo": "Súper Niño: una simulación anticipó cuánto pueden aumentar los rindes de los cultivos y dónde hay riesgos",
+            "link": "https://www.lanacion.com.ar/economia/campo/el-nino-una-simulacion-anticipo-cuanto-pueden-aumentar-los-rindes-de-los-cultivos-y-donde-hay-nid13102026/",
+            "fecha": "2026-10-14T11:18:54.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Caminos rurales: productores de Rojas fueron a la Justicia para saber qué pasó con los 1.500 millones de pesos de la tasa vial y piden que se privatice la gestión de la red",
+            "link": "https://bichosdecampo.com/caminos-rurales-productores-de-rojas-fueron-a-la-justicia-para-saber-que-paso-con-los-1-500-millones-de-pesos-de-la-tasa-vial-y-piden-que-se-privatice-la-gestion-de-la-red/",
+            "fecha": "2026-10-14T11:06:55.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 14 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-14-octubre-2026/",
+            "fecha": "2026-10-14T10:00:31.000Z",
             "fuente": "Infocampo"
           },
           {
@@ -299,21 +311,9 @@
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Locura en el mercado internacional de maíz con precios que operan a contramano en Estados Unidos y Europa",
-            "link": "https://bichosdecampo.com/locura-en-el-mercado-internacional-de-maiz-con-precios-que-operan-a-contramano-en-estados-unidos-y-europa/",
-            "fecha": "2026-10-13T22:58:28.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
             "titulo": "Jason Mraz, el músico que produce paltas y café en San Diego: “Si una granja se maneja bien, sobrevivirá a su agricultor”",
             "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
             "fecha": "2026-10-13T22:26:27.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "El Niño: una simulación anticipó cuánto pueden aumentar los rindes de los cultivos y dónde hay riesgos",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-nino-una-simulacion-anticipo-cuanto-pueden-aumentar-los-rindes-de-los-cultivos-y-donde-hay-nid13102026/",
-            "fecha": "2026-10-13T22:23:59.000Z",
             "fuente": "La Nación Campo"
           },
           {
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     },
     "cbot": {
       "datos": {
@@ -346,19 +346,19 @@
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8225,
-            "usdTonelada": 189.85169775
+            "usdBushel": 4.825,
+            "usdTonelada": 189.9501175
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.6625,
-            "usdTonelada": 244.80490124999997
+            "usdBushel": 6.6725,
+            "usdTonelada": 245.17233825
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-14T10:58:34.356Z"
+      "obtenido": "2026-10-14T11:52:53.723Z"
     }
   }
 }
