@@ -140,13 +140,13 @@
       "2026-10-13": 195
     },
     "cbot.soja": {
-      "2026-10-13": 471.3298
+      "2026-10-13": 473.5344
     },
     "cbot.maiz": {
       "2026-10-13": 190.0485
     },
     "cbot.trigo": {
-      "2026-10-13": 245.5398
+      "2026-10-13": 245.2642
     }
   },
   "ejecuciones": [
@@ -372,6 +372,19 @@
     },
     {
       "momento": "2026-10-13T22:19:40.144Z",
+      "estado": {
+        "pizarra": "ok",
+        "cbot": "ok",
+        "matba": "ok",
+        "dolar": "ok",
+        "clima": "ok",
+        "noticias": "ok",
+        "enso": "ok",
+        "feriados": "ok"
+      }
+    },
+    {
+      "momento": "2026-10-14T03:02:06.048Z",
       "estado": {
         "pizarra": "ok",
         "cbot": "ok",

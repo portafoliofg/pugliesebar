@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     },
     "dolar": {
       "datos": {
@@ -123,81 +123,81 @@
           }
         }
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-13",
+        "fecha": "2026-10-14",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-13",
-                "min": 11.1,
-                "max": 18.2,
-                "lluviaMm": 1.3,
-                "probLluvia": 86,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-14",
-                "min": 12.2,
-                "max": 18.2,
-                "lluviaMm": 4.8,
-                "probLluvia": 94,
-                "codigo": 53,
+                "min": 10.9,
+                "max": 18,
+                "lluviaMm": 3.8,
+                "probLluvia": 100,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.7,
-                "max": 19.5,
-                "lluviaMm": 7.8,
-                "probLluvia": 80,
-                "codigo": 95,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-16",
-                "min": 12.4,
-                "max": 18.5,
-                "lluviaMm": 12.5,
-                "probLluvia": 76,
-                "codigo": 81,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-17",
-                "min": 11.3,
-                "max": 16.2,
-                "lluviaMm": 2.1,
-                "probLluvia": 75,
+                "min": 11.2,
+                "max": 20.4,
+                "lluviaMm": 3.5,
+                "probLluvia": 91,
                 "codigo": 53,
                 "helada": false
               },
               {
-                "fecha": "2026-10-18",
-                "min": 10.6,
-                "max": 17.6,
-                "lluviaMm": 0.3,
-                "probLluvia": 12,
+                "fecha": "2026-10-16",
+                "min": 12,
+                "max": 18,
+                "lluviaMm": 4.6,
+                "probLluvia": 92,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-17",
+                "min": 11.6,
+                "max": 16.1,
+                "lluviaMm": 1.5,
+                "probLluvia": 84,
                 "codigo": 51,
                 "helada": false
               },
               {
+                "fecha": "2026-10-18",
+                "min": 11.1,
+                "max": 17.3,
+                "lluviaMm": 0,
+                "probLluvia": 6,
+                "codigo": 3,
+                "helada": false
+              },
+              {
                 "fecha": "2026-10-19",
-                "min": 10.9,
-                "max": 15.1,
-                "lluviaMm": 0.6,
-                "probLluvia": 57,
-                "codigo": 51,
+                "min": 10.4,
+                "max": 15.7,
+                "lluviaMm": 0,
+                "probLluvia": 52,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-20",
+                "min": 12.7,
+                "max": 18.6,
+                "lluviaMm": 0,
+                "probLluvia": 55,
+                "codigo": 3,
                 "helada": false
               }
             ],
-            "lluviaTotal": 29.400000000000002,
+            "lluviaTotal": 13.399999999999999,
             "hayHelada": false
           },
           {
@@ -205,85 +205,109 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-13",
-                "min": 12,
-                "max": 18.9,
-                "lluviaMm": 2.5,
-                "probLluvia": 85,
-                "codigo": 55,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-14",
-                "min": 10.7,
-                "max": 20,
-                "lluviaMm": 0.4,
-                "probLluvia": 82,
+                "min": 10.1,
+                "max": 20.3,
+                "lluviaMm": 0.8,
+                "probLluvia": 78,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.6,
-                "max": 20.6,
-                "lluviaMm": 3.5,
-                "probLluvia": 65,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-16",
-                "min": 10.9,
-                "max": 20.5,
-                "lluviaMm": 1.9,
-                "probLluvia": 55,
+                "min": 11.2,
+                "max": 21,
+                "lluviaMm": 1.7,
+                "probLluvia": 59,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-10-16",
+                "min": 11,
+                "max": 20.4,
+                "lluviaMm": 1.9,
+                "probLluvia": 45,
+                "codigo": 51,
+                "helada": false
+              },
+              {
                 "fecha": "2026-10-17",
-                "min": 12.1,
-                "max": 17.7,
+                "min": 11.4,
+                "max": 17.6,
                 "lluviaMm": 0,
-                "probLluvia": 27,
+                "probLluvia": 14,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 11,
-                "max": 18.4,
+                "min": 11.3,
+                "max": 19.2,
                 "lluviaMm": 0,
-                "probLluvia": 11,
+                "probLluvia": 8,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.6,
-                "max": 16.4,
+                "min": 10.2,
+                "max": 17.2,
+                "lluviaMm": 0,
+                "probLluvia": 53,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-20",
+                "min": 14.5,
+                "max": 21.1,
                 "lluviaMm": 0.6,
-                "probLluvia": 50,
+                "probLluvia": 57,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 8.9,
+            "lluviaTotal": 5,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-13",
+        "fecha": "2026-10-14",
         "titulares": [
           {
-            "titulo": "Ya produce en 18.650 metros cuadrados: una provincia vive una transformación histórica con cultivos sin tierra",
-            "link": "https://www.lanacion.com.ar/economia/campo/ya-produce-en-18650-metros-cuadrados-una-provincia-vive-una-transformacion-historica-con-cultivos-nid13102026/",
-            "fecha": "2026-10-13T22:18:24.000Z",
+            "titulo": "Ahora el gobierno de Trump dice que compensará a la industria de los biocombustibles luego de aplicar una medida que resultó perjudicial para el sector",
+            "link": "https://bichosdecampo.com/ahora-el-gobierno-de-trump-dice-que-compensara-a-la-industria-de-los-biocombustibles-luego-de-aplicar-una-medida-que-resulto-perjudicial-para-el-sector/",
+            "fecha": "2026-10-14T01:52:01.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Riesgo país hoy 13/10/2026",
+            "link": "https://www.infocampo.com.ar/riesgo-pais-hoy-13-de-octubre-2/",
+            "fecha": "2026-10-14T01:13:18.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Locura en el mercado internacional de maíz con precios que operan a contramano en Estados Unidos y Europa",
+            "link": "https://bichosdecampo.com/locura-en-el-mercado-internacional-de-maiz-con-precios-que-operan-a-contramano-en-estados-unidos-y-europa/",
+            "fecha": "2026-10-13T22:58:28.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Jason Mraz, el músico que produce paltas y café en San Diego: “Si una granja se maneja bien, sobrevivirá a su agricultor”",
+            "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
+            "fecha": "2026-10-13T22:26:27.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "El Niño: una simulación anticipó cuánto pueden aumentar los rindes de los cultivos y dónde hay riesgos",
+            "link": "https://www.lanacion.com.ar/economia/campo/el-nino-una-simulacion-anticipo-cuanto-pueden-aumentar-los-rindes-de-los-cultivos-y-donde-hay-nid13102026/",
+            "fecha": "2026-10-13T22:23:59.000Z",
             "fuente": "La Nación Campo"
           },
           {
@@ -291,30 +315,6 @@
             "link": "https://www.infocampo.com.ar/el-negocio-de-la-papa-esta-verde-y-goza-de-buena-salud-un-alivio-dentro-de-las-economias-regionales/",
             "fecha": "2026-10-13T22:16:53.000Z",
             "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Llegó a valer más de US$1000 millones: una empresa del agro convocó a sus accionistas a votar su liquidación",
-            "link": "https://www.lanacion.com.ar/economia/campo/llego-a-valer-mas-de-us1000-millones-una-empresa-del-agro-convoco-a-sus-accionistas-a-votar-su-nid13102026/",
-            "fecha": "2026-10-13T22:02:01.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Éxodo bovino correntino: Con los ríos Paraná y Uruguay en crecida, los productores comenzaron a sacar la hacienda de las islas y ya se teme un otoño sin pasto",
-            "link": "https://bichosdecampo.com/exodo-bovino-correntino-con-los-rios-parana-y-uruguay-en-crecida-los-productores-comenzaron-a-sacar-la-hacienda-de-las-islas-y-ya-se-teme-un-otono-sin-pasto/",
-            "fecha": "2026-10-13T21:57:31.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Congreso de Ateneos CRA: “Los jóvenes no son solo el futuro del campo; son su gran potencia”",
-            "link": "https://www.infocampo.com.ar/congreso-de-ateneos-cra-los-jovenes-no-son-solo-el-futuro-del-campo-son-su-gran-potencia/",
-            "fecha": "2026-10-13T20:08:19.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "La empresa de biotecnología Moolec anuncia que pedirá su propia liquidación y crecen las dudas sobre el futuro de la cordobesa ValoraSoy",
-            "link": "https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/",
-            "fecha": "2026-10-13T19:42:25.000Z",
-            "fuente": "Bichos de Campo"
           },
           {
             "titulo": "Gran Remate Aniversario del Rosgan: recinto colmado en un momento favorable para la ganadería, sostenido por los buenos valores de la hacienda y una disponibilidad limitada",
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     },
     "cbot": {
       "datos": {
@@ -341,8 +341,8 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.8275,
-            "usdTonelada": 471.32981175
+            "usdBushel": 12.8875,
+            "usdTonelada": 473.53443374999995
           },
           "maiz": {
             "simbolo": "ZC=F",
@@ -351,14 +351,14 @@
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.6825,
-            "usdTonelada": 245.53977525
+            "usdBushel": 6.675,
+            "usdTonelada": 245.26419749999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-13T22:19:40.144Z"
+      "obtenido": "2026-10-14T03:02:06.048Z"
     }
   }
 }
