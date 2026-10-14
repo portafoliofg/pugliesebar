@@ -180,3 +180,32 @@ body.reporte { height: auto; background:
 #f-lote { border: 0; background: transparent; flex: 1; color: var(--ink); font: inherit; }
 @media (max-width: 760px) { .c-lotes { grid-template-columns: 1fr; } }
 .m-lotes tr.m-resaltado td { background: color-mix(in srgb, var(--dorado, #c8962e) 22%, transparent); }
+
+/* ---------- Comercialización ---------- */
+.embebido .r-barra .volver { visibility: hidden; }
+.v-portada { grid-template-columns: 1.1fr 1fr; background: linear-gradient(130deg, #1f3a5a, #2f6b6a 50%, #6b8f14); }
+.v-cultivos { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.v-cultivo { border-top: 5px solid var(--c); display: flex; flex-direction: column; gap: 12px; }
+.v-cab { display: flex; justify-content: space-between; align-items: baseline; }
+.v-cab h3 { font-size: 1.3rem; }
+.v-cab b { font: 700 1.6rem var(--display); }
+.v-barra { display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--muted) 18%, transparent); }
+.v-barra i { display: block; height: 100%; }
+.v-precio { background: #7fae2b; } .v-fijar { background: #3a8fd6; } .v-libre { background: color-mix(in srgb, var(--muted) 30%, transparent); }
+.v-ley { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .8rem; color: var(--muted); font-weight: 700; }
+.v-ley i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.v-datos { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+.v-datos dt { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.v-datos dd { margin: 2px 0 0; font-weight: 800; font-variant-numeric: tabular-nums; }
+.v-datos small { font-weight: 600; color: var(--muted); }
+.v-datos .pos { color: var(--sube); } .v-datos .neg { color: var(--baja); }
+.v-datos .link { font-size: .78rem; display: block; margin-top: 2px; }
+.v-tabla .v-fij td { font-size: .86rem; color: var(--muted); border-top: 0; }
+.v-acc { white-space: nowrap; }
+.v-acc .btn, .v-tabla .btn { padding: 5px 10px; font-size: .8rem; }
+.punto-c { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
+.v-agenda { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.v-agenda li { display: flex; gap: 12px; align-items: baseline; padding: 8px 10px; border-radius: 12px; background: var(--surface-2); }
+.v-agenda b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 760px) { .v-portada { grid-template-columns: 1fr; } .v-cultivos { grid-template-columns: 1fr; } }
+.v-alerta { margin: 0; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, #d13b1e 12%, transparent); color: var(--baja); font-weight: 700; font-size: .86rem; }

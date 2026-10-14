@@ -1565,7 +1565,7 @@
   // El tablero (misma página de origen) avisa si muestra el menú lateral; en ese caso se oculta
   // la barra de arriba y se le manda la lista de acciones visibles para este rol.
   const ACCIONES = [
-    ['Reportes', [['btn-general', '📋', 'Reporte general'], ['btn-cuaderno', '📚', 'Cuaderno de campo'], ['btn-margen', '💵', 'Margen bruto']]],
+    ['Reportes', [['btn-general', '📋', 'Reporte general'], ['btn-cuaderno', '📚', 'Cuaderno de campo'], ['btn-margen', '💵', 'Margen bruto'], ['btn-ventas', '🤝', 'Comercialización']]],
     ['Registrar', [['btn-labores', '📒', 'Labores'], ['btn-importar-labores', '📥', 'Importar labores (Excel/CSV)'], ['btn-lluvia', '🌧️', 'Lluvia'], ['btn-cargar', '＋', 'Cargar KML/KMZ']]],
     ['Ajustes', [['btn-gh', '🔗', 'GitHub y token'], ['btn-alertas', '🔔', 'Alertas por WhatsApp'], ['btn-accesos', '👥', 'Accesos'], ['btn-borrar-todo', '🗑', 'Eliminar todos']]]
   ];

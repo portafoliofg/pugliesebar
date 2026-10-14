@@ -28,7 +28,7 @@
     document.documentElement.setAttribute('data-theme', t);
     // La app de stock usa la misma clave, así quedan sincronizadas
     try { localStorage.setItem('vdr-theme', t); } catch (e) {}
-    ['#stock-frame', '#campos-frame'].forEach(function (sel) {
+    ['#stock-frame', '#campos-frame', '#ventas-frame'].forEach(function (sel) {
       var f = $(sel);
       try { if (f && f.contentWindow && f.contentWindow.applyTheme) f.contentWindow.applyTheme(t); } catch (e) {}
     });
@@ -71,7 +71,7 @@
         if (sel && p.scrollIntoView) { try { p.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch (e) {} }
       });
       actual = nombre;
-      document.body.classList.toggle('completa', nombre === 'campos' || nombre === 'stock');
+      document.body.classList.toggle('completa', nombre === 'campos' || nombre === 'stock' || nombre === 'ventas');
       mostrarSubCampos();
       window.scrollTo(0, 0);
       alAbrir(nombre);
@@ -212,7 +212,7 @@
     abiertas[nombre] = true;
     if (nombre === 'granos' || nombre === 'dolar') pintarGraficos();
     if (nombre === 'clima') { cargarMapa(); cargarPerspectiva(); }
-    if (nombre === 'stock' || nombre === 'campos') {
+    if (nombre === 'stock' || nombre === 'campos' || nombre === 'ventas') {
       var f = $('#' + nombre + '-frame');
       if (f && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
     }
@@ -362,7 +362,7 @@
   function programarRecarga() {
     setTimeout(function () {
       // En Stock o Campos no se recarga, para no perder lo que estás cargando
-      if (actual === 'stock' || actual === 'campos' || document.hidden) return programarRecarga();
+      if (actual === 'stock' || actual === 'campos' || actual === 'ventas' || document.hidden) return programarRecarga();
       var u = new URL(location.href);
       u.searchParams.set('t', Date.now());
       location.replace(u.toString());
