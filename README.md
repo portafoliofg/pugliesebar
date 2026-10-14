@@ -132,6 +132,10 @@ En computadora (más de 900 px de ancho) las secciones van en un menú lateral q
 - **En el token de GitHub** (⚙️ Más → 🔗 GitHub) hay un botón para ver y copiar el token y usarlo en otro dispositivo.
 - Las tipografías no frenan el primer dibujo y los pedidos independientes se hacen en paralelo.
 
+## Granos: día a día
+
+En la pestaña Granos, la tarjeta **Día a día** muestra, para el grano elegido, cómo varió el precio cada día en los últimos `diasGrafico` días hábiles: pizarra Rosario ($/t), Chicago y la posición más cercana de Matba-Rofex (US$/t), en un gráfico con dos ejes y una tabla con la variación diaria. La historia se completa sola la primera vez (y como mucho una vez por semana si una serie quedó corta) desde las consultas de la Cámara Arbitral, Yahoo Finance y los ajustes de Matba-Rofex (`src/fuentes/historia.js`); después cada actualización suma el dato del día.
+
 ## Configuración (`config.json`)
 
 | Clave | Para qué sirve |

@@ -313,7 +313,7 @@ function htmlDiaADia(m) {
   };
   const tabla = (g) => {
     const x = dia[g.clave];
-    const filas = x.fechas.map((f, i) => i).reverse().map((i) => `<tr><td>${esc(diaSemanaCorto(x.fechas[i]))} ${esc(fechaCorta(x.fechas[i]))}</td>
+    const filas = x.fechas.map((f, i) => i).reverse().map((i) => `<tr><td>${esc(diaSemanaCorto(x.fechas[i]))}</td>
       ${varTd(x.pizarra, i, (v) => pesos(v, 0))}${x.cbot ? varTd(x.cbot, i, (v) => dolares(v)) : ''}${x.matba ? varTd(x.matba.valores, i, (v) => dolares(v)) : ''}</tr>`).join('');
     return `<div class="dd-tabla" data-dd-tabla="${g.clave}"${g === lista[0] ? '' : ' hidden'}><div class="tabla-scroll"><table>
       <thead><tr><th>Día</th><th class="n">Pizarra $/t</th><th class="n">Var.</th>${x.cbot ? '<th class="n">Chicago US$/t</th><th class="n">Var.</th>' : ''}${x.matba ? `<th class="n">Matba ${esc(x.matba.posicion)} US$/t</th><th class="n">Var.</th>` : ''}</tr></thead>
