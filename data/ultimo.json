@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     },
     "dolar": {
       "datos": {
@@ -89,41 +89,41 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-14T10:00:00.000Z"
+            "actualizado": "2026-10-14T13:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1503.5,
-            "venta": 1512.5,
-            "actualizado": "2026-10-14T09:46:00.000Z"
+            "compra": 1507,
+            "venta": 1516,
+            "actualizado": "2026-10-14T10:35:00.000Z"
           },
           "mep": {
-            "compra": 1534.2,
-            "venta": 1539.4,
-            "actualizado": "2026-10-14T12:56:00.000Z"
+            "compra": 1538.3,
+            "venta": 1539.6,
+            "actualizado": "2026-10-14T16:00:00.000Z"
           },
           "ccl": {
-            "compra": 1611.1,
-            "venta": 1613.8,
-            "actualizado": "2026-10-14T12:56:00.000Z"
+            "compra": 1614.1,
+            "venta": 1614.8,
+            "actualizado": "2026-10-14T16:00:00.000Z"
           },
           "blue": {
             "compra": 1530,
             "venta": 1550,
-            "actualizado": "2026-10-14T12:56:00.000Z"
+            "actualizado": "2026-10-14T16:00:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-14T10:00:00.000Z"
+            "actualizado": "2026-10-14T13:00:00.000Z"
           },
           "cripto": {
-            "compra": 1608.21,
-            "venta": 1611.12,
-            "actualizado": "2026-10-14T12:56:00.000Z"
+            "compra": 1611.03,
+            "venta": 1614.51,
+            "actualizado": "2026-10-14T16:00:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     },
     "clima": {
       "datos": {
@@ -274,58 +274,58 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-14",
         "titulares": [
           {
-            "titulo": "Dólar blue: a cuánto cotizan hoy en Córdoba 14 octubre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-14-octubre-2026/",
-            "fecha": "2026-10-14T13:10:06.000Z",
+            "titulo": "El secreto de la cabaña Agromelú del Norte para producir más carne con menos alimento: Selección de reproductores eficientes y una apuesta por la genética de precisión",
+            "link": "https://bichosdecampo.com/el-secreto-de-la-cabana-agromelu-del-norte-para-producir-mas-carne-con-menos-alimento-seleccion-de-reproductores-eficientes-y-una-apuesta-por-la-genetica-de-precision/",
+            "fecha": "2026-10-14T16:17:43.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "El Niño, una oportunidad para fortalecer la nutrición: por qué la fertilización “apilada” marca la diferencia",
+            "link": "https://www.infocampo.com.ar/el-nino-una-oportunidad-para-fortalecer-la-nutricion-por-que-la-fertilizacion-apilada-marca-la-diferencia/",
+            "fecha": "2026-10-14T15:41:38.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "El USDA proyecta una nueva campaña récord de girasol para la Argentina con exportaciones sostenidas de semilla",
-            "link": "https://bichosdecampo.com/el-usda-proyecta-una-nueva-campana-record-de-girasol-para-la-argentina-con-exportaciones-sostenidas-de-semilla/",
-            "fecha": "2026-10-14T13:08:50.000Z",
+            "titulo": "Una buena noticia que no alcanza para festejar: La deforestación mundial cayó 15% en 2025, pero el planeta sigue perdiendo más bosques de los que debería",
+            "link": "https://bichosdecampo.com/una-buena-noticia-que-no-alcanza-para-festejar-la-deforestacion-mundial-cayo-15-en-2025-pero-el-planeta-sigue-perdiendo-mas-bosques-de-los-que-deberia/",
+            "fecha": "2026-10-14T15:12:52.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "“Hay muchos jóvenes que entran para ganar plata, y es muy peligroso”: La incómoda advertencia de un experto irlandés sobre el boom de la pulverización con drones",
-            "link": "https://bichosdecampo.com/hay-muchos-jovenes-que-entran-para-ganar-plata-y-es-muy-peligroso-la-incomoda-advertencia-de-un-experto-irlandes-sobre-el-boom-de-la-pulverizacion-con-drones/",
-            "fecha": "2026-10-14T13:05:43.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Simulan el clima de 2040 para saber qué pasará con los pastizales",
-            "link": "https://www.lanacion.com.ar/economia/campo/simulan-el-clima-de-2040-para-saber-que-pasara-con-los-pastizales-nid14102026/",
-            "fecha": "2026-10-14T13:00:00.000Z",
+            "titulo": "Thiago Príncipe tiene 14 años, construyó un tractor con piezas recuperadas y ahora quiere automatizarlo: “Sentí la innovación”",
+            "link": "https://www.lanacion.com.ar/economia/campo/thiago-principe-tiene-14-anos-construyo-un-tractor-con-piezas-recuperadas-y-ahora-quiere-nid14102026/",
+            "fecha": "2026-10-14T15:09:37.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "En un año, cayó 5% el empleo en la maquinaria agrícola: se perdieron unos 700 puestos formales",
-            "link": "https://www.infocampo.com.ar/en-un-ano-cayo-5-el-empleo-en-la-maquinaria-agricola-se-perdieron-unos-700-puestos-formales/",
-            "fecha": "2026-10-14T11:37:33.000Z",
+            "titulo": "El Niño: un sistema en Corrientes estima el riesgo de inundación de un campo y la carga por hectárea que soporta",
+            "link": "https://www.infocampo.com.ar/el-nino-un-sistema-en-corrientes-estima-el-riesgo-de-inundacion-de-un-campo-y-la-carga-por-hectarea-que-soporta/",
+            "fecha": "2026-10-14T14:51:14.000Z",
             "fuente": "Infocampo"
           },
           {
             "titulo": "Súper Niño: una simulación anticipó cuánto pueden aumentar los rindes de los cultivos y dónde hay riesgos",
             "link": "https://www.lanacion.com.ar/economia/campo/el-nino-una-simulacion-anticipo-cuanto-pueden-aumentar-los-rindes-de-los-cultivos-y-donde-hay-nid13102026/",
-            "fecha": "2026-10-14T11:18:54.000Z",
+            "fecha": "2026-10-14T14:37:06.000Z",
             "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Licitación del Belgrano Cargas: reclaman que se garanticen obras clave para el norte del país",
+            "link": "https://www.clarin.com/rural/licitacion-belgrano-cargas-reclaman-garanticen-obras-clave-norte-pais_0_4NrGggjkXd.html",
+            "fecha": "2026-10-14T12:29:13.000Z",
+            "fuente": "Clarín Rural"
           },
           {
             "titulo": "Gran Remate Aniversario del Rosgan: recinto colmado en un momento favorable para la ganadería, sostenido por los buenos valores de la hacienda y una disponibilidad limitada",
             "link": "https://www.clarin.com/rural/remate-gran-aniversario-rosgan-recinto-colmado-momento-favorable-ganaderia-sostenido-buenos-valores-hacienda-disponibilidad-limitada_0_FErsVqeg2l.html",
             "fecha": "2026-10-13T19:01:28.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "\"Aumento del 329%\": una economía regional clave superó una fuerte crisis por un salto en los precios",
-            "link": "https://www.clarin.com/rural/aumento-329-economia-regional-clave-supero-fuerte-crisis-salto-precios_0_1dQ1jl6vc1.html",
-            "fecha": "2026-10-13T19:00:25.000Z",
             "fuente": "Clarín Rural"
           }
         ],
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.8825,
-            "usdTonelada": 473.35071524999995
+            "usdBushel": 12.755,
+            "usdTonelada": 468.6658935
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8125,
-            "usdTonelada": 189.45801875
+            "usdBushel": 4.795,
+            "usdTonelada": 188.7690805
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.655,
-            "usdTonelada": 244.52932349999998
+            "usdBushel": 6.685,
+            "usdTonelada": 245.63163449999996
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-14T13:14:14.672Z"
+      "obtenido": "2026-10-14T16:18:25.290Z"
     }
   }
 }
