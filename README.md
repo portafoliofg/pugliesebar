@@ -123,6 +123,10 @@ Si preferís no pegar la URL en cada navegador, ponela en `config.json → stock
 
 > La URL de la aplicación web es pública, pero sin la clave no se puede leer ni modificar nada. Usá una clave larga y no la compartas. La app original de Apps Script (`doGet`) sigue funcionando igual que antes.
 
+## Menú lateral
+
+En computadora (más de 900 px de ancho) las secciones van en un menú lateral que se puede achicar a solo íconos (botón abajo a la izquierda; se recuerda en el navegador). Campos y Stock ocupan toda la pantalla, y las acciones de Mis campos (reportes, labores, lluvia, cargar KML/KMZ, GitHub, alertas, accesos) aparecen en el menú debajo de **Campos**, según el rol de quien entra. En el celular se mantiene la barra de arriba, y la de Mis campos queda compacta en una fila deslizable.
+
 ## Velocidad
 
 - **Campos y reportes:** los archivos del repositorio privado se guardan en este navegador (IndexedDB). La página se muestra al instante con esa copia y la revisa en segundo plano con ETag: si nada cambió, GitHub responde 304 sin mandar datos; si cambió, la página se redibuja sola. Las imágenes NDVI quedan guardadas y los pronósticos de Open-Meteo se reutilizan 30 minutos (el histórico 12 h, las normales 1991–2020, la altura y el suelo 30 días). Al tocar **Desconectar** se borra todo.

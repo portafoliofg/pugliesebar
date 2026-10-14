@@ -349,3 +349,16 @@ body.rol-lectura .solo-dueno, body.rol-lectura .solo-carga, body.rol-carga .solo
 .botones-lote { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .token-ver { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
 .token-ver input { flex: 1 1 260px; min-width: 0; font-family: ui-monospace, monospace; font-size: .85rem; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); }
+/* Dentro del tablero, con el menú lateral: sin barra de arriba, mapa y lista a pantalla completa */
+body.con-lateral .barra { display: none; }
+/* Celular: barra compacta en una sola fila deslizable, para que el mapa ocupe la pantalla */
+@media (max-width: 700px) {
+  .barra { padding: 10px 12px; gap: 8px 10px; }
+  .barra h1 { font-size: 1.15rem; }
+  .barra h1 .logo-mini { width: 24px; height: 24px; }
+  .resumen span:nth-child(n+3) { display: none; }
+  .barra .acciones { flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; padding-bottom: 2px; }
+  .barra .acciones::-webkit-scrollbar { display: none; }
+  .barra .btn { padding: 8px 12px; font-size: .84rem; }
+  .barra .menu-mas-lista, .barra #menu-reportes .menu-mas-lista { position: fixed; left: 12px; right: 12px; top: auto; margin-top: 8px; min-width: 0; }
+}

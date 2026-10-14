@@ -43,6 +43,7 @@ const ICONOS = {
   stock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
   flecha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   externo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>',
+  colapsar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M15 10l-2 2 2 2"/></svg>',
   tema: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>',
   calendario: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
   copo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg>'
@@ -527,9 +528,11 @@ ${leerPlantilla('estilos.css')}
   <div class="cab-in">
     <a class="marca" href="#inicio" data-ir="inicio" aria-label="${t}, inicio"><span class="marca-logo">${LOGO}</span><span class="marca-txt"><b>${t}</b><small>Agro · Campos · Stock</small></span></a>
     <nav class="pestanas" role="tablist" aria-label="Secciones">
-      ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('campos', 'Campos')}${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
+      ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('campos', 'Campos')}<div class="lateral-sub" id="lateral-campos" role="group" aria-label="Acciones de Mis campos" hidden></div>${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
     </nav>
+    <input type="file" id="lateral-archivo" hidden multiple accept=".kml,.kmz,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz">
     <div class="cab-der">
+      <button class="boton-icono solo-lateral" id="btn-colapsar" type="button" aria-label="Achicar el menú" aria-pressed="false" title="Achicar / agrandar el menú">${ICONOS.colapsar}</button>
       <span class="act" title="Última actualización: ${esc(fecha)} ${esc(hora)} h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>${esc(hora)} h</b></span>
       <button class="boton-icono" id="btn-tema" type="button" aria-label="Cambiar entre modo claro y oscuro">${ICONOS.tema}</button>
     </div>

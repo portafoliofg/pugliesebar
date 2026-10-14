@@ -1391,6 +1391,45 @@
     conToken(() => ventanaLabor(id && datos.campos.some((c) => c.id === id) ? [id] : []));
   }
 
+  // ---------- Dentro del tablero: las acciones van al menú lateral ----------
+  // El tablero (misma página de origen) avisa si muestra el menú lateral; en ese caso se oculta
+  // la barra de arriba y se le manda la lista de acciones visibles para este rol.
+  const ACCIONES = [
+    ['Reportes', [['btn-general', '📋', 'Reporte general'], ['btn-cuaderno', '📚', 'Cuaderno de campo'], ['btn-margen', '💵', 'Margen bruto']]],
+    ['Registrar', [['btn-labores', '📒', 'Labores'], ['btn-lluvia', '🌧️', 'Lluvia'], ['btn-cargar', '＋', 'Cargar KML/KMZ']]],
+    ['Ajustes', [['btn-gh', '🔗', 'GitHub y token'], ['btn-alertas', '🔔', 'Alertas por WhatsApp'], ['btn-accesos', '👥', 'Accesos'], ['btn-borrar-todo', '🗑', 'Eliminar todos']]]
+  ];
+  const embebido = window.parent !== window;
+  function enviarAcciones() {
+    if (!embebido || !document.body.classList.contains('con-lateral')) return;
+    const visible = (el) => el && getComputedStyle(el).display !== 'none';
+    const grupos = ACCIONES.map(([titulo, items]) => ({ titulo, items: items.filter(([id]) => visible(document.getElementById(id))).map(([id, icono, texto]) => {
+      const el = document.getElementById(id);
+      return { id, icono, texto, href: el.tagName === 'A' ? el.href : null, archivo: id === 'btn-cargar' };
+    }) })).filter((g) => g.items.length);
+    window.parent.postMessage({ sammartino: 'acciones', grupos, resumen: [...$('#resumen').children].slice(0, 2).map((x) => `<span>${esc(x.textContent)}</span>`).join(''), rol: $('#rol-badge').classList.contains('oculto') ? '' : $('#rol-badge').textContent }, location.origin);
+  }
+  if (embebido) {
+    window.addEventListener('message', (e) => {
+      if (e.origin !== location.origin || !e.data || !e.data.sammartino) return;
+      const d = e.data;
+      if (d.sammartino === 'lateral') {
+        document.body.classList.toggle('con-lateral', !!d.activo);
+        if (mapa) setTimeout(() => mapa.invalidateSize(), 50);
+        enviarAcciones();
+      } else if (d.sammartino === 'accion') {
+        document.getElementById(d.id)?.click();
+      } else if (d.sammartino === 'archivos') {
+        conToken(() => importar(d.archivos));
+      }
+    });
+    // Cuando cambia el rol o la cantidad de campos, se actualiza el menú
+    new MutationObserver(() => { clearTimeout(enviarAcciones.t); enviarAcciones.t = setTimeout(enviarAcciones, 100); })
+      .observe(document.querySelector('.barra'), { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
+    new MutationObserver(() => enviarAcciones()).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    window.parent.postMessage({ sammartino: 'listo' }, location.origin);
+  }
+
   async function iniciar() {
     if (!window.L) $('#mapa').innerHTML = '<p style="padding:20px;color:#fff">No se pudo cargar el mapa.</p>';
     else iniciarMapa();

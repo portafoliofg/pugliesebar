@@ -462,6 +462,61 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   .marca b { font-size: 1.1rem; }
 }
 
+/* ---------- Menú lateral (computadora) y pantalla completa para Campos y Stock ---------- */
+.solo-lateral { display: none; }
+.lateral-sub[hidden] { display: none !important; }
+@media (min-width: 901px) {
+  :root { --lat: 238px; }
+  body { padding-left: var(--lat); transition: padding-left .3s var(--curva); }
+  body.colapsado { --lat: 78px; }
+  .cab {
+    position: fixed; top: 0; left: 0; bottom: 0; width: var(--lat);
+    border-bottom: 0; border-right: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    transition: width .3s var(--curva);
+  }
+  .cab-in { max-width: none; height: 100%; padding: 18px 12px 14px; display: flex; flex-direction: column; align-items: stretch; gap: 16px; }
+  .marca { padding: 0 6px; }
+  .marca-txt small { display: block; }
+  .pestanas { flex: 1; min-height: 0; flex-direction: column; justify-content: flex-start; overflow-x: hidden; overflow-y: auto; gap: 3px; padding: 2px; }
+  .pestana { width: 100%; justify-content: flex-start; border-radius: 14px; padding: 11px 14px; font-size: .95rem; }
+  .pestana:hover svg { transform: none; }
+  .cab-der { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+  .cab-der .act { order: -1; width: 100%; justify-content: center; }
+  .solo-lateral { display: grid; }
+
+  .lateral-sub { display: flex; flex-direction: column; gap: 1px; margin: 2px 0 8px 22px; padding-left: 10px; border-left: 2px solid color-mix(in srgb, var(--lima) 45%, transparent); }
+  .lateral-sub h4 { margin: 10px 8px 3px; font: 800 .62rem var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .lateral-sub .sub {
+    display: flex; align-items: center; gap: 9px; width: 100%; padding: 7px 10px; border: 0; border-radius: 10px; background: none;
+    color: var(--ink); font: 700 .86rem var(--body); text-align: left; text-decoration: none; cursor: pointer; transition: background .2s;
+  }
+  .lateral-sub .sub i { font-style: normal; width: 20px; text-align: center; flex: none; }
+  .lateral-sub .sub:hover, .lateral-sub .sub:focus-visible { background: color-mix(in srgb, var(--lima) 16%, transparent); }
+  .lateral-res { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px 6px 2px; }
+  .lateral-res span { padding: 2px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: .7rem; font-weight: 700; white-space: nowrap; }
+  .lateral-res span i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; }
+
+  body.colapsado .marca { justify-content: center; padding: 0; }
+  body.colapsado .marca-txt, body.colapsado .pestana span, body.colapsado .cab-der .act,
+  body.colapsado .lateral-sub h4, body.colapsado .lateral-sub .sub span, body.colapsado .lateral-res { display: none; }
+  body.colapsado .pestana { justify-content: center; padding: 11px 0; }
+  body.colapsado .lateral-sub { margin: 2px 0 8px; padding: 6px 0; border-left: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: center; }
+  body.colapsado .lateral-sub .sub { justify-content: center; padding: 8px 0; }
+  body.colapsado .cab-der { flex-direction: column; justify-content: center; }
+  body.colapsado #btn-colapsar svg { transform: scaleX(-1); }
+
+  body.completa main { max-width: none; padding: 0; }
+  body.completa .stock-marco iframe { height: 100vh; height: 100dvh; }
+}
+body.completa .vista { padding-top: 0; }
+body.completa .vista.activa { animation: none; }
+body.completa .stock-marco { border-radius: 0; border: 0; box-shadow: none; }
+body.completa .pie { display: none; }
+@media (max-width: 900px) {
+  body.completa main { padding: 0; }
+  body.completa .stock-marco iframe { height: calc(100dvh - var(--alto-cab, 104px)); min-height: 480px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .revelar { opacity: 1; transform: none; }

@@ -71,6 +71,8 @@
         if (sel && p.scrollIntoView) { try { p.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch (e) {} }
       });
       actual = nombre;
+      document.body.classList.toggle('completa', nombre === 'campos' || nombre === 'stock');
+      mostrarSubCampos();
       window.scrollTo(0, 0);
       alAbrir(nombre);
       revelarAhora();
@@ -139,6 +141,69 @@
       requestAnimationFrame(paso);
     });
   }
+
+  // ---------- Menú lateral (computadora): secciones + acciones de Mis campos ----------
+  var mqLateral = window.matchMedia('(min-width: 901px)');
+  var subCampos = $('#lateral-campos');
+  var marcoCampos = $('#campos-frame');
+  try { if (localStorage.getItem('agro-colapsado') === '1') document.body.classList.add('colapsado'); } catch (e) {}
+  var btnColapsar = $('#btn-colapsar');
+  if (btnColapsar) {
+    btnColapsar.setAttribute('aria-pressed', document.body.classList.contains('colapsado') ? 'true' : 'false');
+    btnColapsar.addEventListener('click', function () {
+      var si = document.body.classList.toggle('colapsado');
+      btnColapsar.setAttribute('aria-pressed', si ? 'true' : 'false');
+      try { localStorage.setItem('agro-colapsado', si ? '1' : '0'); } catch (e) {}
+      // El mapa de Campos cambia de ancho
+      setTimeout(function () { try { marcoCampos.contentWindow.dispatchEvent(new Event('resize')); } catch (e) {} }, 320);
+    });
+  }
+  function mostrarSubCampos() {
+    if (subCampos) subCampos.hidden = actual !== 'campos' || !mqLateral.matches || !subCampos.innerHTML;
+  }
+  function avisarCampos() {
+    if (marcoCampos && marcoCampos.getAttribute('src') && marcoCampos.contentWindow) {
+      marcoCampos.contentWindow.postMessage({ sammartino: 'lateral', activo: mqLateral.matches }, location.origin);
+    }
+  }
+  function altoCabecera() { document.documentElement.style.setProperty('--alto-cab', ($('.cab') ? $('.cab').offsetHeight : 0) + 'px'); }
+  altoCabecera();
+  var alCambiarAncho = function () { avisarCampos(); mostrarSubCampos(); altoCabecera(); };
+  if (mqLateral.addEventListener) mqLateral.addEventListener('change', alCambiarAncho); else mqLateral.addListener(alCambiarAncho);
+  window.addEventListener('resize', altoCabecera);
+
+  function escH(t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  window.addEventListener('message', function (e) {
+    if (e.origin !== location.origin || !e.data || !e.data.sammartino || !marcoCampos || e.source !== marcoCampos.contentWindow) return;
+    var d = e.data;
+    if (d.sammartino === 'listo') return avisarCampos();
+    if (d.sammartino !== 'acciones' || !subCampos) return;
+    var html = '<div class="lateral-res">' + (d.rol ? '<span>' + escH(d.rol) + '</span>' : '') + (d.resumen || '') + '</div>';
+    (d.grupos || []).forEach(function (g) {
+      html += '<h4>' + escH(g.titulo) + '</h4>';
+      g.items.forEach(function (it) {
+        var dentro = '<i aria-hidden="true">' + escH(it.icono) + '</i><span>' + escH(it.texto) + '</span>';
+        html += it.href
+          ? '<a class="sub" href="' + escH(it.href) + '" target="_blank" rel="noopener" title="' + escH(it.texto) + '">' + dentro + '</a>'
+          : '<button class="sub" type="button" data-campos="' + escH(it.id) + '"' + (it.archivo ? ' data-archivo="1"' : '') + ' title="' + escH(it.texto) + '">' + dentro + '</button>';
+      });
+    });
+    subCampos.innerHTML = html;
+    mostrarSubCampos();
+  });
+  if (subCampos) subCampos.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-campos]');
+    if (!b) return;
+    // El selector de archivos tiene que abrirse desde esta página (por el clic); los archivos se pasan a Campos
+    if (b.getAttribute('data-archivo')) return $('#lateral-archivo').click();
+    marcoCampos.contentWindow.postMessage({ sammartino: 'accion', id: b.getAttribute('data-campos') }, location.origin);
+  });
+  var entradaArchivo = $('#lateral-archivo');
+  if (entradaArchivo) entradaArchivo.addEventListener('change', function () {
+    var lista = Array.prototype.slice.call(entradaArchivo.files || []);
+    if (lista.length) marcoCampos.contentWindow.postMessage({ sammartino: 'archivos', archivos: lista }, location.origin);
+    entradaArchivo.value = '';
+  });
 
   // ---------- Qué hacer al abrir cada pestaña ----------
   var abiertas = {};
