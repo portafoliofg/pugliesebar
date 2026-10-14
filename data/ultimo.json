@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     },
     "clima": {
       "datos": {
@@ -135,69 +135,69 @@
             "dias": [
               {
                 "fecha": "2026-10-14",
-                "min": 10.9,
-                "max": 18,
-                "lluviaMm": 3.8,
-                "probLluvia": 100,
-                "codigo": 55,
+                "min": 11.1,
+                "max": 19.3,
+                "lluviaMm": 5.8,
+                "probLluvia": 96,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.2,
-                "max": 20.4,
-                "lluviaMm": 3.5,
-                "probLluvia": 91,
+                "min": 11.5,
+                "max": 19.8,
+                "lluviaMm": 3.2,
+                "probLluvia": 90,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 12,
-                "max": 18,
-                "lluviaMm": 4.6,
+                "min": 12.1,
+                "max": 19.3,
+                "lluviaMm": 4.8,
                 "probLluvia": 92,
-                "codigo": 53,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.6,
-                "max": 16.1,
-                "lluviaMm": 1.5,
-                "probLluvia": 84,
-                "codigo": 51,
+                "min": 11.4,
+                "max": 15.7,
+                "lluviaMm": 3,
+                "probLluvia": 86,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 11.1,
-                "max": 17.3,
+                "min": 10.9,
+                "max": 18,
                 "lluviaMm": 0,
-                "probLluvia": 6,
+                "probLluvia": 22,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.4,
-                "max": 15.7,
-                "lluviaMm": 0,
-                "probLluvia": 52,
-                "codigo": 3,
+                "min": 10.5,
+                "max": 17.2,
+                "lluviaMm": 0.6,
+                "probLluvia": 69,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 12.7,
-                "max": 18.6,
-                "lluviaMm": 0,
-                "probLluvia": 55,
-                "codigo": 3,
+                "min": 11.8,
+                "max": 16.1,
+                "lluviaMm": 4.2,
+                "probLluvia": 43,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 13.399999999999999,
+            "lluviaTotal": 21.6,
             "hayHelada": false
           },
           {
@@ -206,91 +206,97 @@
             "dias": [
               {
                 "fecha": "2026-10-14",
-                "min": 10.1,
-                "max": 20.3,
-                "lluviaMm": 0.8,
-                "probLluvia": 78,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-15",
-                "min": 11.2,
+                "min": 10.8,
                 "max": 21,
-                "lluviaMm": 1.7,
+                "lluviaMm": 1.8,
                 "probLluvia": 59,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-10-15",
+                "min": 11.4,
+                "max": 20.6,
+                "lluviaMm": 0.6,
+                "probLluvia": 73,
+                "codigo": 51,
+                "helada": false
+              },
+              {
                 "fecha": "2026-10-16",
-                "min": 11,
-                "max": 20.4,
-                "lluviaMm": 1.9,
-                "probLluvia": 45,
+                "min": 11.1,
+                "max": 20.1,
+                "lluviaMm": 1.3,
+                "probLluvia": 61,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.4,
-                "max": 17.6,
+                "min": 11.7,
+                "max": 17,
                 "lluviaMm": 0,
-                "probLluvia": 14,
+                "probLluvia": 20,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 11.3,
-                "max": 19.2,
+                "min": 10.9,
+                "max": 19.7,
                 "lluviaMm": 0,
-                "probLluvia": 8,
+                "probLluvia": 2,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.2,
-                "max": 17.2,
+                "min": 9.9,
+                "max": 19,
                 "lluviaMm": 0,
-                "probLluvia": 53,
+                "probLluvia": 43,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 14.5,
-                "max": 21.1,
-                "lluviaMm": 0.6,
-                "probLluvia": 57,
-                "codigo": 51,
+                "min": 11.8,
+                "max": 18.1,
+                "lluviaMm": 14.1,
+                "probLluvia": 36,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 5,
+            "lluviaTotal": 17.8,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-14",
         "titulares": [
           {
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 14 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-14-octubre-2026/",
+            "fecha": "2026-10-14T10:00:31.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima en Mendoza hoy 14 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-en-mendoza-hoy-14-octubre-2026/",
+            "fecha": "2026-10-14T09:00:14.000Z",
+            "fuente": "Infocampo"
+          },
+          {
             "titulo": "Ahora el gobierno de Trump dice que compensará a la industria de los biocombustibles luego de aplicar una medida que resultó perjudicial para el sector",
             "link": "https://bichosdecampo.com/ahora-el-gobierno-de-trump-dice-que-compensara-a-la-industria-de-los-biocombustibles-luego-de-aplicar-una-medida-que-resulto-perjudicial-para-el-sector/",
             "fecha": "2026-10-14T01:52:01.000Z",
             "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Riesgo país hoy 13/10/2026",
-            "link": "https://www.infocampo.com.ar/riesgo-pais-hoy-13-de-octubre-2/",
-            "fecha": "2026-10-14T01:13:18.000Z",
-            "fuente": "Infocampo"
           },
           {
             "titulo": "Locura en el mercado internacional de maíz con precios que operan a contramano en Estados Unidos y Europa",
@@ -311,12 +317,6 @@
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "El negocio de la papa está “verde” y goza de buena salud: un alivio dentro de las economías regionales",
-            "link": "https://www.infocampo.com.ar/el-negocio-de-la-papa-esta-verde-y-goza-de-buena-salud-un-alivio-dentro-de-las-economias-regionales/",
-            "fecha": "2026-10-13T22:16:53.000Z",
-            "fuente": "Infocampo"
-          },
-          {
             "titulo": "Gran Remate Aniversario del Rosgan: recinto colmado en un momento favorable para la ganadería, sostenido por los buenos valores de la hacienda y una disponibilidad limitada",
             "link": "https://www.clarin.com/rural/remate-gran-aniversario-rosgan-recinto-colmado-momento-favorable-ganaderia-sostenido-buenos-valores-hacienda-disponibilidad-limitada_0_FErsVqeg2l.html",
             "fecha": "2026-10-13T19:01:28.000Z",
@@ -333,32 +333,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-13",
+        "fecha": "2026-10-14",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.8875,
-            "usdTonelada": 473.53443374999995
+            "usdBushel": 12.9125,
+            "usdTonelada": 474.45302624999994
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8275,
-            "usdTonelada": 190.04853724999998
+            "usdBushel": 4.8225,
+            "usdTonelada": 189.85169775
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.675,
-            "usdTonelada": 245.26419749999997
+            "usdBushel": 6.6625,
+            "usdTonelada": 244.80490124999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-14T03:02:06.048Z"
+      "obtenido": "2026-10-14T10:58:34.356Z"
     }
   }
 }
