@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     },
     "dolar": {
       "datos": {
@@ -89,7 +89,7 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-13T18:00:00.000Z"
+            "actualizado": "2026-10-13T18:55:00.000Z"
           },
           "mayorista": {
             "compra": 1503.5,
@@ -99,31 +99,31 @@
           "mep": {
             "compra": 1534.2,
             "venta": 1539.4,
-            "actualizado": "2026-10-13T20:57:00.000Z"
+            "actualizado": "2026-10-14T11:56:00.000Z"
           },
           "ccl": {
             "compra": 1611.1,
             "venta": 1613.8,
-            "actualizado": "2026-10-13T20:57:00.000Z"
+            "actualizado": "2026-10-14T11:56:00.000Z"
           },
           "blue": {
             "compra": 1530,
             "venta": 1550,
-            "actualizado": "2026-10-13T20:57:00.000Z"
+            "actualizado": "2026-10-14T11:56:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-13T18:00:00.000Z"
+            "actualizado": "2026-10-13T18:55:00.000Z"
           },
           "cripto": {
-            "compra": 1607.7,
-            "venta": 1610.7,
-            "actualizado": "2026-10-13T20:57:00.000Z"
+            "compra": 1609.44,
+            "venta": 1612.39,
+            "actualizado": "2026-10-14T11:56:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     },
     "clima": {
       "datos": {
@@ -274,12 +274,18 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-14",
         "titulares": [
+          {
+            "titulo": "Diez días sin Ley de Tierras y un negocio bajo sospecha: Una inmobiliaria ofreció a extranjeros una propiedad de casi 3.000 hectáreas con lago privado en Chubut",
+            "link": "https://bichosdecampo.com/diez-dias-sin-ley-de-tierras-y-un-negocio-bajo-sospecha-una-inmobiliaria-ofrecio-a-extranjeros-una-propiedad-de-casi-3-000-hectareas-con-lago-privado-en-chubut/",
+            "fecha": "2026-10-14T12:09:45.000Z",
+            "fuente": "Bichos de Campo"
+          },
           {
             "titulo": "En un año, cayó 5% el empleo en la maquinaria agrícola: se perdieron unos 700 puestos formales",
             "link": "https://www.infocampo.com.ar/en-un-ano-cayo-5-el-empleo-en-la-maquinaria-agricola-se-perdieron-unos-700-puestos-formales/",
@@ -305,12 +311,6 @@
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Ahora el gobierno de Trump dice que compensará a la industria de los biocombustibles luego de aplicar una medida que resultó perjudicial para el sector",
-            "link": "https://bichosdecampo.com/ahora-el-gobierno-de-trump-dice-que-compensara-a-la-industria-de-los-biocombustibles-luego-de-aplicar-una-medida-que-resulto-perjudicial-para-el-sector/",
-            "fecha": "2026-10-14T01:52:01.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
             "titulo": "Jason Mraz, el músico que produce paltas y café en San Diego: “Si una granja se maneja bien, sobrevivirá a su agricultor”",
             "link": "https://www.lanacion.com.ar/economia/campo/jason-mraz-y-su-otra-pasion-con-paltas-y-cafe-en-casi-siete-hectareas-en-san-diego-necesitaba-nid13102026/",
             "fecha": "2026-10-13T22:26:27.000Z",
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.92,
-            "usdTonelada": 474.72860399999996
+            "usdBushel": 12.925,
+            "usdTonelada": 474.91232249999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.83,
-            "usdTonelada": 190.146957
+            "usdBushel": 4.825,
+            "usdTonelada": 189.9501175
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.6825,
-            "usdTonelada": 245.53977525
+            "usdBushel": 6.6675,
+            "usdTonelada": 244.98861975
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-14T12:01:47.045Z"
+      "obtenido": "2026-10-14T12:14:13.407Z"
     }
   }
 }
