@@ -14,7 +14,6 @@ import { obtenerDolar, obtenerHistoricoOficial, TIPOS_DOLAR } from './fuentes/do
 import { obtenerClima } from './fuentes/clima.js';
 import { obtenerNoticias } from './fuentes/noticias.js';
 import { verificarFeriado, esFinDeSemana } from './fuentes/feriados.js';
-import { actualizarBoletin, retencionesVigentes } from './fuentes/boletin.js';
 import { obtenerEnso } from './fuentes/enso.js';
 import { Historico } from './historico.js';
 import { generarHTML, generarConfigStock, generarConfigCampos } from './generar-html.js';
@@ -83,10 +82,6 @@ async function main() {
     error: origenFeriados === 'api' ? '' : 'La API no respondió: se usó la lista de config.json'
   };
 
-  // Boletín Oficial: normas nuevas sobre retenciones (no frena nada si falla)
-  const boletin = await actualizarBoletin(join(RAIZ, 'data', 'boletin.json'), config, hoyISO);
-  console.log(`  ${boletin.error ? '✘' : '✔'} boletín oficial${boletin.error ? ': ' + boletin.error : ` (${boletin.ultimaRevision?.leidos ?? 0} avisos revisados)`}`);
-  const retenciones = retencionesVigentes(config.retenciones, hoyISO);
 
   // Si todas las fuentes fallaron, no se pisa la página anterior
   if (correctas === 0 && (await existe(RUTA_HTML))) {
@@ -167,7 +162,7 @@ async function main() {
 
   // ---- Página ----
   const html = generarHTML({
-    config, generado: ahora, hoyISO, feriado, finDeSemana, fuentes, variaciones, graficos, sparks, retenciones, boletin
+    config, generado: ahora, hoyISO, feriado, finDeSemana, fuentes, variaciones, graficos, sparks
   });
   await mkdir(dirname(RUTA_HTML), { recursive: true });
   await writeFile(RUTA_HTML, html, 'utf8');
@@ -183,8 +178,7 @@ async function main() {
     matba: fuentes.matba.datos || null,
     pizarra: fuentes.pizarra.datos || null,
     cbot: fuentes.cbot.datos || null,
-    dolar: fuentes.dolar.datos ? { oficial: fuentes.dolar.datos.tipos?.oficial?.venta ?? null, mayorista: fuentes.dolar.datos.tipos?.mayorista?.venta ?? null } : null,
-    retenciones: retenciones.granos
+    dolar: fuentes.dolar.datos ? { oficial: fuentes.dolar.datos.tipos?.oficial?.venta ?? null, mayorista: fuentes.dolar.datos.tipos?.mayorista?.venta ?? null } : null
   }) + '\n', 'utf8');
   // El Niño / La Niña para la perspectiva de la campaña (también la usan los reportes de Campos)
   if (fuentes.enso.datos) await writeFile(join(RAIZ, 'public', 'enso.json'), JSON.stringify(fuentes.enso.datos) + '\n', 'utf8');

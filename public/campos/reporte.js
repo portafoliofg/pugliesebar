@@ -413,6 +413,8 @@
         ${kpi('Próximos 7 días', num(prox7, 0) + ' mm', `16 días: ${num(prox16, 0)} mm`, css('--dorado'))}
         ${kpi('Humedad suelo 9–27 cm', num(humAhora.s27, 0) + ' %', 'volumétrica (modelo)', css('--naranja'))}
         ${kpi('Grados-día', num(gdd, 0), `base ${base} °C desde ${etqDia(siembra)}`, '#c8962e')}
+        ${(() => { const mx = dd.temperature_2m_max.slice(iHoyD, iHoyD + 7).filter(Number.isFinite); const tope = mx.length ? Math.max(...mx) : null; const c35 = mx.filter((v) => v >= 35).length;
+          return kpi('Máxima próximos 7 días', tope != null ? num(tope, 0) + ' °C' : '—', `${c35 ? c35 + ' ' + (c35 === 1 ? 'día' : 'días') + ' de 35 °C o más' : 'sin calor extremo'} · ${num(calor365, 0)} en 12 meses`, '#e8833a'); })()}
         ${kpi('Heladas (12 meses)', num(heladas365, 0) + ' días', `${heladasProx.length ? heladasProx.length + ' con riesgo próximos' : 'sin riesgo próximo'}`, css('--frio'))}
         ${kpi('Días sin lluvia', num(secaActual, 0), `racha máx. 90 d: ${secaMax}`, '#9c8b74')}
       </section>

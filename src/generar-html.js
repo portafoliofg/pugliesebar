@@ -242,15 +242,11 @@ function vistaInicio(m) {
 }
 
 // Decimales para mostrar una alícuota (24 → 24; 5,5 → 5,5; 23,75 → 23,75)
-const decRet = (v) => (Number.isInteger(v) ? 0 : Number.isInteger(Math.round(v * 1000) / 100) ? 1 : 2);
-
 function vistaGranos(m) {
   const { pizarra, cbot, matba } = m.fuentes;
   const pz = pizarra.datos;
   const cb = cbot.datos;
   const mr = matba.datos;
-  const retenciones = m.config.retenciones;
-  const vigentes = m.retenciones || { granos: retenciones.granos, pendientes: [], proximo: null };
   const mayorista = m.fuentes.dolar.datos?.tipos?.mayorista?.venta ?? null;
 
   const tarjetas = GRANOS.map((g) => {
@@ -277,10 +273,8 @@ function vistaGranos(m) {
       bMatba = `<div class="posiciones">${mr.granos[g.clave].map((p) => `<div class="posicion"><span>${esc(p.posicion)}</span><b>${esc(dolares(p.usdTonelada))}</b>${htmlVariacion(m.variaciones[`matba.${g.clave}.${p.posicion}`], (x) => dolares(x))}</div>`).join('')}</div>`;
     } else bMatba = noDisponible();
 
-    const ret = vigentes.granos[g.clave];
     return `<article class="card hover grano revelar" style="--c:${g.color}">
-      <div class="card-h"><div class="grano-tit"><div class="kpi-ico">${ILUSTRACION[g.clave]}</div><h3>${esc(g.nombre)}</h3></div>
-        ${ret != null ? `<span class="chip" title="Derecho de exportación">Retención ${esc(numero(ret, decRet(ret)))} %</span>` : ''}</div>
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico">${ILUSTRACION[g.clave]}</div><h3>${esc(g.nombre)}</h3></div></div>
       <div class="fila"><span class="card-t">Pizarra Rosario</span>${bPizarra}</div>
       <div class="fila"><span class="card-t">Chicago · posición cercana</span>${bCbot}</div>
       <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span>${bMatba}</div>
@@ -293,42 +287,16 @@ function vistaGranos(m) {
     mr ? `Matba-Rofex al ${esc(fechaCorta(mr.fecha))}` : null
   ].filter(Boolean).join(' · ');
 
-  const nombres = { soja: 'Soja', maiz: 'Maíz', trigo: 'Trigo', girasol: 'Girasol', cebada: 'Cebada', sorgo: 'Sorgo' };
-  const maxRet = Math.max(...Object.values(vigentes.granos), 1);
-  const listaRet = Object.entries(vigentes.granos)
-    .map(([k, v]) => `<li><span>${esc(nombres[k] || k)}</span><div class="ret-barra"><i style="--w:${((v / maxRet) * 100).toFixed(1)}%"></i></div><b>${esc(numero(v, decRet(v)))} %</b></li>`)
-    .join('');
-
   return `<section class="vista" id="granos" role="tabpanel" aria-labelledby="tab-granos">
     <div class="titulo-vista"><div><span class="eyebrow">Mercados</span><h2>Granos</h2></div>
       <div><p>${meta}</p><div class="estados">${chipEstado(pizarra)}${chipEstado(cbot)}${chipEstado(matba)}</div></div></div>
     <div class="grid g-granos">${tarjetas}</div>
     <p class="nota" style="margin-top:12px">La pizarra se publica por la tarde: en las actualizaciones de la mañana vas a ver la del día hábil anterior.</p>
-    <div class="bloque grid g-2">
+    <div class="bloque">
       <article class="card revelar"><div class="card-h"><h3>Pizarra Rosario · ${esc(String(m.config.diasGrafico))} días</h3><span class="chip verde">$/t</span></div>
         <div class="grafico"><div class="esqueleto"></div><canvas id="g-granos" aria-label="Evolución de la pizarra de Rosario"></canvas></div></article>
-      <article class="card revelar"><div class="card-h"><h3>Retenciones vigentes</h3></div>
-        <ul class="ret-lista">${listaRet}</ul>
-        ${htmlAvisosRetenciones(m, retenciones, vigentes)}</article>
     </div>
   </section>`;
-}
-
-// Pie de la tarjeta de retenciones: norma vigente, verificación, próximo escalón y avisos del Boletín Oficial
-function htmlAvisosRetenciones(m, ret, vig) {
-  const dias = ret.verificado ? Math.round((Date.parse(m.hoyISO) - Date.parse(ret.verificado)) / 864e5) : null;
-  const viejo = dias != null && dias > 120;
-  const recientes = (m.boletin?.avisos || []).filter((a) => !(ret.normasRevisadas || []).includes(a.id) && (!ret.verificado || a.fecha >= ret.verificado));
-  const prox = vig.proximo ? Object.entries(vig.proximo.granos).map(([k, v]) => `${k === 'maiz' ? 'maíz' : k} ${numero(v, decRet(v))} %`).join(', ') : '';
-  const rev = m.boletin?.ultimaRevision;
-  return `${recientes.map((a) => `<div class="aviso-ret"><b>⚠️ Nueva norma en el Boletín Oficial (${esc(fechaCorta(a.fecha))})</b>
-      <span>${esc(a.norma)} · ${esc(a.titulo)}</span><small>${esc(a.extracto)}</small>
-      <a href="${esc(a.url)}" target="_blank" rel="noopener">Leer la norma ↗</a></div>`).join('')}
-    ${vig.pendientes.map((p) => `<div class="aviso-ret"><b>⚠️ Revisar</b><span>${esc(p.texto)}</span></div>`).join('')}
-    <p class="nota" style="margin-top:14px">${esc(ret.fuente || '')}${vig.desde && vig.desde !== ret.actualizado ? ` Escalón del cronograma vigente desde el ${esc(fechaCorta(vig.desde))}.` : ''}
-      ${prox ? `<br>Próximo escalón: <b>${esc(prox)}</b> desde el ${esc(fechaCorta(vig.proximo.desde))}.` : ''}
-      <br><span class="${viejo ? 'txt-alerta' : ''}">Verificadas el ${esc(fechaCorta(ret.verificado || ret.actualizado))}${dias != null ? ` (hace ${dias} ${dias === 1 ? 'día' : 'días'})` : ''}.</span>
-      ${rev ? `Boletín Oficial revisado automáticamente el ${esc(fechaCorta(rev.fecha))}${recientes.length ? '' : ': sin normas nuevas sobre retenciones'}.` : m.boletin?.error ? 'No se pudo revisar el Boletín Oficial en esta actualización.' : ''}</p>`;
 }
 
 function vistaDolar(m) {

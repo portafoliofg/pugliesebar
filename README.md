@@ -1,6 +1,6 @@
 # Sammartino · Tablero Agro
 
-Página con la información del día para el campo en Argentina (pizarra Rosario, Chicago, Matba-Rofex, dólar, clima, retenciones y noticias) el mapa de tus campos y el control de stock de la planilla de Google, organizados en pestañas.
+Página con la información del día para el campo en Argentina (pizarra Rosario, Chicago, Matba-Rofex, dólar, clima y noticias) el mapa de tus campos y el control de stock de la planilla de Google, organizados en pestañas.
 GitHub Actions la genera sola de lunes a viernes y la publica en GitHub Pages.
 
 ## Cómo funciona
@@ -88,7 +88,7 @@ Las manda el workflow **Alertas por WhatsApp** del repositorio privado (usa tus 
 
 - **7:30**: resumen del día con pizarra Rosario, Chicago, dólar, clima de tus campos por provincia, alertas y lotes con NDVI en baja.
 - **19:00**: solo si hay alertas (si no, no manda nada).
-- Alertas: helada (mínima menor al umbral en los próximos días), lluvia fuerte, ráfagas, caída de NDVI, lotes que bajan del umbral de agua útil, normas nuevas del Boletín Oficial sobre retenciones y **precios objetivo** (avisa una sola vez cuando el precio cruza el valor).
+- Alertas: helada (mínima menor al umbral en los próximos días), lluvia fuerte, ráfagas, caída de NDVI, lotes que bajan del umbral de agua útil y **precios objetivo** (avisa una sola vez cuando el precio cruza el valor).
 
 Activarlo (una sola vez):
 
@@ -105,10 +105,6 @@ Estado de El Niño / La Niña según la NOAA (ONI, Niño 3.4 semanal y probabili
 ## Fondo animado
 
 `public/paisaje.js` dibuja un paisaje de campo en SVG detrás del contenido (lomas con surcos, molino, espigas que se mecen, nubes, pájaros, sol o luna con estrellas en modo oscuro). Con "reducir movimiento" del sistema queda quieto y no se imprime.
-
-## Retenciones
-
-Los valores están en `config.json → retenciones` (Decreto 423/2026: trigo y cebada 5,5 %; soja 24 %, maíz y sorgo 8,5 %, girasol 4,5 % durante 2026). El cronograma de baja de la soja (2027–2028) está cargado y se aplica solo el día que corresponde. Cada actualización revisa la primera sección del **Boletín Oficial** del día: si aparece una norma sobre derechos de exportación de granos, el tablero muestra un aviso con el link (y llega por WhatsApp). Después de revisarla, actualizá los valores y la fecha `verificado` en `config.json` (o agregá el id de la norma a `normasRevisadas`).
 
 ## Pestaña Stock (planilla de Google)
 
@@ -142,7 +138,6 @@ En computadora (más de 900 px de ancho) las secciones van en un menú lateral q
 |---|---|
 | `clima.localidades` | Localidades del pronóstico. Agregá objetos `{ "nombre", "provincia", "lat", "lon" }`. |
 | `clima.umbralHeladaC` | Temperatura mínima (°C) por debajo de la cual se marca alerta de helada. Por defecto, 2. |
-| `retenciones` | Alícuotas vigentes por grano, en %. Se editan a mano. Actualizá también `actualizado` y `fuente`. |
 | `noticias.feeds` | Feeds RSS de medios agro: `{ "nombre", "url" }`. |
 | `noticias.maxTitulares` / `maxPorFuente` | Cuántos titulares mostrar en total y como máximo por medio. |
 | `feriados.lista` | Feriados nacionales de respaldo, por si la API no responde. Revisala cada año. |
@@ -160,8 +155,6 @@ Ejemplo para agregar una localidad:
 { "nombre": "Río Cuarto", "provincia": "Córdoba", "lat": -33.1232, "lon": -64.3493 }
 ```
 
-> **Retenciones:** los valores cargados son los del anuncio de diciembre de 2025 (soja 24 %, maíz y sorgo 8,5 %, trigo y cebada 7,5 %, girasol 4,5 %). Confirmalos en el Boletín Oficial y actualizalos cuando cambien.
-
 ## Fuentes de datos
 
 | Dato | Fuente | Tipo |
@@ -174,7 +167,6 @@ Ejemplo para agregar una localidad:
 | Feriados | ArgentinaDatos, con la lista de `config.json` como respaldo | JSON |
 | Noticias | RSS de Clarín Rural, La Nación Campo, Infocampo, Bichos de Campo, Agrofy News y TodoAgro | RSS |
 | El Niño / La Niña | [NOAA CPC](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml): ONI, Niño 3.4 semanal y estado de alerta → `public/enso.json` | Texto / HTML |
-| Retenciones | `config.json` (Decreto 423/2026 y su cronograma) + monitor diario del [Boletín Oficial](https://www.boletinoficial.gob.ar) | HTML (cheerio) |
 
 **Campos (repositorio privado):**
 

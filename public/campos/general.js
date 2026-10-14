@@ -78,10 +78,11 @@
           tmin7f: Math.min(...fut(d.temperature_2m_min, 7).filter(Number.isFinite)),
           heladas7f: fut(d.temperature_2m_min, 7).filter((v) => v != null && v <= 0).length,
           tmax7f: Math.max(...fut(d.temperature_2m_max, 7).filter(Number.isFinite)),
+          calor7f: fut(d.temperature_2m_max, 7).filter((v) => v != null && v >= 35).length,
           rafaga3f: Math.max(...fut(d.wind_gusts_10m_max, 3).filter(Number.isFinite)),
           humedad: ih >= 0 && h.soil_moisture_9_to_27cm[ih] != null ? h.soil_moisture_9_to_27cm[ih] * 100 : null,
           humedadSup: ih >= 0 && h.soil_moisture_3_to_9cm[ih] != null ? h.soil_moisture_3_to_9cm[ih] * 100 : null,
-          diario: { time: d.time, lluvia: d.precipitation_sum, tmin: d.temperature_2m_min }
+          diario: { time: d.time, lluvia: d.precipitation_sum, tmin: d.temperature_2m_min, tmax: d.temperature_2m_max }
         };
         celda.ids.forEach((id) => { porId[id] = m; });
       });
@@ -113,6 +114,7 @@
     p10: { t: 'Prob. de ≥ 10 mm en 7 días', u: '%', d: 0, v: (f) => (f.ens ? f.ens.acum7.p10 * 100 : null), color: (v) => rampa(v, [[0, '#f6e7c1'], [25, '#cfe3f3'], [50, '#6aa9dd'], [75, '#1d5fa8'], [100, '#0b2f6b']]), escala: [[0, '#f6e7c1'], [25, '#cfe3f3'], [50, '#6aa9dd'], [75, '#1d5fa8'], [100, '#0b2f6b']] },
     lluvia7f: { t: 'Lluvia próximos 7 días', u: 'mm', d: 0, v: (f) => f.clima?.lluvia7f, color: (v) => rampa(v, [[0, '#f6e7c1'], [10, '#cfe3f3'], [30, '#6aa9dd'], [60, '#1d5fa8'], [100, '#0b2f6b']]), escala: [[0, '#f6e7c1'], [10, '#cfe3f3'], [30, '#6aa9dd'], [60, '#1d5fa8'], [100, '#0b2f6b']] },
     tmin7f: { t: 'Mínima de los próximos 7 días', u: '°C', d: 0, v: (f) => f.clima?.tmin7f, color: (v) => rampa(v, [[-4, '#3b4cc0'], [0, '#8db0fe'], [4, '#dddddd'], [10, '#f49a7b'], [16, '#b40426']]), escala: [[-4, '#3b4cc0'], [0, '#8db0fe'], [4, '#dddddd'], [10, '#f49a7b'], [16, '#b40426']] },
+    tmax7f: { t: 'Máxima de los próximos 7 días', u: '°C', d: 0, v: (f) => f.clima?.tmax7f, color: (v) => rampa(v, [[16, '#8db0fe'], [24, '#dddddd'], [30, '#f6c56b'], [35, '#f46d43'], [40, '#b40426']]), escala: [[16, '#8db0fe'], [24, '#dddddd'], [30, '#f6c56b'], [35, '#f46d43'], [40, '#b40426']] },
     agua: { t: 'Agua útil del suelo (1 m)', u: '%', d: 0, v: (f) => f.agua?.pct, color: (v) => Agua.color(v), escala: [[0, '#c0392b'], [25, '#f39c12'], [50, '#a4c639'], [75, '#2e8b57'], [95, '#1d5fa8']] }
   };
   function rampa(v, puntos) {
@@ -209,6 +211,10 @@
       if (secos.length) frases.push(['🏜️', `<b>${secos.length}</b> ${secos.length === 1 ? 'lote tiene' : 'lotes tienen'} un balance hídrico de 30 días muy negativo (la evapotranspiración superó a la lluvia en más de 60 mm): ${num(suma(secos.map((f) => haDe(f.campo))), 0)} ha.`]);
       if (enHelada.length) frases.push(['❄️', `Hay riesgo de <b>helada</b> en los próximos 7 días en <b>${enHelada.length}</b> ${enHelada.length === 1 ? 'lote' : 'lotes'} (${num(suma(enHelada.map((f) => haDe(f.campo))), 0)} ha). Mínima más baja: ${num(Math.min(...enHelada.map((f) => f.clima.tmin7f)), 0)} °C.`]);
       else frases.push(['✅', 'Sin heladas previstas en ningún lote para los próximos 7 días.']);
+      const enCalor = conClima.filter((f) => f.clima.calor7f > 0);
+      frases.push(enCalor.length
+        ? ['🔥', `Calor extremo (35 °C o más) en los próximos 7 días en <b>${enCalor.length}</b> ${enCalor.length === 1 ? 'lote' : 'lotes'} (${num(suma(enCalor.map((f) => haDe(f.campo))), 0)} ha). Máxima más alta: ${num(Math.max(...enCalor.map((f) => f.clima.tmax7f)), 0)} °C.`]
+        : ['🌡️', `Máxima más alta prevista en tus lotes para los próximos 7 días: <b>${num(Math.max(...conClima.map((f) => f.clima.tmax7f)), 0)} °C</b>.`]);
       const viento = conClima.filter((f) => f.clima.rafaga3f >= 60);
       if (viento.length) frases.push(['💨', `Ráfagas de 60 km/h o más en los próximos 3 días en ${viento.length} ${viento.length === 1 ? 'lote' : 'lotes'}: cuidado con las pulverizaciones.`]);
     }
@@ -265,7 +271,8 @@
       <section class="r-sec"><h2>Clima por zona</h2>
         <div class="r-grid">
           <div class="r-card r-ancho"><h3>Lluvia por departamento</h3><p class="nota">Últimos 30 días y próximos 7 (promedio de los lotes de cada departamento).</p><div class="r-graf alto"><canvas id="g-lluvia-zona"></canvas></div></div>
-          <div class="r-card r-ancho"><h3>Mínimas previstas por provincia</h3><p class="nota">La mínima más baja entre tus lotes de cada provincia, día por día.</p><div class="r-graf"><canvas id="g-tmin"></canvas></div></div>
+          <div class="r-card"><h3>Mínimas previstas por provincia</h3><p class="nota">La mínima más baja entre tus lotes de cada provincia, día por día.</p><div class="r-graf"><canvas id="g-tmin"></canvas></div></div>
+          <div class="r-card"><h3>Máximas previstas por provincia</h3><p class="nota">La máxima más alta entre tus lotes de cada provincia, día por día.</p><div class="r-graf"><canvas id="g-tmax"></canvas></div></div>
         </div>
       </section>
 
@@ -274,6 +281,7 @@
           ${rk('Más lluvia (30 días)', '🌧️', top(conClima, (f) => f.clima.lluvia30p, false), (f) => num(f.clima.lluvia30p, 0) + ' mm')}
           ${rk('Menos lluvia (30 días)', '☀️', top(conClima, (f) => f.clima.lluvia30p, true), (f) => num(f.clima.lluvia30p, 0) + ' mm')}
           ${rk('Mínimas más bajas (7 días)', '❄️', top(conClima, (f) => f.clima.tmin7f, true), (f) => num(f.clima.tmin7f, 0) + ' °C')}
+          ${rk('Máximas más altas (7 días)', '🔥', top(conClima, (f) => f.clima.tmax7f, false), (f) => num(f.clima.tmax7f, 0) + ' °C')}
           ${rk('Menos agua útil', '🏜️', top(conAgua, (f) => f.agua.pct, true), (f) => num(f.agua.pct, 0) + ' %')}
           ${rk('NDVI más bajo', '🟥', top(conNdvi, (f) => f.ndvi.ndvi, true), (f) => num(f.ndvi.ndvi, 2))}
           ${rk('Mayor caída de NDVI (30 días)', '📉', top(caidas, (f) => f.ndvi.tendencia, true), (f) => num(f.ndvi.tendencia, 2))}
@@ -342,6 +350,7 @@
     ['p10', 'Prob. ≥10 mm 7 d', (f) => f.ens?.acum7.p10 ?? null, (f) => (f.ens ? Ensamble.pct(f.ens.acum7.p10) : '—'), true],
     ['l7f', 'Próx. 7 d', (f) => f.clima?.lluvia7f ?? null, (f) => num(f.clima?.lluvia7f, 0), true],
     ['tmin', 'Mín. 7 d', (f) => f.clima?.tmin7f ?? null, (f) => (f.clima ? num(f.clima.tmin7f, 0) + '°' + (f.clima.heladas7f ? ' ❄️' : '') : '—'), true],
+    ['tmax', 'Máx. 7 d', (f) => f.clima?.tmax7f ?? null, (f) => (f.clima ? num(f.clima.tmax7f, 0) + '°' + (f.clima.calor7f ? ' 🔥' : '') : '—'), true],
     ['raf', 'Ráfaga 3 d', (f) => f.clima?.rafaga3f ?? null, (f) => num(f.clima?.rafaga3f, 0), true],
     ['agua', 'Agua útil', (f) => f.agua?.pct ?? null, (f) => (f.agua?.pct == null ? '—' : `<span class="g-ndvi" style="--c:${Agua.color(f.agua.pct)}">${num(f.agua.pct, 0)} %</span>`), true],
     ['proy', 'Agua en 7 d', (f) => f.agua?.proy7 ?? null, (f) => (f.agua?.proy7 == null ? '—' : num(f.agua.proy7, 0) + ' %'), true]
@@ -421,6 +430,7 @@
     if (!conClima.length) {
       $('#g-lluvia-zona').parentNode.innerHTML = '<p class="nota">Sin datos de clima.</p>';
       $('#g-tmin').parentNode.innerHTML = '<p class="nota">Sin datos de clima.</p>';
+      $('#g-tmax').parentNode.innerHTML = '<p class="nota">Sin datos de clima.</p>';
       return;
     }
     // Lluvia por departamento
@@ -445,6 +455,11 @@
       ...provs.map((p, i) => ({ label: p, data: dias.map((_, j) => Math.min(...conClima.filter((f) => (f.campo.provincia || 'Sin ubicar') === p).map((f) => f.clima.diario.tmin[iHoy + j]).filter(Number.isFinite))), borderColor: PALETA[i % PALETA.length], backgroundColor: PALETA[i % PALETA.length], tension: .3 })),
       { label: '0 °C', data: dias.map(() => 0), borderColor: '#8ab8f0', borderDash: [3, 3], pointRadius: 0, borderWidth: 1 }
     ] }, options: ops({ scales: { x: ejeX, y: { title: { display: true, text: '°C' } } } }) });
+    // Máximas por provincia (próximos 7 días)
+    grafico('g-tmax', { type: 'line', data: { labels: dias.map(etqDia), datasets: [
+      ...provs.map((p, i) => ({ label: p, data: dias.map((_, j) => Math.max(...conClima.filter((f) => (f.campo.provincia || 'Sin ubicar') === p).map((f) => f.clima.diario.tmax?.[iHoy + j]).filter(Number.isFinite))), borderColor: PALETA[i % PALETA.length], backgroundColor: PALETA[i % PALETA.length], tension: .3 })),
+      { label: '35 °C', data: dias.map(() => 35), borderColor: '#f46d43', borderDash: [3, 3], pointRadius: 0, borderWidth: 1 }
+    ] }, options: ops({ scales: { x: ejeX, y: { title: { display: true, text: '°C' } } } }) });
   }
 
   // ---------- Eventos ----------
@@ -458,10 +473,10 @@
   window.addEventListener('beforeprint', () => graficos.forEach((g) => g.resize()));
   $('#btn-csv').addEventListener('click', () => {
     if (!filas.length) return;
-    const t = [['lote', 'provincia', 'departamento', 'localidad', 'cultivo', 'campana', 'ha', 'ndvi', 'ndvi_fecha', 'ndvi_cambio_30d', 'lluvia_7d_mm', 'lluvia_30d_mm', 'balance_30d_mm', 'lluvia_prox_7d_mm', 'prob_10mm_7d_pct', 'tmin_prox_7d_c', 'dias_helada_7d', 'rafaga_prox_3d_kmh', 'agua_util_pct', 'agua_util_mm', 'agua_util_max_mm', 'agua_util_7d_pct']];
+    const t = [['lote', 'provincia', 'departamento', 'localidad', 'cultivo', 'campana', 'ha', 'ndvi', 'ndvi_fecha', 'ndvi_cambio_30d', 'lluvia_7d_mm', 'lluvia_30d_mm', 'balance_30d_mm', 'lluvia_prox_7d_mm', 'prob_10mm_7d_pct', 'tmin_prox_7d_c', 'dias_helada_7d', 'tmax_prox_7d_c', 'dias_35c_7d', 'rafaga_prox_3d_kmh', 'agua_util_pct', 'agua_util_mm', 'agua_util_max_mm', 'agua_util_7d_pct']];
     filas.forEach((f) => {
       const c = f.campo; const k = f.clima || {}; const n = f.ndvi || {};
-      t.push([c.nombre, c.provincia, c.departamento, c.localidad, c.cultivo, c.campana, haDe(c), n.ndvi, n.fecha, n.tendencia, k.lluvia7p, k.lluvia30p, k.balance30, k.lluvia7f, f.ens ? Math.round(f.ens.acum7.p10 * 100) : null, k.tmin7f, k.heladas7f, k.rafaga3f, f.agua?.pct, f.agua?.agua, f.agua?.au, f.agua?.proy7]);
+      t.push([c.nombre, c.provincia, c.departamento, c.localidad, c.cultivo, c.campana, haDe(c), n.ndvi, n.fecha, n.tendencia, k.lluvia7p, k.lluvia30p, k.balance30, k.lluvia7f, f.ens ? Math.round(f.ens.acum7.p10 * 100) : null, k.tmin7f, k.heladas7f, k.tmax7f, k.calor7f, k.rafaga3f, f.agua?.pct, f.agua?.agua, f.agua?.au, f.agua?.proy7]);
     });
     const texto = '﻿' + t.map((r) => r.map((v) => {
       if (v == null) return '';

@@ -337,12 +337,6 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 20px 40px; }
 .posicion b { font-size: 1rem; }
 .posicion .var { font-size: .76rem; }
 
-.ret-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.ret-lista li { display: grid; grid-template-columns: 80px 1fr 56px; align-items: center; gap: 12px; font-weight: 700; }
-.ret-barra { height: 10px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
-.ret-barra i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--lima), var(--dorado), var(--naranja)); transition: width 1.4s var(--curva); }
-.visible .ret-barra i { width: var(--w); }
-.ret-lista b { text-align: right; font-variant-numeric: tabular-nums; }
 
 .grafico { position: relative; height: 260px; }
 .grafico canvas { position: relative; z-index: 1; }
@@ -457,7 +451,6 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   .heroe { border-radius: 24px; }
   .card { padding: 16px; }
   .dias { grid-template-columns: repeat(7, 112px); }
-  .ret-lista li { grid-template-columns: 64px 1fr 48px; }
   #mapa { height: 320px; }
   .marca b { font-size: 1.1rem; }
 }
@@ -523,12 +516,6 @@ body.completa .pie { display: none; }
   .heroe-fotos div:first-child { opacity: 1; }
   .cinta-pista { animation: none; }
 }
-
-/* Avisos de retenciones (Boletín Oficial y cronograma) */
-.aviso-ret { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--naranja, #ff9800) 14%, transparent); border: 1px solid color-mix(in srgb, var(--naranja, #ff9800) 45%, transparent); display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
-.aviso-ret small { color: var(--muted); }
-.aviso-ret a { font-weight: 800; }
-.txt-alerta { color: var(--baja, #c0392b); font-weight: 800; }
 
 /* Perspectiva de la campaña */
 .perspectiva { margin-top: 18px; }
