@@ -361,12 +361,6 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 20px 40px; }
 .posicion b { font-size: 1rem; }
 .posicion .var { font-size: .76rem; }
 
-.ret-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.ret-lista li { display: grid; grid-template-columns: 80px 1fr 56px; align-items: center; gap: 12px; font-weight: 700; }
-.ret-barra { height: 10px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
-.ret-barra i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--lima), var(--dorado), var(--naranja)); transition: width 1.4s var(--curva); }
-.visible .ret-barra i { width: var(--w); }
-.ret-lista b { text-align: right; font-variant-numeric: tabular-nums; }
 
 .grafico { position: relative; height: 260px; }
 .grafico canvas { position: relative; z-index: 1; }
@@ -481,7 +475,6 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   .heroe { border-radius: 24px; }
   .card { padding: 16px; }
   .dias { grid-template-columns: repeat(7, 112px); }
-  .ret-lista li { grid-template-columns: 64px 1fr 48px; }
   #mapa { height: 320px; }
   .marca b { font-size: 1.1rem; }
 }
@@ -548,12 +541,6 @@ body.completa .pie { display: none; }
   .cinta-pista { animation: none; }
 }
 
-/* Avisos de retenciones (Boletín Oficial y cronograma) */
-.aviso-ret { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--naranja, #ff9800) 14%, transparent); border: 1px solid color-mix(in srgb, var(--naranja, #ff9800) 45%, transparent); display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
-.aviso-ret small { color: var(--muted); }
-.aviso-ret a { font-weight: 800; }
-.txt-alerta { color: var(--baja, #c0392b); font-weight: 800; }
-
 /* Perspectiva de la campaña */
 .perspectiva { margin-top: 18px; }
 .persp-zonas { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; margin-top: 14px; }
@@ -580,7 +567,7 @@ body.completa .pie { display: none; }
     <input type="file" id="lateral-archivo" hidden multiple accept=".kml,.kmz,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz">
     <div class="cab-der">
       <button class="boton-icono solo-lateral" id="btn-colapsar" type="button" aria-label="Achicar el menú" aria-pressed="false" title="Achicar / agrandar el menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M15 10l-2 2 2 2"/></svg></button>
-      <span class="act" title="Última actualización: miércoles, 14 de octubre de 2026 09:14 h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>09:14 h</b></span>
+      <span class="act" title="Última actualización: miércoles, 14 de octubre de 2026 09:22 h (hora argentina)"><span class="punto"></span><span class="txt-largo">Actualizado</span> <b>09:22 h</b></span>
       <button class="boton-icono" id="btn-tema" type="button" aria-label="Cambiar entre modo claro y oscuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></button>
     </div>
   </div>
@@ -600,7 +587,7 @@ body.completa .pie { display: none; }
           <button class="btn btn-2" data-ir="stock">Abrir stock <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
-      <div class="cinta" aria-label="Resumen de precios"><div class="cinta-pista"><span class="cinta-item"><span>Soja Rosario</span><b>$ 560.000</b><em class="neutra">=</em></span><span class="cinta-item"><span>Maíz Rosario</span><b>$ 292.500</b><em class="neutra">=</em></span><span class="cinta-item"><span>Girasol Rosario</span><b>$ 799.240</b><em class="neutra">=</em></span><span class="cinta-item"><span>Trigo Rosario</span><b>$ 342.000</b><em class="neutra">=</em></span><span class="cinta-item"><span>Dólar oficial</span><b>$ 1.535,00</b><em class="neutra">=</em></span><span class="cinta-item"><span>Dólar MEP</span><b>$ 1.539,40</b><em class="neutra">=</em></span><span class="cinta-item"><span>Soja Chicago</span><b>US$ 474,91/t</b><em class="sube">↑ 0,29 %</em></span><span class="cinta-item"><span>Maíz Chicago</span><b>US$ 189,95/t</b><em class="baja">↓ 0,05 %</em></span><span class="cinta-item"><span>Trigo Chicago</span><b>US$ 244,99/t</b><em class="baja">↓ 0,11 %</em></span><span class="cinta-item" aria-hidden="true"><span>Soja Rosario</span><b>$ 560.000</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Maíz Rosario</span><b>$ 292.500</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Girasol Rosario</span><b>$ 799.240</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Trigo Rosario</span><b>$ 342.000</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Dólar oficial</span><b>$ 1.535,00</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Dólar MEP</span><b>$ 1.539,40</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Soja Chicago</span><b>US$ 474,91/t</b><em class="sube">↑ 0,29 %</em></span><span class="cinta-item" aria-hidden="true"><span>Maíz Chicago</span><b>US$ 189,95/t</b><em class="baja">↓ 0,05 %</em></span><span class="cinta-item" aria-hidden="true"><span>Trigo Chicago</span><b>US$ 244,99/t</b><em class="baja">↓ 0,11 %</em></span></div></div>
+      <div class="cinta" aria-label="Resumen de precios"><div class="cinta-pista"><span class="cinta-item"><span>Soja Rosario</span><b>$ 560.000</b><em class="neutra">=</em></span><span class="cinta-item"><span>Maíz Rosario</span><b>$ 292.500</b><em class="neutra">=</em></span><span class="cinta-item"><span>Girasol Rosario</span><b>$ 799.240</b><em class="neutra">=</em></span><span class="cinta-item"><span>Trigo Rosario</span><b>$ 342.000</b><em class="neutra">=</em></span><span class="cinta-item"><span>Dólar oficial</span><b>$ 1.535,00</b><em class="neutra">=</em></span><span class="cinta-item"><span>Dólar MEP</span><b>$ 1.539,40</b><em class="neutra">=</em></span><span class="cinta-item"><span>Soja Chicago</span><b>US$ 474,45/t</b><em class="sube">↑ 0,19 %</em></span><span class="cinta-item"><span>Maíz Chicago</span><b>US$ 189,85/t</b><em class="baja">↓ 0,10 %</em></span><span class="cinta-item"><span>Trigo Chicago</span><b>US$ 244,80/t</b><em class="baja">↓ 0,19 %</em></span><span class="cinta-item" aria-hidden="true"><span>Soja Rosario</span><b>$ 560.000</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Maíz Rosario</span><b>$ 292.500</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Girasol Rosario</span><b>$ 799.240</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Trigo Rosario</span><b>$ 342.000</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Dólar oficial</span><b>$ 1.535,00</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Dólar MEP</span><b>$ 1.539,40</b><em class="neutra">=</em></span><span class="cinta-item" aria-hidden="true"><span>Soja Chicago</span><b>US$ 474,45/t</b><em class="sube">↑ 0,19 %</em></span><span class="cinta-item" aria-hidden="true"><span>Maíz Chicago</span><b>US$ 189,85/t</b><em class="baja">↓ 0,10 %</em></span><span class="cinta-item" aria-hidden="true"><span>Trigo Chicago</span><b>US$ 244,80/t</b><em class="baja">↓ 0,19 %</em></span></div></div>
     </div>
     
     <div class="bloque">
@@ -624,8 +611,8 @@ body.completa .pie { display: none; }
   </article><article class="card hover kpi revelar" style="--c:#3a8fd6">
     <div class="kpi-top"><div><div class="card-t">Clima hoy</div><h3>Córdoba</h3></div><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg></div>
     <div class="valor">19° <small>/ 11°</small></div>
-      <div class="sub">Chaparrones · lluvia 5,8 mm</div>
-      <div class="sub">Próximos 7 días: <b>21,6 mm</b></div>
+      <div class="sub">Llovizna · lluvia 2,1 mm</div>
+      <div class="sub">Próximos 7 días: <b>27,7 mm</b></div>
       
       <button class="link-tab" data-ir="clima">Ver pronóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   </article>
@@ -637,45 +624,33 @@ body.completa .pie { display: none; }
     <div class="titulo-vista"><div><span class="eyebrow">Mercados</span><h2>Granos</h2></div>
       <div><p>Pizarra del <b>09/10/2026</b> · Chicago al 14/10/2026 · Matba-Rofex al 13/10/2026</p><div class="estados"></div></div></div>
     <div class="grid g-granos"><article class="card hover grano revelar" style="--c:#a4c639">
-      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M8 26C5 23 5 17 9 12s10-7 14-5c3 2 3 8-1 13s-11 9-14 6z" opacity=".35"/><circle cx="12" cy="20" r="3.2"/><circle cx="16.5" cy="15.5" r="3.2"/><circle cx="21" cy="11" r="3.2"/></svg></div><h3>Soja</h3></div>
-        <span class="chip" title="Derecho de exportación">Retención 24 %</span></div>
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M8 26C5 23 5 17 9 12s10-7 14-5c3 2 3 8-1 13s-11 9-14 6z" opacity=".35"/><circle cx="12" cy="20" r="3.2"/><circle cx="16.5" cy="15.5" r="3.2"/><circle cx="21" cy="11" r="3.2"/></svg></div><h3>Soja</h3></div></div>
       <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="560000" data-dec="0" data-pre="$ ">$ 560.000</span> <small>/t</small></div><div class="sub">US$ 371,35 /t</div><span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 474,91 <small>/t</small></div>
-        <div class="sub">US$ 12,9250 /bushel</div><span class="var sube" title="Respecto del 13/10/2026"><span class="flecha">↑</span> US$ 1,38 (+0,29 %)</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 474,45 <small>/t</small></div>
+        <div class="sub">US$ 12,9125 /bushel</div><span class="var sube" title="Respecto del 13/10/2026"><span class="flecha">↑</span> US$ 0,92 (+0,19 %)</span></div>
       <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><div class="posiciones"><div class="posicion"><span>NOV26</span><b>US$ 372,90</b><span class="var baja" title="Respecto del 09/10/2026"><span class="flecha">↓</span> US$ 1,30 (−0,35 %)</span></div><div class="posicion"><span>MAY27</span><b>US$ 358,80</b><span class="var baja" title="Respecto del 09/10/2026"><span class="flecha">↓</span> US$ 0,70 (−0,19 %)</span></div><div class="posicion"><span>JUL27</span><b>US$ 366,50</b><span class="var baja" title="Respecto del 09/10/2026"><span class="flecha">↓</span> US$ 0,20 (−0,05 %)</span></div></div></div>
     </article><article class="card hover grano revelar" style="--c:#ffc107">
-      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3c4 0 6 5 6 11s-2 12-6 12-6-6-6-12 2-11 6-11z"/><path d="M10 16c-4 2-5 8-3 13 3-2 6-5 7-9M22 16c4 2 5 8 3 13-3-2-6-5-7-9" opacity=".45"/><path d="M13 9h6M12.5 13h7M12.5 17h7M13 21h6" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/></svg></div><h3>Maíz</h3></div>
-        <span class="chip" title="Derecho de exportación">Retención 8,5 %</span></div>
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3c4 0 6 5 6 11s-2 12-6 12-6-6-6-12 2-11 6-11z"/><path d="M10 16c-4 2-5 8-3 13 3-2 6-5 7-9M22 16c4 2 5 8 3 13-3-2-6-5-7-9" opacity=".45"/><path d="M13 9h6M12.5 13h7M12.5 17h7M13 21h6" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/></svg></div><h3>Maíz</h3></div></div>
       <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="292500" data-dec="0" data-pre="$ ">$ 292.500</span> <small>/t</small></div><div class="sub">US$ 193,97 /t</div><span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 189,95 <small>/t</small></div>
-        <div class="sub">US$ 4,8250 /bushel</div><span class="var baja" title="Respecto del 13/10/2026"><span class="flecha">↓</span> US$ 0,10 (−0,05 %)</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 189,85 <small>/t</small></div>
+        <div class="sub">US$ 4,8225 /bushel</div><span class="var baja" title="Respecto del 13/10/2026"><span class="flecha">↓</span> US$ 0,20 (−0,10 %)</span></div>
       <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><div class="posiciones"><div class="posicion"><span>DIC26</span><b>US$ 198,80</b><span class="var baja" title="Respecto del 09/10/2026"><span class="flecha">↓</span> US$ 0,10 (−0,05 %)</span></div><div class="posicion"><span>ABR27</span><b>US$ 198,00</b><span class="var neutra" title="Respecto del 09/10/2026">= sin cambio</span></div><div class="posicion"><span>JUL27</span><b>US$ 195,00</b><span class="var neutra" title="Respecto del 09/10/2026">= sin cambio</span></div></div></div>
     </article><article class="card hover grano revelar" style="--c:#ff9800">
-      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><g opacity=".55"><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(0 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(30 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(90 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(120 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(150 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(180 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(210 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(240 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(270 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(300 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(330 16 16)"/></g><circle cx="16" cy="16" r="6.5"/><circle cx="16" cy="16" r="4" fill="#5a3a12" opacity=".55"/></svg></div><h3>Girasol</h3></div>
-        <span class="chip" title="Derecho de exportación">Retención 4,5 %</span></div>
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><g opacity=".55"><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(0 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(30 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(90 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(120 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(150 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(180 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(210 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(240 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(270 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(300 16 16)"/><ellipse cx="16" cy="6" rx="2.6" ry="5" transform="rotate(330 16 16)"/></g><circle cx="16" cy="16" r="6.5"/><circle cx="16" cy="16" r="4" fill="#5a3a12" opacity=".55"/></svg></div><h3>Girasol</h3></div></div>
       <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="799240" data-dec="0" data-pre="$ ">$ 799.240</span> <small>/t</small></div><div class="sub" title="Conversión al dólar mayorista, solo como referencia">≈ US$ 528,42 /t al mayorista</div><span class="var neutra">sin dato anterior</span></div>
       <div class="fila"><span class="card-t">Chicago · posición cercana</span><p class="nd">El girasol no cotiza en Chicago.</p></div>
       <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><p class="nd">Sin posiciones seguidas para girasol.</p></div>
     </article><article class="card hover grano revelar" style="--c:#c8962e">
-      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 30V10" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12.5" cy="8" rx="2.4" ry="4" transform="rotate(-30 12.5 8)"/><ellipse cx="19.5" cy="8" rx="2.4" ry="4" transform="rotate(30 19.5 8)"/><ellipse cx="12.5" cy="13" rx="2.4" ry="4" transform="rotate(-30 12.5 13)"/><ellipse cx="19.5" cy="13" rx="2.4" ry="4" transform="rotate(30 19.5 13)"/><ellipse cx="12.5" cy="18" rx="2.4" ry="4" transform="rotate(-30 12.5 18)"/><ellipse cx="19.5" cy="18" rx="2.4" ry="4" transform="rotate(30 19.5 18)"/><ellipse cx="12.5" cy="23" rx="2.4" ry="4" transform="rotate(-30 12.5 23)"/><ellipse cx="19.5" cy="23" rx="2.4" ry="4" transform="rotate(30 19.5 23)"/><ellipse cx="16" cy="5" rx="2.2" ry="4"/></svg></div><h3>Trigo</h3></div>
-        <span class="chip" title="Derecho de exportación">Retención 5,5 %</span></div>
+      <div class="card-h"><div class="grano-tit"><div class="kpi-ico"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 30V10" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12.5" cy="8" rx="2.4" ry="4" transform="rotate(-30 12.5 8)"/><ellipse cx="19.5" cy="8" rx="2.4" ry="4" transform="rotate(30 19.5 8)"/><ellipse cx="12.5" cy="13" rx="2.4" ry="4" transform="rotate(-30 12.5 13)"/><ellipse cx="19.5" cy="13" rx="2.4" ry="4" transform="rotate(30 19.5 13)"/><ellipse cx="12.5" cy="18" rx="2.4" ry="4" transform="rotate(-30 12.5 18)"/><ellipse cx="19.5" cy="18" rx="2.4" ry="4" transform="rotate(30 19.5 18)"/><ellipse cx="12.5" cy="23" rx="2.4" ry="4" transform="rotate(-30 12.5 23)"/><ellipse cx="19.5" cy="23" rx="2.4" ry="4" transform="rotate(30 19.5 23)"/><ellipse cx="16" cy="5" rx="2.2" ry="4"/></svg></div><h3>Trigo</h3></div></div>
       <div class="fila"><span class="card-t">Pizarra Rosario</span><div class="valor"><span data-contar="342000" data-dec="0" data-pre="$ ">$ 342.000</span> <small>/t</small></div><div class="sub">US$ 226,79 /t</div><span class="var neutra">sin dato anterior</span></div>
-      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 244,99 <small>/t</small></div>
-        <div class="sub">US$ 6,6675 /bushel</div><span class="var baja" title="Respecto del 13/10/2026"><span class="flecha">↓</span> US$ 0,28 (−0,11 %)</span></div>
+      <div class="fila"><span class="card-t">Chicago · posición cercana</span><div class="valor-m">US$ 244,80 <small>/t</small></div>
+        <div class="sub">US$ 6,6625 /bushel</div><span class="var baja" title="Respecto del 13/10/2026"><span class="flecha">↓</span> US$ 0,46 (−0,19 %)</span></div>
       <div class="fila"><span class="card-t">Matba-Rofex · ajuste</span><div class="posiciones"><div class="posicion"><span>DIC26</span><b>US$ 228,20</b><span class="var sube" title="Respecto del 09/10/2026"><span class="flecha">↑</span> US$ 4,10 (+1,83 %)</span></div><div class="posicion"><span>ENE27</span><b>US$ 233,20</b><span class="var sube" title="Respecto del 09/10/2026"><span class="flecha">↑</span> US$ 4,10 (+1,79 %)</span></div></div></div>
     </article></div>
     <p class="nota" style="margin-top:12px">La pizarra se publica por la tarde: en las actualizaciones de la mañana vas a ver la del día hábil anterior.</p>
-    <div class="bloque grid g-2">
+    <div class="bloque">
       <article class="card revelar"><div class="card-h"><h3>Pizarra Rosario · 30 días</h3><span class="chip verde">$/t</span></div>
         <div class="grafico"><div class="esqueleto"></div><canvas id="g-granos" aria-label="Evolución de la pizarra de Rosario"></canvas></div></article>
-      <article class="card revelar"><div class="card-h"><h3>Retenciones vigentes</h3></div>
-        <ul class="ret-lista"><li><span>Soja</span><div class="ret-barra"><i style="--w:100.0%"></i></div><b>24 %</b></li><li><span>Maíz</span><div class="ret-barra"><i style="--w:35.4%"></i></div><b>8,5 %</b></li><li><span>Trigo</span><div class="ret-barra"><i style="--w:22.9%"></i></div><b>5,5 %</b></li><li><span>Girasol</span><div class="ret-barra"><i style="--w:18.8%"></i></div><b>4,5 %</b></li><li><span>Cebada</span><div class="ret-barra"><i style="--w:22.9%"></i></div><b>5,5 %</b></li><li><span>Sorgo</span><div class="ret-barra"><i style="--w:35.4%"></i></div><b>8,5 %</b></li></ul>
-        
-    
-    <p class="nota" style="margin-top:14px">Decreto 423/2026 (Boletín Oficial, junio 2026): trigo y cebada bajan a 5,5 %; soja, maíz, girasol y sorgo sin cambios durante 2026.
-      <br>Próximo escalón: <b>soja 23,75 %</b> desde el 01/01/2027.
-      <br><span class="">Verificadas el 13/10/2026 (hace 1 día).</span>
-      Boletín Oficial revisado automáticamente el 14/10/2026: sin normas nuevas sobre retenciones.</p></article>
     </div>
   </section>
 <section class="vista" id="dolar" role="tabpanel" aria-labelledby="tab-dolar">
@@ -727,49 +702,49 @@ body.completa .pie { display: none; }
     <p class="nota" style="margin-top:10px">Hacé clic en los puntos para ver el detalle. Las localidades y los campos se editan en <code>config.json</code>.</p>
     <article class="card clima-loc revelar">
           <div class="card-h"><h3>Córdoba</h3>
-            <span class="chip verde">Lluvia 7 días: 21,6 mm</span></div>
+            <span class="chip verde">Lluvia 7 días: 27,7 mm</span></div>
           
           <div class="dias"><div class="dia hoy">
             <span class="d">Hoy</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
-            <span class="desc">Chaparrones</span>
+            <span class="desc">Llovizna</span>
             <span class="t"><b>19°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 96 %"><i style="--h:58%"></i>5,8 mm</span>
+            <span class="lluvia" title="Probabilidad: 96 %"><i style="--h:21%"></i>2,1 mm</span>
             
           </div><div class="dia">
             <span class="d">jue 15/10</span>
-            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
-            <span class="desc">Llovizna</span>
-            <span class="t"><b>20°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 90 %"><i style="--h:32%"></i>3,2 mm</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#8f8676"/></g><path d="M17 23l-3 5h3l-2 4" stroke="#ff9800" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="desc">Tormenta</span>
+            <span class="t"><b>20°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 90 %"><i style="--h:61%"></i>6,1 mm</span>
             
           </div><div class="dia">
             <span class="d">vie 16/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
-            <span class="desc">Chaparrones</span>
+            <span class="desc">Llovizna</span>
             <span class="t"><b>19°</b> / 12°</span>
-            <span class="lluvia" title="Probabilidad: 92 %"><i style="--h:48%"></i>4,8 mm</span>
+            <span class="lluvia" title="Probabilidad: 92 %"><i style="--h:37%"></i>3,7 mm</span>
             
           </div><div class="dia">
             <span class="d">sáb 17/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
-            <span class="t"><b>16°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 86 %"><i style="--h:30%"></i>3,0 mm</span>
+            <span class="t"><b>14°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 86 %"><i style="--h:38%"></i>3,8 mm</span>
             
           </div><div class="dia">
             <span class="d">dom 18/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#b9b09e"/></svg>
             <span class="desc">Nublado</span>
-            <span class="t"><b>18°</b> / 11°</span>
+            <span class="t"><b>17°</b> / 10°</span>
             <span class="lluvia" title="Probabilidad: 22 %"><i style="--h:0%"></i>0,0 mm</span>
             
           </div><div class="dia">
             <span class="d">lun 19/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
-            <span class="desc">Llovizna</span>
-            <span class="t"><b>17°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 69 %"><i style="--h:6%"></i>0,6 mm</span>
+            <span class="desc">Chaparrones</span>
+            <span class="t"><b>14°</b> / 10°</span>
+            <span class="lluvia" title="Probabilidad: 69 %"><i style="--h:78%"></i>7,8 mm</span>
             
           </div><div class="dia">
             <span class="d">mar 20/10</span>
@@ -781,14 +756,14 @@ body.completa .pie { display: none; }
           </div></div>
         </article><article class="card clima-loc revelar">
           <div class="card-h"><h3>Villa del Rosario, Córdoba</h3>
-            <span class="chip verde">Lluvia 7 días: 17,8 mm</span></div>
+            <span class="chip verde">Lluvia 7 días: 21,6 mm</span></div>
           
           <div class="dias"><div class="dia hoy">
             <span class="d">Hoy</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
             <span class="t"><b>21°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 59 %"><i style="--h:13%"></i>1,8 mm</span>
+            <span class="lluvia" title="Probabilidad: 59 %"><i style="--h:6%"></i>0,9 mm</span>
             
           </div><div class="dia">
             <span class="d">jue 15/10</span>
@@ -802,13 +777,13 @@ body.completa .pie { display: none; }
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
             <span class="desc">Llovizna</span>
             <span class="t"><b>20°</b> / 11°</span>
-            <span class="lluvia" title="Probabilidad: 61 %"><i style="--h:9%"></i>1,3 mm</span>
+            <span class="lluvia" title="Probabilidad: 61 %"><i style="--h:15%"></i>2,1 mm</span>
             
           </div><div class="dia">
             <span class="d">sáb 17/10</span>
             <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#b9b09e"/></svg>
             <span class="desc">Nublado</span>
-            <span class="t"><b>17°</b> / 12°</span>
+            <span class="t"><b>16°</b> / 11°</span>
             <span class="lluvia" title="Probabilidad: 20 %"><i style="--h:0%"></i>0,0 mm</span>
             
           </div><div class="dia">
@@ -820,10 +795,10 @@ body.completa .pie { display: none; }
             
           </div><div class="dia">
             <span class="d">lun 19/10</span>
-            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#b9b09e"/></svg>
-            <span class="desc">Nublado</span>
-            <span class="t"><b>19°</b> / 10°</span>
-            <span class="lluvia" title="Probabilidad: 43 %"><i style="--h:0%"></i>0,0 mm</span>
+            <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(0 -3)"><path class="nube" transform="translate(0 0)" d="M10 25h13a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 10 25z" fill="#a9a08e"/></g><g stroke="#3a8fd6" stroke-width="2" stroke-linecap="round"><path d="M12 27l-1 3M17 27l-1 3M22 27l-1 3"/></g></svg>
+            <span class="desc">Llovizna</span>
+            <span class="t"><b>16°</b> / 11°</span>
+            <span class="lluvia" title="Probabilidad: 43 %"><i style="--h:28%"></i>3,9 mm</span>
             
           </div><div class="dia">
             <span class="d">mar 20/10</span>
@@ -873,21 +848,21 @@ body.completa .pie { display: none; }
   </section>
 <footer class="pie">
     <details><summary>Estado de las fuentes en la última ejecución <span class="chip verde">Todas OK</span></summary>
-      <div class="tabla"><table><thead><tr><th>Fuente</th><th>Estado</th><th>Último dato correcto</th><th>Detalle</th></tr></thead><tbody><tr><td>Pizarra Rosario (CAC-BCR)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>Chicago CBOT (Yahoo Finance / CME)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>Matba-Rofex</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>Dólar (DolarApi)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>Clima (Open-Meteo)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>Noticias (RSS)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>El Niño / La Niña (NOAA)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
-        <td class="err-txt"></td></tr><tr><td>Feriados (ArgentinaDatos)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:14</td>
+      <div class="tabla"><table><thead><tr><th>Fuente</th><th>Estado</th><th>Último dato correcto</th><th>Detalle</th></tr></thead><tbody><tr><td>Pizarra Rosario (CAC-BCR)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>Chicago CBOT (Yahoo Finance / CME)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>Matba-Rofex</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>Dólar (DolarApi)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>Clima (Open-Meteo)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>Noticias (RSS)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>El Niño / La Niña (NOAA)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
+        <td class="err-txt"></td></tr><tr><td>Feriados (ArgentinaDatos)</td><td><span class="ok">● Respondió bien</span></td><td class="tnum">14/10/2026 09:22</td>
         <td class="err-txt"></td></tr></tbody></table></div>
     </details>
     <p>Información de referencia, sin valor contractual. Verificá los valores en la fuente original antes de operar. La página se recarga sola cada 30 minutos.</p>
   </footer>
 </main>
 
-<script>window.TABLERO = {"titulo":"Sammartino","recargaMs":1800000,"graficos":{"granos":{"fechas":["2026-10-09"],"series":[{"nombre":"Soja","valores":[560000]},{"nombre":"Maíz","valores":[292500]},{"nombre":"Girasol","valores":[799240]},{"nombre":"Trigo","valores":[342000]}]},"dolar":{"fechas":["2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13"],"valores":[1530,1530,1530,1535,1535,1535,1535,1535,1535,1535,1535,1540,1545,1545,1545,1545,1545,1540,1545,1540,1540,1540,1540,1540,1540,1540,1535,1535,1535,1535]}},"mapa":[{"nombre":"Córdoba","lat":-31.4201,"lon":-64.1888,"clase":"","popup":"\u003cdiv class=\"popup\">\u003cb>Córdoba\u003c/b>\u003cbr>Hoy 19° / 11° · Chaparrones\u003cbr>Lluvia 7 días: \u003cb>21,6 mm\u003c/b>\u003c/div>"},{"nombre":"Villa del Rosario","lat":-31.5536,"lon":-63.5345,"clase":"","popup":"\u003cdiv class=\"popup\">\u003cb>Villa del Rosario\u003c/b>\u003cbr>Hoy 21° / 11° · Llovizna\u003cbr>Lluvia 7 días: \u003cb>17,8 mm\u003c/b>\u003c/div>"},{"nombre":"Depósito Villa del Rosario","lat":-31.5536,"lon":-63.5345,"clase":"deposito","popup":"\u003cdiv class=\"popup\">\u003cb>Depósito Villa del Rosario\u003c/b>\u003cbr>Depósito\u003c/div>"}],"enso":{"oniUltimo":{"temporada":"JAS 2026","anom":2.16},"oniSerie":[{"temporada":"ASO 2024","anom":-0.12},{"temporada":"SON 2024","anom":-0.19},{"temporada":"OND 2024","anom":-0.29},{"temporada":"NDJ 2024","anom":-0.43},{"temporada":"DJF 2025","anom":-0.46},{"temporada":"JFM 2025","anom":-0.22},{"temporada":"FMA 2025","anom":-0.08},{"temporada":"MAM 2025","anom":0.02},{"temporada":"AMJ 2025","anom":-0.04},{"temporada":"MJJ 2025","anom":-0.02},{"temporada":"JJA 2025","anom":-0.11},{"temporada":"JAS 2025","anom":-0.26},{"temporada":"ASO 2025","anom":-0.43},{"temporada":"SON 2025","anom":-0.57},{"temporada":"OND 2025","anom":-0.61},{"temporada":"NDJ 2025","anom":-0.6},{"temporada":"DJF 2026","anom":-0.39},{"temporada":"JFM 2026","anom":-0.21},{"temporada":"FMA 2026","anom":0.11},{"temporada":"MAM 2026","anom":0.46},{"temporada":"AMJ 2026","anom":0.95},{"temporada":"MJJ 2026","anom":1.39},{"temporada":"JJA 2026","anom":1.8},{"temporada":"JAS 2026","anom":2.16}],"nino34Semanal":[{"fecha":"2026-07-22","nino34":2.2,"nino12":3.6},{"fecha":"2026-07-29","nino34":2.4,"nino12":3.8},{"fecha":"2026-08-05","nino34":2.5,"nino12":4},{"fecha":"2026-08-12","nino34":2.6,"nino12":4.1},{"fecha":"2026-08-19","nino34":2.6,"nino12":4},{"fecha":"2026-08-26","nino34":2.6,"nino12":4.2},{"fecha":"2026-09-02","nino34":2.8,"nino12":4.4},{"fecha":"2026-09-09","nino34":2.8,"nino12":4.6},{"fecha":"2026-09-16","nino34":3,"nino12":4.7},{"fecha":"2026-09-23","nino34":3.1,"nino12":4.7},{"fecha":"2026-09-30","nino34":3.2,"nino12":5.3},{"fecha":"2026-10-07","nino34":3.3,"nino12":5.2}],"faseActual":"nino","intensidadActual":"muy fuerte","anomActual":3.3,"alerta":"El Niño Advisory","estadoTexto":"El Niño en curso","sinopsis":"El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than an 83% chance).","probabilidad":83,"campanas":{"1950":{"oni":-0.66,"fase":"nina","intensidad":"débil"},"1951":{"oni":0.96,"fase":"nino","intensidad":"débil"},"1952":{"oni":-0.11,"fase":"neutral","intensidad":"neutral"},"1953":{"oni":0.52,"fase":"nino","intensidad":"débil"},"1954":{"oni":-0.4,"fase":"neutral","intensidad":"neutral"},"1955":{"oni":-1.59,"fase":"nina","intensidad":"fuerte"},"1956":{"oni":-0.37,"fase":"neutral","intensidad":"neutral"},"1957":{"oni":1.39,"fase":"nino","intensidad":"moderado"},"1958":{"oni":0.36,"fase":"neutral","intensidad":"neutral"},"1959":{"oni":0.23,"fase":"neutral","intensidad":"neutral"},"1960":{"oni":-0.07,"fase":"neutral","intensidad":"neutral"},"1961":{"oni":-0.11,"fase":"neutral","intensidad":"neutral"},"1962":{"oni":-0.25,"fase":"neutral","intensidad":"neutral"},"1963":{"oni":1.19,"fase":"nino","intensidad":"moderado"},"1964":{"oni":-0.79,"fase":"nina","intensidad":"débil"},"1965":{"oni":1.82,"fase":"nino","intensidad":"fuerte"},"1966":{"oni":-0.23,"fase":"neutral","intensidad":"neutral"},"1967":{"oni":-0.36,"fase":"neutral","intensidad":"neutral"},"1968":{"oni":0.66,"fase":"nino","intensidad":"débil"},"1969":{"oni":0.81,"fase":"nino","intensidad":"débil"},"1970":{"oni":-0.78,"fase":"nina","intensidad":"débil"},"1971":{"oni":-0.86,"fase":"nina","intensidad":"débil"},"1972":{"oni":1.84,"fase":"nino","intensidad":"fuerte"},"1973":{"oni":-1.89,"fase":"nina","intensidad":"fuerte"},"1974":{"oni":-0.88,"fase":"nina","intensidad":"débil"},"1975":{"oni":-1.47,"fase":"nina","intensidad":"moderado"},"1976":{"oni":0.81,"fase":"nino","intensidad":"débil"},"1977":{"oni":0.84,"fase":"nino","intensidad":"débil"},"1978":{"oni":-0.07,"fase":"neutral","intensidad":"neutral"},"1979":{"oni":0.5,"fase":"nino","intensidad":"débil"},"1980":{"oni":0.08,"fase":"neutral","intensidad":"neutral"},"1981":{"oni":-0.19,"fase":"neutral","intensidad":"neutral"},"1982":{"oni":2.03,"fase":"nino","intensidad":"muy fuerte"},"1983":{"oni":-0.96,"fase":"nina","intensidad":"débil"},"1984":{"oni":-0.95,"fase":"nina","intensidad":"débil"},"1985":{"oni":-0.28,"fase":"neutral","intensidad":"neutral"},"1986":{"oni":1.06,"fase":"nino","intensidad":"moderado"},"1987":{"oni":1.2,"fase":"nino","intensidad":"moderado"},"1988":{"oni":-1.81,"fase":"nina","intensidad":"fuerte"},"1989":{"oni":-0.12,"fase":"neutral","intensidad":"neutral"},"1990":{"oni":0.31,"fase":"neutral","intensidad":"neutral"},"1991":{"oni":1.18,"fase":"nino","intensidad":"moderado"},"1992":{"oni":-0.24,"fase":"neutral","intensidad":"neutral"},"1993":{"oni":0.2,"fase":"neutral","intensidad":"neutral"},"1994":{"oni":0.93,"fase":"nino","intensidad":"débil"},"1995":{"oni":-1.05,"fase":"nina","intensidad":"moderado"},"1996":{"oni":-0.39,"fase":"neutral","intensidad":"neutral"},"1997":{"oni":2.34,"fase":"nino","intensidad":"muy fuerte"},"1998":{"oni":-1.31,"fase":"nina","intensidad":"moderado"},"1999":{"oni":-1.35,"fase":"nina","intensidad":"moderado"},"2000":{"oni":-0.76,"fase":"nina","intensidad":"débil"},"2001":{"oni":-0.33,"fase":"neutral","intensidad":"neutral"},"2002":{"oni":1.19,"fase":"nino","intensidad":"moderado"},"2003":{"oni":0.29,"fase":"neutral","intensidad":"neutral"},"2004":{"oni":0.64,"fase":"nino","intensidad":"débil"},"2005":{"oni":-0.57,"fase":"nina","intensidad":"débil"},"2006":{"oni":0.88,"fase":"nino","intensidad":"débil"},"2007":{"oni":-1.57,"fase":"nina","intensidad":"fuerte"},"2008":{"oni":-0.57,"fase":"nina","intensidad":"débil"},"2009":{"oni":1.31,"fase":"nino","intensidad":"moderado"},"2010":{"oni":-1.57,"fase":"nina","intensidad":"fuerte"},"2011":{"oni":-1.02,"fase":"nina","intensidad":"moderado"},"2012":{"oni":0.13,"fase":"neutral","intensidad":"neutral"},"2013":{"oni":-0.12,"fase":"neutral","intensidad":"neutral"},"2014":{"oni":0.7,"fase":"nino","intensidad":"débil"},"2015":{"oni":2.45,"fase":"nino","intensidad":"muy fuerte"},"2016":{"oni":-0.49,"fase":"neutral","intensidad":"neutral"},"2017":{"oni":-0.61,"fase":"nina","intensidad":"débil"},"2018":{"oni":1.04,"fase":"nino","intensidad":"moderado"},"2019":{"oni":0.72,"fase":"nino","intensidad":"débil"},"2020":{"oni":-1.11,"fase":"nina","intensidad":"moderado"},"2021":{"oni":-0.91,"fase":"nina","intensidad":"débil"},"2022":{"oni":-0.82,"fase":"nina","intensidad":"débil"},"2023":{"oni":1.9,"fase":"nino","intensidad":"fuerte"},"2024":{"oni":-0.29,"fase":"neutral","intensidad":"neutral"},"2025":{"oni":-0.61,"fase":"nina","intensidad":"débil"}},"fuente":"NOAA Climate Prediction Center"},"localidades":[{"nombre":"Córdoba","lat":-31.4201,"lon":-64.1888},{"nombre":"Villa del Rosario","lat":-31.5536,"lon":-63.5345}]};</script>
+<script>window.TABLERO = {"titulo":"Sammartino","recargaMs":1800000,"graficos":{"granos":{"fechas":["2026-10-09"],"series":[{"nombre":"Soja","valores":[560000]},{"nombre":"Maíz","valores":[292500]},{"nombre":"Girasol","valores":[799240]},{"nombre":"Trigo","valores":[342000]}]},"dolar":{"fechas":["2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13"],"valores":[1530,1530,1530,1535,1535,1535,1535,1535,1535,1535,1535,1540,1545,1545,1545,1545,1545,1540,1545,1540,1540,1540,1540,1540,1540,1540,1535,1535,1535,1535]}},"mapa":[{"nombre":"Córdoba","lat":-31.4201,"lon":-64.1888,"clase":"","popup":"\u003cdiv class=\"popup\">\u003cb>Córdoba\u003c/b>\u003cbr>Hoy 19° / 11° · Llovizna\u003cbr>Lluvia 7 días: \u003cb>27,7 mm\u003c/b>\u003c/div>"},{"nombre":"Villa del Rosario","lat":-31.5536,"lon":-63.5345,"clase":"","popup":"\u003cdiv class=\"popup\">\u003cb>Villa del Rosario\u003c/b>\u003cbr>Hoy 21° / 11° · Llovizna\u003cbr>Lluvia 7 días: \u003cb>21,6 mm\u003c/b>\u003c/div>"},{"nombre":"Depósito Villa del Rosario","lat":-31.5536,"lon":-63.5345,"clase":"deposito","popup":"\u003cdiv class=\"popup\">\u003cb>Depósito Villa del Rosario\u003c/b>\u003cbr>Depósito\u003c/div>"}],"enso":{"oniUltimo":{"temporada":"JAS 2026","anom":2.16},"oniSerie":[{"temporada":"ASO 2024","anom":-0.12},{"temporada":"SON 2024","anom":-0.19},{"temporada":"OND 2024","anom":-0.29},{"temporada":"NDJ 2024","anom":-0.43},{"temporada":"DJF 2025","anom":-0.46},{"temporada":"JFM 2025","anom":-0.22},{"temporada":"FMA 2025","anom":-0.08},{"temporada":"MAM 2025","anom":0.02},{"temporada":"AMJ 2025","anom":-0.04},{"temporada":"MJJ 2025","anom":-0.02},{"temporada":"JJA 2025","anom":-0.11},{"temporada":"JAS 2025","anom":-0.26},{"temporada":"ASO 2025","anom":-0.43},{"temporada":"SON 2025","anom":-0.57},{"temporada":"OND 2025","anom":-0.61},{"temporada":"NDJ 2025","anom":-0.6},{"temporada":"DJF 2026","anom":-0.39},{"temporada":"JFM 2026","anom":-0.21},{"temporada":"FMA 2026","anom":0.11},{"temporada":"MAM 2026","anom":0.46},{"temporada":"AMJ 2026","anom":0.95},{"temporada":"MJJ 2026","anom":1.39},{"temporada":"JJA 2026","anom":1.8},{"temporada":"JAS 2026","anom":2.16}],"nino34Semanal":[{"fecha":"2026-07-22","nino34":2.2,"nino12":3.6},{"fecha":"2026-07-29","nino34":2.4,"nino12":3.8},{"fecha":"2026-08-05","nino34":2.5,"nino12":4},{"fecha":"2026-08-12","nino34":2.6,"nino12":4.1},{"fecha":"2026-08-19","nino34":2.6,"nino12":4},{"fecha":"2026-08-26","nino34":2.6,"nino12":4.2},{"fecha":"2026-09-02","nino34":2.8,"nino12":4.4},{"fecha":"2026-09-09","nino34":2.8,"nino12":4.6},{"fecha":"2026-09-16","nino34":3,"nino12":4.7},{"fecha":"2026-09-23","nino34":3.1,"nino12":4.7},{"fecha":"2026-09-30","nino34":3.2,"nino12":5.3},{"fecha":"2026-10-07","nino34":3.3,"nino12":5.2}],"faseActual":"nino","intensidadActual":"muy fuerte","anomActual":3.3,"alerta":"El Niño Advisory","estadoTexto":"El Niño en curso","sinopsis":"El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than an 83% chance).","probabilidad":83,"campanas":{"1950":{"oni":-0.66,"fase":"nina","intensidad":"débil"},"1951":{"oni":0.96,"fase":"nino","intensidad":"débil"},"1952":{"oni":-0.11,"fase":"neutral","intensidad":"neutral"},"1953":{"oni":0.52,"fase":"nino","intensidad":"débil"},"1954":{"oni":-0.4,"fase":"neutral","intensidad":"neutral"},"1955":{"oni":-1.59,"fase":"nina","intensidad":"fuerte"},"1956":{"oni":-0.37,"fase":"neutral","intensidad":"neutral"},"1957":{"oni":1.39,"fase":"nino","intensidad":"moderado"},"1958":{"oni":0.36,"fase":"neutral","intensidad":"neutral"},"1959":{"oni":0.23,"fase":"neutral","intensidad":"neutral"},"1960":{"oni":-0.07,"fase":"neutral","intensidad":"neutral"},"1961":{"oni":-0.11,"fase":"neutral","intensidad":"neutral"},"1962":{"oni":-0.25,"fase":"neutral","intensidad":"neutral"},"1963":{"oni":1.19,"fase":"nino","intensidad":"moderado"},"1964":{"oni":-0.79,"fase":"nina","intensidad":"débil"},"1965":{"oni":1.82,"fase":"nino","intensidad":"fuerte"},"1966":{"oni":-0.23,"fase":"neutral","intensidad":"neutral"},"1967":{"oni":-0.36,"fase":"neutral","intensidad":"neutral"},"1968":{"oni":0.66,"fase":"nino","intensidad":"débil"},"1969":{"oni":0.81,"fase":"nino","intensidad":"débil"},"1970":{"oni":-0.78,"fase":"nina","intensidad":"débil"},"1971":{"oni":-0.86,"fase":"nina","intensidad":"débil"},"1972":{"oni":1.84,"fase":"nino","intensidad":"fuerte"},"1973":{"oni":-1.89,"fase":"nina","intensidad":"fuerte"},"1974":{"oni":-0.88,"fase":"nina","intensidad":"débil"},"1975":{"oni":-1.47,"fase":"nina","intensidad":"moderado"},"1976":{"oni":0.81,"fase":"nino","intensidad":"débil"},"1977":{"oni":0.84,"fase":"nino","intensidad":"débil"},"1978":{"oni":-0.07,"fase":"neutral","intensidad":"neutral"},"1979":{"oni":0.5,"fase":"nino","intensidad":"débil"},"1980":{"oni":0.08,"fase":"neutral","intensidad":"neutral"},"1981":{"oni":-0.19,"fase":"neutral","intensidad":"neutral"},"1982":{"oni":2.03,"fase":"nino","intensidad":"muy fuerte"},"1983":{"oni":-0.96,"fase":"nina","intensidad":"débil"},"1984":{"oni":-0.95,"fase":"nina","intensidad":"débil"},"1985":{"oni":-0.28,"fase":"neutral","intensidad":"neutral"},"1986":{"oni":1.06,"fase":"nino","intensidad":"moderado"},"1987":{"oni":1.2,"fase":"nino","intensidad":"moderado"},"1988":{"oni":-1.81,"fase":"nina","intensidad":"fuerte"},"1989":{"oni":-0.12,"fase":"neutral","intensidad":"neutral"},"1990":{"oni":0.31,"fase":"neutral","intensidad":"neutral"},"1991":{"oni":1.18,"fase":"nino","intensidad":"moderado"},"1992":{"oni":-0.24,"fase":"neutral","intensidad":"neutral"},"1993":{"oni":0.2,"fase":"neutral","intensidad":"neutral"},"1994":{"oni":0.93,"fase":"nino","intensidad":"débil"},"1995":{"oni":-1.05,"fase":"nina","intensidad":"moderado"},"1996":{"oni":-0.39,"fase":"neutral","intensidad":"neutral"},"1997":{"oni":2.34,"fase":"nino","intensidad":"muy fuerte"},"1998":{"oni":-1.31,"fase":"nina","intensidad":"moderado"},"1999":{"oni":-1.35,"fase":"nina","intensidad":"moderado"},"2000":{"oni":-0.76,"fase":"nina","intensidad":"débil"},"2001":{"oni":-0.33,"fase":"neutral","intensidad":"neutral"},"2002":{"oni":1.19,"fase":"nino","intensidad":"moderado"},"2003":{"oni":0.29,"fase":"neutral","intensidad":"neutral"},"2004":{"oni":0.64,"fase":"nino","intensidad":"débil"},"2005":{"oni":-0.57,"fase":"nina","intensidad":"débil"},"2006":{"oni":0.88,"fase":"nino","intensidad":"débil"},"2007":{"oni":-1.57,"fase":"nina","intensidad":"fuerte"},"2008":{"oni":-0.57,"fase":"nina","intensidad":"débil"},"2009":{"oni":1.31,"fase":"nino","intensidad":"moderado"},"2010":{"oni":-1.57,"fase":"nina","intensidad":"fuerte"},"2011":{"oni":-1.02,"fase":"nina","intensidad":"moderado"},"2012":{"oni":0.13,"fase":"neutral","intensidad":"neutral"},"2013":{"oni":-0.12,"fase":"neutral","intensidad":"neutral"},"2014":{"oni":0.7,"fase":"nino","intensidad":"débil"},"2015":{"oni":2.45,"fase":"nino","intensidad":"muy fuerte"},"2016":{"oni":-0.49,"fase":"neutral","intensidad":"neutral"},"2017":{"oni":-0.61,"fase":"nina","intensidad":"débil"},"2018":{"oni":1.04,"fase":"nino","intensidad":"moderado"},"2019":{"oni":0.72,"fase":"nino","intensidad":"débil"},"2020":{"oni":-1.11,"fase":"nina","intensidad":"moderado"},"2021":{"oni":-0.91,"fase":"nina","intensidad":"débil"},"2022":{"oni":-0.82,"fase":"nina","intensidad":"débil"},"2023":{"oni":1.9,"fase":"nino","intensidad":"fuerte"},"2024":{"oni":-0.29,"fase":"neutral","intensidad":"neutral"},"2025":{"oni":-0.61,"fase":"nina","intensidad":"débil"}},"fuente":"NOAA Climate Prediction Center"},"localidades":[{"nombre":"Córdoba","lat":-31.4201,"lon":-64.1888},{"nombre":"Villa del Rosario","lat":-31.5536,"lon":-63.5345}]};</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
 <script>
 // =====================================================
