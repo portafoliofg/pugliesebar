@@ -251,7 +251,7 @@
   }
   function pintarGraficos() {
     if (!window.Chart) {
-      if (document.readyState === 'complete') { sinGrafico('g-granos', 'No se pudo cargar el gráfico.'); sinGrafico('g-dolar', 'No se pudo cargar el gráfico.'); }
+      if (document.readyState === 'complete') { sinGrafico('g-granos-dia', 'No se pudo cargar el gráfico.'); sinGrafico('g-dolar', 'No se pudo cargar el gráfico.'); }
       else window.addEventListener('load', pintarGraficos, { once: true });
       return;
     }
@@ -291,23 +291,7 @@
     };
 
     var G = D.graficos;
-    if (document.getElementById('g-granos')) {
-      if (G.granos.fechas.length < 2) sinGrafico('g-granos', 'Todavía no hay suficiente histórico para graficar. Se completa con los días.');
-      else {
-        if (graficos.granos) graficos.granos.destroy();
-        graficos.granos = new Chart(document.getElementById('g-granos'), {
-          type: 'line',
-          data: {
-            labels: etiquetas(G.granos.fechas),
-            datasets: G.granos.series.map(function (s, i) {
-              var c = paleta[i % paleta.length];
-              return { label: s.nombre, data: s.valores, borderColor: c, backgroundColor: c, pointRadius: 0, pointHoverRadius: 5, borderWidth: 2.5, tension: .35, spanGaps: true };
-            })
-          },
-          options: opciones('$ ')
-        });
-      }
-    }
+    if (document.getElementById('g-granos-dia')) dibujarDia(ddActual, { opciones: opciones, etiquetas: etiquetas, paleta: paleta, degradado: degradado, f2: f2, linea: linea });
     if (document.getElementById('g-dolar')) {
       if (G.dolar.fechas.length < 2) sinGrafico('g-dolar', 'Todavía no hay suficiente histórico para graficar.');
       else {
@@ -325,6 +309,37 @@
     }
     $$('.esqueleto').forEach(function (e) { e.remove(); });
   }
+
+  // ---------- Granos: día a día del grano elegido ----------
+  var ddActual = (function () { var b = $('.dd-tab[aria-selected="true"]'); return b ? b.getAttribute('data-dd') : null; })();
+  var ddAyuda = null;
+  function dibujarDia(clave, ayuda) {
+    if (ayuda) ddAyuda = ayuda;
+    var A = ddAyuda; var x = D.graficos.granosDia && D.graficos.granosDia[clave];
+    if (!A || !x || !document.getElementById('g-granos-dia')) return;
+    if (graficos.dia) { graficos.dia.destroy(); graficos.dia = null; }
+    var hay = function (v) { return v && v.filter(function (y) { return y != null; }).length; };
+    var lienzo = document.getElementById('g-granos-dia'); var vacio = $('.dd-vacio');
+    lienzo.hidden = x.fechas.length < 2; if (vacio) vacio.hidden = x.fechas.length >= 2;
+    if (x.fechas.length < 2) return;
+    var verde = A.paleta[0].length === 7 ? A.paleta[0] : '#a4c639';
+    var sets = [{ label: 'Pizarra Rosario ($/t)', data: x.pizarra, yAxisID: 'y', borderColor: verde, fill: true,
+      backgroundColor: function (ctx) { return A.degradado(ctx, verde); }, pointRadius: 2, pointHoverRadius: 5, borderWidth: 2.5, tension: .3, spanGaps: true }];
+    if (hay(x.cbot)) sets.push({ label: 'Chicago (US$/t)', data: x.cbot, yAxisID: 'y2', borderColor: '#3a8fd6', backgroundColor: '#3a8fd6', pointRadius: 2, borderWidth: 2, tension: .3, spanGaps: true });
+    if (x.matba && hay(x.matba.valores)) sets.push({ label: 'Matba ' + x.matba.posicion + ' (US$/t)', data: x.matba.valores, yAxisID: 'y2', borderColor: '#e8833a', backgroundColor: '#e8833a', borderDash: [5, 4], pointRadius: 2, borderWidth: 2, tension: .3, spanGaps: true });
+    var op = A.opciones('$ ');
+    op.plugins.tooltip.callbacks.label = function (c) { return ' ' + c.dataset.label + ': ' + (c.dataset.yAxisID === 'y2' ? 'US$ ' + nf(2).format(c.parsed.y) : '$ ' + A.f2.format(c.parsed.y)); };
+    if (sets.length > 1) op.scales.y2 = { position: 'right', grid: { display: false }, ticks: { callback: function (v) { return 'US$ ' + A.f2.format(v); } } };
+    graficos.dia = new Chart(document.getElementById('g-granos-dia'), { type: 'line', data: { labels: A.etiquetas(x.fechas), datasets: sets }, options: op });
+  }
+  $$('.dd-tab').forEach(function (b) {
+    b.addEventListener('click', function () {
+      ddActual = b.getAttribute('data-dd');
+      $$('.dd-tab').forEach(function (o) { o.setAttribute('aria-selected', o === b ? 'true' : 'false'); });
+      $$('.dd-tabla').forEach(function (t) { t.hidden = t.getAttribute('data-dd-tabla') !== ddActual; });
+      dibujarDia(ddActual);
+    });
+  });
 
   // ---------- Mapa (Leaflet) ----------
   function cargarMapa() {

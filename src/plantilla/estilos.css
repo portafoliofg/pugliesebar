@@ -455,6 +455,22 @@ th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color:
   .marca b { font-size: 1.1rem; }
 }
 
+/* ---------- Granos: día a día ---------- */
+.dia-a-dia .card-h { flex-wrap: wrap; gap: 10px; }
+.dd-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.dd-tab { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 800 .86rem var(--body); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.dd-tab:hover { border-color: var(--c); color: var(--ink); }
+.dd-tab[aria-selected="true"] { background: var(--c); border-color: var(--c); color: #2b2118; }
+.dia-a-dia .grafico canvas[hidden] { display: none; }
+.dd-tabla { margin-top: 16px; }
+.dd-tabla .tabla-scroll { max-height: 420px; overflow: auto; border: 1px solid var(--line); border-radius: 16px; }
+.dd-tabla table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dd-tabla th, .dd-tabla td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.dd-tabla thead th { position: sticky; top: 0; background: var(--surface); z-index: 1; }
+.dd-tabla .n { text-align: right; }
+.dd-tabla tbody tr:first-child td { background: color-mix(in srgb, var(--lima) 10%, transparent); }
+.dd-tabla .var { font-size: .8rem; }
+
 /* ---------- Menú lateral (computadora) y pantalla completa para Campos y Stock ---------- */
 .solo-lateral { display: none; }
 .lateral-sub[hidden] { display: none !important; }

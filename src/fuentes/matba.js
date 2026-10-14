@@ -9,7 +9,7 @@ import { fechaISOArgentina } from '../lib/formato.js';
 const MESES = { ENE: 1, FEB: 2, MAR: 3, ABR: 4, MAY: 5, JUN: 6, JUL: 7, AGO: 8, SEP: 9, OCT: 10, NOV: 11, DIC: 12 };
 
 /** "SOJ.ROS/MAY27" -> { producto: "SOJ.ROS", mes: 5, anio: 2027, etiqueta: "MAY27" } */
-function parsearSimbolo(simbolo) {
+export function parsearSimbolo(simbolo) {
   const m = String(simbolo).toUpperCase().match(/^([A-Z]+\.[A-Z]+)\/([A-Z]{3})(\d{2})$/);
   if (!m || !MESES[m[2]]) return null;
   return { producto: m[1], mes: MESES[m[2]], anio: 2000 + Number(m[3]), etiqueta: `${m[2]}${m[3]}` };

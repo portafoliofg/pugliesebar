@@ -292,11 +292,39 @@ function vistaGranos(m) {
       <div><p>${meta}</p><div class="estados">${chipEstado(pizarra)}${chipEstado(cbot)}${chipEstado(matba)}</div></div></div>
     <div class="grid g-granos">${tarjetas}</div>
     <p class="nota" style="margin-top:12px">La pizarra se publica por la tarde: en las actualizaciones de la mañana vas a ver la del día hábil anterior.</p>
-    <div class="bloque">
-      <article class="card revelar"><div class="card-h"><h3>Pizarra Rosario · ${esc(String(m.config.diasGrafico))} días</h3><span class="chip verde">$/t</span></div>
-        <div class="grafico"><div class="esqueleto"></div><canvas id="g-granos" aria-label="Evolución de la pizarra de Rosario"></canvas></div></article>
-    </div>
+    ${htmlDiaADia(m)}
   </section>`;
+}
+
+// Día a día por grano: botones para elegir el grano, gráfico (lo dibuja cliente.js) y tabla
+function htmlDiaADia(m) {
+  const dia = m.graficos?.granosDia || {};
+  const lista = GRANOS.filter((g) => dia[g.clave]?.fechas?.length);
+  if (!lista.length) return '';
+  const varTd = (vals, i, fmt) => {
+    const v = vals?.[i];
+    if (v == null) return '<td class="n">—</td><td class="n"></td>';
+    let j = i - 1; while (j >= 0 && vals[j] == null) j--;
+    const ant = j >= 0 ? vals[j] : null;
+    const d = ant != null ? v - ant : null;
+    const cls = d == null || Math.abs(d) < 1e-9 ? 'neutra' : d > 0 ? 'sube' : 'baja';
+    const txt = d == null ? '' : Math.abs(d) < 1e-9 ? '=' : `${d > 0 ? '↑' : '↓'} ${fmt(Math.abs(d))} (${d > 0 ? '+' : '−'}${numero(Math.abs(d / ant) * 100, 2)} %)`;
+    return `<td class="n"><b>${esc(fmt(v))}</b></td><td class="n"><span class="var ${cls}">${esc(txt)}</span></td>`;
+  };
+  const tabla = (g) => {
+    const x = dia[g.clave];
+    const filas = x.fechas.map((f, i) => i).reverse().map((i) => `<tr><td>${esc(diaSemanaCorto(x.fechas[i]))} ${esc(fechaCorta(x.fechas[i]))}</td>
+      ${varTd(x.pizarra, i, (v) => pesos(v, 0))}${x.cbot ? varTd(x.cbot, i, (v) => dolares(v)) : ''}${x.matba ? varTd(x.matba.valores, i, (v) => dolares(v)) : ''}</tr>`).join('');
+    return `<div class="dd-tabla" data-dd-tabla="${g.clave}"${g === lista[0] ? '' : ' hidden'}><div class="tabla-scroll"><table>
+      <thead><tr><th>Día</th><th class="n">Pizarra $/t</th><th class="n">Var.</th>${x.cbot ? '<th class="n">Chicago US$/t</th><th class="n">Var.</th>' : ''}${x.matba ? `<th class="n">Matba ${esc(x.matba.posicion)} US$/t</th><th class="n">Var.</th>` : ''}</tr></thead>
+      <tbody>${filas}</tbody></table></div></div>`;
+  };
+  return `<div class="bloque"><article class="card revelar dia-a-dia">
+    <div class="card-h"><h3>Día a día</h3><div class="dd-tabs" role="tablist" aria-label="Grano">${lista.map((g, i) => `<button type="button" role="tab" class="dd-tab" data-dd="${g.clave}" aria-selected="${i === 0}" style="--c:${g.color}">${esc(g.nombre)}</button>`).join('')}</div></div>
+    <p class="nota">Cómo varió el precio cada día en los últimos ${esc(String(m.config.diasGrafico))} días hábiles. Pizarra Rosario en pesos (eje izquierdo); Chicago y Matba-Rofex (posición más cercana) en dólares por tonelada (eje derecho).</p>
+    <div class="grafico"><div class="esqueleto"></div><canvas id="g-granos-dia" aria-label="Evolución diaria del precio del grano elegido"></canvas><p class="nd dd-vacio" hidden>Todavía no hay suficiente histórico para este grano. Se completa con los días.</p></div>
+    ${lista.map(tabla).join('')}
+  </article></div>`;
 }
 
 function vistaDolar(m) {

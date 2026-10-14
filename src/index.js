@@ -16,6 +16,7 @@ import { obtenerNoticias } from './fuentes/noticias.js';
 import { verificarFeriado, esFinDeSemana } from './fuentes/feriados.js';
 import { obtenerEnso } from './fuentes/enso.js';
 import { Historico } from './historico.js';
+import { historiaPizarra, historiaCbot, historiaMatba } from './fuentes/historia.js';
 import { generarHTML, generarConfigStock, generarConfigCampos } from './generar-html.js';
 import { fechaISOArgentina } from './lib/formato.js';
 
@@ -118,6 +119,36 @@ async function main() {
     historico.completar('dolar.oficial', previos.map((p) => ({ fecha: p.fecha, valor: p.venta })));
   }
 
+  // Día a día de Granos: si una serie tiene pocos días, se completa con la historia de cada fuente
+  // (una vez por semana como mucho; después el tablero suma un dato por día)
+  const DIAS_HISTORIA = 60;
+  const relleno = (historico.datos.relleno ||= {});
+  const toca = (fuente, claves) => claves.some((k) => historico.cantidadPuntos(k) < 15) && (!relleno[fuente] || Date.parse(hoyISO) - Date.parse(relleno[fuente]) >= 7 * 864e5);
+  const posicionesMatba = fuentes.matba.estado === 'ok' ? Object.entries(fuentes.matba.datos.granos).flatMap(([g, ps]) => ps.map((x) => `matba.${g}.${x.posicion}`)) : [];
+  const tareas = [];
+  if (toca('pizarra', GRANOS_PIZARRA.map(([g]) => `pizarra.${g}`))) {
+    tareas.push(historiaPizarra(GRANOS_PIZARRA.map(([g]) => g), DIAS_HISTORIA, config).then((h) => {
+      for (const [g, p] of Object.entries(h)) historico.completar(`pizarra.${g}`, p);
+      relleno.pizarra = hoyISO;
+      return `pizarra (${Object.entries(h).map(([g, p]) => `${g} ${p.length}`).join(', ')})`;
+    }));
+  }
+  if (toca('cbot', Object.keys(config.cbot.simbolos).map((g) => `cbot.${g}`))) {
+    tareas.push(historiaCbot(config).then((h) => {
+      for (const [g, p] of Object.entries(h)) historico.completar(`cbot.${g}`, p);
+      relleno.cbot = hoyISO;
+      return `Chicago (${Object.entries(h).map(([g, p]) => `${g} ${p.length}`).join(', ')})`;
+    }));
+  }
+  if (posicionesMatba.length && toca('matba', posicionesMatba)) {
+    tareas.push(historiaMatba(config, DIAS_HISTORIA).then((h) => {
+      for (const [k, p] of Object.entries(h)) historico.completar(`matba.${k}`, p);
+      relleno.matba = hoyISO;
+      return `Matba-Rofex (${Object.keys(h).length} posiciones)`;
+    }));
+  }
+  for (const r of await Promise.allSettled(tareas)) console.log(r.status === 'fulfilled' ? `  ✔ historia ${r.value}` : `  ✘ historia: ${r.reason?.message || r.reason}`);
+
   historico.podar(hoyISO);
   historico.registrarEjecucion(
     momento,
@@ -152,7 +183,17 @@ async function main() {
         return { nombre: s.nombre, valores: fechasGranos.map((f) => mapa[f] ?? null) };
       })
     },
-    dolar: { fechas: dolarOficial.map((p) => p.fecha), valores: dolarOficial.map((p) => p.valor) }
+    dolar: { fechas: dolarOficial.map((p) => p.fecha), valores: dolarOficial.map((p) => p.valor) },
+    // Día a día por grano: pizarra ($/t), Chicago y la posición más cercana de Matba-Rofex (US$/t)
+    granosDia: Object.fromEntries(GRANOS_PIZARRA.map(([g, nombre]) => {
+      const pz = historico.ultimos(`pizarra.${g}`, n);
+      const cb = historico.ultimos(`cbot.${g}`, n);
+      const pos = fuentes.matba.estado === 'ok' ? fuentes.matba.datos.granos?.[g]?.[0]?.posicion : null;
+      const mt = pos ? historico.ultimos(`matba.${g}.${pos}`, n) : [];
+      const fechas = [...new Set([...pz, ...cb, ...mt].map((p) => p.fecha))].sort().slice(-n);
+      const valores = (pts) => { const m = Object.fromEntries(pts.map((p) => [p.fecha, p.valor])); return fechas.map((f) => m[f] ?? null); };
+      return [g, { nombre, fechas, pizarra: valores(pz), cbot: cb.length ? valores(cb) : null, matba: mt.length ? { posicion: pos, valores: valores(mt) } : null }];
+    }))
   };
 
   // Minigráficos de las tarjetas del inicio
