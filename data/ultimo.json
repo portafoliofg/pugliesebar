@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     },
     "dolar": {
       "datos": {
@@ -123,7 +123,7 @@
           }
         }
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     },
     "clima": {
       "datos": {
@@ -135,44 +135,44 @@
             "dias": [
               {
                 "fecha": "2026-10-14",
-                "min": 11.1,
-                "max": 19.3,
-                "lluviaMm": 5.8,
+                "min": 11.4,
+                "max": 19.2,
+                "lluviaMm": 2.1,
                 "probLluvia": 96,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-15",
-                "min": 11.5,
-                "max": 19.8,
-                "lluviaMm": 3.2,
-                "probLluvia": 90,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-10-15",
+                "min": 11.1,
+                "max": 20.2,
+                "lluviaMm": 6.1,
+                "probLluvia": 90,
+                "codigo": 95,
+                "helada": false
+              },
+              {
                 "fecha": "2026-10-16",
-                "min": 12.1,
-                "max": 19.3,
-                "lluviaMm": 4.8,
+                "min": 12.2,
+                "max": 19.4,
+                "lluviaMm": 3.7,
                 "probLluvia": 92,
-                "codigo": 80,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
                 "min": 11.4,
-                "max": 15.7,
-                "lluviaMm": 3,
+                "max": 14.1,
+                "lluviaMm": 3.8,
                 "probLluvia": 86,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 10.9,
-                "max": 18,
+                "min": 10.2,
+                "max": 17.2,
                 "lluviaMm": 0,
                 "probLluvia": 22,
                 "codigo": 3,
@@ -180,16 +180,16 @@
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.5,
-                "max": 17.2,
-                "lluviaMm": 0.6,
+                "min": 9.9,
+                "max": 14.1,
+                "lluviaMm": 7.8,
                 "probLluvia": 69,
-                "codigo": 51,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.8,
+                "min": 11.7,
                 "max": 16.1,
                 "lluviaMm": 4.2,
                 "probLluvia": 43,
@@ -197,7 +197,7 @@
                 "helada": false
               }
             ],
-            "lluviaTotal": 21.6,
+            "lluviaTotal": 27.7,
             "hayHelada": false
           },
           {
@@ -206,17 +206,17 @@
             "dias": [
               {
                 "fecha": "2026-10-14",
-                "min": 10.8,
-                "max": 21,
-                "lluviaMm": 1.8,
+                "min": 11.3,
+                "max": 20.7,
+                "lluviaMm": 0.9,
                 "probLluvia": 59,
-                "codigo": 53,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-15",
-                "min": 11.4,
-                "max": 20.6,
+                "min": 11.3,
+                "max": 20.9,
                 "lluviaMm": 0.6,
                 "probLluvia": 73,
                 "codigo": 51,
@@ -224,17 +224,17 @@
               },
               {
                 "fecha": "2026-10-16",
-                "min": 11.1,
-                "max": 20.1,
-                "lluviaMm": 1.3,
+                "min": 10.7,
+                "max": 20.4,
+                "lluviaMm": 2.1,
                 "probLluvia": 61,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.7,
-                "max": 17,
+                "min": 10.6,
+                "max": 16.4,
                 "lluviaMm": 0,
                 "probLluvia": 20,
                 "codigo": 3,
@@ -243,7 +243,7 @@
               {
                 "fecha": "2026-10-18",
                 "min": 10.9,
-                "max": 19.7,
+                "max": 19.8,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 3,
@@ -251,11 +251,11 @@
               },
               {
                 "fecha": "2026-10-19",
-                "min": 9.9,
-                "max": 19,
-                "lluviaMm": 0,
+                "min": 10.5,
+                "max": 16.2,
+                "lluviaMm": 3.9,
                 "probLluvia": 43,
-                "codigo": 3,
+                "codigo": 55,
                 "helada": false
               },
               {
@@ -268,13 +268,13 @@
                 "helada": false
               }
             ],
-            "lluviaTotal": 17.8,
+            "lluviaTotal": 21.6,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     },
     "noticias": {
       "datos": {
@@ -333,7 +333,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.925,
-            "usdTonelada": 474.91232249999996
+            "usdBushel": 12.9125,
+            "usdTonelada": 474.45302624999994
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.825,
-            "usdTonelada": 189.9501175
+            "usdBushel": 4.8225,
+            "usdTonelada": 189.85169775
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.6675,
-            "usdTonelada": 244.98861975
+            "usdBushel": 6.6625,
+            "usdTonelada": 244.80490124999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-14T12:14:13.407Z"
+      "obtenido": "2026-10-14T12:22:28.751Z"
     }
   }
 }
