@@ -619,6 +619,7 @@
     const hoyISO = new Date(Date.now() - 3 * 36e5).toISOString().slice(0, 10);
     const quien = Equipo.yo().nombre;
     abrirVentana(`<h2>📒 Registrar labor</h2>
+      <p class="nota imp-aviso">¿Muchas labores? <button class="link" type="button" data-accion="importar-labores">📥 Importalas desde Excel o CSV</button></p>
       <form class="form" id="form-labor" autocomplete="off">
         <div class="fila2"><label>Fecha<input name="fecha" type="date" required value="${hoyISO}"></label>
           <label>Labor<select name="tipo">${Agua.TIPOS_LABOR.map((t) => `<option>${t}</option>`).join('')}</select></label></div>
@@ -670,6 +671,167 @@
         } catch (err) { manejarError(err); } finally { cargando(null); }
       });
     });
+  }
+
+  // ---------- Importar labores desde Excel o CSV ----------
+  const COLUMNAS = {
+    fecha: ['fecha', 'dia'], tipo: ['labor', 'tipo', 'tarea', 'actividad'], lote: ['lote', 'lotes', 'campo', 'campos', 'potrero'],
+    cultivo: ['cultivo'], variedad: ['variedad', 'hibrido', 'variedad hibrido'], producto: ['producto', 'productos', 'insumo', 'insumos'],
+    dosis: ['dosis', 'cantidad'], unidad: ['unidad', 'unidades'], superficie: ['superficie', 'sup', 'hectareas', 'has'],
+    costo: ['costo', 'precio', 'importe'], rinde: ['rinde', 'rendimiento'], contratista: ['contratista', 'operario', 'maquinista', 'aplicador'],
+    nota: ['notas', 'nota', 'observaciones', 'obs', 'comentario', 'comentarios']
+  };
+  const TIPOS_TEXTO = [[/^siem/, 'Siembra'], [/^(pulv|aplic|fumig|herbic|insectic|fungic|curasem)/, 'Pulverización'], [/^(fert|urea|fosf|abon)/, 'Fertilización'],
+    [/^(cosech|trill)/, 'Cosecha'], [/^(labr|disc|rastr|cincel|arad|rolo)/, 'Labranza']];
+  const UNIDADES_TEXTO = [[/^kg/, 'kg/ha'], [/^(l|lt|lts|litro)/, 'l/ha'], [/^cc|^ml/, 'cc/ha'], [/^sem/, 'semillas/m'], [/^pl/, 'pl/ha'], [/^u/, 'u/ha']];
+  let imp = null;   // estado de la importación en curso
+
+  function plantillaLabores() {
+    const n = datos.campos.slice(0, 2).map((c) => c.nombre);
+    const filas = [
+      ['fecha', 'labor', 'lote', 'cultivo', 'variedad', 'producto', 'dosis', 'unidad', 'superficie_ha', 'costo_usd_ha', 'rinde_qq_ha', 'contratista', 'notas'],
+      ['05/11/2026', 'Siembra', n[0] || 'Lote 1', 'Soja', 'DM 46R18', 'Semilla', '18', 'semillas/m', '', '70', '', 'Juan', ''],
+      ['20/11/2026', 'Pulverización', [n[0], n[1]].filter(Boolean).join(' | ') || 'Lote 1 | Lote 2', '', '', 'Glifosato', '2', 'l/ha', '', '12', '', 'Juan', 'Barbecho'],
+      ['15/04/2027', 'Cosecha', n[0] || 'Lote 1', 'Soja', '', '', '', '', '', '', '32,5', '', '']
+    ];
+    const txt = '﻿' + filas.map((f) => f.map((v) => (/[;"\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v)).join(';')).join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([txt], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'plantilla_labores.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  function ventanaImportarLabores() {
+    imp = null;
+    abrirVentana(`<h2>📥 Importar labores desde Excel o CSV</h2>
+      <p>Cargá muchas labores de una vez. Cada fila es una labor; las columnas pueden estar en cualquier orden:</p>
+      <div class="imp-cols"><b>fecha</b><b>labor</b><b>lote</b><span>cultivo</span><span>variedad</span><span>producto</span><span>dosis</span><span>unidad</span><span>superficie_ha</span><span>costo_usd_ha</span><span>rinde_qq_ha</span><span>contratista</span><span>notas</span></div>
+      <p class="nota">Obligatorias en negrita. Fechas como 13/10/2026. Para varios lotes en una fila, separalos con <b>|</b>. Si falta la superficie, se usa la de los lotes. También sirve el CSV que exporta el cuaderno de campo.</p>
+      <label class="zona-archivo" id="imp-zona"><input type="file" id="imp-archivo" accept=".xlsx,.csv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <span>📄 Elegí o arrastrá acá tu archivo <b>.xlsx</b> o <b>.csv</b></span></label>
+      <div class="botones"><button class="btn" type="button" data-accion="plantilla-labores">⬇ Descargar plantilla</button><button class="btn" type="button" data-accion="cerrar">Cancelar</button></div>`);
+    const zona = $('#imp-zona');
+    $('#imp-archivo').addEventListener('change', (e) => e.target.files[0] && leerPlanillaLabores(e.target.files[0]));
+    zona.addEventListener('dragover', (e) => { e.preventDefault(); zona.classList.add('sobre'); });
+    zona.addEventListener('dragleave', () => zona.classList.remove('sobre'));
+    zona.addEventListener('drop', (e) => { e.preventDefault(); zona.classList.remove('sobre'); if (e.dataTransfer.files[0]) leerPlanillaLabores(e.dataTransfer.files[0]); });
+  }
+
+  async function leerPlanillaLabores(archivo) {
+    cargando('Leyendo la planilla…');
+    let filas;
+    try { filas = await Planilla.leer(archivo); } catch (e) { cargando(null); return avisar(e.message || String(e), 'error'); }
+    cargando(null);
+    // Fila de títulos: la primera (de las 10 primeras) que tenga "fecha" y "lote"
+    const N = Planilla.normal;
+    const iT = filas.slice(0, 10).findIndex((f) => f.some((x) => N(x) === 'fecha' || N(x).startsWith('fecha ')) && f.some((x) => /^(lote|campo|potrero)/.test(N(x))));
+    if (iT === -1) return avisar('No encontré la fila de títulos: la planilla tiene que tener al menos las columnas Fecha, Labor y Lote.', 'error');
+    const titulos = filas[iT].map(N);
+    const col = {};
+    Object.entries(COLUMNAS).forEach(([k, alias]) => {
+      let j = titulos.findIndex((t) => alias.includes(t));
+      if (j === -1) j = titulos.findIndex((t) => alias.some((a) => t.startsWith(a + ' ')));
+      if (j !== -1) col[k] = j;
+    });
+    if (col.superficie == null) { const j = titulos.findIndex((t) => t === 'ha'); if (j !== -1) col.superficie = j; }
+    if (col.tipo == null) return avisar('Falta la columna "Labor" (siembra, pulverización, fertilización, cosecha…).', 'error');
+    const existentes = await Agua.labores().catch(() => []);
+    imp = { nombre: archivo.name, col, filas: filas.slice(iT + 1), mapa: {}, existentes: new Set(existentes.map(claveLabor)) };
+    interpretarImportacion();
+    pintarImportacion();
+  }
+
+  const claveLabor = (l) => [l.fecha, l.tipo, [...l.campos].sort().join(','), Planilla.normal(l.producto), l.dosis ?? '', l.rinde ?? ''].join('|');
+
+  // Busca el lote por nombre: exacto (sin mayúsculas ni acentos) o, si hay uno solo que lo contenga, ese
+  function buscarLote(texto) {
+    const N = Planilla.normal; const t = N(texto);
+    if (!t) return null;
+    if (imp.mapa[t] !== undefined) return imp.mapa[t];
+    const exactos = datos.campos.filter((c) => N(c.nombre) === t);
+    if (exactos.length === 1) return exactos[0].id;
+    const parecidos = datos.campos.filter((c) => { const n = N(c.nombre); return n.includes(t) || t.includes(n); });
+    return parecidos.length === 1 ? parecidos[0].id : null;
+  }
+
+  function interpretarImportacion() {
+    const { col } = imp; const P = Planilla; const N = P.normal;
+    const celda = (f, k) => (col[k] == null ? '' : f[col[k]] ?? '');
+    const texto = (f, k) => String(celda(f, k)).trim() || null;
+    const cultivoDe = (v) => { const t = N(v); return t ? (CULTIVOS.find((c) => N(c.nombre) === t)?.nombre || String(v).trim()) : null; };
+    imp.sinLote = new Set();
+    imp.items = imp.filas.map((f, i) => {
+      const problemas = [];
+      const fecha = P.fecha(celda(f, 'fecha'));
+      if (!fecha) problemas.push('fecha inválida');
+      const tt = N(celda(f, 'tipo'));
+      const tipo = Agua.TIPOS_LABOR.find((x) => N(x) === tt) || TIPOS_TEXTO.find(([re]) => re.test(tt))?.[1] || (tt ? 'Otra' : null);
+      if (!tipo) problemas.push('falta la labor');
+      const nombres = String(celda(f, 'lote')).split(/\s*[|\n]\s*|\s*;\s*/).map((x) => x.trim()).filter(Boolean);
+      const campos = [];
+      nombres.forEach((n) => { const id = buscarLote(n); if (id) { if (!campos.includes(id)) campos.push(id); } else if (imp.mapa[N(n)] !== '') imp.sinLote.add(n); });
+      const faltan = nombres.filter((n) => !buscarLote(n) && imp.mapa[N(n)] !== '');
+      if (!nombres.length) problemas.push('falta el lote');
+      else if (faltan.length) problemas.push('lote sin reconocer: ' + faltan.join(', '));
+      else if (!campos.length) problemas.push('lote descartado');
+      const dosis = P.numero(celda(f, 'dosis'));
+      const ut = N(celda(f, 'unidad'));
+      const unidad = dosis == null ? null : (UNIDADES.find((u) => N(u) === ut) || UNIDADES_TEXTO.find(([re]) => re.test(ut))?.[1] || (tipo === 'Pulverización' ? 'l/ha' : 'kg/ha'));
+      let superficie = P.numero(celda(f, 'superficie'));
+      if (superficie == null && campos.length) superficie = Math.round(campos.reduce((s, id) => s + haDe(datos.campos.find((c) => c.id === id) || {}), 0) * 10) / 10;
+      const r = {
+        fecha, tipo, campos,
+        cultivo: ['Siembra', 'Cosecha'].includes(tipo) ? cultivoDe(celda(f, 'cultivo')) : null,
+        variedad: tipo === 'Siembra' ? texto(f, 'variedad') : null,
+        rinde: tipo === 'Cosecha' ? P.numero(celda(f, 'rinde')) : null,
+        producto: texto(f, 'producto'), dosis, unidad, superficie,
+        costo: P.numero(celda(f, 'costo')), contratista: texto(f, 'contratista'), nota: texto(f, 'nota'),
+        cargadoPor: Equipo.yo().nombre || (Equipo.rol() === 'dueño' ? 'Dueño' : null)
+      };
+      const repetida = !problemas.length && imp.existentes.has(claveLabor(r));
+      const anterior = imp.items?.[i];
+      return { fila: i + 1, r, problemas, repetida, elegida: !problemas.length && (anterior && !anterior.problemas.length ? anterior.elegida : !repetida) };
+    });
+  }
+
+  function pintarImportacion() {
+    const ok = imp.items.filter((x) => !x.problemas.length);
+    const elegidas = ok.filter((x) => x.elegida);
+    const nombre = (id) => datos.campos.find((c) => c.id === id)?.nombre || '';
+    const det = (r) => [r.cultivo, r.variedad, r.producto, r.dosis != null ? `${num(r.dosis, r.dosis % 1 ? 2 : 0)} ${r.unidad}` : '', r.rinde != null ? `${num(r.rinde, 1)} qq/ha` : ''].filter(Boolean).join(' · ');
+    const lotes = datos.campos.slice().sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+    abrirVentana(`<h2>📥 Revisá antes de guardar</h2>
+      <p><b>${esc(imp.nombre)}</b>: ${imp.items.length} filas · <b>${ok.length}</b> listas${imp.items.length - ok.length ? ` · <b class="txt-err">${imp.items.length - ok.length}</b> con problemas` : ''}${ok.some((x) => x.repetida) ? ` · ${ok.filter((x) => x.repetida).length} ya estaban cargadas (desmarcadas)` : ''}.</p>
+      ${imp.sinLote.size ? `<div class="imp-lotes"><div class="seccion-t">Lotes que no reconocí: elegí a cuál corresponde cada uno</div>
+        ${[...imp.sinLote].map((n) => `<label>${esc(n)}<select data-imp-lote="${esc(n)}"><option value="">— elegir —</option><option value="__no">No importar esas filas</option>${lotes.map((c) => `<option value="${esc(c.id)}">${esc(c.nombre)}</option>`).join('')}</select></label>`).join('')}</div>` : ''}
+      <div class="r-tabla-wrap imp-tabla"><table class="tabla-import"><thead><tr><th><input type="checkbox" id="imp-todas" ${elegidas.length === ok.length && ok.length ? 'checked' : ''} aria-label="Elegir todas"></th><th>Fila</th><th>Fecha</th><th>Labor</th><th>Lotes</th><th>Detalle</th><th class="num">Sup.</th><th class="num">Costo</th><th>Estado</th></tr></thead><tbody>
+      ${imp.items.map((x, i) => `<tr class="${x.problemas.length ? 'imp-mal' : x.repetida ? 'imp-rep' : ''}"><td><input type="checkbox" data-imp="${i}" ${x.elegida ? 'checked' : ''} ${x.problemas.length ? 'disabled' : ''}></td>
+        <td class="nota">${x.fila}</td><td>${x.r.fecha ? esc(x.r.fecha.split('-').reverse().join('/')) : '—'}</td><td><b>${esc(x.r.tipo || '—')}</b></td>
+        <td>${esc(x.r.campos.map(nombre).join(', ') || '—')}</td><td>${esc(det(x.r))}</td>
+        <td class="num">${x.r.superficie != null ? num(x.r.superficie, 0) + ' ha' : '—'}</td><td class="num">${x.r.costo != null ? 'US$ ' + num(x.r.costo, x.r.costo % 1 ? 1 : 0) : '—'}</td>
+        <td>${x.problemas.length ? `<span class="txt-err">⚠ ${esc(x.problemas.join('; '))}</span>` : x.repetida ? '<span class="nota">ya cargada</span>' : '✓'}</td></tr>`).join('')}</tbody></table></div>
+      <div class="botones"><button class="btn btn-1" type="button" data-accion="guardar-importacion" ${elegidas.length ? '' : 'disabled'}>Guardar ${elegidas.length} ${elegidas.length === 1 ? 'labor' : 'labores'}</button>
+        <button class="btn" type="button" data-accion="importar-labores">Elegir otro archivo</button><button class="btn" type="button" data-accion="cerrar">Cancelar</button></div>`);
+    $$('[data-imp-lote]').forEach((s) => s.addEventListener('change', () => {
+      imp.mapa[Planilla.normal(s.dataset.impLote)] = s.value === '__no' ? '' : s.value || undefined;
+      if (!s.value) delete imp.mapa[Planilla.normal(s.dataset.impLote)];
+      interpretarImportacion(); pintarImportacion();
+    }));
+    $$('[data-imp]').forEach((c) => c.addEventListener('change', () => { imp.items[c.dataset.imp].elegida = c.checked; pintarImportacion(); }));
+    $('#imp-todas').addEventListener('change', (e) => { imp.items.forEach((x) => { if (!x.problemas.length) x.elegida = e.target.checked; }); pintarImportacion(); });
+  }
+
+  async function guardarImportacion() {
+    const lista = imp.items.filter((x) => x.elegida && !x.problemas.length).map((x) => x.r);
+    if (!lista.length) return;
+    cargando(`Guardando ${lista.length} labores…`);
+    try {
+      await Agua.agregarLabores(lista, Equipo.yo().nombre);
+      cerrarVentana();
+      avisar(`Se importaron ${lista.length} ${lista.length === 1 ? 'labor' : 'labores'}.${lista.some((r) => r.tipo === 'Siembra') ? ' El balance de agua va a usar las fechas de siembra.' : ''}`);
+      imp = null;
+      if (abierto) mostrarLabores(datos.campos.find((c) => c.id === abierto));
+    } catch (err) { manejarError(err); } finally { cargando(null); }
   }
 
   async function mostrarLabores(c) {
@@ -1305,6 +1467,9 @@
         const i = $('#token-ver'); i.type = 'text'; i.select(); try { document.execCommand('copy'); listo(); } catch (err) { avisar('Seleccioná el token y copialo con Ctrl+C.', 'error'); }
       });
     }
+    else if (a === 'importar-labores') conToken(() => ventanaImportarLabores());
+    else if (a === 'plantilla-labores') plantillaLabores();
+    else if (a === 'guardar-importacion') conToken(() => guardarImportacion());
     else if (a === 'desconectar') { Repo.olvidarToken(); Equipo.olvidar(); aplicarRol(); actualizarEstadoGH(); cerrarVentana(); bloquear(); avisar('Desconectado de GitHub.'); }
   });
   $('#btn-cargar').addEventListener('click', () => $('#archivo').click());
@@ -1313,6 +1478,7 @@
   document.addEventListener('click', (e) => { ['#menu-mas', '#menu-reportes'].forEach((m) => { if (!e.target.closest(m) || e.target.closest(m + ' .menu-mas-lista a')) $(m).open = false; }); });
   $('#btn-gh').addEventListener('click', menuGitHub);
   $('#btn-alertas').addEventListener('click', () => conToken(ventanaAlertas));
+  $('#btn-importar-labores').addEventListener('click', () => conToken(() => ventanaImportarLabores()));
   $('#btn-labores').addEventListener('click', () => conToken(() => ventanaLabor(seleccion.size ? [...seleccion] : abierto ? [abierto] : [])));
   $('#btn-accesos').addEventListener('click', () => conToken(ventanaAccesos));
   $('#btn-lluvia').addEventListener('click', () => conToken(() => ventanaLluvia(seleccion.size ? [...seleccion] : abierto ? [abierto] : [])));
@@ -1384,6 +1550,10 @@
 
   // Enlaces desde el cuaderno: #labor (o #labor=<id de lote>) abre la carga de una labor
   function abrirDesdeHash() {
+    if (location.hash === '#importar-labores' && Equipo.puede('labores')) {
+      history.replaceState(null, '', location.pathname + location.search);
+      return conToken(() => ventanaImportarLabores());
+    }
     const m = location.hash.match(/^#labor(?:=(.+))?$/);
     if (!m || !Equipo.puede('labores')) return;
     history.replaceState(null, '', location.pathname + location.search);
@@ -1396,7 +1566,7 @@
   // la barra de arriba y se le manda la lista de acciones visibles para este rol.
   const ACCIONES = [
     ['Reportes', [['btn-general', '📋', 'Reporte general'], ['btn-cuaderno', '📚', 'Cuaderno de campo'], ['btn-margen', '💵', 'Margen bruto']]],
-    ['Registrar', [['btn-labores', '📒', 'Labores'], ['btn-lluvia', '🌧️', 'Lluvia'], ['btn-cargar', '＋', 'Cargar KML/KMZ']]],
+    ['Registrar', [['btn-labores', '📒', 'Labores'], ['btn-importar-labores', '📥', 'Importar labores (Excel/CSV)'], ['btn-lluvia', '🌧️', 'Lluvia'], ['btn-cargar', '＋', 'Cargar KML/KMZ']]],
     ['Ajustes', [['btn-gh', '🔗', 'GitHub y token'], ['btn-alertas', '🔔', 'Alertas por WhatsApp'], ['btn-accesos', '👥', 'Accesos'], ['btn-borrar-todo', '🗑', 'Eliminar todos']]]
   ];
   const embebido = window.parent !== window;

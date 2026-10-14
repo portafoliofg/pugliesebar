@@ -362,3 +362,21 @@ body.con-lateral .barra { display: none; }
   .barra .btn { padding: 8px 12px; font-size: .84rem; }
   .barra .menu-mas-lista, .barra #menu-reportes .menu-mas-lista { position: fixed; left: 12px; right: 12px; top: auto; margin-top: 8px; min-width: 0; }
 }
+/* Importar labores (Excel / CSV) */
+button.link { background: none; border: 0; padding: 0; font: inherit; font-weight: 800; cursor: pointer; }
+.imp-aviso { margin: -4px 0 10px; }
+.imp-cols { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.imp-cols > * { padding: 3px 10px; border-radius: 999px; background: var(--surface-2); font: 600 .8rem ui-monospace, monospace; }
+.imp-cols b { background: color-mix(in srgb, var(--lima) 30%, transparent); }
+.zona-archivo { display: grid; place-items: center; text-align: center; min-height: 150px; margin: 14px 0; padding: 20px; border: 2px dashed var(--line); border-radius: 18px; cursor: pointer; transition: border-color .2s, background .2s; }
+.zona-archivo:hover, .zona-archivo.sobre { border-color: var(--lima); background: color-mix(in srgb, var(--lima) 10%, transparent); }
+.zona-archivo input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.imp-lotes { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px 14px; margin: 10px 0; padding: 12px; border-radius: 14px; background: color-mix(in srgb, var(--naranja) 12%, transparent); }
+.imp-lotes .seccion-t { grid-column: 1 / -1; margin: 0; }
+.imp-lotes label { display: flex; flex-direction: column; gap: 4px; font-weight: 700; font-size: .88rem; }
+.imp-lotes select { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+.imp-tabla { max-height: min(56vh, 620px); overflow: auto; margin: 10px 0; }
+.imp-tabla thead th { position: sticky; top: 0; background: var(--surface); z-index: 1; }
+.imp-mal td { background: color-mix(in srgb, #d13b1e 7%, transparent); }
+.imp-rep td { opacity: .6; }
+.txt-err { color: var(--baja); font-weight: 700; }

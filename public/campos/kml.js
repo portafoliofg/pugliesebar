@@ -17,7 +17,7 @@
     for (let i = buffer.byteLength - 22; i >= Math.max(0, buffer.byteLength - 65557); i--) {
       if (dv.getUint32(i, true) === 0x06054b50) { fin = i; break; }
     }
-    if (fin === -1) throw new Error('El archivo KMZ está dañado (no es un ZIP válido).');
+    if (fin === -1) throw new Error('El archivo está dañado (no es un ZIP válido).');
 
     const cantidad = dv.getUint16(fin + 10, true);
     let p = dv.getUint32(fin + 16, true);
@@ -35,17 +35,25 @@
       p += 46 + largoNombre + largoExtra + largoComentario;
     }
 
-    const kmls = entradas.filter((e) => /\.kml$/i.test(e.nombre));
-    if (!kmls.length) throw new Error('El KMZ no tiene ningún archivo .kml adentro.');
-    const e = kmls.find((x) => /(^|\/)doc\.kml$/i.test(x.nombre)) || kmls[0];
+    // Texto de una entrada del ZIP
+    async function texto(e) {
+      const inicio = e.local + 30 + dv.getUint16(e.local + 26, true) + dv.getUint16(e.local + 28, true);
+      const datos = bytes.subarray(inicio, inicio + e.tamComprimido);
+      if (e.metodo === 0) return new TextDecoder().decode(datos);
+      if (e.metodo !== 8) throw new Error('El archivo usa una compresión que no se puede leer.');
+      if (typeof DecompressionStream === 'undefined') throw new Error('Este navegador no puede abrir archivos comprimidos. Actualizalo.');
+      const flujo = new Blob([datos]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+      return new TextDecoder().decode(await new Response(flujo).arrayBuffer());
+    }
+    return { nombres: entradas.map((x) => x.nombre), leer: (nombre) => { const e = entradas.find((x) => x.nombre === nombre); return e ? texto(e) : Promise.resolve(null); } };
+  }
 
-    const inicio = e.local + 30 + dv.getUint16(e.local + 26, true) + dv.getUint16(e.local + 28, true);
-    const datos = bytes.subarray(inicio, inicio + e.tamComprimido);
-    if (e.metodo === 0) return new TextDecoder().decode(datos);
-    if (e.metodo !== 8) throw new Error('El KMZ usa una compresión que no se puede leer.');
-    if (typeof DecompressionStream === 'undefined') throw new Error('Este navegador no puede abrir KMZ. Actualizalo o usá el KML.');
-    const flujo = new Blob([datos]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
-    return new TextDecoder().decode(await new Response(flujo).arrayBuffer());
+  async function leerKMZ(buffer) {
+    let zip;
+    try { zip = await leerZip(buffer); } catch (e) { throw new Error(e.message.replace('El archivo', 'El KMZ')); }
+    const kmls = zip.nombres.filter((n) => /\.kml$/i.test(n));
+    if (!kmls.length) throw new Error('El KMZ no tiene ningún archivo .kml adentro.');
+    return zip.leer(kmls.find((x) => /(^|\/)doc\.kml$/i.test(x)) || kmls[0]);
   }
 
   // ---------- KML ----------
@@ -116,7 +124,7 @@
     const buffer = await archivo.arrayBuffer();
     const b = new Uint8Array(buffer);
     const esZip = b[0] === 0x50 && b[1] === 0x4b; // "PK"
-    const texto = esZip ? await leerZip(buffer) : new TextDecoder().decode(b);
+    const texto = esZip ? await leerKMZ(buffer) : new TextDecoder().decode(b);
     return leerKML(texto, archivo.name);
   }
 
@@ -154,5 +162,5 @@
     return [(minY + maxY) / 2, (minX + maxX) / 2];
   }
 
-  window.KML = { leerArchivo, leerKML, hectareas, centro, esGenerico };
+  window.KML = { leerArchivo, leerKML, leerZip, hectareas, centro, esGenerico };
 })();
