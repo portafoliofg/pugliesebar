@@ -2,31 +2,31 @@
   "fuentes": {
     "pizarra": {
       "datos": {
-        "fecha": "2026-10-13",
+        "fecha": "2026-10-14",
         "granos": {
           "soja": {
-            "pesos": 560000,
-            "usd": 372.46,
+            "pesos": 557000,
+            "usd": 370.35,
             "sinCotizacion": false
           },
           "maiz": {
-            "pesos": 287500,
-            "usd": 191.22,
+            "pesos": 286000,
+            "usd": 190.16,
             "sinCotizacion": false
           },
           "girasol": {
-            "pesos": 796855,
-            "usd": 530,
+            "pesos": 797120,
+            "usd": null,
             "sinCotizacion": false
           },
           "trigo": {
-            "pesos": 345805,
-            "usd": 230,
+            "pesos": 346000,
+            "usd": 230.05,
             "sinCotizacion": false
           }
         }
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     },
     "matba": {
       "datos": {
@@ -80,50 +80,50 @@
           ]
         }
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     },
     "dolar": {
       "datos": {
-        "fecha": "2026-10-14",
+        "fecha": "2026-10-15",
         "tipos": {
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-14T18:00:00.000Z"
+            "actualizado": "2026-10-15T13:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1504,
-            "venta": 1513,
-            "actualizado": "2026-10-14T16:06:00.000Z"
+            "compra": 1506,
+            "venta": 1515,
+            "actualizado": "2026-10-15T10:37:00.000Z"
           },
           "mep": {
-            "compra": 1534,
-            "venta": 1539.7,
-            "actualizado": "2026-10-14T20:59:00.000Z"
+            "compra": 1535.5,
+            "venta": 1536.9,
+            "actualizado": "2026-10-15T15:57:00.000Z"
           },
           "ccl": {
-            "compra": 1615.8,
-            "venta": 1617.3,
-            "actualizado": "2026-10-14T20:59:00.000Z"
+            "compra": 1617.3,
+            "venta": 1618,
+            "actualizado": "2026-10-15T15:57:00.000Z"
           },
           "blue": {
-            "compra": 1530,
-            "venta": 1550,
-            "actualizado": "2026-10-14T20:59:00.000Z"
+            "compra": 1525,
+            "venta": 1545,
+            "actualizado": "2026-10-15T15:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-14T18:00:00.000Z"
+            "actualizado": "2026-10-15T13:00:00.000Z"
           },
           "cripto": {
-            "compra": 1613,
-            "venta": 1615.8,
-            "actualizado": "2026-10-14T20:59:00.000Z"
+            "compra": 1613.73,
+            "venta": 1615.6,
+            "actualizado": "2026-10-15T15:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     },
     "clima": {
       "datos": {
@@ -135,69 +135,69 @@
             "dias": [
               {
                 "fecha": "2026-10-15",
-                "min": 10.8,
-                "max": 19.7,
-                "lluviaMm": 1,
-                "probLluvia": 86,
-                "codigo": 51,
+                "min": 11,
+                "max": 20,
+                "lluviaMm": 2.7,
+                "probLluvia": 82,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 11.9,
-                "max": 19.7,
-                "lluviaMm": 8.9,
-                "probLluvia": 90,
-                "codigo": 81,
+                "min": 11.6,
+                "max": 19.5,
+                "lluviaMm": 2.8,
+                "probLluvia": 88,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.7,
-                "max": 16.6,
-                "lluviaMm": 6.7,
-                "probLluvia": 100,
-                "codigo": 80,
+                "min": 11.5,
+                "max": 15.9,
+                "lluviaMm": 3.4,
+                "probLluvia": 96,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 10.9,
-                "max": 16.5,
+                "min": 10.8,
+                "max": 16.7,
                 "lluviaMm": 0,
-                "probLluvia": 24,
+                "probLluvia": 10,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 11.1,
-                "max": 15.4,
-                "lluviaMm": 1.2,
-                "probLluvia": 59,
+                "min": 10.4,
+                "max": 16,
+                "lluviaMm": 2.1,
+                "probLluvia": 58,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.1,
-                "max": 18.9,
-                "lluviaMm": 1.5,
-                "probLluvia": 67,
-                "codigo": 51,
+                "min": 11.9,
+                "max": 16.9,
+                "lluviaMm": 3.3,
+                "probLluvia": 68,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-21",
                 "min": 13,
                 "max": 19,
-                "lluviaMm": 7.2,
-                "probLluvia": 45,
+                "lluviaMm": 7.5,
+                "probLluvia": 47,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 26.5,
+            "lluviaTotal": 21.8,
             "hayHelada": false
           },
           {
@@ -206,61 +206,61 @@
             "dias": [
               {
                 "fecha": "2026-10-15",
-                "min": 11.2,
+                "min": 11.4,
                 "max": 20.8,
-                "lluviaMm": 0.3,
-                "probLluvia": 65,
+                "lluviaMm": 0.4,
+                "probLluvia": 39,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 10.4,
-                "max": 20.7,
-                "lluviaMm": 1,
-                "probLluvia": 53,
+                "min": 10.3,
+                "max": 20.4,
+                "lluviaMm": 1.8,
+                "probLluvia": 55,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 11.9,
-                "max": 17.5,
-                "lluviaMm": 1.7,
-                "probLluvia": 33,
-                "codigo": 53,
+                "min": 12.2,
+                "max": 17.3,
+                "lluviaMm": 0.1,
+                "probLluvia": 55,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
-                "min": 11.1,
-                "max": 18.7,
+                "min": 9.9,
+                "max": 18.4,
                 "lluviaMm": 0,
-                "probLluvia": 2,
+                "probLluvia": 0,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.7,
-                "max": 16.8,
-                "lluviaMm": 2.1,
-                "probLluvia": 41,
-                "codigo": 51,
+                "min": 10.4,
+                "max": 16.7,
+                "lluviaMm": 2.4,
+                "probLluvia": 59,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.6,
-                "max": 20.8,
-                "lluviaMm": 1.8,
-                "probLluvia": 43,
-                "codigo": 51,
+                "min": 12.3,
+                "max": 19,
+                "lluviaMm": 5.7,
+                "probLluvia": 59,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-21",
-                "min": 13.4,
+                "min": 13.3,
                 "max": 19.9,
                 "lluviaMm": 22.8,
                 "probLluvia": 41,
@@ -268,72 +268,72 @@
                 "helada": false
               }
             ],
-            "lluviaTotal": 29.7,
+            "lluviaTotal": 33.2,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-15",
         "titulares": [
           {
-            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 15 octubre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-15-octubre-2026/",
-            "fecha": "2026-10-15T10:00:28.000Z",
+            "titulo": "El camino hacia una pitaya bien argentina: El INTA Corrientes pone a prueba 65 materiales para conocer los secretos de esta fruta",
+            "link": "https://bichosdecampo.com/el-camino-hacia-una-pitaya-bien-argentina-recien-empieza-el-inta-corrientes-pone-a-prueba-65-materiales-para-conocer-sus-secretos-productivos-y-saber-hasta-donde-puede-llegar-en-el-nea/",
+            "fecha": "2026-10-15T15:44:08.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Fue electricista durante 35 años, pero se enamoró de los peces y cambió de vida: En Apóstoles, Alfredo tiene una chacra con doce lagunas y cría 14 especies diferentes",
+            "link": "https://bichosdecampo.com/fue-electricista-durante-35-anos-pero-se-enamoro-de-los-peces-y-cambio-de-vida-en-apostoles-alfredo-tiene-una-chacra-con-doce-lagunas-y-cria-14-especies-diferentes/",
+            "fecha": "2026-10-15T15:10:31.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Euro BLUE HOY: precio y cotización de este 15 octubre 2026",
+            "link": "https://www.infocampo.com.ar/euro-blue-euro-hoy-euro-oficial-15-octubre-2026/",
+            "fecha": "2026-10-15T14:35:03.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "\"Está muy interesante\": los exportadores argentinos de carne vacuna llegan a la Sial de París con grandes expectativas ante las nuevas reglas del mercado europeo",
-            "link": "https://www.clarin.com/rural/interesante-exportadores-argentinos-carne-vacuna-llegan-sial-paris-grandes-expectativas-nuevas-reglas-mercado-europeo_0_TMq773sIFC.html",
-            "fecha": "2026-10-15T09:17:13.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "El precio internacional del aceite de girasol sigue un 50% por encima del promedio de la última década y sostiene el salto exportador argentino",
-            "link": "https://www.clarin.com/rural/precio-internacional-aceite-girasol-sigue-50-encima-promedio-ultima-decada-sostiene-salto-exportador-argentino_0_0h4O4nw2R8.html",
-            "fecha": "2026-10-15T09:01:13.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 15 octubre 2026",
-            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-15-octubre-2026/",
-            "fecha": "2026-10-15T09:00:16.000Z",
+            "titulo": "Dólar blue: a cuánto cotizan hoy en Mendoza 15 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-mendoza-15-octubre-2026/",
+            "fecha": "2026-10-15T14:35:03.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Día de la Mujer Rural. Cinco profesionales y un mensaje contundente: “No tengan miedo”",
-            "link": "https://www.lanacion.com.ar/economia/campo/dia-de-la-mujer-rural-cinco-profesionales-y-un-mensaje-contundente-no-tengan-miedo-nid15102026/",
-            "fecha": "2026-10-15T06:00:00.000Z",
+            "titulo": "Luciana Bilbao, analista de granos: “El trigo nuevo ya no está en máximos, pero continúa en una zona relativamente elevada”",
+            "link": "https://www.lanacion.com.ar/economia/campo/luciana-bilbao-analista-de-granos-el-trigo-nuevo-ya-no-esta-en-maximos-pero-continua-en-una-zona-nid15102026/",
+            "fecha": "2026-10-15T13:13:52.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Una buena noticia que en realidad es mala: Brasil lidera los embarques de harina de soja y le saca ventaja a la Argentina",
-            "link": "https://bichosdecampo.com/una-buena-noticia-que-en-realidad-es-mala-brasil-lidera-los-embarques-de-harina-de-soja-y-le-saca-ventaja-a-la-argentina/",
-            "fecha": "2026-10-15T02:37:59.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Argentina insólita: Ahora el gobierno libertario quiere restituir la Ley de Tierras del kirchnerismo",
-            "link": "https://bichosdecampo.com/argentina-insolita-ahora-el-gobierno-libertario-quiere-restituir-la-ley-de-tierras-del-kirchnerismo/",
-            "fecha": "2026-10-15T01:37:18.000Z",
-            "fuente": "Bichos de Campo"
+            "titulo": "Día Internacional de la Mujer Rural: protagonistas que inspiran a las nuevas generaciones a liderar el futuro del campo",
+            "link": "https://www.clarin.com/rural/dia-internacional-mujer-rural-protagonistas-inspiran-nuevas-generaciones-liderar-futuro-campo_0_h3JIaHGpTl.html",
+            "fecha": "2026-10-15T13:11:15.000Z",
+            "fuente": "Clarín Rural"
           },
           {
             "titulo": "Thiago Príncipe tiene 14 años, construyó un tractor con piezas recuperadas y ahora quiere automatizarlo: “Sentí la innovación”",
             "link": "https://www.lanacion.com.ar/economia/campo/thiago-principe-tiene-14-anos-construyo-un-tractor-con-piezas-recuperadas-y-ahora-quiere-nid14102026/",
-            "fecha": "2026-10-14T23:06:09.000Z",
+            "fecha": "2026-10-15T13:07:49.000Z",
             "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Debe US$ 260 millones: quebró una importante algodonera vinculada a la familia Vicentin",
+            "link": "https://www.clarin.com/rural/debe-us-260-millones-quebro-importante-algodonera-vinculada-familia-vicentin_0_TvflkDqGVQ.html",
+            "fecha": "2026-10-15T12:17:04.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     },
     "cbot": {
       "datos": {
@@ -341,24 +341,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.7375,
-            "usdTonelada": 468.02287874999996
+            "usdBushel": 12.7275,
+            "usdTonelada": 467.6554417499999
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.8025,
-            "usdTonelada": 189.06433975000002
+            "usdBushel": 4.8175,
+            "usdTonelada": 189.65485825
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.725,
-            "usdTonelada": 247.10138249999997
+            "usdBushel": 6.7875,
+            "usdTonelada": 249.39786374999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-15T10:40:35.965Z"
+      "obtenido": "2026-10-15T16:05:46.280Z"
     }
   }
 }
