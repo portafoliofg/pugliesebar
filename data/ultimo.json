@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     },
     "matba": {
       "datos": {
@@ -80,7 +80,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     },
     "dolar": {
       "datos": {
@@ -123,81 +123,81 @@
           }
         }
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-14",
+        "fecha": "2026-10-15",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-14",
-                "min": 11.4,
-                "max": 18.7,
-                "lluviaMm": 4.4,
+                "fecha": "2026-10-15",
+                "min": 10.8,
+                "max": 19.7,
+                "lluviaMm": 1,
+                "probLluvia": 86,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-16",
+                "min": 11.9,
+                "max": 19.7,
+                "lluviaMm": 8.9,
+                "probLluvia": 90,
+                "codigo": 81,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-17",
+                "min": 11.7,
+                "max": 16.6,
+                "lluviaMm": 6.7,
                 "probLluvia": 100,
                 "codigo": 80,
                 "helada": false
               },
               {
-                "fecha": "2026-10-15",
-                "min": 10.3,
-                "max": 19.5,
-                "lluviaMm": 1.7,
-                "probLluvia": 81,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-16",
-                "min": 11.5,
-                "max": 19.4,
-                "lluviaMm": 2.6,
-                "probLluvia": 88,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-17",
-                "min": 11.9,
-                "max": 15.2,
-                "lluviaMm": 8.2,
-                "probLluvia": 98,
-                "codigo": 80,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-18",
-                "min": 11.4,
-                "max": 17.2,
+                "min": 10.9,
+                "max": 16.5,
                 "lluviaMm": 0,
-                "probLluvia": 12,
+                "probLluvia": 24,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10.1,
-                "max": 15.7,
-                "lluviaMm": 1.5,
-                "probLluvia": 61,
+                "min": 11.1,
+                "max": 15.4,
+                "lluviaMm": 1.2,
+                "probLluvia": 59,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 12.1,
-                "max": 17,
-                "lluviaMm": 1.2,
-                "probLluvia": 66,
+                "min": 11.1,
+                "max": 18.9,
+                "lluviaMm": 1.5,
+                "probLluvia": 67,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-21",
+                "min": 13,
+                "max": 19,
+                "lluviaMm": 7.2,
+                "probLluvia": 45,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 19.599999999999998,
+            "lluviaTotal": 26.5,
             "hayHelada": false
           },
           {
@@ -205,45 +205,36 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-14",
-                "min": 11.4,
-                "max": 20.4,
-                "lluviaMm": 2.9,
-                "probLluvia": 88,
-                "codigo": 53,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-15",
-                "min": 11.1,
-                "max": 20.5,
-                "lluviaMm": 0.2,
-                "probLluvia": 54,
+                "min": 11.2,
+                "max": 20.8,
+                "lluviaMm": 0.3,
+                "probLluvia": 65,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-16",
-                "min": 10.5,
-                "max": 20.6,
-                "lluviaMm": 0.6,
-                "probLluvia": 57,
+                "min": 10.4,
+                "max": 20.7,
+                "lluviaMm": 1,
+                "probLluvia": 53,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-17",
-                "min": 12.1,
-                "max": 16.9,
-                "lluviaMm": 1.8,
-                "probLluvia": 43,
+                "min": 11.9,
+                "max": 17.5,
+                "lluviaMm": 1.7,
+                "probLluvia": 33,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-18",
                 "min": 11.1,
-                "max": 19.2,
+                "max": 18.7,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 3,
@@ -251,35 +242,74 @@
               },
               {
                 "fecha": "2026-10-19",
-                "min": 10,
-                "max": 16.6,
-                "lluviaMm": 1.2,
-                "probLluvia": 55,
+                "min": 10.7,
+                "max": 16.8,
+                "lluviaMm": 2.1,
+                "probLluvia": 41,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 12.9,
-                "max": 18.8,
-                "lluviaMm": 3.6,
-                "probLluvia": 54,
-                "codigo": 55,
+                "min": 11.6,
+                "max": 20.8,
+                "lluviaMm": 1.8,
+                "probLluvia": 43,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-21",
+                "min": 13.4,
+                "max": 19.9,
+                "lluviaMm": 22.8,
+                "probLluvia": 41,
+                "codigo": 95,
                 "helada": false
               }
             ],
-            "lluviaTotal": 10.3,
+            "lluviaTotal": 29.7,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-14",
+        "fecha": "2026-10-15",
         "titulares": [
+          {
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 15 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-15-octubre-2026/",
+            "fecha": "2026-10-15T10:00:28.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "\"Está muy interesante\": los exportadores argentinos de carne vacuna llegan a la Sial de París con grandes expectativas ante las nuevas reglas del mercado europeo",
+            "link": "https://www.clarin.com/rural/interesante-exportadores-argentinos-carne-vacuna-llegan-sial-paris-grandes-expectativas-nuevas-reglas-mercado-europeo_0_TMq773sIFC.html",
+            "fecha": "2026-10-15T09:17:13.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "El precio internacional del aceite de girasol sigue un 50% por encima del promedio de la última década y sostiene el salto exportador argentino",
+            "link": "https://www.clarin.com/rural/precio-internacional-aceite-girasol-sigue-50-encima-promedio-ultima-decada-sostiene-salto-exportador-argentino_0_0h4O4nw2R8.html",
+            "fecha": "2026-10-15T09:01:13.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 15 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-15-octubre-2026/",
+            "fecha": "2026-10-15T09:00:16.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Día de la Mujer Rural. Cinco profesionales y un mensaje contundente: “No tengan miedo”",
+            "link": "https://www.lanacion.com.ar/economia/campo/dia-de-la-mujer-rural-cinco-profesionales-y-un-mensaje-contundente-no-tengan-miedo-nid15102026/",
+            "fecha": "2026-10-15T06:00:00.000Z",
+            "fuente": "La Nación Campo"
+          },
           {
             "titulo": "Una buena noticia que en realidad es mala: Brasil lidera los embarques de harina de soja y le saca ventaja a la Argentina",
             "link": "https://bichosdecampo.com/una-buena-noticia-que-en-realidad-es-mala-brasil-lidera-los-embarques-de-harina-de-soja-y-le-saca-ventaja-a-la-argentina/",
@@ -293,72 +323,42 @@
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Manejo integral en maíz: la “caja de herramientas” para protegerlo contra malezas y enfermedades",
-            "link": "https://www.infocampo.com.ar/manejo-integral-en-maiz-la-caja-de-herramientas-para-protegerlo-contra-malezas-y-enfermedades/",
-            "fecha": "2026-10-14T23:35:45.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Clima hoy en Neuquén, el pronóstico del tiempo para este 14 octubre 2026",
-            "link": "https://www.infocampo.com.ar/clima-hoy-en-neuquen-el-pronostico-del-tiempo-para-este-14-octubre-2026/",
-            "fecha": "2026-10-14T23:22:53.000Z",
-            "fuente": "Infocampo"
-          },
-          {
             "titulo": "Thiago Príncipe tiene 14 años, construyó un tractor con piezas recuperadas y ahora quiere automatizarlo: “Sentí la innovación”",
             "link": "https://www.lanacion.com.ar/economia/campo/thiago-principe-tiene-14-anos-construyo-un-tractor-con-piezas-recuperadas-y-ahora-quiere-nid14102026/",
             "fecha": "2026-10-14T23:06:09.000Z",
             "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Súper Niño 2026: subió a un 75% la probabilidad de que el fenómeno tenga una magnitud histórica, advierte un informe",
-            "link": "https://www.lanacion.com.ar/economia/campo/super-nino-2026-subio-a-un-75-la-probabilidad-de-que-el-fenomeno-tenga-una-magnitud-historica-nid14102026/",
-            "fecha": "2026-10-14T22:56:08.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Realizaron un remate de más de 10 horas en Rosario: 15.000 cabezas de 9 provincias con precios sostenidos",
-            "link": "https://www.clarin.com/rural/realizaron-remate-10-horas-rosario-15000-cabezas-9-provincias-precios-sostenidos_0_b6Fi8AGJIu.html",
-            "fecha": "2026-10-14T17:30:33.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "“Están totalmente desesperados”: la odisea de los productores para sacar más de 60.000 animales de las islas por la crecida del Paraná",
-            "link": "https://www.clarin.com/rural/totalmente-desesperados-odisea-productores-sacar-60000-animales-islas-crecida-parana_0_ABVNeKp1Ld.html",
-            "fecha": "2026-10-14T17:28:11.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-14",
+        "fecha": "2026-10-15",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.725,
-            "usdTonelada": 467.56358249999994
+            "usdBushel": 12.7375,
+            "usdTonelada": 468.02287874999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.7875,
-            "usdTonelada": 188.47382125
+            "usdBushel": 4.8025,
+            "usdTonelada": 189.06433975000002
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.68,
-            "usdTonelada": 245.44791599999996
+            "usdBushel": 6.725,
+            "usdTonelada": 247.10138249999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     },
     "enso": {
       "datos": {
@@ -917,7 +917,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-15T02:42:11.512Z"
+      "obtenido": "2026-10-15T10:40:35.965Z"
     }
   }
 }
