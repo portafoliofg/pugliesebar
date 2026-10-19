@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     },
     "dolar": {
       "datos": {
@@ -94,7 +94,7 @@
           "oficial": {
             "compra": 1485,
             "venta": 1535,
-            "actualizado": "2026-10-16T18:00:00.000Z"
+            "actualizado": "2026-10-16T18:55:00.000Z"
           },
           "mayorista": {
             "compra": 1509,
@@ -104,105 +104,105 @@
           "mep": {
             "compra": 1534.3,
             "venta": 1542.5,
-            "actualizado": "2026-10-16T20:58:00.000Z"
+            "actualizado": "2026-10-18T20:57:00.000Z"
           },
           "ccl": {
             "compra": 1618.4,
             "venta": 1620.5,
-            "actualizado": "2026-10-16T20:58:00.000Z"
+            "actualizado": "2026-10-18T20:57:00.000Z"
           },
           "blue": {
             "compra": 1535,
             "venta": 1555,
-            "actualizado": "2026-10-16T20:58:00.000Z"
+            "actualizado": "2026-10-18T20:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1930.5,
             "venta": 1995.5,
-            "actualizado": "2026-10-16T18:00:00.000Z"
+            "actualizado": "2026-10-16T18:55:00.000Z"
           },
           "cripto": {
-            "compra": 1615.45,
-            "venta": 1617.8,
-            "actualizado": "2026-10-16T20:58:00.000Z"
+            "compra": 1616.33,
+            "venta": 1622.02,
+            "actualizado": "2026-10-18T20:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-16",
+        "fecha": "2026-10-19",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-16",
-                "min": 11.4,
-                "max": 18.3,
-                "lluviaMm": 3.4,
-                "probLluvia": 100,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-17",
-                "min": 11.3,
-                "max": 16.9,
-                "lluviaMm": 0.8,
-                "probLluvia": 96,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-18",
-                "min": 9.7,
-                "max": 17.6,
-                "lluviaMm": 0,
-                "probLluvia": 4,
-                "codigo": 3,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-19",
-                "min": 10.7,
-                "max": 17.4,
-                "lluviaMm": 0.1,
-                "probLluvia": 67,
-                "codigo": 51,
+                "min": 10.3,
+                "max": 18.8,
+                "lluviaMm": 0,
+                "probLluvia": 48,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 11.6,
-                "max": 20.1,
-                "lluviaMm": 0,
-                "probLluvia": 57,
-                "codigo": 3,
+                "min": 12.7,
+                "max": 17.9,
+                "lluviaMm": 0.1,
+                "probLluvia": 39,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-21",
-                "min": 12.8,
-                "max": 23.9,
-                "lluviaMm": 0.3,
-                "probLluvia": 46,
-                "codigo": 51,
+                "min": 12.2,
+                "max": 24.2,
+                "lluviaMm": 0,
+                "probLluvia": 16,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-22",
-                "min": 15.5,
-                "max": 21.6,
-                "lluviaMm": 4.5,
-                "probLluvia": 73,
+                "min": 16.2,
+                "max": 25.2,
+                "lluviaMm": 1.8,
+                "probLluvia": 44,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-23",
+                "min": 16.3,
+                "max": 24,
+                "lluviaMm": 6.9,
+                "probLluvia": 82,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-24",
+                "min": 12.5,
+                "max": 17.8,
+                "lluviaMm": 2.1,
+                "probLluvia": 84,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-25",
+                "min": 11.9,
+                "max": 20.9,
+                "lluviaMm": 1.2,
+                "probLluvia": 52,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 9.1,
+            "lluviaTotal": 12.1,
             "hayHelada": false
           },
           {
@@ -210,127 +210,127 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-16",
-                "min": 11.2,
-                "max": 21,
-                "lluviaMm": 1.2,
-                "probLluvia": 56,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-17",
-                "min": 11.2,
-                "max": 17.8,
-                "lluviaMm": 0,
-                "probLluvia": 25,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-18",
-                "min": 8.5,
+                "fecha": "2026-10-19",
+                "min": 9.8,
                 "max": 19.2,
                 "lluviaMm": 0,
-                "probLluvia": 0,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-19",
-                "min": 11.1,
-                "max": 18.5,
-                "lluviaMm": 0,
-                "probLluvia": 52,
+                "probLluvia": 46,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-20",
-                "min": 12.7,
-                "max": 21.3,
-                "lluviaMm": 1.7,
-                "probLluvia": 44,
-                "codigo": 53,
+                "min": 14.6,
+                "max": 20.5,
+                "lluviaMm": 0.1,
+                "probLluvia": 33,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-21",
-                "min": 14.7,
-                "max": 24.5,
+                "min": 13.2,
+                "max": 25.8,
                 "lluviaMm": 0,
-                "probLluvia": 24,
+                "probLluvia": 2,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-22",
-                "min": 14.2,
-                "max": 22.9,
-                "lluviaMm": 3,
+                "min": 16.1,
+                "max": 23.8,
+                "lluviaMm": 1.8,
+                "probLluvia": 41,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-23",
+                "min": 16.1,
+                "max": 25,
+                "lluviaMm": 2.7,
+                "probLluvia": 39,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-24",
+                "min": 13.2,
+                "max": 19,
+                "lluviaMm": 0.6,
+                "probLluvia": 73,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-25",
+                "min": 11.8,
+                "max": 21,
+                "lluviaMm": 1.2,
                 "probLluvia": 47,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 5.9,
+            "lluviaTotal": 6.4,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-16",
+        "fecha": "2026-10-19",
         "titulares": [
           {
-            "titulo": "Los fondos agrícolas siguen liquidando “a dos manos” contratos de maíz estadounidense para impulsar un profundo proceso bajista",
-            "link": "https://bichosdecampo.com/los-fondos-agricolas-siguen-liquidando-a-dos-manos-contratos-de-maiz-estadounidense-para-impulsar-un-profundo-proceso-bajista/",
-            "fecha": "2026-10-17T01:57:48.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Las ventajas de tener un mercado propio de futuros agrícolas: Los precios del trigo Rosario se “divorciaron” de Chicago",
-            "link": "https://bichosdecampo.com/las-ventajas-de-tener-un-mercado-propio-de-futuros-agricolas-los-precios-del-trigo-rosario-se-divorciaron-de-chicago/",
-            "fecha": "2026-10-16T23:10:11.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Eric Agustín y Mónica Reinsch manejan una estancia de 33.000 hectáreas, amansan guanacos y exportan su valiosa fibra a Italia",
-            "link": "https://www.lanacion.com.ar/economia/campo/eric-agustin-y-monica-reinsch-amansan-guanacos-los-esquilan-y-exportan-una-de-las-fibras-mas-nid16102026/",
-            "fecha": "2026-10-16T23:00:34.000Z",
+            "titulo": "Boom a China: anticipan la exportación de 1,7 millones de toneladas de un cultivo argentino que caerá muy fuerte en dos potencias",
+            "link": "https://www.lanacion.com.ar/economia/campo/boom-a-china-anticipan-la-exportacion-de-17-millones-de-toneladas-de-un-cultivo-argentino-que-caera-nid19102026/",
+            "fecha": "2026-10-19T11:34:04.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "“El agua viene fuerte”: la crecida acecha y el éxodo de animales y de pobladores en el Litoral entró en su hora más crítica",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-agua-viene-fuerte-en-las-islas-del-litoral-se-profundiza-el-exodo-de-miles-de-animales-y-de-nid16102026/",
-            "fecha": "2026-10-16T22:28:42.000Z",
+            "titulo": "Tras su “olvido”, el gobierno prorrogó la compatibilidad entre trabajo rural y planes sociales: Al sector no le quedará otra que volver a reclamar en plena campaña electoral",
+            "link": "https://bichosdecampo.com/tras-su-olvido-el-gobierno-prorrogo-la-compatibilidad-entre-trabajo-rural-y-planes-sociales-al-sector-no-le-quedara-otra-que-volver-a-reclamar-en-plena-campana-electoral/",
+            "fecha": "2026-10-19T11:23:50.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Cuando vender la uva dejó de alcanzar, Fabio Zamora decidió hacer su propio vino: Levantó una bodega familiar en plena crisis y sueña con algún día poder vivir de ella",
+            "link": "https://bichosdecampo.com/cuando-vender-la-uva-dejo-de-alcanzar-fabio-zamora-decidio-hacer-su-propio-vino-levanto-una-bodega-familiar-en-plena-crisis-y-suena-con-algun-dia-poder-vivir-de-ella/",
+            "fecha": "2026-10-19T11:00:32.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 19 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-19-octubre-2026/",
+            "fecha": "2026-10-19T10:00:30.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima hoy en Tucumán, el pronóstico del tiempo para este 19 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-tucuman-el-pronostico-del-tiempo-para-este-19-octubre-2026/",
+            "fecha": "2026-10-19T09:00:17.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "“Gran manjar”: las sorpresas que se llevó un viajero inglés en la Argentina",
+            "link": "https://www.lanacion.com.ar/economia/campo/gran-manjar-las-sorpresas-que-se-llevo-un-viajero-ingles-en-la-argentina-nid18102026/",
+            "fecha": "2026-10-18T14:07:32.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Otro récord agrícola: ya se comercializaron más de 100 millones de toneladas de la campaña 2025/26",
-            "link": "https://www.infocampo.com.ar/otro-record-agricola-ya-se-comercializaron-mas-de-100-millones-de-toneladas-de-la-campana-2025-26/",
-            "fecha": "2026-10-16T20:30:22.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Argentina tuvo su “Día de la Carne” en Israel: es su tercer mayor comprador, detrás de China y EEUU",
-            "link": "https://www.infocampo.com.ar/argentina-tuvo-su-dia-de-la-carne-en-israel-es-su-tercer-mayor-comprador-detras-de-china-y-eeuu/",
-            "fecha": "2026-10-16T19:41:12.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "La demanda mundial de alimentos abrirá oportunidades para la agroindustria argentina hacia 2035",
-            "link": "https://www.clarin.com/rural/demanda-mundial-alimentos-abrira-oportunidades-agroindustria-argentina-2035_0_OdHTskAybm.html",
-            "fecha": "2026-10-16T19:39:16.000Z",
+            "titulo": "Los costos del agro argentino se acercan a los de sus competidores, pero las retenciones siguen pesando",
+            "link": "https://www.clarin.com/rural/costos-agro-argentino-acercan-competidores-retenciones-siguen-pesando_0_WAUYZjLLTX.html",
+            "fecha": "2026-10-18T08:35:56.000Z",
             "fuente": "Clarín Rural"
           },
           {
-            "titulo": "Tragedia en Santa Fe: en plena crecida, un ganadero murió ahogado mientras intentaba salvar animales",
-            "link": "https://www.clarin.com/rural/tragedia-santa-fe-plena-crecida-ganadero-murio-ahogado-intentaba-salvar-animales_0_5bupmctcwW.html",
-            "fecha": "2026-10-16T19:32:44.000Z",
+            "titulo": "En Santa Fe también esperan la crecida del Paraná y trabajan a contrarreloj para salvar a miles de animales de las islas",
+            "link": "https://www.clarin.com/rural/santa-fe-esperan-crecida-parana-trabajan-contrarreloj-salvar-miles-animales-islas_0_rG19FPTIac.html",
+            "fecha": "2026-10-17T09:04:56.000Z",
             "fuente": "Clarín Rural"
           }
         ],
@@ -338,32 +338,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-16",
+        "fecha": "2026-10-19",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.605,
-            "usdTonelada": 463.1543385
+            "usdBushel": 12.6075,
+            "usdTonelada": 463.24619774999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.7425,
-            "usdTonelada": 186.70226574999998
+            "usdBushel": 4.7225,
+            "usdTonelada": 185.91490775
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.5975,
-            "usdTonelada": 242.41656074999997
+            "usdBushel": 6.605,
+            "usdTonelada": 242.6921385
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     },
     "enso": {
       "datos": {
@@ -471,11 +471,6 @@
         ],
         "nino34Semanal": [
           {
-            "fecha": "2026-07-22",
-            "nino34": 2.2,
-            "nino12": 3.6
-          },
-          {
             "fecha": "2026-07-29",
             "nino34": 2.4,
             "nino12": 3.8
@@ -518,7 +513,7 @@
           {
             "fecha": "2026-09-23",
             "nino34": 3.1,
-            "nino12": 4.7
+            "nino12": 4.9
           },
           {
             "fecha": "2026-09-30",
@@ -527,6 +522,11 @@
           },
           {
             "fecha": "2026-10-07",
+            "nino34": 3.3,
+            "nino12": 5.2
+          },
+          {
+            "fecha": "2026-10-14",
             "nino34": 3.3,
             "nino12": 5.2
           }
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-17T02:29:53.720Z"
+      "obtenido": "2026-10-19T11:47:00.124Z"
     }
   }
 }
