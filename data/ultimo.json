@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     },
     "dolar": {
       "datos": {
@@ -94,41 +94,41 @@
           "oficial": {
             "compra": 1495,
             "venta": 1545,
-            "actualizado": "2026-10-20T13:00:00.000Z"
+            "actualizado": "2026-10-20T18:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1515,
-            "venta": 1524,
-            "actualizado": "2026-10-20T12:48:00.000Z"
+            "compra": 1516,
+            "venta": 1525,
+            "actualizado": "2026-10-20T15:39:00.000Z"
           },
           "mep": {
-            "compra": 1540.5,
-            "venta": 1542.8,
-            "actualizado": "2026-10-20T16:01:00.000Z"
+            "compra": 1542.5,
+            "venta": 1548.8,
+            "actualizado": "2026-10-20T20:56:00.000Z"
           },
           "ccl": {
-            "compra": 1626.1,
-            "venta": 1627.1,
-            "actualizado": "2026-10-20T16:01:00.000Z"
+            "compra": 1628.9,
+            "venta": 1630.9,
+            "actualizado": "2026-10-20T20:56:00.000Z"
           },
           "blue": {
             "compra": 1550,
             "venta": 1570,
-            "actualizado": "2026-10-20T16:01:00.000Z"
+            "actualizado": "2026-10-20T20:56:00.000Z"
           },
           "tarjeta": {
             "compra": 1943.5,
             "venta": 2008.5,
-            "actualizado": "2026-10-20T13:00:00.000Z"
+            "actualizado": "2026-10-20T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1624.39,
-            "venta": 1627.14,
-            "actualizado": "2026-10-20T16:01:00.000Z"
+            "compra": 1624.27,
+            "venta": 1626.08,
+            "actualizado": "2026-10-20T20:56:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     },
     "clima": {
       "datos": {
@@ -140,8 +140,8 @@
             "dias": [
               {
                 "fecha": "2026-10-20",
-                "min": 12.2,
-                "max": 19.9,
+                "min": 12.3,
+                "max": 20.1,
                 "lluviaMm": 0.3,
                 "probLluvia": 60,
                 "codigo": 51,
@@ -149,8 +149,8 @@
               },
               {
                 "fecha": "2026-10-21",
-                "min": 12.3,
-                "max": 25.8,
+                "min": 12.6,
+                "max": 26,
                 "lluviaMm": 0.3,
                 "probLluvia": 16,
                 "codigo": 51,
@@ -158,51 +158,51 @@
               },
               {
                 "fecha": "2026-10-22",
-                "min": 16.3,
-                "max": 24.7,
-                "lluviaMm": 1.4,
+                "min": 17.2,
+                "max": 25.1,
+                "lluviaMm": 3.6,
                 "probLluvia": 58,
-                "codigo": 51,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 16.4,
-                "max": 24.5,
-                "lluviaMm": 6,
+                "min": 16.5,
+                "max": 22.5,
+                "lluviaMm": 5.9,
                 "probLluvia": 82,
-                "codigo": 53,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 14.2,
-                "max": 20.1,
-                "lluviaMm": 0.9,
+                "min": 13.7,
+                "max": 18.7,
+                "lluviaMm": 1.4,
                 "probLluvia": 69,
-                "codigo": 53,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 10.4,
-                "max": 20.4,
-                "lluviaMm": 2.1,
+                "min": 9.4,
+                "max": 21.3,
+                "lluviaMm": 0,
                 "probLluvia": 32,
-                "codigo": 53,
+                "codigo": 2,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 10,
-                "max": 19.2,
-                "lluviaMm": 0.6,
+                "min": 10.2,
+                "max": 19.9,
+                "lluviaMm": 0,
                 "probLluvia": 24,
-                "codigo": 51,
+                "codigo": 3,
                 "helada": false
               }
             ],
-            "lluviaTotal": 11.6,
+            "lluviaTotal": 11.500000000000002,
             "hayHelada": false
           },
           {
@@ -211,8 +211,8 @@
             "dias": [
               {
                 "fecha": "2026-10-20",
-                "min": 13.4,
-                "max": 22,
+                "min": 13.6,
+                "max": 21.8,
                 "lluviaMm": 0,
                 "probLluvia": 4,
                 "codigo": 3,
@@ -220,8 +220,8 @@
               },
               {
                 "fecha": "2026-10-21",
-                "min": 13.5,
-                "max": 27.6,
+                "min": 13.3,
+                "max": 27.5,
                 "lluviaMm": 0,
                 "probLluvia": 1,
                 "codigo": 3,
@@ -229,108 +229,108 @@
               },
               {
                 "fecha": "2026-10-22",
-                "min": 16.3,
-                "max": 23.7,
-                "lluviaMm": 0.3,
+                "min": 17.6,
+                "max": 23.4,
+                "lluviaMm": 4.8,
                 "probLluvia": 67,
-                "codigo": 51,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 15.7,
-                "max": 25.5,
-                "lluviaMm": 0.4,
+                "min": 16,
+                "max": 23.8,
+                "lluviaMm": 0.7,
                 "probLluvia": 30,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 14.5,
-                "max": 20.7,
-                "lluviaMm": 0,
+                "min": 14,
+                "max": 19.8,
+                "lluviaMm": 1.9,
                 "probLluvia": 61,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 11.5,
-                "max": 21,
-                "lluviaMm": 2.4,
+                "min": 10.4,
+                "max": 20.1,
+                "lluviaMm": 0,
                 "probLluvia": 22,
-                "codigo": 53,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 10.6,
-                "max": 22.1,
+                "min": 10.1,
+                "max": 22.8,
                 "lluviaMm": 0,
                 "probLluvia": 8,
                 "codigo": 3,
                 "helada": false
               }
             ],
-            "lluviaTotal": 3.0999999999999996,
+            "lluviaTotal": 7.4,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-20",
         "titulares": [
           {
-            "titulo": "Más allá del vino: Mendoza lanza una feria clave para potenciar todo su motor productivo",
-            "link": "https://www.infocampo.com.ar/mas-alla-del-vino-mendoza-lanza-una-feria-clave-para-potenciar-su-motor-productivo/",
-            "fecha": "2026-10-20T16:06:40.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Mary Contreras hace de todo para seguir en su chacra: Produce frutas y verduras, elabora dulces y “contagia” a los turistas de sus ganas de vivir en Río Colorado",
-            "link": "https://bichosdecampo.com/mary-contreras-hace-de-todo-para-seguir-en-su-chacra-produce-frutas-y-verduras-elabora-dulces-y-contagia-a-los-turistas-de-sus-ganas-de-vivir-en-rio-colorado/",
-            "fecha": "2026-10-20T16:01:08.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 20 octubre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-20-octubre-2026/",
-            "fecha": "2026-10-20T16:00:53.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Emergencia en el Paraná: un estudio del INTA reveló el millonario gasto de los productores para retirar el ganado de las islas",
-            "link": "https://www.lanacion.com.ar/economia/campo/emergencia-en-el-parana-un-estudio-del-inta-revelo-el-millonario-gasto-de-los-ganaderos-para-retirar-nid20102026/",
-            "fecha": "2026-10-20T15:51:57.000Z",
+            "titulo": "Georges Breitschmitt, presidente del Ipcva, tras reuniones con importadores europeos donde se habló de Visec Carne: “Estamos listos hace tiempo”",
+            "link": "https://www.lanacion.com.ar/economia/campo/georges-breitschmitt-presidente-del-ipcva-tras-reuniones-con-importadores-europeos-donde-se-hablo-de-nid20102026/",
+            "fecha": "2026-10-20T21:01:13.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Brutal ataque a una yegua: entraron a un campo, le cortaron la cara y le fracturaron el hocico",
-            "link": "https://www.lanacion.com.ar/economia/campo/brutal-ataque-a-una-yegua-en-un-campo-bonaerense-le-cortaron-la-cara-y-le-fracturaron-el-hocico-nid19102026/",
-            "fecha": "2026-10-20T15:31:57.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Para la cartera de la dama: Estudiantes sanjuaninos desarrollaron un biocuero con alperujo de oliva y le encontraron otra vida a un residuo muy abundante en su región",
-            "link": "https://bichosdecampo.com/para-la-cartera-de-la-dama-estudiantes-sanjuaninos-desarrollaron-un-biocuero-con-alperujo-de-oliva-y-le-encontraron-otra-vida-a-un-residuo-muy-abundante-en-su-region/",
-            "fecha": "2026-10-20T15:12:49.000Z",
+            "titulo": "Buscando bajar los costos, el frigorífico Bustos y Beltrán apostó por la inversión y comenzó a exportar carne a China",
+            "link": "https://bichosdecampo.com/buscando-bajar-los-costos-el-frigorifico-bustos-y-beltran-aposto-por-la-inversion-y-comenzo-a-exportar-carne-a-china/",
+            "fecha": "2026-10-20T20:53:35.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Alerta cogollero: crece la preocupación por daños inesperados en maíz y temen por la pérdida de producción y calidad de grano",
-            "link": "https://www.clarin.com/rural/alerta-cogollero-crece-preocupacion-danos-inesperados-maiz-temen-perdida-produccion-calidad-grano_0_xh0kqyawcg.html",
-            "fecha": "2026-10-20T14:46:39.000Z",
+            "titulo": "A Francisco Franco le mataron 34 animales en un mes, perdió $40 millones y decidió abandonar el campo: “No me dejan trabajar”",
+            "link": "https://www.lanacion.com.ar/economia/campo/a-francisco-franco-le-faenaron-34-animales-en-un-mes-perdio-40-millones-y-decidio-abandonar-el-campo-nid20102026/",
+            "fecha": "2026-10-20T20:53:05.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Pollolín, la avícola más austral del mundo, espera ansiosa por la reapertura de China que paga hasta cuatro veces más que otros destinos por productos como la garra",
+            "link": "https://bichosdecampo.com/pollolin-la-avicola-mas-austral-del-mundo-espera-ansiosa-por-la-reapertura-de-china-que-paga-hasta-cuatro-veces-mas-que-otros-destinos-por-productos-como-la-garra/",
+            "fecha": "2026-10-20T20:53:03.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "El clima sopla a favor del maíz: las lluvias y la amplitud térmica arrasaron a las chicharritas",
+            "link": "https://www.infocampo.com.ar/el-clima-sopla-a-favor-del-maiz-las-lluvias-y-la-amplitud-termica-arrasaron-a-las-chicharritas/",
+            "fecha": "2026-10-20T19:41:36.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "La acuicultura crece impulsada por dietas de origen terrestre y disminuyendo la presión sobre peces silvestres",
+            "link": "https://www.clarin.com/rural/acuicultura-crece-impulsada-dietas-origen-terrestre-disminuyendo-presion-peces-silvestres_0_QY9Tvx1GnS.html",
+            "fecha": "2026-10-20T19:03:36.000Z",
             "fuente": "Clarín Rural"
           },
           {
-            "titulo": "Detectan una enfermedad viral muy contagiosa en una granja comercial de aves en Brasil",
-            "link": "https://www.clarin.com/rural/detectan-enfermedad-viral-contagiosa-granja-comercial-aves-brasil_0_797EBxqF3x.html",
-            "fecha": "2026-10-20T12:36:18.000Z",
+            "titulo": "Más agua y calor: el combo de El Niño que obliga a ajustar la prevención de enfermedades",
+            "link": "https://www.infocampo.com.ar/mas-agua-y-calor-el-combo-de-el-nino-que-obliga-a-ajustar-la-prevencion-de-enfermedades/",
+            "fecha": "2026-10-20T19:00:40.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Crecida del Paraná: un estudio reveló los gastos de los productores para retirar el ganado de las islas en momentos críticos",
+            "link": "https://www.clarin.com/rural/crecida-parana-retirar-hacienda-tiempo-puede-ahorrar-9-millones-pesos_0_hRH0lgbW5E.html",
+            "fecha": "2026-10-20T18:40:00.000Z",
             "fuente": "Clarín Rural"
           }
         ],
@@ -338,7 +338,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.4825,
-            "usdTonelada": 458.65323524999997
+            "usdBushel": 12.475,
+            "usdTonelada": 458.37765749999994
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.6175,
-            "usdTonelada": 181.78127824999999
+            "usdBushel": 4.615,
+            "usdTonelada": 181.6828585
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.4425,
-            "usdTonelada": 236.72128725
+            "usdBushel": 6.4275,
+            "usdTonelada": 236.17013175
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-20T16:09:20.958Z"
+      "obtenido": "2026-10-20T21:06:40.700Z"
     }
   }
 }
