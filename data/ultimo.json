@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     },
     "dolar": {
       "datos": {
@@ -128,81 +128,81 @@
           }
         }
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-20",
+        "fecha": "2026-10-21",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-20",
-                "min": 12.2,
-                "max": 21.8,
-                "lluviaMm": 0.3,
-                "probLluvia": 61,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-21",
-                "min": 14,
-                "max": 26.7,
-                "lluviaMm": 1.3,
-                "probLluvia": 20,
+                "min": 11.6,
+                "max": 27.5,
+                "lluviaMm": 0.2,
+                "probLluvia": 40,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-22",
-                "min": 16.9,
-                "max": 25.7,
-                "lluviaMm": 3.1,
-                "probLluvia": 57,
-                "codigo": 53,
+                "min": 17.5,
+                "max": 23.5,
+                "lluviaMm": 7.4,
+                "probLluvia": 73,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 16.5,
-                "max": 23.5,
-                "lluviaMm": 6.8,
-                "probLluvia": 80,
-                "codigo": 80,
+                "min": 17.2,
+                "max": 23.3,
+                "lluviaMm": 13.7,
+                "probLluvia": 86,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 12.8,
-                "max": 19.5,
-                "lluviaMm": 4.2,
-                "probLluvia": 76,
-                "codigo": 53,
+                "min": 14.4,
+                "max": 18.9,
+                "lluviaMm": 7,
+                "probLluvia": 72,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 10.3,
-                "max": 20.3,
-                "lluviaMm": 0,
-                "probLluvia": 33,
-                "codigo": 3,
+                "min": 12,
+                "max": 20.7,
+                "lluviaMm": 5.1,
+                "probLluvia": 25,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 10.3,
-                "max": 20.5,
+                "min": 10.9,
+                "max": 19.8,
                 "lluviaMm": 0,
-                "probLluvia": 8,
+                "probLluvia": 14,
                 "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-27",
+                "min": 13.3,
+                "max": 17.2,
+                "lluviaMm": 5.4,
+                "probLluvia": 50,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 15.7,
+            "lluviaTotal": 38.8,
             "hayHelada": false
           },
           {
@@ -210,18 +210,9 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-20",
-                "min": 13.4,
-                "max": 22.9,
-                "lluviaMm": 0,
-                "probLluvia": 6,
-                "codigo": 3,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-21",
-                "min": 14.1,
-                "max": 27.8,
+                "min": 13.5,
+                "max": 28.8,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 3,
@@ -229,141 +220,150 @@
               },
               {
                 "fecha": "2026-10-22",
-                "min": 17.2,
-                "max": 23.2,
-                "lluviaMm": 2.2,
-                "probLluvia": 53,
-                "codigo": 53,
+                "min": 16.2,
+                "max": 23.7,
+                "lluviaMm": 3.6,
+                "probLluvia": 84,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 16.1,
-                "max": 24.3,
-                "lluviaMm": 2.9,
-                "probLluvia": 39,
+                "min": 18,
+                "max": 24.5,
+                "lluviaMm": 3.3,
+                "probLluvia": 46,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 13.5,
-                "max": 19.8,
-                "lluviaMm": 6.7,
+                "min": 15.3,
+                "max": 20.6,
+                "lluviaMm": 9.2,
                 "probLluvia": 71,
                 "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 11,
-                "max": 19.9,
-                "lluviaMm": 0,
-                "probLluvia": 20,
-                "codigo": 3,
+                "min": 12.3,
+                "max": 20.9,
+                "lluviaMm": 3,
+                "probLluvia": 18,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 9.3,
-                "max": 23.4,
+                "min": 10.4,
+                "max": 21.4,
                 "lluviaMm": 0,
-                "probLluvia": 7,
+                "probLluvia": 10,
                 "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-27",
+                "min": 13.1,
+                "max": 19.1,
+                "lluviaMm": 6,
+                "probLluvia": 43,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 11.8,
+            "lluviaTotal": 25.1,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-20",
+        "fecha": "2026-10-21",
         "titulares": [
           {
-            "titulo": "Trigo forrajero: Siguen llegando noticias dramáticas de la situación del cereal en Brasil",
-            "link": "https://bichosdecampo.com/trigo-forrajero-siguen-llegando-noticias-dramaticas-de-la-situacion-del-cereal-en-brasil/",
-            "fecha": "2026-10-21T02:30:18.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Polémica por una ley que permite usar fondos de los caminos rurales para obras contra las inundaciones",
-            "link": "https://www.lanacion.com.ar/economia/campo/polemica-por-una-ley-que-permite-usar-fondos-de-los-caminos-rurales-para-obras-contra-las-nid20102026/",
-            "fecha": "2026-10-20T23:59:18.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "En Buenos Aires, municipios podrán usar fondos para caminos rurales en obras hídricas: rechazo del agro",
-            "link": "https://www.infocampo.com.ar/en-buenos-aires-municipios-podran-usar-fondos-para-caminos-rurales-en-obras-hidricas-rechazo-de-la-sociedad-rural/",
-            "fecha": "2026-10-20T23:34:36.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 21 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-21-octubre-2026/",
+            "fecha": "2026-10-21T10:00:28.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Biocombustibles: las pymes pidieron elevar el corte del biodiésel y las aceiteras reclamaron aprobar la ley sin cambios",
-            "link": "https://www.lanacion.com.ar/economia/campo/biocombustibles-las-pymes-pidieron-elevar-el-corte-del-biodiesel-y-las-aceiteras-reclamaron-aprobar-nid20102026/",
-            "fecha": "2026-10-20T22:38:45.000Z",
+            "titulo": "Lucas Maglio, ingeniero en acuicultura, sobre un negocio en auge: “Quizás haya llegado el momento de comenzar a mirar también hacia el agua”",
+            "link": "https://www.lanacion.com.ar/economia/campo/lucas-maglio-ingeniero-en-acuicultura-sobre-un-negocio-en-auge-quizas-haya-llegado-el-momento-de-nid21102026/",
+            "fecha": "2026-10-21T09:30:00.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "¿Qué demonios vamos a comer? En la SIAL de París premiaron a unas papas fritas con agua, chips de salame y hasta fideos que vienen con hielo",
-            "link": "https://bichosdecampo.com/que-demonios-vamos-a-comer-en-la-sial-de-paris-premiaron-a-unas-papas-fritas-con-agua-chips-de-salame-y-hasta-fideos-que-vienen-con-hielo/",
-            "fecha": "2026-10-20T21:12:58.000Z",
-            "fuente": "Bichos de Campo"
+            "titulo": "En los corrales de engorde ya se empieza a sentir el éxodo de animales desde las islas del Litoral",
+            "link": "https://www.clarin.com/rural/corrales-engorde-empieza-sentir-exodo-animales-islas-litoral_0_xyWvvdx6ON.html",
+            "fecha": "2026-10-21T09:24:51.000Z",
+            "fuente": "Clarín Rural"
           },
           {
-            "titulo": "El clima sopla a favor del maíz: las lluvias y la amplitud térmica arrasaron a las chicharritas",
-            "link": "https://www.infocampo.com.ar/el-clima-sopla-a-favor-del-maiz-las-lluvias-y-la-amplitud-termica-arrasaron-a-las-chicharritas/",
-            "fecha": "2026-10-20T19:41:36.000Z",
+            "titulo": "Golpe de K.O. para una temible plaga: el clima eliminó una de las principales plagas para un cultivo clave",
+            "link": "https://www.clarin.com/rural/golpe-ko-temible-plaga-clima-elimino-principales-plagas-cultivo-clave_0_cRzJ6f1R5e.html",
+            "fecha": "2026-10-21T09:00:49.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 21 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-21-octubre-2026/",
+            "fecha": "2026-10-21T09:00:16.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "La acuicultura crece impulsada por dietas de origen terrestre y disminuyendo la presión sobre peces silvestres",
-            "link": "https://www.clarin.com/rural/acuicultura-crece-impulsada-dietas-origen-terrestre-disminuyendo-presion-peces-silvestres_0_QY9Tvx1GnS.html",
-            "fecha": "2026-10-20T19:03:36.000Z",
-            "fuente": "Clarín Rural"
+            "titulo": "Intendentes bonaerenses podrán usar por 180 días fondos asignados a la red vial para atender obras hídricas",
+            "link": "https://bichosdecampo.com/intendentes-bonaerenses-podran-usar-por-180-dias-fondos-asignados-a-la-red-vial-para-atender-obras-hidricas/",
+            "fecha": "2026-10-21T05:17:38.000Z",
+            "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Crecida del Paraná: un estudio reveló los gastos de los productores para retirar el ganado de las islas en momentos críticos",
-            "link": "https://www.clarin.com/rural/crecida-parana-retirar-hacienda-tiempo-puede-ahorrar-9-millones-pesos_0_hRH0lgbW5E.html",
-            "fecha": "2026-10-20T18:40:00.000Z",
-            "fuente": "Clarín Rural"
+            "titulo": "Parece joda: Se viene un “Niño” extraordinario y el gobierno sigue acaparando más del 40% del Fondo de Infraestructura Hídrica para colocarlo en títulos públicos",
+            "link": "https://bichosdecampo.com/parece-joda-se-viene-un-nino-extraordinario-y-el-gobierno-sigue-acaparando-mas-del-40-del-fondo-de-infraestructura-hidrica-para-colocarlo-en-titulos-publicos/",
+            "fecha": "2026-10-21T04:37:01.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "A Francisco Franco le mataron 34 animales en un mes, perdió $40 millones y abandonó el campo: “No me dejan trabajar”",
+            "link": "https://www.lanacion.com.ar/economia/campo/a-francisco-franco-le-faenaron-34-animales-en-un-mes-perdio-40-millones-y-decidio-abandonar-el-campo-nid20102026/",
+            "fecha": "2026-10-21T03:24:45.000Z",
+            "fuente": "La Nación Campo"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-20",
+        "fecha": "2026-10-21",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.4675,
-            "usdTonelada": 458.1020797499999
+            "usdBushel": 12.45,
+            "usdTonelada": 457.45906499999995
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.61,
-            "usdTonelada": 181.486019
+            "usdBushel": 4.5975,
+            "usdTonelada": 180.99392025
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.41,
-            "usdTonelada": 235.52711699999998
+            "usdBushel": 6.385,
+            "usdTonelada": 234.60852449999996
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-21T02:50:07.825Z"
+      "obtenido": "2026-10-21T10:58:20.018Z"
     }
   }
 }
