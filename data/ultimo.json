@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     },
     "dolar": {
       "datos": {
@@ -128,136 +128,56 @@
           }
         }
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-21",
+        "fecha": "2026-10-22",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-21",
-                "min": 10.7,
-                "max": 28.7,
-                "lluviaMm": 0,
-                "probLluvia": 56,
-                "codigo": 3,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-22",
-                "min": 16.7,
-                "max": 27.2,
-                "lluviaMm": 8,
-                "probLluvia": 86,
-                "codigo": 80,
+                "min": 16.5,
+                "max": 25.7,
+                "lluviaMm": 3.1,
+                "probLluvia": 90,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 17.4,
-                "max": 22.7,
-                "lluviaMm": 1.5,
-                "probLluvia": 76,
-                "codigo": 53,
+                "min": 17.9,
+                "max": 24.1,
+                "lluviaMm": 0.8,
+                "probLluvia": 78,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 13.7,
-                "max": 19.5,
-                "lluviaMm": 7,
-                "probLluvia": 72,
-                "codigo": 53,
+                "min": 13.1,
+                "max": 18.6,
+                "lluviaMm": 10.5,
+                "probLluvia": 84,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
                 "min": 11.7,
-                "max": 21,
-                "lluviaMm": 1.2,
-                "probLluvia": 33,
-                "codigo": 53,
+                "max": 19.7,
+                "lluviaMm": 0,
+                "probLluvia": 39,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 11,
-                "max": 20.3,
-                "lluviaMm": 0,
-                "probLluvia": 10,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-27",
-                "min": 13.4,
-                "max": 21.2,
-                "lluviaMm": 3.9,
-                "probLluvia": 50,
-                "codigo": 51,
-                "helada": false
-              }
-            ],
-            "lluviaTotal": 21.599999999999998,
-            "hayHelada": false
-          },
-          {
-            "nombre": "Villa del Rosario",
-            "provincia": "Córdoba",
-            "dias": [
-              {
-                "fecha": "2026-10-21",
-                "min": 13.7,
-                "max": 30.1,
-                "lluviaMm": 0,
-                "probLluvia": 2,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-22",
-                "min": 17.3,
-                "max": 25.9,
-                "lluviaMm": 4.7,
-                "probLluvia": 91,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-23",
-                "min": 18.1,
-                "max": 23.5,
-                "lluviaMm": 0,
-                "probLluvia": 28,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-24",
-                "min": 14.7,
-                "max": 20.8,
-                "lluviaMm": 6.9,
-                "probLluvia": 58,
-                "codigo": 55,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-25",
-                "min": 13.2,
-                "max": 21.6,
-                "lluviaMm": 1.8,
-                "probLluvia": 27,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-26",
-                "min": 10.3,
-                "max": 22,
+                "min": 11.6,
+                "max": 20.9,
                 "lluviaMm": 0,
                 "probLluvia": 6,
                 "codigo": 3,
@@ -265,30 +185,116 @@
               },
               {
                 "fecha": "2026-10-27",
-                "min": 14.3,
-                "max": 23.2,
-                "lluviaMm": 2.7,
-                "probLluvia": 44,
-                "codigo": 51,
+                "min": 12.8,
+                "max": 17.2,
+                "lluviaMm": 7.8,
+                "probLluvia": 63,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-28",
+                "min": 12.2,
+                "max": 23.8,
+                "lluviaMm": 2.1,
+                "probLluvia": 53,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 16.1,
+            "lluviaTotal": 24.3,
+            "hayHelada": false
+          },
+          {
+            "nombre": "Villa del Rosario",
+            "provincia": "Córdoba",
+            "dias": [
+              {
+                "fecha": "2026-10-22",
+                "min": 17,
+                "max": 25,
+                "lluviaMm": 6,
+                "probLluvia": 90,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-23",
+                "min": 18,
+                "max": 24.2,
+                "lluviaMm": 0,
+                "probLluvia": 26,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-24",
+                "min": 13.5,
+                "max": 19.3,
+                "lluviaMm": 10.1,
+                "probLluvia": 83,
+                "codigo": 81,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-25",
+                "min": 12.1,
+                "max": 20.8,
+                "lluviaMm": 0.5,
+                "probLluvia": 25,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-26",
+                "min": 10.6,
+                "max": 22.3,
+                "lluviaMm": 0,
+                "probLluvia": 3,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-27",
+                "min": 13.4,
+                "max": 18.9,
+                "lluviaMm": 4.8,
+                "probLluvia": 53,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-28",
+                "min": 12.7,
+                "max": 24.3,
+                "lluviaMm": 3.6,
+                "probLluvia": 24,
+                "codigo": 53,
+                "helada": false
+              }
+            ],
+            "lluviaTotal": 25.000000000000004,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-21",
+        "fecha": "2026-10-22",
         "titulares": [
           {
-            "titulo": "Vandalismo rural: ya tiene media sanción la ley que agrava las penas por invadir campos o romper silobolsas",
-            "link": "https://www.infocampo.com.ar/vandalismo-rural-ya-tiene-media-sancion-la-ley-que-agrava-las-penas-por-invadir-campos-o-romper-silobolsas/",
-            "fecha": "2026-10-22T02:30:59.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 22 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-22-octubre-2026/",
+            "fecha": "2026-10-22T10:00:31.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 22 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-22-octubre-2026/",
+            "fecha": "2026-10-22T09:00:19.000Z",
             "fuente": "Infocampo"
           },
           {
@@ -308,12 +314,6 @@
             "link": "https://www.lanacion.com.ar/economia/campo/hay-40000-hectareas-el-cultivo-estrategico-conectado-con-el-mundo-que-promete-un-boom-como-nid21102026/",
             "fecha": "2026-10-22T02:19:54.000Z",
             "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "La carne argentina se trae buenas noticias de París: la SIAL consolidó precios de hasta U$S 24.000 la tonelada",
-            "link": "https://www.infocampo.com.ar/la-carne-argentina-se-trae-buenas-noticias-de-paris-la-sial-consolido-precios-de-hasta-us-24-000-la-tonelada/",
-            "fecha": "2026-10-22T01:27:41.000Z",
-            "fuente": "Infocampo"
           },
           {
             "titulo": "La bolsa de Cereales de Córdoba presentó una propuesta para conectar la oferta y la demanda de biocombustibles",
@@ -338,32 +338,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-21",
+        "fecha": "2026-10-22",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.4425,
-            "usdTonelada": 457.18348725
+            "usdBushel": 12.5975,
+            "usdTonelada": 462.87876074999997
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.645,
-            "usdTonelada": 182.86389549999998
+            "usdBushel": 4.64,
+            "usdTonelada": 182.66705599999997
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.29,
-            "usdTonelada": 231.11787299999997
+            "usdBushel": 6.2775,
+            "usdTonelada": 230.65857674999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-22T02:53:59.139Z"
+      "obtenido": "2026-10-22T10:57:41.467Z"
     }
   }
 }
