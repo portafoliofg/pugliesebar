@@ -26,66 +26,66 @@
           }
         }
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-10-21",
+        "fecha": "2026-10-22",
         "granos": {
           "soja": [
             {
               "posicion": "NOV26",
-              "usdTonelada": 364.8,
-              "fecha": "2026-10-21"
+              "usdTonelada": 365.8,
+              "fecha": "2026-10-22"
             },
             {
               "posicion": "MAY27",
-              "usdTonelada": 353.3,
-              "fecha": "2026-10-21"
+              "usdTonelada": 353.8,
+              "fecha": "2026-10-22"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 360.6,
-              "fecha": "2026-10-21"
+              "usdTonelada": 361.3,
+              "fecha": "2026-10-22"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 195,
-              "fecha": "2026-10-21"
+              "usdTonelada": 193.9,
+              "fecha": "2026-10-22"
             },
             {
               "posicion": "ABR27",
-              "usdTonelada": 194.3,
-              "fecha": "2026-10-21"
+              "usdTonelada": 193.4,
+              "fecha": "2026-10-22"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 191.3,
-              "fecha": "2026-10-21"
+              "usdTonelada": 190.5,
+              "fecha": "2026-10-22"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 218,
-              "fecha": "2026-10-21"
+              "usdTonelada": 217.8,
+              "fecha": "2026-10-22"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 223.9,
-              "fecha": "2026-10-21"
+              "usdTonelada": 223.2,
+              "fecha": "2026-10-22"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 235,
-              "fecha": "2026-10-21"
+              "usdTonelada": 234.5,
+              "fecha": "2026-10-22"
             }
           ]
         }
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     },
     "dolar": {
       "datos": {
@@ -128,7 +128,7 @@
           }
         }
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     },
     "clima": {
       "datos": {
@@ -141,68 +141,68 @@
               {
                 "fecha": "2026-10-22",
                 "min": 16.3,
-                "max": 26.7,
-                "lluviaMm": 5.1,
-                "probLluvia": 100,
+                "max": 26.4,
+                "lluviaMm": 4.1,
+                "probLluvia": 92,
                 "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 16.6,
-                "max": 21.1,
-                "lluviaMm": 1.5,
-                "probLluvia": 63,
-                "codigo": 51,
+                "min": 15,
+                "max": 20.3,
+                "lluviaMm": 3.3,
+                "probLluvia": 69,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 11.6,
-                "max": 18.9,
-                "lluviaMm": 11.8,
-                "probLluvia": 90,
-                "codigo": 81,
+                "min": 12.8,
+                "max": 19.3,
+                "lluviaMm": 5.3,
+                "probLluvia": 79,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 9.7,
-                "max": 19.8,
+                "min": 11,
+                "max": 19.7,
                 "lluviaMm": 0,
-                "probLluvia": 29,
-                "codigo": 51,
+                "probLluvia": 13,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 10.3,
-                "max": 19.8,
+                "min": 10.7,
+                "max": 19.7,
                 "lluviaMm": 0,
-                "probLluvia": 4,
+                "probLluvia": 2,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-27",
-                "min": 12,
-                "max": 19.1,
-                "lluviaMm": 1.5,
-                "probLluvia": 59,
+                "min": 12.8,
+                "max": 19.4,
+                "lluviaMm": 2.4,
+                "probLluvia": 57,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-28",
-                "min": 11.4,
-                "max": 21.9,
-                "lluviaMm": 3.3,
-                "probLluvia": 54,
+                "min": 11.9,
+                "max": 22.8,
+                "lluviaMm": 2,
+                "probLluvia": 42,
                 "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 23.2,
+            "lluviaTotal": 17.1,
             "hayHelada": false
           },
           {
@@ -211,102 +211,102 @@
             "dias": [
               {
                 "fecha": "2026-10-22",
-                "min": 16.9,
-                "max": 25.8,
-                "lluviaMm": 6.3,
-                "probLluvia": 95,
-                "codigo": 81,
+                "min": 17,
+                "max": 25.5,
+                "lluviaMm": 6.4,
+                "probLluvia": 90,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-23",
-                "min": 16.4,
-                "max": 22.5,
-                "lluviaMm": 0.1,
-                "probLluvia": 20,
+                "min": 15.9,
+                "max": 21.4,
+                "lluviaMm": 0.2,
+                "probLluvia": 25,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 13,
-                "max": 19.6,
-                "lluviaMm": 5.8,
-                "probLluvia": 88,
-                "codigo": 53,
+                "min": 13.4,
+                "max": 18.4,
+                "lluviaMm": 11.5,
+                "probLluvia": 74,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 10.8,
-                "max": 20,
+                "min": 11.1,
+                "max": 19.8,
                 "lluviaMm": 0.1,
-                "probLluvia": 18,
-                "codigo": 55,
+                "probLluvia": 15,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
                 "min": 9.9,
-                "max": 20.8,
+                "max": 20.1,
                 "lluviaMm": 0,
-                "probLluvia": 2,
+                "probLluvia": 3,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-27",
-                "min": 11.4,
-                "max": 17.9,
-                "lluviaMm": 0.9,
-                "probLluvia": 59,
+                "min": 12.1,
+                "max": 19,
+                "lluviaMm": 3.6,
+                "probLluvia": 55,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-28",
-                "min": 11.4,
-                "max": 24.3,
-                "lluviaMm": 0,
-                "probLluvia": 30,
-                "codigo": 3,
+                "min": 12.3,
+                "max": 23.8,
+                "lluviaMm": 0.6,
+                "probLluvia": 15,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 13.2,
+            "lluviaTotal": 22.400000000000006,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-22",
         "titulares": [
           {
-            "titulo": "Crónicas robadas: Una tormenta con granizo en Santa Fe dejó desde lotes agrícolas severamente dañados hasta pérdidas de animales",
-            "link": "https://bichosdecampo.com/cronicas-robadas-una-tormenta-con-granizo-en-santa-fe-dejo-desde-lotes-agricolas-severamente-danados-hasta-perdidas-de-animales/",
-            "fecha": "2026-10-22T21:03:08.000Z",
+            "titulo": "“No es competencia, sino complementariedad”: La visión de Rodrigo Troncoso que redefine el negocio cárnico argentino",
+            "link": "https://bichosdecampo.com/no-es-competencia-sino-complementariedad-la-vision-de-rodrigo-troncoso-que-redefine-el-negocio-carnico-argentino/",
+            "fecha": "2026-10-23T02:06:43.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Gran noticia para productores de trigo con paciencia: Molinos brasileños tendrán que importar un volumen récord y rezan para que la Argentina logre obtener buena calidad",
-            "link": "https://bichosdecampo.com/gran-noticia-para-productores-de-trigo-con-paciencia-molinos-brasilenos-tendran-que-importar-un-volumen-record-y-rezan-para-que-la-argentina-logre-obtener-buena-calidad/",
-            "fecha": "2026-10-22T20:54:12.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Pedro, un agricultor de 50 años que maneja 600 hectáreas: “Muevo 400.000 euros al mes”",
-            "link": "https://www.lanacion.com.ar/economia/campo/pedro-un-agricultor-de-50-anos-que-maneja-600-hectareas-muevo-400000-euros-al-mes-nid22102026/",
-            "fecha": "2026-10-22T20:38:25.000Z",
+            "titulo": "Un violento fenómeno con mucho granizo mató a decenas de animales y dejó graves daños",
+            "link": "https://www.lanacion.com.ar/economia/campo/una-violenta-caida-de-mucho-granizo-mato-a-decenas-de-animales-y-dejo-graves-danos-nid22102026/",
+            "fecha": "2026-10-22T23:33:41.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "El gigante Cresud produjo más y mejoró ingresos, pero el negocio agropecuario tuvo una pérdida operativa de $15.441 millones",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-gigante-cresud-produjo-mas-y-mejoro-ingresos-pero-su-negocio-agropecuario-tuvo-una-perdida-nid22102026/",
-            "fecha": "2026-10-22T20:33:04.000Z",
+            "titulo": "Está todo listo para una «masacre» de precios del trigo en plena cosecha (mercado no apto para operar al descubierto)",
+            "link": "https://bichosdecampo.com/esta-todo-listo-para-una-masacre-de-precios-del-trigo-en-plena-cosecha-mercado-no-apto-para-operar-al-descubierto/",
+            "fecha": "2026-10-22T22:38:01.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Millones en juego: una jueza de Estados Unidos le abrió una puerta a Bioceres Crop Solutions en una dura disputa con un poderoso fondo",
+            "link": "https://www.lanacion.com.ar/economia/campo/millones-en-juego-una-jueza-de-estados-unidos-le-abrio-una-puerta-a-bioceres-crop-solutions-en-una-nid22102026/",
+            "fecha": "2026-10-22T22:30:39.000Z",
             "fuente": "La Nación Campo"
           },
           {
@@ -338,7 +338,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.535,
-            "usdTonelada": 460.58227949999997
+            "usdBushel": 12.5725,
+            "usdTonelada": 461.96016825
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.6025,
-            "usdTonelada": 181.19075974999998
+            "usdBushel": 4.6075,
+            "usdTonelada": 181.38759925
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.2475,
-            "usdTonelada": 229.55626574999997
+            "usdBushel": 6.295,
+            "usdTonelada": 231.30159149999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-22T21:04:23.924Z"
+      "obtenido": "2026-10-23T02:52:19.043Z"
     }
   }
 }
