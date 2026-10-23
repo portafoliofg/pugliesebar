@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     },
     "dolar": {
       "datos": {
@@ -128,81 +128,81 @@
           }
         }
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-22",
+        "fecha": "2026-10-23",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-22",
-                "min": 16.3,
-                "max": 26.4,
-                "lluviaMm": 4.1,
-                "probLluvia": 92,
-                "codigo": 55,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-23",
-                "min": 15,
-                "max": 20.3,
-                "lluviaMm": 3.3,
-                "probLluvia": 69,
-                "codigo": 80,
+                "min": 14.8,
+                "max": 20.6,
+                "lluviaMm": 0.8,
+                "probLluvia": 71,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 12.8,
-                "max": 19.3,
-                "lluviaMm": 5.3,
-                "probLluvia": 79,
-                "codigo": 80,
+                "min": 12.4,
+                "max": 19.8,
+                "lluviaMm": 2.3,
+                "probLluvia": 78,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
-                "min": 11,
-                "max": 19.7,
+                "min": 10.3,
+                "max": 19.8,
                 "lluviaMm": 0,
-                "probLluvia": 13,
+                "probLluvia": 15,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
-                "min": 10.7,
-                "max": 19.7,
+                "min": 10.6,
+                "max": 19.6,
                 "lluviaMm": 0,
-                "probLluvia": 2,
+                "probLluvia": 12,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-27",
-                "min": 12.8,
-                "max": 19.4,
-                "lluviaMm": 2.4,
-                "probLluvia": 57,
-                "codigo": 51,
+                "min": 12.3,
+                "max": 19,
+                "lluviaMm": 4.9,
+                "probLluvia": 51,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-28",
-                "min": 11.9,
-                "max": 22.8,
-                "lluviaMm": 2,
+                "min": 11.6,
+                "max": 23.2,
+                "lluviaMm": 0.5,
                 "probLluvia": 42,
                 "codigo": 51,
                 "helada": false
+              },
+              {
+                "fecha": "2026-10-29",
+                "min": 13.2,
+                "max": 24.5,
+                "lluviaMm": 0,
+                "probLluvia": 35,
+                "codigo": 3,
+                "helada": false
               }
             ],
-            "lluviaTotal": 17.1,
+            "lluviaTotal": 8.5,
             "hayHelada": false
           },
           {
@@ -210,81 +210,105 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-22",
-                "min": 17,
-                "max": 25.5,
-                "lluviaMm": 6.4,
-                "probLluvia": 90,
-                "codigo": 95,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-23",
-                "min": 15.9,
-                "max": 21.4,
-                "lluviaMm": 0.2,
+                "min": 15.1,
+                "max": 21.8,
+                "lluviaMm": 0.8,
                 "probLluvia": 25,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-24",
-                "min": 13.4,
-                "max": 18.4,
-                "lluviaMm": 11.5,
-                "probLluvia": 74,
+                "min": 13.8,
+                "max": 19,
+                "lluviaMm": 8.8,
+                "probLluvia": 80,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-25",
                 "min": 11.1,
-                "max": 19.8,
-                "lluviaMm": 0.1,
-                "probLluvia": 15,
+                "max": 19.7,
+                "lluviaMm": 0.2,
+                "probLluvia": 25,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-26",
                 "min": 9.9,
-                "max": 20.1,
-                "lluviaMm": 0,
-                "probLluvia": 3,
-                "codigo": 3,
+                "max": 19.7,
+                "lluviaMm": 0.3,
+                "probLluvia": 6,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-27",
-                "min": 12.1,
-                "max": 19,
-                "lluviaMm": 3.6,
-                "probLluvia": 55,
-                "codigo": 51,
+                "min": 11.7,
+                "max": 19.4,
+                "lluviaMm": 4.9,
+                "probLluvia": 50,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-28",
-                "min": 12.3,
-                "max": 23.8,
-                "lluviaMm": 0.6,
-                "probLluvia": 15,
-                "codigo": 51,
+                "min": 11.9,
+                "max": 22.5,
+                "lluviaMm": 7.7,
+                "probLluvia": 22,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-29",
+                "min": 12.4,
+                "max": 24.9,
+                "lluviaMm": 0,
+                "probLluvia": 20,
+                "codigo": 3,
                 "helada": false
               }
             ],
-            "lluviaTotal": 22.400000000000006,
+            "lluviaTotal": 22.700000000000003,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-22",
+        "fecha": "2026-10-23",
         "titulares": [
+          {
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 23 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-23-octubre-2026/",
+            "fecha": "2026-10-23T10:00:30.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 23 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-23-octubre-2026/",
+            "fecha": "2026-10-23T09:00:16.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "El listado completo ¿Cuál es la valuación de todos los inmuebles de Granja Tres Arroyos?",
+            "link": "https://bichosdecampo.com/el-listado-completo-cual-es-la-valuacion-de-todos-los-inmuebles-de-granja-tres-arroyos/",
+            "fecha": "2026-10-23T03:20:41.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Soja en Argentina: 30 años no es nada... o es todo",
+            "link": "https://www.clarin.com/rural/soja-argentina-30-anos_0_zTOxgzqxN8.html",
+            "fecha": "2026-10-23T02:24:41.000Z",
+            "fuente": "Clarín Rural"
+          },
           {
             "titulo": "“No es competencia, sino complementariedad”: La visión de Rodrigo Troncoso que redefine el negocio cárnico argentino",
             "link": "https://bichosdecampo.com/no-es-competencia-sino-complementariedad-la-vision-de-rodrigo-troncoso-que-redefine-el-negocio-carnico-argentino/",
@@ -298,39 +322,15 @@
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Está todo listo para una «masacre» de precios del trigo en plena cosecha (mercado no apto para operar al descubierto)",
-            "link": "https://bichosdecampo.com/esta-todo-listo-para-una-masacre-de-precios-del-trigo-en-plena-cosecha-mercado-no-apto-para-operar-al-descubierto/",
-            "fecha": "2026-10-22T22:38:01.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
             "titulo": "Millones en juego: una jueza de Estados Unidos le abrió una puerta a Bioceres Crop Solutions en una dura disputa con un poderoso fondo",
             "link": "https://www.lanacion.com.ar/economia/campo/millones-en-juego-una-jueza-de-estados-unidos-le-abrio-una-puerta-a-bioceres-crop-solutions-en-una-nid22102026/",
             "fecha": "2026-10-22T22:30:39.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Enojo ganadero: acusan a frigoríficos de aplicar descuentos a la hacienda no inscripta en el VISEC",
-            "link": "https://www.infocampo.com.ar/enojo-ganadero-acusan-a-frigorificos-de-aplicar-descuentos-a-la-hacienda-no-inscripta-en-el-visec/",
-            "fecha": "2026-10-22T20:23:39.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Por primera vez, Argentina exportó por más de U$S 10.000 millones en un mes: ¿cuánto aportó el agro?",
-            "link": "https://www.infocampo.com.ar/por-primera-vez-argentina-exporto-por-mas-de-us-10-000-millones-en-un-mes-cuanto-aporto-el-agro/",
-            "fecha": "2026-10-22T19:56:50.000Z",
-            "fuente": "Infocampo"
-          },
-          {
             "titulo": "Donald Trump anunció un subsidio millonario para los productores agropecuarios de Estados Unidos",
             "link": "https://www.clarin.com/rural/donald-trump-anuncio-subsidio-millonario-productores-agropecuarios-estados-unidos_0_lE3yPfUxsV.html",
             "fecha": "2026-10-22T18:56:18.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "\"Atípico\": proyectan la mayor producción triguera de los últimos 17 años pero hay temor por factores que podrían tirar abajo los rindes",
-            "link": "https://www.clarin.com/rural/atipico-proyectan-mayor-produccion-triguera-ultimos-17-anos-temor-factores-podrian-tirar-abajo-rindes_0_nWyHQHUham.html",
-            "fecha": "2026-10-22T18:35:12.000Z",
             "fuente": "Clarín Rural"
           }
         ],
@@ -338,32 +338,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-22",
+        "fecha": "2026-10-23",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.5725,
-            "usdTonelada": 461.96016825
+            "usdBushel": 12.645,
+            "usdTonelada": 464.6240864999999
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.6075,
-            "usdTonelada": 181.38759925
+            "usdBushel": 4.5875,
+            "usdTonelada": 180.60024125
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.295,
-            "usdTonelada": 231.30159149999997
+            "usdBushel": 6.2425,
+            "usdTonelada": 229.37254724999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-23T02:52:19.043Z"
+      "obtenido": "2026-10-23T10:50:17.706Z"
     }
   }
 }
