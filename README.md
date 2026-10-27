@@ -136,6 +136,16 @@ En computadora (más de 900 px de ancho) las secciones van en un menú lateral q
 
 En la pestaña Granos, la tarjeta **Día a día** muestra, para el grano elegido, cómo varió el precio cada día en los últimos `diasGrafico` días hábiles: pizarra Rosario ($/t), Chicago y la posición más cercana de Matba-Rofex (US$/t), en un gráfico con dos ejes y una tabla con la variación diaria. La historia se completa sola la primera vez (y como mucho una vez por semana si una serie quedó corta) desde las consultas de la Cámara Arbitral, Yahoo Finance y los ajustes de Matba-Rofex (`src/fuentes/historia.js`); después cada actualización suma el dato del día.
 
+## Pronóstico (experimento)
+
+Pestaña que mide si es posible anticipar si el precio sube o baja, a 1 y a 5 ruedas, en Chicago (soja, maíz, trigo) y en la pizarra Rosario (soja, maíz, girasol, trigo). Está en `src/pronostico.js` y guarda todo en `data/pronosticos.json`.
+
+- **Modelos que opinan:** Tendencia (últimas 5 ruedas), Vuelta al promedio (20 ruedas) y Clima (lluvia de 7 días contra la normal del último mes en Iowa, Kansas, Mato Grosso, Rosario y Villa del Rosario, de Open-Meteo).
+- **Referencias:** una moneda y «siempre sube». Un modelo solo se considera bueno si les gana a las dos con al menos 30 pronósticos evaluados y con significancia estadística corregida por la cantidad de combinaciones que se prueban.
+- **Sin trampa:** solo se usan precios cerrados (fechas anteriores a hoy, o la de hoy en la corrida de las 20:55). Cada pronóstico se guarda antes de conocer el resultado y se evalúa contra el cierre definitivo. El modelo Clima solo opina en la corrida de la noche, con el pronóstico de lluvia de ese momento.
+- **Prueba con el pasado:** los modelos de precio también se aplican al histórico guardado, como adelanto. No reemplaza la medición en vivo.
+- Si el pronóstico falla, el resto del tablero se genera igual.
+
 ## Configuración (`config.json`)
 
 | Clave | Para qué sirve |

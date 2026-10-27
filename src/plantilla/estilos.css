@@ -538,3 +538,18 @@ body.completa .pie { display: none; }
 .persp-zonas { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; margin-top: 14px; }
 .persp-zona { padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
 @media (max-width: 760px) { .persp-zonas { grid-template-columns: 1fr; } }
+
+/* ---------- Pronóstico (experimento) ---------- */
+.chip.rojo { background: color-mix(in srgb, var(--baja) 16%, transparent); color: var(--baja); }
+.pr-aviso { border-left: 4px solid var(--dorado); }
+.pr-aviso p { margin-top: 8px; color: var(--muted); }
+.pr-tabla td, .pr-tabla th { white-space: nowrap; }
+.pr-tabla tr.pr-sep td { border-top: 2px solid var(--line); }
+.pr-tabla tr.pr-ref td { color: var(--muted); }
+#pronostico .n { text-align: right; font-variant-numeric: tabular-nums; }
+#pronostico td { vertical-align: middle; }
+.pr-lista { padding-left: 18px; display: grid; gap: 6px; }
+.chip.gris { background: color-mix(in srgb, var(--muted) 14%, transparent); color: var(--muted); }
+#pronostico td .var, #pronostico td .chip { white-space: nowrap; }
+#pronostico th.pr-grupo { border-bottom: 0; padding-bottom: 0; color: var(--ink); }
+#pronostico td:first-child { min-width: 150px; }

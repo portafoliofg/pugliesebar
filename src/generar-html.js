@@ -44,6 +44,7 @@ const ICONOS = {
   flecha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   externo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>',
   ventas: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/><path d="M15 7h4v4"/></svg>',
+  pronostico: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
   colapsar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M15 10l-2 2 2 2"/></svg>',
   tema: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>',
   calendario: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
@@ -405,6 +406,84 @@ function vistaNoticias(m) {
   </section>`;
 }
 
+// ---------- Pronóstico (experimento: ¿sube o baja?) ----------
+
+const flechaPred = (d) => d === 'sube'
+  ? '<span class="var sube">▲ sube</span>'
+  : d === 'baja' ? '<span class="var baja">▼ baja</span>' : d === 'igual' ? '<span class="var neutra">= igual</span>' : '<span class="var neutra">—</span>';
+
+const MODELOS_OPINAN = [['tendencia', 'Tendencia'], ['reversion', 'Vuelta al promedio'], ['clima', 'Clima']];
+
+function tablaAciertos(res) {
+  let anterior = null;
+  const filas = res.filas.map((f) => {
+    const sep = f.serie !== anterior;
+    anterior = f.serie;
+    const celda = (c) => c.total
+      ? `<td class="n"><b>${esc(numero(c.pct, 0))} %</b><div class="sub">${c.aciertos} de ${c.total}</div></td><td><span class="chip ${c.tono}">${esc(c.veredicto)}</span></td>`
+      : `<td class="n">—</td><td><span class="chip ${c.tono}">${esc(c.veredicto)}</span></td>`;
+    return `<tr class="${sep ? 'pr-sep' : ''}${f.ref ? ' pr-ref' : ''}"><td>${sep ? `<b>${esc(f.nombreSerie)}</b>` : ''}</td><td>${esc(f.nombreModelo)}</td>${celda(f.celdas[1])}${celda(f.celdas[5])}</tr>`;
+  }).join('');
+  return `<div class="tabla pr-tabla"><table><thead><tr><th>Mercado</th><th>Modelo</th><th class="n">1 rueda</th><th></th><th class="n">5 ruedas</th><th></th></tr></thead><tbody>${filas}</tbody></table></div>`;
+}
+
+function vistaPronostico(m) {
+  const p = m.pronostico;
+  const encabezado = `<div class="titulo-vista"><div><span class="eyebrow">Experimento</span><h2>Pronóstico</h2></div>
+    <div><p>¿Sube o baja? Cada pronóstico queda guardado antes de saber el resultado y después se compara con el precio real.</p></div></div>`;
+  if (!p) {
+    return `<section class="vista" id="pronostico" role="tabpanel" aria-labelledby="tab-pronostico">${encabezado}${noDisponible('El pronóstico no se pudo calcular en esta actualización.')}</section>`;
+  }
+  const fmt = (u, v) => (v == null ? '—' : u === 'ars' ? pesos(v, 0) : dolares(v));
+
+  const vigentes = p.vigentes.map((v) => `<tr><td><b>${esc(v.nombre)}</b><div class="sub">${v.fecha ? `cierre del ${esc(fechaCorta(v.fecha))} · ${esc(fmt(v.unidad, v.base))}` : 'todavía sin historia suficiente'}</div></td>
+    ${MODELOS_OPINAN.map(([k]) => `<td>${flechaPred(v.preds[`${k}|1`])}</td><td>${flechaPred(v.preds[`${k}|5`])}</td>`).join('')}</tr>`).join('');
+
+  const ultimos = p.ultimos.length
+    ? `<div class="tabla"><table><thead><tr><th>Mercado</th><th>Modelo</th><th>Desde → hasta</th><th>Dijo</th><th>Pasó</th><th></th></tr></thead><tbody>${p.ultimos.map((x) => {
+        const s = p.vigentes.find((v) => v.serie === x.serie);
+        const modelo = MODELOS_OPINAN.find(([k]) => k === x.modelo)?.[1] || x.modelo;
+        const marca = x.acierto === true ? '<span class="chip verde">Acertó</span>' : x.acierto === false ? '<span class="chip rojo">Falló</span>' : '<span class="chip">Sin cambio</span>';
+        return `<tr><td>${esc(s?.nombre || x.serie)}</td><td>${esc(modelo)} · ${x.h === 1 ? '1 rueda' : '5 ruedas'}</td>
+          <td class="tnum">${esc(fechaCorta(x.fecha))} → ${esc(fechaCorta(x.fechaReal))}<div class="sub">${esc(fmt(s?.unidad, x.base))} → ${esc(fmt(s?.unidad, x.valorReal))}</div></td>
+          <td>${flechaPred(x.pred)}</td><td>${flechaPred(x.real)}</td><td>${marca}</td></tr>`;
+      }).join('')}</tbody></table></div>`
+    : '<p class="nd">Todavía no se cumplió el plazo de ningún pronóstico. El primer resultado aparece después de la próxima rueda.</p>';
+
+  const zonas = p.clima?.zonas || {};
+  const clima = Object.keys(zonas).length
+    ? `<div class="tabla"><table><thead><tr><th>Zona</th><th class="n">Lluvia próximos 7 días</th><th class="n">Semana normal (último mes)</th></tr></thead><tbody>${Object.entries(zonas).map(([k, z]) => `<tr><td>${esc(m.zonasClima[k]?.nombre || k)}</td><td class="n">${esc(numero(z.proximos7, 1))} mm</td><td class="n">${esc(numero(z.normal7, 1))} mm</td></tr>`).join('')}</tbody></table></div>
+      <p class="nota">Pronóstico de lluvia bajado el ${esc(fechaCorta(p.clima.fecha))} (Open-Meteo). El modelo Clima solo opina con datos de la corrida de la noche.</p>`
+    : '<p class="nd">Todavía no hay datos de lluvia: se bajan en la actualización de la noche.</p>';
+
+  return `<section class="vista" id="pronostico" role="tabpanel" aria-labelledby="tab-pronostico">
+    ${encabezado}
+    <article class="card pr-aviso revelar"><b>Es un experimento, no una recomendación para operar.</b>
+      <p>Se miden tres modelos contra dos referencias: una moneda y «siempre sube». Un modelo recién sirve si le gana a las dos con al menos ${p.minimo} pronósticos evaluados y con una diferencia que no se explique por suerte (se tiene en cuenta que se prueban ${p.vivo.pruebas} combinaciones a la vez). Lo esperable es que ninguno lo logre: el precio del día ya refleja lo que sabe el mercado.</p>
+      <p class="sub">${p.totalEmitidos} pronósticos guardados · ${p.totalEvaluados} ya comparados con el precio real.</p></article>
+
+    <div class="bloque"><div class="bloque-h"><h2>Qué dicen hoy</h2></div>
+      <article class="card revelar"><div class="tabla"><table><thead><tr><th rowspan="2">Mercado</th>${MODELOS_OPINAN.map(([, n]) => `<th colspan="2" class="pr-grupo">${esc(n)}</th>`).join('')}</tr><tr>${MODELOS_OPINAN.map(() => '<th>1 rueda</th><th>5 ruedas</th>').join('')}</tr></thead><tbody>${vigentes}</tbody></table></div>
+      <p class="nota">Cada pronóstico parte del último precio cerrado. «Rueda» es un día con cotización de ese mercado.</p></article></div>
+
+    <div class="bloque"><div class="bloque-h"><h2>¿Aciertan? En vivo</h2></div>
+      <article class="card revelar">${tablaAciertos(p.vivo)}</article></div>
+
+    <div class="bloque"><div class="bloque-h"><h2>Últimos resultados</h2></div>
+      <article class="card revelar">${ultimos}</article></div>
+
+    <div class="bloque"><div class="bloque-h"><h2>Prueba con el pasado</h2></div>
+      <article class="card revelar"><p class="nota" style="margin-bottom:10px">Los mismos modelos aplicados a los precios guardados${p.pasado.desde ? ` del ${esc(fechaCorta(p.pasado.desde))} al ${esc(fechaCorta(p.pasado.hasta))}` : ''}, como si se hubieran usado en su momento. Sirve como adelanto, pero no reemplaza la medición en vivo. El modelo Clima no entra porque no hay pronósticos de lluvia viejos.</p>
+      ${tablaAciertos(p.pasado)}</article></div>
+
+    <div class="bloque"><div class="bloque-h"><h2>Lluvia en zonas productoras</h2></div>
+      <article class="card revelar">${clima}</article></div>
+
+    <div class="bloque"><div class="bloque-h"><h2>Cómo piensa cada modelo</h2></div>
+      <article class="card revelar"><ul class="pr-lista">${m.modelosPronostico.map((x) => `<li><b>${esc(x.nombre)}${x.ref ? ' (referencia)' : ''}:</b> ${esc(x.desc)}</li>`).join('')}</ul></article></div>
+  </section>`;
+}
+
 function vistaCampos() {
   return `<section class="vista" id="campos" role="tabpanel" aria-labelledby="tab-campos">
     <div class="stock-marco"><iframe id="campos-frame" data-src="campos/" title="Mis campos" loading="lazy"></iframe></div>
@@ -531,7 +610,7 @@ ${leerPlantilla('estilos.css')}
   <div class="cab-in">
     <a class="marca" href="#inicio" data-ir="inicio" aria-label="${t}, inicio"><span class="marca-logo">${LOGO}</span><span class="marca-txt"><b>${t}</b><small>Agro · Campos · Stock</small></span></a>
     <nav class="pestanas" role="tablist" aria-label="Secciones">
-      ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('campos', 'Campos')}<div class="lateral-sub" id="lateral-campos" role="group" aria-label="Acciones de Mis campos" hidden></div>${pestana('ventas', 'Ventas')}${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
+      ${pestana('inicio', 'Inicio')}${pestana('granos', 'Granos')}${pestana('pronostico', 'Pronóstico')}${pestana('dolar', 'Dólar')}${pestana('clima', 'Clima')}${pestana('campos', 'Campos')}<div class="lateral-sub" id="lateral-campos" role="group" aria-label="Acciones de Mis campos" hidden></div>${pestana('ventas', 'Ventas')}${pestana('noticias', 'Noticias')}${pestana('stock', 'Stock')}
     </nav>
     <input type="file" id="lateral-archivo" hidden multiple accept=".kml,.kmz,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz">
     <div class="cab-der">
@@ -545,6 +624,7 @@ ${leerPlantilla('estilos.css')}
 <main>
 ${vistaInicio(m)}
 ${vistaGranos(m)}
+${vistaPronostico(m)}
 ${vistaDolar(m)}
 ${vistaClima(m)}
 ${vistaCampos()}

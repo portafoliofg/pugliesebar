@@ -19,6 +19,7 @@ import { Historico } from './historico.js';
 import { historiaPizarra, historiaCbot, historiaMatba } from './fuentes/historia.js';
 import { generarHTML, generarConfigStock, generarConfigCampos } from './generar-html.js';
 import { fechaISOArgentina } from './lib/formato.js';
+import { actualizarPronosticos, MODELOS as MODELOS_PRONOSTICO, ZONAS_CLIMA } from './pronostico.js';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const RUTA_HTML = join(RAIZ, 'public', 'index.html');
@@ -201,9 +202,18 @@ async function main() {
   for (const [g] of GRANOS_PIZARRA) sparks[`pizarra.${g}`] = historico.ultimos(`pizarra.${g}`, n).map((p) => p.valor);
   sparks['dolar.oficial'] = dolarOficial.map((p) => p.valor);
 
+  // ---- Pronóstico experimental (si falla, el resto del tablero sigue igual) ----
+  let pronostico = null;
+  try {
+    pronostico = await actualizarPronosticos({ historico, config, ahora, hoyISO, ruta: join(RAIZ, 'data', 'pronosticos.json') });
+  } catch (err) {
+    console.log(`  ✘ pronóstico: ${err.message}`);
+  }
+
   // ---- Página ----
   const html = generarHTML({
-    config, generado: ahora, hoyISO, feriado, finDeSemana, fuentes, variaciones, graficos, sparks
+    config, generado: ahora, hoyISO, feriado, finDeSemana, fuentes, variaciones, graficos, sparks,
+    pronostico, modelosPronostico: MODELOS_PRONOSTICO, zonasClima: ZONAS_CLIMA
   });
   await mkdir(dirname(RUTA_HTML), { recursive: true });
   await writeFile(RUTA_HTML, html, 'utf8');
