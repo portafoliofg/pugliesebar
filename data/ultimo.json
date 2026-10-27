@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     },
     "dolar": {
       "datos": {
@@ -128,7 +128,7 @@
           }
         }
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     },
     "clima": {
       "datos": {
@@ -140,69 +140,69 @@
             "dias": [
               {
                 "fecha": "2026-10-27",
-                "min": 12.6,
-                "max": 18.9,
-                "lluviaMm": 6.6,
-                "probLluvia": 88,
-                "codigo": 81,
+                "min": 11.5,
+                "max": 20.4,
+                "lluviaMm": 3.3,
+                "probLluvia": 82,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-28",
-                "min": 11.1,
-                "max": 24.1,
-                "lluviaMm": 0.8,
-                "probLluvia": 80,
-                "codigo": 53,
+                "min": 10.5,
+                "max": 24.5,
+                "lluviaMm": 0.6,
+                "probLluvia": 59,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-29",
-                "min": 12.4,
-                "max": 25,
-                "lluviaMm": 14.7,
+                "min": 12.8,
+                "max": 25.4,
+                "lluviaMm": 4.6,
+                "probLluvia": 82,
+                "codigo": 81,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-30",
+                "min": 12.9,
+                "max": 26.9,
+                "lluviaMm": 0,
+                "probLluvia": 47,
+                "codigo": 1,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-31",
+                "min": 15,
+                "max": 26.4,
+                "lluviaMm": 2.4,
+                "probLluvia": 77,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-01",
+                "min": 15.5,
+                "max": 24.2,
+                "lluviaMm": 29.7,
                 "probLluvia": 76,
                 "codigo": 95,
                 "helada": false
               },
               {
-                "fecha": "2026-10-30",
-                "min": 12,
-                "max": 26.4,
-                "lluviaMm": 0.6,
-                "probLluvia": 27,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-31",
-                "min": 14.9,
-                "max": 26.5,
-                "lluviaMm": 1.8,
-                "probLluvia": 79,
-                "codigo": 95,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-01",
-                "min": 14.8,
-                "max": 26.5,
-                "lluviaMm": 11.1,
-                "probLluvia": 70,
-                "codigo": 95,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-02",
-                "min": 17.2,
-                "max": 24.4,
-                "lluviaMm": 7.4,
-                "probLluvia": 73,
+                "min": 16.6,
+                "max": 22.6,
+                "lluviaMm": 11,
+                "probLluvia": 81,
                 "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 43,
+            "lluviaTotal": 51.6,
             "hayHelada": false
           },
           {
@@ -211,115 +211,115 @@
             "dias": [
               {
                 "fecha": "2026-10-27",
-                "min": 12,
-                "max": 19.9,
-                "lluviaMm": 6.1,
-                "probLluvia": 55,
-                "codigo": 80,
+                "min": 11.2,
+                "max": 19.3,
+                "lluviaMm": 1.1,
+                "probLluvia": 47,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-28",
-                "min": 12.1,
-                "max": 24,
-                "lluviaMm": 2.1,
-                "probLluvia": 69,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-29",
-                "min": 14.1,
-                "max": 25.6,
-                "lluviaMm": 3,
-                "probLluvia": 59,
-                "codigo": 95,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-30",
-                "min": 14,
-                "max": 26.7,
-                "lluviaMm": 0,
-                "probLluvia": 10,
-                "codigo": 45,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-31",
-                "min": 16.1,
-                "max": 27.3,
-                "lluviaMm": 0.3,
-                "probLluvia": 31,
+                "min": 12.2,
+                "max": 24.6,
+                "lluviaMm": 1.1,
+                "probLluvia": 47,
                 "codigo": 51,
                 "helada": false
               },
               {
-                "fecha": "2026-11-01",
-                "min": 16.2,
-                "max": 26.9,
-                "lluviaMm": 14.4,
+                "fecha": "2026-10-29",
+                "min": 14.2,
+                "max": 26.4,
+                "lluviaMm": 3.2,
                 "probLluvia": 78,
-                "codigo": 81,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-30",
+                "min": 13.3,
+                "max": 27,
+                "lluviaMm": 0,
+                "probLluvia": 24,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-10-31",
+                "min": 15.9,
+                "max": 27.6,
+                "lluviaMm": 0,
+                "probLluvia": 22,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-01",
+                "min": 16.6,
+                "max": 25.6,
+                "lluviaMm": 39.3,
+                "probLluvia": 75,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 17.1,
-                "max": 25.3,
-                "lluviaMm": 4,
-                "probLluvia": 63,
+                "min": 16.7,
+                "max": 23.9,
+                "lluviaMm": 9.8,
+                "probLluvia": 75,
                 "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 29.9,
+            "lluviaTotal": 54.5,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-27",
         "titulares": [
           {
+            "titulo": "Aguafiestas: A menos de 16 horas de cerrar sus compuertas, Itaipú volvió a descargar sobre el Paraná y hay versiones cruzadas sobre el motivo",
+            "link": "https://bichosdecampo.com/aguafiestas-a-menos-de-16-horas-de-cerrar-sus-compuertas-itaipu-volvio-a-descargar-sobre-el-parana-y-hay-versiones-cruzadas-sobre-el-motivo/",
+            "fecha": "2026-10-27T11:03:23.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 27 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-27-octubre-2026/",
+            "fecha": "2026-10-27T10:00:26.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 27 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-27-octubre-2026/",
+            "fecha": "2026-10-27T09:00:09.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Nelson, de 62 años, produce huevos de color azul con gallinas adaptadas al frío: “Andan muy bien”",
+            "link": "https://www.lanacion.com.ar/economia/campo/nelson-de-62-anos-produce-huevos-de-color-azul-con-gallinas-adaptadas-al-frio-andan-muy-bien-nid27102026/",
+            "fecha": "2026-10-27T06:00:00.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "No aguantan ni dos gotas: El intendente de Pehuajó, Pablo Zurro, pide a los tamberos que no le “rompan” los caminos rurales",
+            "link": "https://bichosdecampo.com/no-aguantan-ni-dos-gotas-el-intendente-de-pehuajo-pablo-zurro-pide-a-los-tamberos-que-no-le-rompan-los-caminos-rurales/",
+            "fecha": "2026-10-27T04:45:42.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
             "titulo": "El Gobierno declaró la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
             "link": "https://www.lanacion.com.ar/economia/campo/el-gobierno-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-partidos-bonaerenses-nid26102026/",
             "fecha": "2026-10-26T23:58:45.000Z",
             "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Introducido por un escocés y discutido en sus comienzos, el alambrado marcó un antes y un después en el campo argentino",
-            "link": "https://www.lanacion.com.ar/economia/campo/introducido-por-un-escoces-y-discutido-en-sus-comienzos-el-alambrado-marco-un-antes-y-un-despues-en-nid24102026/",
-            "fecha": "2026-10-26T23:56:31.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "“La industria ha demostrado vocación de diálogo”: semilleros redoblan la presión por una nueva ley",
-            "link": "https://www.infocampo.com.ar/la-industria-ha-demostrado-vocacion-de-dialogo-semilleros-redoblan-la-presion-por-una-nueva-ley/",
-            "fecha": "2026-10-26T23:01:57.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Productores del cinturón hortícola de La Plata harán un tractorazo para reclamar por caminos destruidos, robos y falta de iluminación",
-            "link": "https://bichosdecampo.com/productores-del-cinturon-horticola-de-la-plata-haran-un-tractorazo-para-reclamar-por-caminos-destruidos-robos-y-falta-de-iluminacion/",
-            "fecha": "2026-10-26T22:16:05.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "“Avalancha” bajista para la soja luego de la sùper devaluación brasileña promovida por la victoria de Lula",
-            "link": "https://bichosdecampo.com/avalancha-bajista-para-la-soja-luego-de-la-super-devaluacion-brasilena-promovida-por-la-victoria-de-lula/",
-            "fecha": "2026-10-26T21:40:35.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "El Niño: impulsan una red federal para asistir a productores afectados por inundaciones",
-            "link": "https://www.infocampo.com.ar/el-nino-impulsan-una-red-federal-para-asistir-a-productores-afectados-por-inundaciones/",
-            "fecha": "2026-10-26T20:31:43.000Z",
-            "fuente": "Infocampo"
           },
           {
             "titulo": "El precio de la soja cayó a su nivel más bajo en dos meses en el mercado internacional",
@@ -338,7 +338,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.505,
-            "usdTonelada": 459.4799685
+            "usdBushel": 12.585,
+            "usdTonelada": 462.4194645
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.535,
-            "usdTonelada": 178.5334265
+            "usdBushel": 4.545,
+            "usdTonelada": 178.92710549999998
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.14,
-            "usdTonelada": 225.60631799999996
+            "usdBushel": 6.165,
+            "usdTonelada": 226.52491049999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-27T03:13:58.620Z"
+      "obtenido": "2026-10-27T11:23:03.469Z"
     }
   }
 }
