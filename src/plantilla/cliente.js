@@ -385,6 +385,17 @@
   }
   programarRecarga();
 
+  // ---------- Pronóstico: botón "i" de cada mercado ----------
+  $$('[data-pr-info]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var fila = document.getElementById(b.getAttribute('aria-controls'));
+      if (!fila) return;
+      var abrir = fila.hidden;
+      fila.hidden = !abrir;
+      b.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+    });
+  });
+
   // ---------- Arranque ----------
   mostrar(location.hash.slice(1) || 'inicio', false);
 

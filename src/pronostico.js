@@ -220,6 +220,38 @@ function pruebaPasado(cerradas) {
   return { ...resumir(resultados, modelos), desde, hasta };
 }
 
+// ---------- En qué se basa cada pronóstico (para el botón "i" de la pestaña) ----------
+
+function fundamentos(serie, pts, fecha, clima, nocturna, hoyISO) {
+  if (!fecha) return null;
+  const hasta = pts.filter((p) => p.fecha <= fecha);
+  const n = hasta.length;
+  const actual = hasta[n - 1];
+  if (!actual || actual.fecha !== fecha) return null; // solo con los números del día del pronóstico
+  const pct = (a, b) => ((a - b) / b) * 100;
+  const salida = { actual };
+
+  if (n >= 6) {
+    const antes = hasta[n - 6];
+    salida.tendencia = { antes, pct: pct(actual.valor, antes.valor) };
+  }
+  if (n >= 20) {
+    const ult20 = hasta.slice(-20);
+    const promedio = ult20.reduce((s, p) => s + p.valor, 0) / 20;
+    salida.reversion = { promedio, desde: ult20[0].fecha, pct: pct(actual.valor, promedio) };
+  }
+  // Clima: solo cuenta si el pronóstico de lluvia es del mismo día del precio
+  if (clima?.fecha === fecha) {
+    const zonas = serie.zonas.filter((z) => clima.zonas[z]).map((z) => ({ clave: z, ...clima.zonas[z] }));
+    const prox = zonas.reduce((s, z) => s + z.proximos7, 0);
+    const normal = zonas.reduce((s, z) => s + z.normal7, 0);
+    salida.clima = { zonas, prox, normal, margen: 2 * zonas.length, fechaLluvia: clima.fecha };
+  } else {
+    salida.clima = { motivo: fecha < hoyISO || !nocturna ? 'manana' : 'sinDatos' };
+  }
+  return salida;
+}
+
 // ---------- Ciclo ----------
 
 export async function actualizarPronosticos({ historico, config, ahora, hoyISO, ruta }) {
@@ -293,7 +325,7 @@ export async function actualizarPronosticos({ historico, config, ahora, hoyISO, 
       preds[`${p.modelo}|${p.h}`] = p.pred;
       base = p.base;
     }
-    return { serie: s.clave, nombre: s.nombre, unidad: s.unidad, fecha: f || null, base, preds };
+    return { serie: s.clave, nombre: s.nombre, unidad: s.unidad, fecha: f || null, base, preds, fundamentos: fundamentos(s, cerradas[s.clave], f, datos.clima, nocturna, hoyISO) };
   });
   const ultimos = datos.predicciones
     .filter((p) => p.real && !MODELOS.find((m) => m.clave === p.modelo)?.ref)

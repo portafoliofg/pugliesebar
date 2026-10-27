@@ -427,6 +427,65 @@ function tablaAciertos(res) {
   return `<div class="tabla pr-tabla"><table><thead><tr><th>Mercado</th><th>Modelo</th><th class="n">1 rueda</th><th></th><th class="n">5 ruedas</th><th></th></tr></thead><tbody>${filas}</tbody></table></div>`;
 }
 
+// Explicación en criollo de en qué se basa cada modelo, con los números del día
+function explicacionPronostico(v, p, m) {
+  const f = v.fundamentos;
+  const fmt = (x) => (x == null ? '—' : v.unidad === 'ars' ? pesos(x, 0) : dolares(x));
+  const pc = (x) => `${x > 0 ? '+' : x < 0 ? '−' : ''}${numero(Math.abs(x), 2)} %`;
+  const dir = (k) => v.preds[`${k}|1`];
+  const dice = (k) => (dir(k) ? `<b class="var ${dir(k)}">${dir(k) === 'sube' ? '▲ sube' : '▼ baja'}</b>` : '');
+  const bloques = [];
+
+  // Tendencia
+  if (f.tendencia) {
+    const t = f.tendencia;
+    const movio = t.pct > 0 ? 'subió' : t.pct < 0 ? 'bajó' : 'quedó igual';
+    bloques.push(['Tendencia', dice('tendencia'),
+      `Hace 5 ruedas, el ${esc(fechaCorta(t.antes.fecha))}, cotizaba <b>${esc(fmt(t.antes.valor))}</b>. Al cierre del ${esc(fechaCorta(f.actual.fecha))} está en <b>${esc(fmt(f.actual.valor))}</b>: ${movio} <b>${esc(pc(t.pct))}</b>.`,
+      `La idea: si viene ${t.pct > 0 ? 'subiendo' : 'bajando'}, el movimiento sigue un poco más. Por eso dice que ${t.pct > 0 ? 'sube' : 'baja'}.`]);
+  } else bloques.push(['Tendencia', '', 'Todavía no hay 5 ruedas de historia para comparar.', '']);
+
+  // Vuelta al promedio
+  if (f.reversion) {
+    const r = f.reversion;
+    const lado = r.pct > 0 ? 'por encima' : 'por debajo';
+    bloques.push(['Vuelta al promedio', dice('reversion'),
+      `El promedio de las últimas 20 ruedas (desde el ${esc(fechaCorta(r.desde))}) es <b>${esc(fmt(r.promedio))}</b>. El precio actual está <b>${esc(numero(Math.abs(r.pct), 2))} % ${lado}</b>.`,
+      `La idea: cuando un precio se aleja de su promedio, tiende a volver. Como está ${lado}, dice que ${r.pct > 0 ? 'baja' : 'sube'}.`]);
+  } else bloques.push(['Vuelta al promedio', '', 'Todavía no hay 20 ruedas de historia para sacar el promedio.', '']);
+
+  // Clima
+  const c = f.clima;
+  if (c?.zonas?.length) {
+    const lista = c.zonas.map((z) => `<li>${esc(m.zonasClima[z.clave]?.nombre || z.clave)}: <b>${esc(numero(z.proximos7, 1))} mm</b> esperados en 7 días, contra ${esc(numero(z.normal7, 1))} mm de una semana normal del último mes</li>`).join('');
+    const diferencia = c.prox - c.normal;
+    let idea;
+    if (Math.abs(diferencia) < c.margen) idea = `En total se esperan ${esc(numero(c.prox, 1))} mm contra ${esc(numero(c.normal, 1))} mm normales. La diferencia es chica (menos de ${esc(numero(c.margen, 0))} mm), así que hoy no opina.`;
+    else if (diferencia < 0) idea = `En total se esperan ${esc(numero(c.prox, 1))} mm contra ${esc(numero(c.normal, 1))} mm normales: se viene una semana <b>más seca</b>. Menos lluvia puede significar menos cosecha, y eso empuja el precio para arriba. Por eso dice que sube.`;
+    else idea = `En total se esperan ${esc(numero(c.prox, 1))} mm contra ${esc(numero(c.normal, 1))} mm normales: se viene una semana <b>más lluviosa</b>. Buena humedad suele mejorar la cosecha esperada, y eso empuja el precio para abajo. Por eso dice que baja.`;
+    bloques.push(['Clima', dice('clima'), `Mira la lluvia en las zonas que más pesan para este grano:<ul>${lista}</ul>`, idea]);
+  } else {
+    bloques.push(['Clima', '',
+      'En esta actualización no opina. Este modelo solo usa el pronóstico de lluvia que se baja a las 20:55, el mismo día del precio de cierre.',
+      'Si usara un pronóstico bajado después, estaría usando información que el mercado todavía no tenía en ese momento, y la comparación sería tramposa.']);
+  }
+
+  // Cómo le viene yendo a cada modelo en este mercado
+  const historial = MODELOS_OPINAN.map(([k, n]) => {
+    const fila = p.vivo.filas.find((x) => x.serie === v.serie && x.modelo === k);
+    const c1 = fila?.celdas[1];
+    return `<li>${esc(n)}: ${c1?.total ? `acertó <b>${c1.aciertos} de ${c1.total}</b> a 1 rueda (${esc(numero(c1.pct, 0))} %)` : 'todavía sin resultados'}</li>`;
+  }).join('');
+  const moneda = p.vivo.filas.find((x) => x.serie === v.serie && x.modelo === 'azar')?.celdas[1];
+
+  return `<div class="pr-explica">
+    ${bloques.map(([titulo, d, que, idea]) => `<div class="pr-bloque"><div class="pr-bloque-h"><b>${esc(titulo)}</b>${d}</div><p>${que}</p>${idea ? `<p class="sub">${idea}</p>` : ''}</div>`).join('')}
+    <div class="pr-bloque"><div class="pr-bloque-h"><b>Cómo le viene yendo en ${esc(v.nombre)}</b></div><ul>${historial}</ul>
+      <p class="sub">Para comparar: la moneda ${moneda?.total ? `acertó ${moneda.aciertos} de ${moneda.total} (${esc(numero(moneda.pct, 0))} %)` : 'todavía no tiene resultados'}. Un modelo que no le gana a la moneda con muchos datos no sirve.</p></div>
+    <p class="nota pr-pie">Cada modelo da la misma dirección para 1 y 5 ruedas porque mira los mismos números. Lo que cambia es contra qué cierre se compara después: el de la próxima rueda o el de dentro de 5.${v.unidad === 'ars' ? ' Ojo: la pizarra está en pesos, así que parte de las subas es devaluación y no un cambio real del precio del grano.' : ''}</p>
+  </div>`;
+}
+
 function vistaPronostico(m) {
   const p = m.pronostico;
   const encabezado = `<div class="titulo-vista"><div><span class="eyebrow">Experimento</span><h2>Pronóstico</h2></div>
@@ -436,8 +495,9 @@ function vistaPronostico(m) {
   }
   const fmt = (u, v) => (v == null ? '—' : u === 'ars' ? pesos(v, 0) : dolares(v));
 
-  const vigentes = p.vigentes.map((v) => `<tr><td><b>${esc(v.nombre)}</b><div class="sub">${v.fecha ? `cierre del ${esc(fechaCorta(v.fecha))} · ${esc(fmt(v.unidad, v.base))}` : 'todavía sin historia suficiente'}</div></td>
-    ${MODELOS_OPINAN.map(([k]) => `<td>${flechaPred(v.preds[`${k}|1`])}</td><td>${flechaPred(v.preds[`${k}|5`])}</td>`).join('')}</tr>`).join('');
+  const vigentes = p.vigentes.map((v, i) => `<tr><td><div class="pr-nombre"><b>${esc(v.nombre)}</b>${v.fundamentos ? `<button type="button" class="pr-info" data-pr-info aria-expanded="false" aria-controls="pr-det-${i}" aria-label="En qué se basa el pronóstico de ${esc(v.nombre)}" title="En qué se basa">i</button>` : ''}</div><div class="sub">${v.fecha ? `cierre del ${esc(fechaCorta(v.fecha))} · ${esc(fmt(v.unidad, v.base))}` : 'todavía sin historia suficiente'}</div></td>
+    ${MODELOS_OPINAN.map(([k]) => `<td>${flechaPred(v.preds[`${k}|1`])}</td><td>${flechaPred(v.preds[`${k}|5`])}</td>`).join('')}</tr>
+    ${v.fundamentos ? `<tr class="pr-detalle" id="pr-det-${i}" hidden><td colspan="7">${explicacionPronostico(v, p, m)}</td></tr>` : ''}`).join('');
 
   const ultimos = p.ultimos.length
     ? `<div class="tabla"><table><thead><tr><th>Mercado</th><th>Modelo</th><th>Desde → hasta</th><th>Dijo</th><th>Pasó</th><th></th></tr></thead><tbody>${p.ultimos.map((x) => {
@@ -464,7 +524,7 @@ function vistaPronostico(m) {
 
     <div class="bloque"><div class="bloque-h"><h2>Qué dicen hoy</h2></div>
       <article class="card revelar"><div class="tabla"><table><thead><tr><th rowspan="2">Mercado</th>${MODELOS_OPINAN.map(([, n]) => `<th colspan="2" class="pr-grupo">${esc(n)}</th>`).join('')}</tr><tr>${MODELOS_OPINAN.map(() => '<th>1 rueda</th><th>5 ruedas</th>').join('')}</tr></thead><tbody>${vigentes}</tbody></table></div>
-      <p class="nota">Cada pronóstico parte del último precio cerrado. «Rueda» es un día con cotización de ese mercado.</p></article></div>
+      <p class="nota">Cómo leerla: cada fila es un mercado y cada columna lo que dice un modelo distinto. «1 rueda» es el próximo día con cotización de ese mercado y «5 ruedas» es una semana hábil, más o menos. Todos parten del último precio cerrado. Tocá la <b>i</b> de cada mercado para ver los números en los que se basa cada modelo y cómo le viene yendo.</p></article></div>
 
     <div class="bloque"><div class="bloque-h"><h2>¿Aciertan? En vivo</h2></div>
       <article class="card revelar">${tablaAciertos(p.vivo)}</article></div>

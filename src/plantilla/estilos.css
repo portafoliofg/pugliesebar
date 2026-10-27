@@ -553,3 +553,13 @@ body.completa .pie { display: none; }
 #pronostico td .var, #pronostico td .chip { white-space: nowrap; }
 #pronostico th.pr-grupo { border-bottom: 0; padding-bottom: 0; color: var(--ink); }
 #pronostico td:first-child { min-width: 150px; }
+.pr-nombre { display: flex; align-items: center; gap: 8px; }
+.pr-info { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--dorado); background: var(--surface); color: var(--naranja-tx); font: italic 800 .8rem/1 Georgia, serif; cursor: pointer; display: inline-grid; place-items: center; flex: none; transition: background .2s, color .2s; }
+.pr-info:hover, .pr-info[aria-expanded="true"] { background: var(--dorado); color: #2b2118; }
+#pronostico tr.pr-detalle > td { white-space: normal; background: color-mix(in srgb, var(--dorado) 7%, transparent); padding: 14px; }
+.pr-explica { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; align-items: start; }
+.pr-bloque { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.pr-bloque-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+.pr-bloque p { margin-top: 6px; line-height: 1.45; }
+.pr-bloque ul { padding-left: 18px; margin-top: 6px; display: grid; gap: 4px; font-size: .9rem; }
+.pr-pie { grid-column: 1 / -1; }
