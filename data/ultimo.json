@@ -2,31 +2,31 @@
   "fuentes": {
     "pizarra": {
       "datos": {
-        "fecha": "2026-10-23",
+        "fecha": "2026-10-26",
         "granos": {
           "soja": {
             "pesos": 555000,
-            "usd": 365.01,
+            "usd": 362.27,
             "sinCotizacion": false
           },
           "maiz": {
-            "pesos": 278250,
-            "usd": 183,
+            "pesos": 281000,
+            "usd": 183.42,
             "sinCotizacion": false
           },
           "girasol": {
-            "pesos": 805860,
+            "pesos": 811960,
             "usd": null,
             "sinCotizacion": false
           },
           "trigo": {
-            "pesos": 326900,
-            "usd": 215,
+            "pesos": 326000,
+            "usd": 212.79,
             "sinCotizacion": false
           }
         }
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     },
     "matba": {
       "datos": {
@@ -85,50 +85,50 @@
           ]
         }
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     },
     "dolar": {
       "datos": {
-        "fecha": "2026-10-26",
+        "fecha": "2026-10-27",
         "tipos": {
           "oficial": {
             "compra": 1510,
             "venta": 1560,
-            "actualizado": "2026-10-26T18:55:00.000Z"
+            "actualizado": "2026-10-27T14:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1532,
-            "venta": 1541,
-            "actualizado": "2026-10-26T15:53:00.000Z"
+            "compra": 1531,
+            "venta": 1540,
+            "actualizado": "2026-10-27T10:48:00.000Z"
           },
           "mep": {
-            "compra": 1571.7,
-            "venta": 1577.5,
-            "actualizado": "2026-10-27T11:59:00.000Z"
+            "compra": 1557.9,
+            "venta": 1559,
+            "actualizado": "2026-10-27T16:59:00.000Z"
           },
           "ccl": {
-            "compra": 1679.7,
-            "venta": 1682.5,
-            "actualizado": "2026-10-27T11:59:00.000Z"
+            "compra": 1659.1,
+            "venta": 1660.1,
+            "actualizado": "2026-10-27T16:59:00.000Z"
           },
           "blue": {
             "compra": 1555,
             "venta": 1575,
-            "actualizado": "2026-10-27T11:59:00.000Z"
+            "actualizado": "2026-10-27T16:59:00.000Z"
           },
           "tarjeta": {
             "compra": 1963,
             "venta": 2028,
-            "actualizado": "2026-10-26T18:55:00.000Z"
+            "actualizado": "2026-10-27T14:00:00.000Z"
           },
           "cripto": {
-            "compra": 1664.53,
-            "venta": 1669.34,
-            "actualizado": "2026-10-27T11:59:00.000Z"
+            "compra": 1655.29,
+            "venta": 1658.88,
+            "actualizado": "2026-10-27T16:59:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     },
     "clima": {
       "datos": {
@@ -143,7 +143,7 @@
                 "min": 12.3,
                 "max": 20.4,
                 "lluviaMm": 1.8,
-                "probLluvia": 82,
+                "probLluvia": 100,
                 "codigo": 51,
                 "helada": false
               },
@@ -152,7 +152,7 @@
                 "min": 10.1,
                 "max": 24.8,
                 "lluviaMm": 0.4,
-                "probLluvia": 59,
+                "probLluvia": 29,
                 "codigo": 51,
                 "helada": false
               },
@@ -161,7 +161,7 @@
                 "min": 13,
                 "max": 26.1,
                 "lluviaMm": 4.3,
-                "probLluvia": 82,
+                "probLluvia": 84,
                 "codigo": 80,
                 "helada": false
               },
@@ -170,7 +170,7 @@
                 "min": 13.9,
                 "max": 27.1,
                 "lluviaMm": 0.4,
-                "probLluvia": 47,
+                "probLluvia": 45,
                 "codigo": 51,
                 "helada": false
               },
@@ -179,7 +179,7 @@
                 "min": 15.8,
                 "max": 26.7,
                 "lluviaMm": 3.3,
-                "probLluvia": 77,
+                "probLluvia": 80,
                 "codigo": 53,
                 "helada": false
               },
@@ -214,7 +214,7 @@
                 "min": 12.3,
                 "max": 20.5,
                 "lluviaMm": 1.8,
-                "probLluvia": 47,
+                "probLluvia": 78,
                 "codigo": 53,
                 "helada": false
               },
@@ -223,7 +223,7 @@
                 "min": 11.5,
                 "max": 24.2,
                 "lluviaMm": 0.8,
-                "probLluvia": 47,
+                "probLluvia": 43,
                 "codigo": 51,
                 "helada": false
               },
@@ -232,7 +232,7 @@
                 "min": 14,
                 "max": 26.2,
                 "lluviaMm": 6,
-                "probLluvia": 78,
+                "probLluvia": 71,
                 "codigo": 95,
                 "helada": false
               },
@@ -241,7 +241,7 @@
                 "min": 14.2,
                 "max": 27.2,
                 "lluviaMm": 0.4,
-                "probLluvia": 24,
+                "probLluvia": 25,
                 "codigo": 51,
                 "helada": false
               },
@@ -250,7 +250,7 @@
                 "min": 14.9,
                 "max": 27.4,
                 "lluviaMm": 0,
-                "probLluvia": 22,
+                "probLluvia": 27,
                 "codigo": 3,
                 "helada": false
               },
@@ -259,7 +259,7 @@
                 "min": 16,
                 "max": 26,
                 "lluviaMm": 9.6,
-                "probLluvia": 75,
+                "probLluvia": 88,
                 "codigo": 95,
                 "helada": false
               },
@@ -279,66 +279,66 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-27",
         "titulares": [
           {
-            "titulo": "Antimicrobianos en los feedlot: Fernando Storni explica por qué Argentina está lejos del problema que enfrenta Brasil y que lo dejó fuera del mercado europeo",
-            "link": "https://bichosdecampo.com/antimicrobianos-en-los-feedlot-fernando-storni-explica-por-que-argentina-esta-lejos-del-problema-que-enfrenta-brasil-y-que-lo-dejo-fuera-del-mercado-europeo/",
-            "fecha": "2026-10-27T12:57:18.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Impuestos, sanidad e informalidad: los “sobrecostos” que restan competitividad en la industria frigorífica",
-            "link": "https://www.infocampo.com.ar/impuestos-sanidad-e-informalidad-los-sobrecostos-que-restan-competitividad-en-la-industria-frigorifica/",
-            "fecha": "2026-10-27T12:16:36.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 27 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-27-octubre-2026/",
+            "fecha": "2026-10-27T17:00:30.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "El timing justo para fin de año: La sidra de Río Negro avanza hacia la Indicación Geográfica y busca un lindo motivo para brindar",
-            "link": "https://bichosdecampo.com/el-timing-justo-para-fin-de-ano-la-sidra-de-rio-negro-avanza-hacia-la-indicacion-geografica-y-busca-un-lindo-motivo-para-brindar/",
-            "fecha": "2026-10-27T12:02:19.000Z",
+            "titulo": "Lo barato puede salir caro en la cría bovina: El INTA encontró que restringir la alimentación de las vacas preñadas puede restarle 10 kilos al ternero",
+            "link": "https://bichosdecampo.com/lo-barato-puede-salir-caro-en-la-cria-bovina-el-inta-encontro-que-restringir-la-alimentacion-de-las-vacas-prenadas-puede-restarle-10-kilos-al-ternero/",
+            "fecha": "2026-10-27T16:57:43.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Día de la Patrona del Agro Argentino: el campo celebra a María Auxiliadora",
-            "link": "https://www.infocampo.com.ar/dia-de-la-patrona-del-agro-argentino-el-campo-celebra-a-maria-auxiliadora/",
-            "fecha": "2026-10-27T10:47:28.000Z",
+            "titulo": "Aliados indispensables: los animales que conocen el camino y guían a miles de vacas para escapar de la inundación",
+            "link": "https://www.lanacion.com.ar/economia/campo/todos-tienen-sus-sinuelos-los-animales-que-conocen-el-camino-y-guian-a-miles-de-vacas-para-escapar-nid26102026/",
+            "fecha": "2026-10-27T16:43:08.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Tantos escándalos rodean la gestión libertaria que el INYM se llamará ahora “Instituto de Nominaciones y Méritos”: El organismo yerbatero se llenó de designaciones sospechosas",
+            "link": "https://bichosdecampo.com/tantos-escandalos-rodean-la-gestion-libertaria-que-el-inym-se-llamara-ahora-instituto-de-nominaciones-y-meritos-el-organismo-yerbatero-se-lleno-de-designaciones-sospechosas/",
+            "fecha": "2026-10-27T16:15:52.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Murió Armando Zavala, el productor del megáfono que convirtió la defensa del campo en un compromiso que dejó una huella",
+            "link": "https://www.lanacion.com.ar/economia/campo/murio-armando-zavala-el-productor-del-megafono-que-convirtio-la-defensa-del-campo-en-una-causa-de-nid27102026/",
+            "fecha": "2026-10-27T14:54:58.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Pesar en el campo por la muerte de Armando Zavala, un referente de los productores autoconvocados y fundador de Barbechando",
+            "link": "https://www.clarin.com/rural/pesar-campo-muerte-armando-zavala-referente-productores-autoconvocados-fundador-barbechando_0_NxmtaWToZo.html",
+            "fecha": "2026-10-27T14:42:14.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "Dólar blue: a cuánto cotizan hoy en Mendoza 27 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-mendoza-27-octubre-2026/",
+            "fecha": "2026-10-27T14:35:10.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Productores rurales recurrieron a la Justicia para conocer el destino de los $2,3 billones que Axel Kicillof anunció para contrarrestar El Niño",
-            "link": "https://www.clarin.com/rural/productores-rurales-recurrieron-justicia-conocer-destino-23-billones-axel-kicillof-anuncio-contrarrestar-nino_0_TqpY02dDrt.html",
-            "fecha": "2026-10-27T09:44:21.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Nelson, de 62 años, produce huevos de color azul con gallinas adaptadas al frío: “Andan muy bien”",
-            "link": "https://www.lanacion.com.ar/economia/campo/nelson-de-62-anos-produce-huevos-de-color-azul-con-gallinas-adaptadas-al-frio-andan-muy-bien-nid27102026/",
-            "fecha": "2026-10-27T06:00:00.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "El Gobierno declaró la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-gobierno-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-partidos-bonaerenses-nid26102026/",
-            "fecha": "2026-10-26T23:58:45.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "El precio de la soja cayó a su nivel más bajo en dos meses en el mercado internacional",
-            "link": "https://www.clarin.com/rural/precio-soja-cayo-nivel-meses-mercado-internacional_0_D1JzCc07oW.html",
-            "fecha": "2026-10-26T19:15:46.000Z",
-            "fuente": "Clarín Rural"
+            "titulo": "El tambo donde el concentrado no es bienvenido: 900 vacas alimentadas a pasto y una apuesta por la sencillez",
+            "link": "https://www.todoagro.com.ar/el-tambo-donde-el-concentrado-no-es-bienvenido-900-vacas-alimentadas-a-pasto-y-una-apuesta-por-la-sencillez/",
+            "fecha": "2026-10-27T14:22:20.000Z",
+            "fuente": "TodoAgro"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.595,
-            "usdTonelada": 462.7869015
+            "usdBushel": 12.5,
+            "usdTonelada": 459.29625
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.5375,
-            "usdTonelada": 178.63184624999997
+            "usdBushel": 4.5025,
+            "usdTonelada": 177.25396975
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.16,
-            "usdTonelada": 226.34119199999998
+            "usdBushel": 6.145,
+            "usdTonelada": 225.79003649999996
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-27T12:58:33.734Z"
+      "obtenido": "2026-10-27T17:11:16.631Z"
     }
   }
 }
