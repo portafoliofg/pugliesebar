@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     },
     "dolar": {
       "datos": {
@@ -94,7 +94,7 @@
           "oficial": {
             "compra": 1510,
             "venta": 1560,
-            "actualizado": "2026-10-26T18:00:00.000Z"
+            "actualizado": "2026-10-26T18:55:00.000Z"
           },
           "mayorista": {
             "compra": 1532,
@@ -104,31 +104,31 @@
           "mep": {
             "compra": 1571.7,
             "venta": 1577.5,
-            "actualizado": "2026-10-26T21:00:00.000Z"
+            "actualizado": "2026-10-27T11:59:00.000Z"
           },
           "ccl": {
             "compra": 1679.7,
             "venta": 1682.5,
-            "actualizado": "2026-10-26T21:00:00.000Z"
+            "actualizado": "2026-10-27T11:59:00.000Z"
           },
           "blue": {
             "compra": 1555,
             "venta": 1575,
-            "actualizado": "2026-10-26T21:00:00.000Z"
+            "actualizado": "2026-10-27T11:59:00.000Z"
           },
           "tarjeta": {
             "compra": 1963,
             "venta": 2028,
-            "actualizado": "2026-10-26T18:00:00.000Z"
+            "actualizado": "2026-10-26T18:55:00.000Z"
           },
           "cripto": {
-            "compra": 1671.26,
-            "venta": 1675.37,
-            "actualizado": "2026-10-26T21:00:00.000Z"
+            "compra": 1664.53,
+            "venta": 1669.34,
+            "actualizado": "2026-10-27T11:59:00.000Z"
           }
         }
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     },
     "clima": {
       "datos": {
@@ -143,7 +143,7 @@
                 "min": 11.5,
                 "max": 20.4,
                 "lluviaMm": 3.3,
-                "probLluvia": 82,
+                "probLluvia": 86,
                 "codigo": 55,
                 "helada": false
               },
@@ -152,7 +152,7 @@
                 "min": 10.5,
                 "max": 24.5,
                 "lluviaMm": 0.6,
-                "probLluvia": 59,
+                "probLluvia": 69,
                 "codigo": 51,
                 "helada": false
               },
@@ -170,7 +170,7 @@
                 "min": 12.9,
                 "max": 26.9,
                 "lluviaMm": 0,
-                "probLluvia": 47,
+                "probLluvia": 39,
                 "codigo": 1,
                 "helada": false
               },
@@ -179,7 +179,7 @@
                 "min": 15,
                 "max": 26.4,
                 "lluviaMm": 2.4,
-                "probLluvia": 77,
+                "probLluvia": 73,
                 "codigo": 53,
                 "helada": false
               },
@@ -188,7 +188,7 @@
                 "min": 15.5,
                 "max": 24.2,
                 "lluviaMm": 29.7,
-                "probLluvia": 76,
+                "probLluvia": 73,
                 "codigo": 95,
                 "helada": false
               },
@@ -197,7 +197,7 @@
                 "min": 16.6,
                 "max": 22.6,
                 "lluviaMm": 11,
-                "probLluvia": 81,
+                "probLluvia": 73,
                 "codigo": 53,
                 "helada": false
               }
@@ -214,7 +214,7 @@
                 "min": 11.2,
                 "max": 19.3,
                 "lluviaMm": 1.1,
-                "probLluvia": 47,
+                "probLluvia": 64,
                 "codigo": 53,
                 "helada": false
               },
@@ -223,7 +223,7 @@
                 "min": 12.2,
                 "max": 24.6,
                 "lluviaMm": 1.1,
-                "probLluvia": 47,
+                "probLluvia": 69,
                 "codigo": 51,
                 "helada": false
               },
@@ -232,7 +232,7 @@
                 "min": 14.2,
                 "max": 26.4,
                 "lluviaMm": 3.2,
-                "probLluvia": 78,
+                "probLluvia": 80,
                 "codigo": 80,
                 "helada": false
               },
@@ -241,7 +241,7 @@
                 "min": 13.3,
                 "max": 27,
                 "lluviaMm": 0,
-                "probLluvia": 24,
+                "probLluvia": 18,
                 "codigo": 3,
                 "helada": false
               },
@@ -250,7 +250,7 @@
                 "min": 15.9,
                 "max": 27.6,
                 "lluviaMm": 0,
-                "probLluvia": 22,
+                "probLluvia": 27,
                 "codigo": 3,
                 "helada": false
               },
@@ -259,7 +259,7 @@
                 "min": 16.6,
                 "max": 25.6,
                 "lluviaMm": 39.3,
-                "probLluvia": 75,
+                "probLluvia": 71,
                 "codigo": 95,
                 "helada": false
               },
@@ -268,7 +268,7 @@
                 "min": 16.7,
                 "max": 23.9,
                 "lluviaMm": 9.8,
-                "probLluvia": 75,
+                "probLluvia": 63,
                 "codigo": 53,
                 "helada": false
               }
@@ -279,16 +279,22 @@
         ],
         "errores": []
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-27",
         "titulares": [
           {
-            "titulo": "Aguafiestas: A menos de 16 horas de cerrar sus compuertas, Itaipú volvió a descargar sobre el Paraná y hay versiones cruzadas sobre el motivo",
-            "link": "https://bichosdecampo.com/aguafiestas-a-menos-de-16-horas-de-cerrar-sus-compuertas-itaipu-volvio-a-descargar-sobre-el-parana-y-hay-versiones-cruzadas-sobre-el-motivo/",
-            "fecha": "2026-10-27T11:03:23.000Z",
+            "titulo": "El timing justo para fin de año: La sidra de Río Negro avanza hacia la Indicación Geográfica y busca un lindo motivo para brindar",
+            "link": "https://bichosdecampo.com/el-timing-justo-para-fin-de-ano-la-sidra-de-rio-negro-avanza-hacia-la-indicacion-geografica-y-busca-un-lindo-motivo-para-brindar/",
+            "fecha": "2026-10-27T12:02:19.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Como en la pandemia, pero para frenar a los cuatreros: Olavarría bloqueó una calle con montículos de tierra por el aumento de los casos de abigeato y despertó críticas",
+            "link": "https://bichosdecampo.com/como-en-la-pandemia-pero-para-frenar-a-los-cuatreros-olavarria-bloqueo-una-calle-con-monticulos-de-tierra-por-el-aumento-de-los-casos-de-abigeato-y-desperto-criticas/",
+            "fecha": "2026-10-27T11:35:30.000Z",
             "fuente": "Bichos de Campo"
           },
           {
@@ -296,6 +302,12 @@
             "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-27-octubre-2026/",
             "fecha": "2026-10-27T10:00:26.000Z",
             "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Productores rurales recurrieron a la Justicia para conocer el destino de los $2,3 billones que Axel Kicillof anunció para contrarrestar El Niño",
+            "link": "https://www.clarin.com/rural/productores-rurales-recurrieron-justicia-conocer-destino-23-billones-axel-kicillof-anuncio-contrarrestar-nino_0_TqpY02dDrt.html",
+            "fecha": "2026-10-27T09:44:21.000Z",
+            "fuente": "Clarín Rural"
           },
           {
             "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 27 octubre 2026",
@@ -310,12 +322,6 @@
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "No aguantan ni dos gotas: El intendente de Pehuajó, Pablo Zurro, pide a los tamberos que no le “rompan” los caminos rurales",
-            "link": "https://bichosdecampo.com/no-aguantan-ni-dos-gotas-el-intendente-de-pehuajo-pablo-zurro-pide-a-los-tamberos-que-no-le-rompan-los-caminos-rurales/",
-            "fecha": "2026-10-27T04:45:42.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
             "titulo": "El Gobierno declaró la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
             "link": "https://www.lanacion.com.ar/economia/campo/el-gobierno-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-partidos-bonaerenses-nid26102026/",
             "fecha": "2026-10-26T23:58:45.000Z",
@@ -326,19 +332,13 @@
             "link": "https://www.clarin.com/rural/precio-soja-cayo-nivel-meses-mercado-internacional_0_D1JzCc07oW.html",
             "fecha": "2026-10-26T19:15:46.000Z",
             "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Ley de Semillas: la industria amplía la superficie contemplada en su propuesta de excepción a productores al pago por uso propio",
-            "link": "https://www.clarin.com/rural/semillas-industria-pide-reglas-claras-impulsar-inversiones-mejorar-competitividad_0_qPfJrZFTTQ.html",
-            "fecha": "2026-10-26T19:01:19.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.585,
-            "usdTonelada": 462.4194645
+            "usdBushel": 12.595,
+            "usdTonelada": 462.7869015
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.545,
-            "usdTonelada": 178.92710549999998
+            "usdBushel": 4.5425,
+            "usdTonelada": 178.82868575
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.165,
-            "usdTonelada": 226.52491049999998
+            "usdBushel": 6.1675,
+            "usdTonelada": 226.61676975
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-27T11:23:03.469Z"
+      "obtenido": "2026-10-27T12:05:20.499Z"
     }
   }
 }
