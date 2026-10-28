@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     },
     "dolar": {
       "datos": {
@@ -128,81 +128,81 @@
           }
         }
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-27",
+        "fecha": "2026-10-28",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-27",
-                "min": 12.3,
-                "max": 18.1,
-                "lluviaMm": 3.8,
-                "probLluvia": 100,
-                "codigo": 80,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-28",
-                "min": 10.4,
-                "max": 24.4,
+                "min": 10.2,
+                "max": 23.9,
                 "lluviaMm": 0.3,
-                "probLluvia": 29,
+                "probLluvia": 47,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-10-29",
                 "min": 12.5,
-                "max": 25.7,
-                "lluviaMm": 3.7,
-                "probLluvia": 84,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-30",
-                "min": 12.8,
-                "max": 27.1,
-                "lluviaMm": 1.2,
-                "probLluvia": 45,
+                "max": 25.4,
+                "lluviaMm": 2,
+                "probLluvia": 78,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-10-30",
+                "min": 13.3,
+                "max": 28.1,
+                "lluviaMm": 5.4,
+                "probLluvia": 49,
+                "codigo": 81,
+                "helada": false
+              },
+              {
                 "fecha": "2026-10-31",
-                "min": 15.1,
+                "min": 14.5,
                 "max": 26.6,
-                "lluviaMm": 2.7,
-                "probLluvia": 80,
+                "lluviaMm": 2.4,
+                "probLluvia": 82,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 15.4,
-                "max": 25.7,
-                "lluviaMm": 6,
-                "probLluvia": 76,
+                "min": 15.3,
+                "max": 27.1,
+                "lluviaMm": 5.4,
+                "probLluvia": 82,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 16.1,
-                "max": 23.3,
-                "lluviaMm": 6.3,
-                "probLluvia": 81,
-                "codigo": 53,
+                "min": 13.5,
+                "max": 24.3,
+                "lluviaMm": 5.4,
+                "probLluvia": 75,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-03",
+                "min": 17.1,
+                "max": 24,
+                "lluviaMm": 7.8,
+                "probLluvia": 85,
+                "codigo": 55,
                 "helada": false
               }
             ],
-            "lluviaTotal": 24,
+            "lluviaTotal": 28.7,
             "hayHelada": false
           },
           {
@@ -210,104 +210,110 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-27",
-                "min": 12.3,
-                "max": 19.1,
-                "lluviaMm": 4.1,
-                "probLluvia": 78,
-                "codigo": 80,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-28",
-                "min": 11.3,
-                "max": 24.2,
-                "lluviaMm": 0.6,
-                "probLluvia": 43,
-                "codigo": 51,
+                "min": 10.8,
+                "max": 24.5,
+                "lluviaMm": 0,
+                "probLluvia": 14,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-10-29",
-                "min": 14,
-                "max": 25.7,
-                "lluviaMm": 2.7,
-                "probLluvia": 71,
-                "codigo": 95,
+                "min": 14.1,
+                "max": 25.9,
+                "lluviaMm": 0.6,
+                "probLluvia": 67,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-30",
-                "min": 13.7,
-                "max": 27.4,
-                "lluviaMm": 0.3,
-                "probLluvia": 25,
-                "codigo": 51,
+                "min": 14.5,
+                "max": 27.6,
+                "lluviaMm": 1.1,
+                "probLluvia": 24,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 15.5,
-                "max": 27.6,
-                "lluviaMm": 0.3,
-                "probLluvia": 27,
-                "codigo": 51,
+                "min": 15.2,
+                "max": 27.3,
+                "lluviaMm": 0,
+                "probLluvia": 17,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.2,
-                "max": 26.5,
-                "lluviaMm": 12,
-                "probLluvia": 88,
-                "codigo": 95,
+                "min": 16.1,
+                "max": 26.2,
+                "lluviaMm": 1.8,
+                "probLluvia": 83,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 15.9,
-                "max": 25.9,
-                "lluviaMm": 4.4,
-                "probLluvia": 75,
-                "codigo": 53,
+                "min": 14.7,
+                "max": 26.2,
+                "lluviaMm": 2.6,
+                "probLluvia": 62,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-03",
+                "min": 17.6,
+                "max": 25.2,
+                "lluviaMm": 10,
+                "probLluvia": 80,
+                "codigo": 95,
                 "helada": false
               }
             ],
-            "lluviaTotal": 24.4,
+            "lluviaTotal": 16.1,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-27",
+        "fecha": "2026-10-28",
         "titulares": [
+          {
+            "titulo": "Niño, no te tenemos miedo: Llegan dos dragas desde Singapur y Croacia para garantizar la navegabilidad del río Paraná",
+            "link": "https://bichosdecampo.com/nino-no-te-tenemos-miedo-llegan-dos-dragas-desde-singapur-y-croacia-para-garantizar-la-navegabilidad-del-rio-parana/",
+            "fecha": "2026-10-28T02:31:33.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Te lo avisamos: el aceite de soja argentino sube a contramano de EE.UU. gracias al incentivo para elaborar biodiésel en lugar de importar gasoil a precios estratosféricos",
+            "link": "https://bichosdecampo.com/te-lo-avisamos-el-aceite-de-soja-argentino-sube-a-contramano-de-ee-uu-gracias-al-incentivo-para-elaborar-biodiesel-en-lugar-de-importar-gasoil-a-precios-estratosfericos/",
+            "fecha": "2026-10-28T01:58:28.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "AmCham pidió adherir a un tratado internacional por semillas y alertó sobre el posible impacto de incumplir un acuerdo con Estados Unidos",
+            "link": "https://www.lanacion.com.ar/economia/campo/amcham-pidio-adherir-a-un-tratado-internacional-por-semillas-y-alerto-sobre-el-posible-impacto-de-nid27102026/",
+            "fecha": "2026-10-27T23:15:51.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Un gigante alemán reduce un turno en una planta industrial y un sindicato se declaró en alerta",
+            "link": "https://www.lanacion.com.ar/economia/campo/un-gigante-aleman-reduce-un-turno-en-una-planta-industrial-y-un-sindicato-se-declaro-en-alerta-nid27102026/",
+            "fecha": "2026-10-27T22:19:19.000Z",
+            "fuente": "La Nación Campo"
+          },
           {
             "titulo": "El Niño: las provincias avanzan con obras preventivas y la hidrovía suma “refuerzos” internacionales",
             "link": "https://www.infocampo.com.ar/el-nino-las-provincias-avanzan-con-obras-preventivas-y-la-hidrovia-suma-refuerzos-internacionales/",
             "fecha": "2026-10-27T21:34:35.000Z",
             "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Los dilemas de la agronomía: Pablo Cattani se cansó del discurso de la catástrofe y reclama discutir “desde el conocimiento, no desde el interés”",
-            "link": "https://bichosdecampo.com/los-dilemas-de-la-agronomia-pablo-cattani-se-canso-del-discurso-de-la-catastrofe-y-reclama-discutir-desde-el-conocimiento-no-desde-el-interes/",
-            "fecha": "2026-10-27T21:12:12.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "El frigorífico Tresnal quiere multiplicar sus exportaciones de carne vacuna y apuesta a que sean el 40% de su producción, aseguró su titular, Martín Lacasse",
-            "link": "https://bichosdecampo.com/el-frigorifico-tresnal-quiere-multiplicar-sus-exportaciones-de-carne-vacuna-y-apuesta-a-que-sean-el-40-de-su-produccion-aseguro-su-titular-martin-lacasse/",
-            "fecha": "2026-10-27T21:08:46.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "“Es una tomada de pelo”: escándalo porque un intendente de La Cámpora bloqueó una calle con montículos de tierra para frenar el robo de vacas",
-            "link": "https://www.lanacion.com.ar/economia/campo/es-una-tomada-de-pelo-escandalo-porque-un-intendente-de-la-campora-bloqueo-una-calle-con-monticulos-nid27102026/",
-            "fecha": "2026-10-27T20:53:18.000Z",
-            "fuente": "La Nación Campo"
           },
           {
             "titulo": "Créditos a valor producto: el Gobierno amplía el financiamiento para el sector ganadero",
@@ -322,12 +328,6 @@
             "fuente": "TodoAgro"
           },
           {
-            "titulo": "El primero del país: un feedlot logró una certificación internacional de bienestar animal",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-primero-del-pais-un-feedlot-logro-una-certificacion-internacional-de-bienestar-animal-nid27102026/",
-            "fecha": "2026-10-27T19:04:01.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
             "titulo": "Créditos en Valor Producto: Nuevo cupo de garantías de hasta $10.000 millones para el sector ganadero",
             "link": "https://www.todoagro.com.ar/creditos-en-valor-producto-nuevo-cupo-de-garantias-de-hasta-10-000-millones-para-el-sector-ganadero/",
             "fecha": "2026-10-27T18:39:41.000Z",
@@ -338,32 +338,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-27",
+        "fecha": "2026-10-28",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.4325,
-            "usdTonelada": 456.81605024999993
+            "usdBushel": 12.445,
+            "usdTonelada": 457.27534649999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.5,
-            "usdTonelada": 177.15555
+            "usdBushel": 4.495,
+            "usdTonelada": 176.9587105
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.11,
-            "usdTonelada": 224.504007
+            "usdBushel": 6.1125,
+            "usdTonelada": 224.59586624999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-27T21:40:22.482Z"
+      "obtenido": "2026-10-28T03:28:15.228Z"
     }
   }
 }
