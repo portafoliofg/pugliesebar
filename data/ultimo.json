@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     },
     "dolar": {
       "datos": {
@@ -128,7 +128,7 @@
           }
         }
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     },
     "clima": {
       "datos": {
@@ -140,69 +140,69 @@
             "dias": [
               {
                 "fecha": "2026-10-28",
-                "min": 10.2,
-                "max": 23.9,
-                "lluviaMm": 0.3,
-                "probLluvia": 47,
-                "codigo": 51,
+                "min": 10.6,
+                "max": 24,
+                "lluviaMm": 0,
+                "probLluvia": 31,
+                "codigo": 45,
                 "helada": false
               },
               {
                 "fecha": "2026-10-29",
                 "min": 12.5,
-                "max": 25.4,
-                "lluviaMm": 2,
-                "probLluvia": 78,
+                "max": 25.9,
+                "lluviaMm": 1,
+                "probLluvia": 65,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-30",
-                "min": 13.3,
-                "max": 28.1,
-                "lluviaMm": 5.4,
-                "probLluvia": 49,
-                "codigo": 81,
+                "min": 14.6,
+                "max": 28.8,
+                "lluviaMm": 2,
+                "probLluvia": 59,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 14.5,
-                "max": 26.6,
-                "lluviaMm": 2.4,
-                "probLluvia": 82,
-                "codigo": 53,
+                "min": 13.4,
+                "max": 27.3,
+                "lluviaMm": 3.8,
+                "probLluvia": 73,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 15.3,
-                "max": 27.1,
-                "lluviaMm": 5.4,
+                "min": 15.7,
+                "max": 26.3,
+                "lluviaMm": 6.9,
                 "probLluvia": 82,
-                "codigo": 53,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 13.5,
-                "max": 24.3,
-                "lluviaMm": 5.4,
-                "probLluvia": 75,
-                "codigo": 55,
+                "min": 15.1,
+                "max": 25.3,
+                "lluviaMm": 6.7,
+                "probLluvia": 73,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
-                "min": 17.1,
-                "max": 24,
-                "lluviaMm": 7.8,
-                "probLluvia": 85,
-                "codigo": 55,
+                "min": 14.6,
+                "max": 24.5,
+                "lluviaMm": 16.4,
+                "probLluvia": 86,
+                "codigo": 95,
                 "helada": false
               }
             ],
-            "lluviaTotal": 28.7,
+            "lluviaTotal": 36.8,
             "hayHelada": false
           },
           {
@@ -211,114 +211,114 @@
             "dias": [
               {
                 "fecha": "2026-10-28",
-                "min": 10.8,
-                "max": 24.5,
+                "min": 10.6,
+                "max": 24.6,
                 "lluviaMm": 0,
-                "probLluvia": 14,
-                "codigo": 3,
+                "probLluvia": 29,
+                "codigo": 1,
                 "helada": false
               },
               {
                 "fecha": "2026-10-29",
-                "min": 14.1,
-                "max": 25.9,
-                "lluviaMm": 0.6,
-                "probLluvia": 67,
+                "min": 14.4,
+                "max": 26.2,
+                "lluviaMm": 1,
+                "probLluvia": 59,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-30",
-                "min": 14.5,
-                "max": 27.6,
-                "lluviaMm": 1.1,
-                "probLluvia": 24,
-                "codigo": 55,
+                "min": 14.7,
+                "max": 28,
+                "lluviaMm": 3.8,
+                "probLluvia": 45,
+                "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 15.2,
-                "max": 27.3,
+                "min": 14.4,
+                "max": 27.9,
                 "lluviaMm": 0,
-                "probLluvia": 17,
-                "codigo": 3,
+                "probLluvia": 24,
+                "codigo": 45,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.1,
-                "max": 26.2,
-                "lluviaMm": 1.8,
+                "min": 16.2,
+                "max": 26.7,
+                "lluviaMm": 9.3,
                 "probLluvia": 83,
-                "codigo": 51,
+                "codigo": 96,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 14.7,
-                "max": 26.2,
-                "lluviaMm": 2.6,
-                "probLluvia": 62,
-                "codigo": 51,
+                "min": 15.1,
+                "max": 26.6,
+                "lluviaMm": 3.5,
+                "probLluvia": 57,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
-                "min": 17.6,
-                "max": 25.2,
-                "lluviaMm": 10,
-                "probLluvia": 80,
-                "codigo": 95,
+                "min": 15,
+                "max": 25.7,
+                "lluviaMm": 11.8,
+                "probLluvia": 78,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 16.1,
+            "lluviaTotal": 29.400000000000002,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-10-28",
         "titulares": [
           {
-            "titulo": "Niño, no te tenemos miedo: Llegan dos dragas desde Singapur y Croacia para garantizar la navegabilidad del río Paraná",
-            "link": "https://bichosdecampo.com/nino-no-te-tenemos-miedo-llegan-dos-dragas-desde-singapur-y-croacia-para-garantizar-la-navegabilidad-del-rio-parana/",
-            "fecha": "2026-10-28T02:31:33.000Z",
+            "titulo": "Las cerezas argentinas llegan tarde a la temporada: El frío retrasó la cosecha y el sector mira al cielo para alcanzar las 8.500 toneladas exportables",
+            "link": "https://bichosdecampo.com/las-cerezas-argentinas-llegan-tarde-a-la-temporada-el-frio-retraso-la-cosecha-y-el-sector-mira-al-cielo-para-alcanzar-las-8-500-toneladas-exportables/",
+            "fecha": "2026-10-28T11:41:46.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Te lo avisamos: el aceite de soja argentino sube a contramano de EE.UU. gracias al incentivo para elaborar biodiésel en lugar de importar gasoil a precios estratosféricos",
-            "link": "https://bichosdecampo.com/te-lo-avisamos-el-aceite-de-soja-argentino-sube-a-contramano-de-ee-uu-gracias-al-incentivo-para-elaborar-biodiesel-en-lugar-de-importar-gasoil-a-precios-estratosfericos/",
-            "fecha": "2026-10-28T01:58:28.000Z",
+            "titulo": "La competitividad del trigo argentino es imbatible: Sólo tiene que esperar para lucirse",
+            "link": "https://bichosdecampo.com/la-competitividad-del-trigo-argentino-es-imbatible-solo-tiene-que-esperar-para-lucirse/",
+            "fecha": "2026-10-28T11:20:24.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "AmCham pidió adherir a un tratado internacional por semillas y alertó sobre el posible impacto de incumplir un acuerdo con Estados Unidos",
-            "link": "https://www.lanacion.com.ar/economia/campo/amcham-pidio-adherir-a-un-tratado-internacional-por-semillas-y-alerto-sobre-el-posible-impacto-de-nid27102026/",
-            "fecha": "2026-10-27T23:15:51.000Z",
+            "titulo": "“Es una tomada de pelo”: escándalo porque un intendente de La Cámpora bloqueó una calle con montículos de tierra para frenar el robo de vacas",
+            "link": "https://www.lanacion.com.ar/economia/campo/es-una-tomada-de-pelo-escandalo-porque-un-intendente-de-la-campora-bloqueo-una-calle-con-monticulos-nid27102026/",
+            "fecha": "2026-10-28T10:51:34.000Z",
             "fuente": "La Nación Campo"
           },
           {
             "titulo": "Un gigante alemán reduce un turno en una planta industrial y un sindicato se declaró en alerta",
             "link": "https://www.lanacion.com.ar/economia/campo/un-gigante-aleman-reduce-un-turno-en-una-planta-industrial-y-un-sindicato-se-declaro-en-alerta-nid27102026/",
-            "fecha": "2026-10-27T22:19:19.000Z",
+            "fecha": "2026-10-28T10:47:28.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "El Niño: las provincias avanzan con obras preventivas y la hidrovía suma “refuerzos” internacionales",
-            "link": "https://www.infocampo.com.ar/el-nino-las-provincias-avanzan-con-obras-preventivas-y-la-hidrovia-suma-refuerzos-internacionales/",
-            "fecha": "2026-10-27T21:34:35.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 28 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-28-octubre-2026/",
+            "fecha": "2026-10-28T10:00:30.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Créditos a valor producto: el Gobierno amplía el financiamiento para el sector ganadero",
-            "link": "https://www.infocampo.com.ar/creditos-a-valor-producto-el-gobierno-amplia-el-financiamiento-para-el-sector-ganadero/",
-            "fecha": "2026-10-27T20:37:19.000Z",
+            "titulo": "Clima hoy en Mendoza, el pronóstico del tiempo para este 28 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-mendoza-el-pronostico-del-tiempo-para-este-28-octubre-2026/",
+            "fecha": "2026-10-28T09:00:11.000Z",
             "fuente": "Infocampo"
           },
           {
@@ -338,7 +338,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.445,
-            "usdTonelada": 457.27534649999996
+            "usdBushel": 12.4825,
+            "usdTonelada": 458.65323524999997
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.495,
-            "usdTonelada": 176.9587105
+            "usdBushel": 4.515,
+            "usdTonelada": 177.74606849999998
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.1125,
-            "usdTonelada": 224.59586624999997
+            "usdBushel": 6.1425,
+            "usdTonelada": 225.69817725
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-28T03:28:15.228Z"
+      "obtenido": "2026-10-28T11:56:39.811Z"
     }
   }
 }
