@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     },
     "dolar": {
       "datos": {
@@ -128,81 +128,81 @@
           }
         }
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-28",
+        "fecha": "2026-10-29",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-28",
-                "min": 10.1,
-                "max": 24.2,
-                "lluviaMm": 0,
-                "probLluvia": 20,
-                "codigo": 45,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-29",
-                "min": 12,
-                "max": 26.1,
-                "lluviaMm": 3.2,
-                "probLluvia": 57,
+                "min": 11.6,
+                "max": 27,
+                "lluviaMm": 5.7,
+                "probLluvia": 55,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-10-30",
-                "min": 13.5,
-                "max": 27,
-                "lluviaMm": 1.9,
-                "probLluvia": 66,
+                "min": 13.6,
+                "max": 27.5,
+                "lluviaMm": 1.1,
+                "probLluvia": 59,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 14.3,
-                "max": 27.5,
-                "lluviaMm": 2.3,
-                "probLluvia": 86,
-                "codigo": 55,
+                "min": 14.1,
+                "max": 27.7,
+                "lluviaMm": 2.7,
+                "probLluvia": 84,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
                 "min": 15.8,
-                "max": 24.6,
-                "lluviaMm": 23.7,
-                "probLluvia": 90,
-                "codigo": 96,
+                "max": 24.8,
+                "lluviaMm": 25.9,
+                "probLluvia": 84,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 14.3,
-                "max": 25,
-                "lluviaMm": 0.2,
-                "probLluvia": 58,
-                "codigo": 51,
+                "min": 14.7,
+                "max": 25.2,
+                "lluviaMm": 3.7,
+                "probLluvia": 72,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
                 "min": 16.6,
                 "max": 22.5,
-                "lluviaMm": 32.7,
-                "probLluvia": 86,
-                "codigo": 95,
+                "lluviaMm": 7.6,
+                "probLluvia": 78,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-04",
+                "min": 15.8,
+                "max": 24.5,
+                "lluviaMm": 5.2,
+                "probLluvia": 35,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 64,
+            "lluviaTotal": 51.900000000000006,
             "hayHelada": false
           },
           {
@@ -210,97 +210,109 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-28",
-                "min": 9.9,
-                "max": 24.4,
-                "lluviaMm": 0,
-                "probLluvia": 29,
-                "codigo": 1,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-29",
-                "min": 13.8,
-                "max": 26.2,
-                "lluviaMm": 0.3,
-                "probLluvia": 55,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-10-30",
-                "min": 14.4,
-                "max": 28.3,
-                "lluviaMm": 1,
+                "min": 13.9,
+                "max": 27,
+                "lluviaMm": 2,
                 "probLluvia": 61,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-10-30",
+                "min": 14.6,
+                "max": 28.5,
+                "lluviaMm": 0.2,
+                "probLluvia": 53,
+                "codigo": 51,
+                "helada": false
+              },
+              {
                 "fecha": "2026-10-31",
-                "min": 15.4,
+                "min": 14.6,
                 "max": 28.1,
                 "lluviaMm": 0.2,
-                "probLluvia": 25,
+                "probLluvia": 27,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.6,
-                "max": 25.2,
-                "lluviaMm": 12.7,
-                "probLluvia": 88,
-                "codigo": 80,
+                "min": 16.5,
+                "max": 25.1,
+                "lluviaMm": 16.4,
+                "probLluvia": 82,
+                "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
                 "min": 15,
-                "max": 26.9,
-                "lluviaMm": 0,
-                "probLluvia": 48,
-                "codigo": 3,
+                "max": 26.2,
+                "lluviaMm": 1.3,
+                "probLluvia": 60,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
                 "min": 15.7,
                 "max": 21.8,
-                "lluviaMm": 47.4,
-                "probLluvia": 79,
+                "lluviaMm": 28.2,
+                "probLluvia": 76,
                 "codigo": 95,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-04",
+                "min": 15.6,
+                "max": 25.8,
+                "lluviaMm": 4.2,
+                "probLluvia": 31,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 61.599999999999994,
+            "lluviaTotal": 52.5,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-28",
+        "fecha": "2026-10-29",
         "titulares": [
           {
-            "titulo": "“Qué Rico” está este pollo: La avícola familiar sigue invirtiendo para acceder a más mercados y ahora va por su planta de procesamiento de subproductos",
-            "link": "https://bichosdecampo.com/que-rico-esta-este-pollo-la-avicola-familiar-sigue-invirtiendo-para-acceder-a-mas-mercados-y-ahora-va-por-su-planta-de-procesamiento-de-subproductos/",
-            "fecha": "2026-10-28T21:50:27.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Don Pascual, de 82 años, recuperó casi 60 chivas extraviadas gracias a un dron: “Ahí van todas”",
-            "link": "https://www.lanacion.com.ar/economia/campo/don-pascual-de-82-anos-recupero-casi-60-chivas-extraviadas-gracias-a-un-dron-ahi-van-todas-nid28102026/",
-            "fecha": "2026-10-28T21:40:22.000Z",
+            "titulo": "Acelera el negocio de agro de YPF: facturó US$826 millones en lo que va del año, un salto del 23,1%",
+            "link": "https://www.lanacion.com.ar/economia/campo/el-negocio-de-agro-de-ypf-facturo-us344-millones-y-acumula-us826-millones-en-el-ano-un-salto-del-231-nid28102026/",
+            "fecha": "2026-10-29T01:51:19.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Reelecto con el agro en contra, Lula tendrá que cuidar el corazón del modelo y resolver sus nuevas urgencias: Las deudas, el crédito caro y los problemas de logística",
-            "link": "https://bichosdecampo.com/reelecto-con-el-agro-en-contra-lula-tendra-que-cuidar-el-corazon-del-modelo-y-resolver-sus-nuevas-urgencias-las-deudas-el-credito-caro-y-los-problemas-de-logistica/",
-            "fecha": "2026-10-28T21:21:08.000Z",
+            "titulo": "Gerardo Bartolomé, de crear un gigante en el negocio de la soja a construir una escuela para 225 chicos: “Tenemos dos países”",
+            "link": "https://www.lanacion.com.ar/economia/campo/gerardo-bartolome-de-crear-un-gigante-en-el-negocio-de-la-soja-a-construir-una-escuela-para-225-nid28102026/",
+            "fecha": "2026-10-29T01:45:56.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "¡Cuidado! En la gestión de liquidez de corto plazo la “comodidad” está generando una pérdida considerable",
+            "link": "https://bichosdecampo.com/cuidado-en-la-gestion-de-liquidez-de-corto-plazo-la-comodidad-esta-generando-una-perdida-considerable/",
+            "fecha": "2026-10-29T00:06:39.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Alianza contra el Niño y el Gusano Barrenador, para proteger la agricultura y el abastecimiento de los alimentos",
+            "link": "https://www.clarin.com/rural/alianza-nino-gusano-barrenador-proteger-agricultura-abastecimiento-alimentos_0_yiynCwbP1I.html",
+            "fecha": "2026-10-28T22:45:29.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "Amigos son los amigos: Kirchnerismo, PRO y UCR se unieron para frenar el proyecto de biocombustibles",
+            "link": "https://bichosdecampo.com/amigos-son-los-amigos-kirchnerismo-pro-y-ucr-se-unieron-para-frenar-el-proyecto-de-biocombustibles/",
+            "fecha": "2026-10-28T22:16:32.000Z",
             "fuente": "Bichos de Campo"
           },
           {
@@ -316,43 +328,31 @@
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Empresarios que compraron Mercedes-Benz en la Argentina se quedaron con 8652 hectáreas en La Pampa",
-            "link": "https://www.lanacion.com.ar/economia/campo/empresarios-que-compraron-mercedes-benz-en-la-argentina-y-un-accionista-se-quedaron-con-8652-nid28102026/",
-            "fecha": "2026-10-28T20:25:45.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
             "titulo": "Biocombustibles: otra vez el biodiésel traba el debate y el proyecto de ley se queda sin nafta en Diputados",
             "link": "https://www.infocampo.com.ar/biocombustibles-otra-vez-el-biodiesel-traba-el-debate-y-el-proyecto-de-ley-se-queda-sin-nafta-en-diputados/",
             "fecha": "2026-10-28T19:00:58.000Z",
             "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Girasol: qué enfermedades podrían ganar protagonismo en un año Niño",
-            "link": "https://www.clarin.com/rural/girasol-enfermedades-podrian-ganar-protagonismo-ano-nino_0_1gFNIc5NTu.html",
-            "fecha": "2026-10-28T18:53:11.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-28",
+        "fecha": "2026-10-29",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.37,
-            "usdTonelada": 454.51956899999993
+            "usdBushel": 12.3225,
+            "usdTonelada": 452.7742432499999
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.5125,
-            "usdTonelada": 177.64764875
+            "usdBushel": 4.525,
+            "usdTonelada": 178.1397475
           },
           "trigo": {
             "simbolo": "ZW=F",
@@ -363,7 +363,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-28T22:04:59.729Z"
+      "obtenido": "2026-10-29T03:50:32.959Z"
     }
   }
 }
