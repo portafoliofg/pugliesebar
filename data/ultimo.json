@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     },
     "dolar": {
       "datos": {
@@ -128,40 +128,31 @@
           }
         }
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-29",
+        "fecha": "2026-10-30",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-29",
-                "min": 12.1,
-                "max": 28.8,
-                "lluviaMm": 0.1,
-                "probLluvia": 40,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-30",
-                "min": 14.4,
-                "max": 29.3,
-                "lluviaMm": 2.3,
-                "probLluvia": 81,
-                "codigo": 55,
+                "min": 15.6,
+                "max": 28.4,
+                "lluviaMm": 1.9,
+                "probLluvia": 88,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 13.7,
-                "max": 28.1,
-                "lluviaMm": 1.7,
-                "probLluvia": 87,
+                "min": 13.9,
+                "max": 28.3,
+                "lluviaMm": 2.2,
+                "probLluvia": 97,
                 "codigo": 53,
                 "helada": false
               },
@@ -169,40 +160,49 @@
                 "fecha": "2026-11-01",
                 "min": 15.4,
                 "max": 25.6,
-                "lluviaMm": 22.2,
-                "probLluvia": 85,
+                "lluviaMm": 39,
+                "probLluvia": 76,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 15.1,
-                "max": 24.8,
-                "lluviaMm": 4.6,
-                "probLluvia": 68,
-                "codigo": 53,
+                "min": 14.6,
+                "max": 25.2,
+                "lluviaMm": 0.2,
+                "probLluvia": 49,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
-                "min": 16.5,
-                "max": 20.6,
-                "lluviaMm": 9.4,
-                "probLluvia": 81,
-                "codigo": 80,
+                "min": 15.9,
+                "max": 22.5,
+                "lluviaMm": 4.3,
+                "probLluvia": 76,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-04",
                 "min": 13.4,
-                "max": 23.4,
-                "lluviaMm": 0,
-                "probLluvia": 31,
-                "codigo": 3,
+                "max": 24.7,
+                "lluviaMm": 2.9,
+                "probLluvia": 39,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-05",
+                "min": 13.3,
+                "max": 22.8,
+                "lluviaMm": 0.6,
+                "probLluvia": 26,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 40.3,
+            "lluviaTotal": 51.1,
             "hayHelada": false
           },
           {
@@ -210,86 +210,110 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-29",
-                "min": 14.3,
-                "max": 28.4,
-                "lluviaMm": 0.3,
-                "probLluvia": 33,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-30",
-                "min": 15.9,
+                "min": 16.4,
                 "max": 28.8,
-                "lluviaMm": 3.4,
-                "probLluvia": 90,
+                "lluviaMm": 3.6,
+                "probLluvia": 85,
                 "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 14.5,
-                "max": 27.9,
+                "min": 15.1,
+                "max": 27.6,
                 "lluviaMm": 0,
-                "probLluvia": 27,
-                "codigo": 45,
+                "probLluvia": 45,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.4,
-                "max": 25.5,
-                "lluviaMm": 16.2,
-                "probLluvia": 86,
-                "codigo": 95,
+                "min": 16.9,
+                "max": 26,
+                "lluviaMm": 23.6,
+                "probLluvia": 65,
+                "codigo": 96,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 16,
-                "max": 25.7,
-                "lluviaMm": 0.6,
-                "probLluvia": 57,
-                "codigo": 51,
+                "min": 15.2,
+                "max": 26.1,
+                "lluviaMm": 0,
+                "probLluvia": 37,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
-                "min": 17,
-                "max": 20.4,
-                "lluviaMm": 18.9,
-                "probLluvia": 78,
-                "codigo": 95,
+                "min": 16.3,
+                "max": 22.9,
+                "lluviaMm": 10.6,
+                "probLluvia": 68,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-04",
                 "min": 14.2,
-                "max": 24.2,
+                "max": 25.3,
+                "lluviaMm": 4.4,
+                "probLluvia": 29,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-05",
+                "min": 12,
+                "max": 22.6,
                 "lluviaMm": 0,
-                "probLluvia": 25,
-                "codigo": 3,
+                "probLluvia": 20,
+                "codigo": 2,
                 "helada": false
               }
             ],
-            "lluviaTotal": 39.4,
+            "lluviaTotal": 42.2,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-29",
+        "fecha": "2026-10-30",
         "titulares": [
           {
             "titulo": "Informe oficial: ya se evacuaron 147.500 vacunos y búfalos de las zonas inundadas del Litoral",
             "link": "https://www.lanacion.com.ar/economia/campo/informe-oficial-ya-se-evacuaron-147500-bovinos-y-bufalos-de-las-zonas-inundadas-del-litoral-nid29102026/",
-            "fecha": "2026-10-29T22:00:48.000Z",
+            "fecha": "2026-10-30T03:13:40.000Z",
             "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "La desesperación de un productor que perdió casi todas sus ovejas por un ataque de perros",
+            "link": "https://www.lanacion.com.ar/economia/campo/llore-grite-y-me-frustre-los-perros-atacaron-su-campo-y-perdio-casi-todas-sus-ovejas-nid29102026/",
+            "fecha": "2026-10-30T03:12:49.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Proyecto de Biocombustibles: Las empresas no integradas aceptan la competencia, pero solo con ellas mismas y sin perder una sola tonelada del cupo destinado al mercado interno",
+            "link": "https://bichosdecampo.com/proyecto-de-biocombustibles-las-empresas-no-integradas-aceptan-la-competencia-pero-solo-con-ellas-mismas-y-sin-perder-una-sola-tonelada-del-cupo-destinado-al-mercado-interno/",
+            "fecha": "2026-10-30T02:18:32.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "La FAO frente a los desafíos de un mundo en transformación",
+            "link": "https://www.clarin.com/rural/fao-frente-desafios-mundo-transformacion_0_FnscHudOUt.html",
+            "fecha": "2026-10-29T23:28:56.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "EUDR: Se negociaron los primeros contratos de Soja Visec en A3 Mercados con un “premio” de 10 u$s/tonelada",
+            "link": "https://bichosdecampo.com/eudr-se-negociaron-los-primeros-contratos-de-soja-visec-en-a3-mercados-con-un-premio-de-10-us-tonelada/",
+            "fecha": "2026-10-29T22:48:23.000Z",
+            "fuente": "Bichos de Campo"
           },
           {
             "titulo": "VISEC: “Hay que integrarnos más producción e industria y no perder tiempo con roces innecesarios”",
@@ -298,27 +322,9 @@
             "fuente": "Infocampo"
           },
           {
-            "titulo": "El Niño: en un mes aumentó un 53,4% la superficie con agua en Corrientes",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-nino-en-un-mes-aumento-un-534-la-superficie-con-agua-en-corrientes-nid29102026/",
-            "fecha": "2026-10-29T21:18:14.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "¿Nos gobierna la inteligencia artificial? No sabemos bien, pero mientras Sturzenegger usa ese método para desregular importantes políticas agropecuarias",
-            "link": "https://bichosdecampo.com/nos-gobierna-la-inteligencia-artificial-no-sabemos-bien-pero-mientras-sturze-usa-ese-metodo-para-desregular-importantes-politicas-agropecuarias/",
-            "fecha": "2026-10-29T20:59:19.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "¿Mucho o poco? Se conoció la cantidad de empresas agrícolas argentinas que se sumaron a Visec Soja",
-            "link": "https://bichosdecampo.com/mucho-o-poco-se-conocio-la-cantidad-de-empresas-agricolas-argentinas-que-se-sumaron-a-visec-soja/",
-            "fecha": "2026-10-29T20:52:27.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Maquinaria agrícola: Bolonia, la siguiente estación en el camino para ser cada vez más internacional",
-            "link": "https://www.infocampo.com.ar/maquinaria-agricola-bolonia-la-siguiente-estacion-en-el-camino-para-ser-cada-vez-mas-internacional/",
-            "fecha": "2026-10-29T18:51:55.000Z",
+            "titulo": "Prórroga del Senasa: extienden hasta el 6 de noviembre el plazo para actualizar datos en el Renspa",
+            "link": "https://www.infocampo.com.ar/prorroga-del-senasa-extienden-hasta-el-6-de-noviembre-el-plazo-para-actualizar-datos-en-el-renspa/",
+            "fecha": "2026-10-29T21:50:04.000Z",
             "fuente": "Infocampo"
           },
           {
@@ -326,44 +332,38 @@
             "link": "https://www.clarin.com/rural/gobierno-nacional-dio-lista-recomendaciones-prevenir-detectar-peligrosa-enfermedad-avicola-brote-brasil_0_gdCyeP0pPy.html",
             "fecha": "2026-10-29T18:38:17.000Z",
             "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Una de las principales fábricas de tractores nacionales, en problemas: deudas millonarias, caída en las ventas y demoras en el pago de sueldos",
-            "link": "https://www.clarin.com/rural/principales-fabricas-tractores-nacionales-problemas-deudas-millonarias-caida-ventas-demoras-pago-sueldos_0_GnRZhVBM9L.html",
-            "fecha": "2026-10-29T15:32:47.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-10-29",
+        "fecha": "2026-10-30",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.345,
-            "usdTonelada": 453.6009765
+            "usdBushel": 12.365,
+            "usdTonelada": 454.3358505
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.5125,
-            "usdTonelada": 177.64764875
+            "usdBushel": 4.5025,
+            "usdTonelada": 177.25396975
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.0325,
-            "usdTonelada": 221.65637024999998
+            "usdBushel": 6.0675,
+            "usdTonelada": 222.94239974999996
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-29T22:17:29.684Z"
+      "obtenido": "2026-10-30T03:53:19.170Z"
     }
   }
 }
