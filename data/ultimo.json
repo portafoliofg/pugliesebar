@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     },
     "dolar": {
       "datos": {
@@ -128,7 +128,7 @@
           }
         }
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     },
     "clima": {
       "datos": {
@@ -140,35 +140,35 @@
             "dias": [
               {
                 "fecha": "2026-10-30",
-                "min": 15.6,
-                "max": 28.4,
-                "lluviaMm": 1.9,
+                "min": 14.3,
+                "max": 27.8,
+                "lluviaMm": 1.1,
                 "probLluvia": 88,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 13.9,
-                "max": 28.3,
-                "lluviaMm": 2.2,
+                "min": 14.4,
+                "max": 27.9,
+                "lluviaMm": 1.6,
                 "probLluvia": 97,
-                "codigo": 53,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 15.4,
-                "max": 25.6,
-                "lluviaMm": 39,
+                "min": 15.9,
+                "max": 26.2,
+                "lluviaMm": 34.1,
                 "probLluvia": 76,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 14.6,
-                "max": 25.2,
+                "min": 14.8,
+                "max": 24.9,
                 "lluviaMm": 0.2,
                 "probLluvia": 49,
                 "codigo": 51,
@@ -176,33 +176,33 @@
               },
               {
                 "fecha": "2026-11-03",
-                "min": 15.9,
-                "max": 22.5,
-                "lluviaMm": 4.3,
+                "min": 16,
+                "max": 22.7,
+                "lluviaMm": 11.5,
                 "probLluvia": 76,
-                "codigo": 53,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-04",
-                "min": 13.4,
-                "max": 24.7,
-                "lluviaMm": 2.9,
+                "min": 12.6,
+                "max": 23.6,
+                "lluviaMm": 1.8,
                 "probLluvia": 39,
-                "codigo": 53,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-05",
-                "min": 13.3,
-                "max": 22.8,
-                "lluviaMm": 0.6,
+                "min": 11.7,
+                "max": 24.1,
+                "lluviaMm": 0,
                 "probLluvia": 26,
-                "codigo": 51,
+                "codigo": 1,
                 "helada": false
               }
             ],
-            "lluviaTotal": 51.1,
+            "lluviaTotal": 50.300000000000004,
             "hayHelada": false
           },
           {
@@ -211,34 +211,34 @@
             "dias": [
               {
                 "fecha": "2026-10-30",
-                "min": 16.4,
-                "max": 28.8,
-                "lluviaMm": 3.6,
+                "min": 15,
+                "max": 27.8,
+                "lluviaMm": 2.6,
                 "probLluvia": 85,
-                "codigo": 81,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-10-31",
-                "min": 15.1,
-                "max": 27.6,
-                "lluviaMm": 0,
+                "min": 13.9,
+                "max": 27.8,
+                "lluviaMm": 0.6,
                 "probLluvia": 45,
-                "codigo": 3,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.9,
-                "max": 26,
-                "lluviaMm": 23.6,
+                "min": 17.1,
+                "max": 26.2,
+                "lluviaMm": 11.6,
                 "probLluvia": 65,
-                "codigo": 96,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 15.2,
+                "min": 15.7,
                 "max": 26.1,
                 "lluviaMm": 0,
                 "probLluvia": 37,
@@ -247,39 +247,39 @@
               },
               {
                 "fecha": "2026-11-03",
-                "min": 16.3,
-                "max": 22.9,
-                "lluviaMm": 10.6,
+                "min": 16.7,
+                "max": 24.2,
+                "lluviaMm": 22.8,
                 "probLluvia": 68,
-                "codigo": 80,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-04",
-                "min": 14.2,
-                "max": 25.3,
-                "lluviaMm": 4.4,
+                "min": 12.8,
+                "max": 24.3,
+                "lluviaMm": 0,
                 "probLluvia": 29,
-                "codigo": 55,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-05",
-                "min": 12,
-                "max": 22.6,
+                "min": 11.2,
+                "max": 24.9,
                 "lluviaMm": 0,
                 "probLluvia": 20,
-                "codigo": 2,
+                "codigo": 3,
                 "helada": false
               }
             ],
-            "lluviaTotal": 42.2,
+            "lluviaTotal": 37.6,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     },
     "noticias": {
       "datos": {
@@ -288,57 +288,57 @@
           {
             "titulo": "Informe oficial: ya se evacuaron 147.500 vacunos y búfalos de las zonas inundadas del Litoral",
             "link": "https://www.lanacion.com.ar/economia/campo/informe-oficial-ya-se-evacuaron-147500-bovinos-y-bufalos-de-las-zonas-inundadas-del-litoral-nid29102026/",
-            "fecha": "2026-10-30T03:13:40.000Z",
+            "fecha": "2026-10-30T11:37:49.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "La desesperación de un productor que perdió casi todas sus ovejas por un ataque de perros",
-            "link": "https://www.lanacion.com.ar/economia/campo/llore-grite-y-me-frustre-los-perros-atacaron-su-campo-y-perdio-casi-todas-sus-ovejas-nid29102026/",
-            "fecha": "2026-10-30T03:12:49.000Z",
+            "titulo": "Clima hoy en Neuquén, el pronóstico del tiempo para este 30 octubre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-neuquen-el-pronostico-del-tiempo-para-este-30-octubre-2026/",
+            "fecha": "2026-10-30T11:37:32.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Una empresa vinculada a Vicentin, al borde de quedarse sin luz por una deuda de más de $4600 millones",
+            "link": "https://www.lanacion.com.ar/economia/campo/una-empresa-vinculada-a-vicentin-al-borde-de-quedarse-sin-luz-por-una-deuda-de-mas-de-4600-millones-nid29102026/",
+            "fecha": "2026-10-30T11:34:21.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Proyecto de Biocombustibles: Las empresas no integradas aceptan la competencia, pero solo con ellas mismas y sin perder una sola tonelada del cupo destinado al mercado interno",
-            "link": "https://bichosdecampo.com/proyecto-de-biocombustibles-las-empresas-no-integradas-aceptan-la-competencia-pero-solo-con-ellas-mismas-y-sin-perder-una-sola-tonelada-del-cupo-destinado-al-mercado-interno/",
-            "fecha": "2026-10-30T02:18:32.000Z",
+            "titulo": "AgroExportados: Lucas Vallejo, el pibe de Florencio Varela que se crió sin haber visto nunca una oveja, aprendió a esquilar y conoció el mundo gracias al oficio",
+            "link": "https://bichosdecampo.com/agroexportados-lucas-vallejo-el-pibe-de-florencio-varela-que-se-crio-sin-haber-visto-nunca-una-oveja-aprendio-a-esquilar-y-conocio-el-mundo-gracias-a-ese-oficio/",
+            "fecha": "2026-10-30T11:30:43.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "La FAO frente a los desafíos de un mundo en transformación",
-            "link": "https://www.clarin.com/rural/fao-frente-desafios-mundo-transformacion_0_FnscHudOUt.html",
-            "fecha": "2026-10-29T23:28:56.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 30 octubre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-30-octubre-2026/",
+            "fecha": "2026-10-30T10:00:29.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Un experto cordobés viajó a China para difundir los beneficios de la alfalfa para los sistemas agrícolas",
+            "link": "https://www.clarin.com/rural/experto-cordobes-viajo-china-difundir-beneficios-alfalfa-sistemas-agricolas_0_UrYB5s2B9f.html",
+            "fecha": "2026-10-30T09:03:08.000Z",
             "fuente": "Clarín Rural"
           },
           {
-            "titulo": "EUDR: Se negociaron los primeros contratos de Soja Visec en A3 Mercados con un “premio” de 10 u$s/tonelada",
-            "link": "https://bichosdecampo.com/eudr-se-negociaron-los-primeros-contratos-de-soja-visec-en-a3-mercados-con-un-premio-de-10-us-tonelada/",
-            "fecha": "2026-10-29T22:48:23.000Z",
+            "titulo": "De Dublín a Panamá: América Latina ante la oportunidad de la bioeconomía",
+            "link": "https://www.clarin.com/rural/dublin-panama-america-latina-oportunidad-bioeconomia_0_fXrsPhUxx5.html",
+            "fecha": "2026-10-30T09:01:06.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "Patriotismo cambiario: Gracias a los biocombustibles, YPF ya no tiene que usar divisas para importar nafta o gasoil",
+            "link": "https://bichosdecampo.com/patriotismo-cambiario-gracias-a-los-biocombustibles-ypf-ya-no-tiene-que-usar-divisas-para-importar-nafta-o-gasoil/",
+            "fecha": "2026-10-30T04:01:46.000Z",
             "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "VISEC: “Hay que integrarnos más producción e industria y no perder tiempo con roces innecesarios”",
-            "link": "https://www.infocampo.com.ar/visec-hay-que-integrarnos-mas-produccion-e-industria-y-no-perder-tiempo-con-roces-innecesarios/",
-            "fecha": "2026-10-29T21:52:44.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Prórroga del Senasa: extienden hasta el 6 de noviembre el plazo para actualizar datos en el Renspa",
-            "link": "https://www.infocampo.com.ar/prorroga-del-senasa-extienden-hasta-el-6-de-noviembre-el-plazo-para-actualizar-datos-en-el-renspa/",
-            "fecha": "2026-10-29T21:50:04.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "El Gobierno nacional dio una lista de recomendaciones para prevenir y detectar una peligrosa enfermedad avícola tras un brote en Brasil",
-            "link": "https://www.clarin.com/rural/gobierno-nacional-dio-lista-recomendaciones-prevenir-detectar-peligrosa-enfermedad-avicola-brote-brasil_0_gdCyeP0pPy.html",
-            "fecha": "2026-10-29T18:38:17.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.365,
-            "usdTonelada": 454.3358505
+            "usdBushel": 12.315,
+            "usdTonelada": 452.49866549999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.5025,
-            "usdTonelada": 177.25396975
+            "usdBushel": 4.4925,
+            "usdTonelada": 176.86029075
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.0675,
-            "usdTonelada": 222.94239974999996
+            "usdBushel": 6.0275,
+            "usdTonelada": 221.47265174999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-30T03:53:19.170Z"
+      "obtenido": "2026-10-30T11:57:25.354Z"
     }
   }
 }
