@@ -26,66 +26,66 @@
           }
         }
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-10-29",
+        "fecha": "2026-10-30",
         "granos": {
           "soja": [
             {
               "posicion": "NOV26",
-              "usdTonelada": 356,
-              "fecha": "2026-10-29"
+              "usdTonelada": 356.2,
+              "fecha": "2026-10-30"
             },
             {
               "posicion": "MAY27",
-              "usdTonelada": 348.2,
-              "fecha": "2026-10-29"
+              "usdTonelada": 348.4,
+              "fecha": "2026-10-30"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 356.4,
-              "fecha": "2026-10-29"
+              "usdTonelada": 357.2,
+              "fecha": "2026-10-30"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 191.7,
-              "fecha": "2026-10-29"
+              "usdTonelada": 190,
+              "fecha": "2026-10-30"
             },
             {
               "posicion": "ABR27",
-              "usdTonelada": 192,
-              "fecha": "2026-10-29"
+              "usdTonelada": 190,
+              "fecha": "2026-10-30"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 190.8,
-              "fecha": "2026-10-29"
+              "usdTonelada": 188,
+              "fecha": "2026-10-30"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 210,
-              "fecha": "2026-10-29"
+              "usdTonelada": 209.6,
+              "fecha": "2026-10-30"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 215.4,
-              "fecha": "2026-10-29"
+              "usdTonelada": 215,
+              "fecha": "2026-10-30"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 230,
-              "fecha": "2026-10-29"
+              "usdTonelada": 231.5,
+              "fecha": "2026-10-30"
             }
           ]
         }
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     },
     "dolar": {
       "datos": {
@@ -128,81 +128,81 @@
           }
         }
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-10-30",
+        "fecha": "2026-10-31",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-30",
-                "min": 14.7,
-                "max": 26.5,
-                "lluviaMm": 0.1,
-                "probLluvia": 88,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-31",
                 "min": 13.4,
-                "max": 28.3,
-                "lluviaMm": 1,
-                "probLluvia": 89,
+                "max": 28.9,
+                "lluviaMm": 1.4,
+                "probLluvia": 78,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.1,
-                "max": 25.1,
-                "lluviaMm": 25.5,
-                "probLluvia": 92,
+                "min": 16.2,
+                "max": 25,
+                "lluviaMm": 22,
+                "probLluvia": 89,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 14.4,
-                "max": 25.5,
-                "lluviaMm": 0.6,
-                "probLluvia": 34,
+                "min": 15.3,
+                "max": 25.3,
+                "lluviaMm": 0.2,
+                "probLluvia": 28,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
-                "min": 16.6,
-                "max": 22.7,
-                "lluviaMm": 5.5,
-                "probLluvia": 75,
-                "codigo": 81,
+                "min": 17.4,
+                "max": 21.9,
+                "lluviaMm": 1.3,
+                "probLluvia": 90,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-04",
-                "min": 13.3,
-                "max": 21.7,
+                "min": 14.7,
+                "max": 23.4,
                 "lluviaMm": 1.5,
-                "probLluvia": 39,
+                "probLluvia": 43,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-05",
-                "min": 9.9,
-                "max": 25.1,
+                "min": 10.5,
+                "max": 25.6,
                 "lluviaMm": 0,
-                "probLluvia": 27,
+                "probLluvia": 14,
                 "codigo": 0,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-06",
+                "min": 13.6,
+                "max": 24.8,
+                "lluviaMm": 0,
+                "probLluvia": 18,
+                "codigo": 2,
                 "helada": false
               }
             ],
-            "lluviaTotal": 34.2,
+            "lluviaTotal": 26.4,
             "hayHelada": false
           },
           {
@@ -210,86 +210,110 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-10-30",
-                "min": 15.1,
-                "max": 27,
-                "lluviaMm": 1,
-                "probLluvia": 83,
-                "codigo": 53,
-                "helada": false
-              },
-              {
                 "fecha": "2026-10-31",
-                "min": 14.5,
-                "max": 28.6,
+                "min": 13.9,
+                "max": 29.3,
                 "lluviaMm": 0.1,
-                "probLluvia": 27,
+                "probLluvia": 22,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-01",
-                "min": 16.7,
-                "max": 25.7,
-                "lluviaMm": 14.6,
+                "min": 16.8,
+                "max": 25.9,
+                "lluviaMm": 16.1,
                 "probLluvia": 80,
-                "codigo": 95,
+                "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-11-02",
-                "min": 15.2,
-                "max": 26.9,
-                "lluviaMm": 0.6,
-                "probLluvia": 27,
-                "codigo": 51,
+                "min": 15.1,
+                "max": 26.8,
+                "lluviaMm": 0,
+                "probLluvia": 31,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-03",
-                "min": 16.4,
-                "max": 24.1,
-                "lluviaMm": 13.6,
-                "probLluvia": 79,
-                "codigo": 80,
+                "min": 17.7,
+                "max": 22.5,
+                "lluviaMm": 4,
+                "probLluvia": 84,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-04",
-                "min": 13.2,
-                "max": 23.2,
-                "lluviaMm": 2.1,
-                "probLluvia": 29,
-                "codigo": 51,
+                "min": 14.5,
+                "max": 24.5,
+                "lluviaMm": 0,
+                "probLluvia": 31,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-05",
-                "min": 9.7,
+                "min": 10.9,
+                "max": 26.4,
+                "lluviaMm": 0,
+                "probLluvia": 14,
+                "codigo": 0,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-06",
+                "min": 13.1,
                 "max": 25.3,
                 "lluviaMm": 0,
-                "probLluvia": 17,
-                "codigo": 0,
+                "probLluvia": 14,
+                "codigo": 2,
                 "helada": false
               }
             ],
-            "lluviaTotal": 32,
+            "lluviaTotal": 20.200000000000003,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-10-30",
+        "fecha": "2026-10-31",
         "titulares": [
           {
-            "titulo": "“Basta de inversiones”: un frigorífico no renovó 80 contratados, su gerente lo lamentó y habló de las importaciones desde Brasil",
-            "link": "https://www.lanacion.com.ar/economia/campo/basta-de-inversiones-un-frigorifico-no-renovo-80-contratados-su-gerente-lo-lamento-y-hablo-de-las-nid30102026/",
-            "fecha": "2026-10-30T21:46:26.000Z",
+            "titulo": "Una violenta tormenta con granizo sorprendió en una región golpeada por otro fenómeno: la falta de sol",
+            "link": "https://www.lanacion.com.ar/economia/campo/una-violenta-tormenta-con-granizo-sorprendio-en-una-region-golpeada-por-otro-fenomeno-la-falta-de-nid30102026/",
+            "fecha": "2026-10-31T02:59:28.000Z",
             "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "“No puedo más”: Plantium-Gentec, un ícono de la innovación en el agro, despidió a casi 100 empleados y se achica",
+            "link": "https://www.lanacion.com.ar/economia/campo/no-puedo-mas-una-reconocida-empresa-de-innovacion-del-agro-despidio-a-casi-100-empleados-y-se-achica-nid30102026/",
+            "fecha": "2026-10-31T02:57:38.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Declaran la emergencia agropecuaria por granizo en el Cinturón Verde de Córdoba",
+            "link": "https://www.infocampo.com.ar/declaran-la-emergencia-agropecuaria-por-granizo-en-el-cinturon-verde-de-cordoba/",
+            "fecha": "2026-10-31T00:52:07.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Plantium no cierra, pero sí recurre a un fuerte achique: “Somos una pyme y no te ayuda nadie”",
+            "link": "https://www.infocampo.com.ar/plantium-no-cierra-pero-si-recurre-a-un-fuerte-achique-somos-una-pyme-y-no-te-ayuda-nadie/",
+            "fecha": "2026-10-30T23:07:38.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Ensañamiento: Los fondos agrícolas ya no solo liquidan posiciones en maíz, sino que construyen nuevas “apuestas” bajistas contra el cereal",
+            "link": "https://bichosdecampo.com/ensanamiento-los-fondos-agricolas-ya-no-solo-liquidan-posiciones-en-maiz-sino-que-construyen-nuevas-apuestas-bajistas-contra-el-cereal/",
+            "fecha": "2026-10-30T22:55:18.000Z",
+            "fuente": "Bichos de Campo"
           },
           {
             "titulo": "El Visec llegó a los remates: Denuncian que ya hay rebajas de precios en la hacienda a pedido de los frigoríficos exportadores",
@@ -298,39 +322,15 @@
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Anuncio: Santa Fe destinará todo el dinero de un impuesto a obras para el campo",
-            "link": "https://www.lanacion.com.ar/economia/campo/anuncio-santa-fe-destinara-todo-el-dinero-de-un-impuesto-a-obras-para-el-campo-nid30102026/",
-            "fecha": "2026-10-30T21:15:46.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Cambios dirigenciales: la Fundación Barbechando y Maizar designaron nuevos presidentes",
-            "link": "https://www.infocampo.com.ar/cambios-dirigenciales-la-fundacion-barbechando-y-maizar-designaron-nuevos-presidentes/",
-            "fecha": "2026-10-30T20:59:22.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Santa Fe prometió destinar todo lo que recaude a través del inmobiliario rural a obras para el campo",
-            "link": "https://bichosdecampo.com/santa-fe-prometio-destinar-todo-lo-que-recaude-a-traves-del-inmobiliario-rural-a-obras-para-el-campo/",
-            "fecha": "2026-10-30T20:49:25.000Z",
-            "fuente": "Bichos de Campo"
+            "titulo": "\"No hay tiempo que perder\": la industria del bioetanol marca la cancha y pide una ley de Biocombustible propia si no hay acuerdo por el biodiésel",
+            "link": "https://www.clarin.com/rural/tiempo-perder-industria-bioetanol-marca-cancha-pide-ley-biocombustible-propia-acuerdo-biodiesel_0_gNfo8jE9tB.html",
+            "fecha": "2026-10-30T20:35:56.000Z",
+            "fuente": "Clarín Rural"
           },
           {
             "titulo": "Las exportaciones de carne ya rompieron el récord: en 9 meses superaron todo lo exportado en 2025 y se acercan a los US$ 4.000 millones",
             "link": "https://www.clarin.com/rural/exportaciones-carne-rompieron-record-9-meses-superaron-exportado-2025-acercan-us-4000-millones_0_bwUa8qwBqU.html",
             "fecha": "2026-10-30T19:35:29.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Infraestructura agropecuaria: Santa Fe destinará el 100% del Inmobiliario Rural a obras para el campo",
-            "link": "https://www.infocampo.com.ar/infraestructura-agropecuaria-santa-fe-destinara-el-100-del-inmobiliario-rural-a-obras-para-el-campo/",
-            "fecha": "2026-10-30T19:04:12.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Luis María Urriza fue elegido como nuevo presidente de Maizar",
-            "link": "https://www.clarin.com/rural/luis-maria-urriza-elegido-nuevo-presidente-maizar_0_7Yy7IWyTGR.html",
-            "fecha": "2026-10-30T17:54:27.000Z",
             "fuente": "Clarín Rural"
           }
         ],
@@ -338,7 +338,7 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     },
     "cbot": {
       "datos": {
@@ -363,7 +363,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-10-30T21:51:18.844Z"
+      "obtenido": "2026-10-31T03:37:28.189Z"
     }
   }
 }
