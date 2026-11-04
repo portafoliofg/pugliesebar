@@ -26,66 +26,66 @@
           }
         }
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-11-03",
+        "fecha": "2026-11-04",
         "granos": {
           "soja": [
             {
               "posicion": "MAY27",
-              "usdTonelada": 343.5,
-              "fecha": "2026-11-03"
+              "usdTonelada": 339.5,
+              "fecha": "2026-11-04"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 353.6,
-              "fecha": "2026-11-03"
+              "usdTonelada": 348.8,
+              "fecha": "2026-11-04"
             },
             {
               "posicion": "NOV27",
-              "usdTonelada": 363,
-              "fecha": "2026-11-03"
+              "usdTonelada": 362,
+              "fecha": "2026-11-04"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 187.4,
-              "fecha": "2026-11-03"
+              "usdTonelada": 187.1,
+              "fecha": "2026-11-04"
             },
             {
               "posicion": "ABR27",
-              "usdTonelada": 187.6,
-              "fecha": "2026-11-03"
+              "usdTonelada": 187.3,
+              "fecha": "2026-11-04"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 186.4,
-              "fecha": "2026-11-03"
+              "usdTonelada": 186.5,
+              "fecha": "2026-11-04"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 206,
-              "fecha": "2026-11-03"
+              "usdTonelada": 210,
+              "fecha": "2026-11-04"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 212,
-              "fecha": "2026-11-03"
+              "usdTonelada": 215,
+              "fecha": "2026-11-04"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 227,
-              "fecha": "2026-11-03"
+              "usdTonelada": 228.1,
+              "fecha": "2026-11-04"
             }
           ]
         }
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     },
     "dolar": {
       "datos": {
@@ -94,41 +94,41 @@
           "oficial": {
             "compra": 1520,
             "venta": 1570,
-            "actualizado": "2026-11-04T10:00:00.000Z"
+            "actualizado": "2026-11-04T18:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1542,
-            "venta": 1551,
-            "actualizado": "2026-11-04T09:38:00.000Z"
+            "compra": 1537,
+            "venta": 1546,
+            "actualizado": "2026-11-04T16:24:00.000Z"
           },
           "mep": {
-            "compra": 1575.3,
-            "venta": 1581.1,
-            "actualizado": "2026-11-04T12:55:00.000Z"
+            "compra": 1575.7,
+            "venta": 1588.6,
+            "actualizado": "2026-11-04T20:55:00.000Z"
           },
           "ccl": {
-            "compra": 1667.2,
-            "venta": 1668.8,
-            "actualizado": "2026-11-04T12:55:00.000Z"
+            "compra": 1676.7,
+            "venta": 1680.4,
+            "actualizado": "2026-11-04T20:55:00.000Z"
           },
           "blue": {
-            "compra": 1550,
-            "venta": 1570,
-            "actualizado": "2026-11-04T12:55:00.000Z"
+            "compra": 1540,
+            "venta": 1560,
+            "actualizado": "2026-11-04T20:55:00.000Z"
           },
           "tarjeta": {
             "compra": 1976,
             "venta": 2041,
-            "actualizado": "2026-11-04T10:00:00.000Z"
+            "actualizado": "2026-11-04T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1658.25,
-            "venta": 1660.67,
-            "actualizado": "2026-11-04T12:55:00.000Z"
+            "compra": 1659.63,
+            "venta": 1667.14,
+            "actualizado": "2026-11-04T20:55:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     },
     "clima": {
       "datos": {
@@ -140,17 +140,17 @@
             "dias": [
               {
                 "fecha": "2026-11-04",
-                "min": 14.9,
-                "max": 22.5,
-                "lluviaMm": 0.3,
+                "min": 15.1,
+                "max": 23.4,
+                "lluviaMm": 0.4,
                 "probLluvia": 49,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-05",
-                "min": 11.9,
-                "max": 26,
+                "min": 12.5,
+                "max": 26.3,
                 "lluviaMm": 0,
                 "probLluvia": 0,
                 "codigo": 0,
@@ -158,51 +158,51 @@
               },
               {
                 "fecha": "2026-11-06",
-                "min": 14.1,
-                "max": 26.9,
-                "lluviaMm": 2.3,
-                "probLluvia": 55,
-                "codigo": 55,
+                "min": 16.3,
+                "max": 27.4,
+                "lluviaMm": 1.4,
+                "probLluvia": 75,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-07",
-                "min": 12.9,
-                "max": 22,
-                "lluviaMm": 4.8,
-                "probLluvia": 65,
-                "codigo": 80,
+                "min": 12.4,
+                "max": 22.1,
+                "lluviaMm": 5.8,
+                "probLluvia": 82,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-08",
-                "min": 10.4,
-                "max": 24.2,
+                "min": 9.1,
+                "max": 23.6,
                 "lluviaMm": 0,
-                "probLluvia": 4,
+                "probLluvia": 0,
                 "codigo": 0,
                 "helada": false
               },
               {
                 "fecha": "2026-11-09",
-                "min": 12.3,
-                "max": 25.4,
+                "min": 11.8,
+                "max": 25,
                 "lluviaMm": 0,
-                "probLluvia": 17,
-                "codigo": 2,
+                "probLluvia": 20,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-10",
-                "min": 14.1,
-                "max": 23.8,
-                "lluviaMm": 5.7,
-                "probLluvia": 31,
-                "codigo": 53,
+                "min": 16.5,
+                "max": 27.3,
+                "lluviaMm": 0,
+                "probLluvia": 27,
+                "codigo": 3,
                 "helada": false
               }
             ],
-            "lluviaTotal": 13.1,
+            "lluviaTotal": 7.6,
             "hayHelada": false
           },
           {
@@ -211,8 +211,8 @@
             "dias": [
               {
                 "fecha": "2026-11-04",
-                "min": 14.9,
-                "max": 23.8,
+                "min": 15.2,
+                "max": 24.1,
                 "lluviaMm": 0.4,
                 "probLluvia": 51,
                 "codigo": 51,
@@ -220,8 +220,8 @@
               },
               {
                 "fecha": "2026-11-05",
-                "min": 10.8,
-                "max": 26.8,
+                "min": 11.2,
+                "max": 26.9,
                 "lluviaMm": 0,
                 "probLluvia": 0,
                 "codigo": 0,
@@ -229,26 +229,26 @@
               },
               {
                 "fecha": "2026-11-06",
-                "min": 15.3,
-                "max": 28.4,
-                "lluviaMm": 7.8,
-                "probLluvia": 62,
-                "codigo": 81,
+                "min": 15.1,
+                "max": 28.3,
+                "lluviaMm": 7.6,
+                "probLluvia": 88,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-07",
-                "min": 12.3,
-                "max": 21.7,
-                "lluviaMm": 6.7,
-                "probLluvia": 61,
+                "min": 11.9,
+                "max": 21.9,
+                "lluviaMm": 5,
+                "probLluvia": 90,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-08",
-                "min": 9.2,
-                "max": 23.7,
+                "min": 7.8,
+                "max": 23.5,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 0,
@@ -256,89 +256,89 @@
               },
               {
                 "fecha": "2026-11-09",
-                "min": 11.5,
-                "max": 24.8,
-                "lluviaMm": 0,
+                "min": 11.2,
+                "max": 24.7,
+                "lluviaMm": 1,
                 "probLluvia": 10,
-                "codigo": 2,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-10",
-                "min": 14.7,
-                "max": 23,
-                "lluviaMm": 24,
-                "probLluvia": 35,
-                "codigo": 81,
+                "min": 16.2,
+                "max": 27.3,
+                "lluviaMm": 1.1,
+                "probLluvia": 31,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 38.9,
+            "lluviaTotal": 15.1,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-11-04",
         "titulares": [
           {
-            "titulo": "La tecnología ayuda, pero hay que saber usarla: Un estudio mostró que el 82% de los productores digitalizados ve mejoras, aunque la mitad señala falta de conocimientos para adoptarla",
-            "link": "https://bichosdecampo.com/la-tecnologia-ayuda-pero-hay-que-saber-usarla-un-estudio-mostro-que-el-82-de-los-productores-digitalizados-ve-mejoras-aunque-la-mitad-senala-falta-de-conocimientos-para-adoptarla/",
-            "fecha": "2026-11-04T13:29:27.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Estiman cuánto pasto hay disponible en los campos ganaderos",
-            "link": "https://www.todoagro.com.ar/estiman-cuanto-pasto-hay-disponible-en-los-campos-ganaderos/",
-            "fecha": "2026-11-04T13:14:23.000Z",
-            "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Dólar blue: a cuánto cotizan hoy en Córdoba 4 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-4-noviembre-2026/",
-            "fecha": "2026-11-04T13:10:08.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "La carne argentina cierra el año en China, su principal mercado de exportación",
-            "link": "https://www.todoagro.com.ar/la-carne-argentina-cierra-el-ano-en-china-su-principal-mercado-de-exportacion/",
-            "fecha": "2026-11-04T13:10:08.000Z",
-            "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Los dilemas de la agronomía: Marcos Blanda eligió la función pública en Córdoba porque cree que “hay que participar” para poder modificar la realidad del sector agropecuario",
-            "link": "https://bichosdecampo.com/los-dilemas-de-la-agronomia-marcos-blanda-eligio-la-funcion-publica-en-cordoba-porque-cree-que-hay-que-participar-para-poder-modificar-la-realidad-del-sector-agropecuario/",
-            "fecha": "2026-11-04T13:09:05.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Javier Álvarez Bento denuncia la pérdida de más de 5000 hectáreas por un basural a cielo abierto: “Tiran a camionadas”",
+            "titulo": "Javier Álvarez Bento denuncia la pérdida de más de 5000 hectáreas en una estancia vecina a un basural a cielo abierto: “Paren de tirar”",
             "link": "https://www.lanacion.com.ar/economia/campo/javier-alvarez-bento-denuncia-la-perdida-de-mas-de-5000-hectareas-por-un-basural-a-cielo-abierto-nid04112026/",
-            "fecha": "2026-11-04T12:29:27.000Z",
+            "fecha": "2026-11-04T22:56:38.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Un supermercado podrá exportar a Europa un subproducto bovino que sirve para fabricar un combustible para los aviones",
-            "link": "https://www.lanacion.com.ar/economia/campo/un-supermercado-podra-exportar-a-europa-un-subproducto-que-sirve-para-fabricar-combustible-de-nid03112026/",
-            "fecha": "2026-11-04T11:32:28.000Z",
+            "titulo": "Volatilidad en los granos: había que blindarse para navegar la incertidumbre",
+            "link": "https://www.lanacion.com.ar/economia/campo/volatilidad-en-los-granos-habia-que-blindarse-para-navegar-la-incertidumbre-nid04112026/",
+            "fecha": "2026-11-04T22:48:59.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Importaciones de maquinaria agrícola usada crecen 250% y disparan otro riesgo: el ingreso de plagas",
-            "link": "https://www.infocampo.com.ar/importaciones-de-maquinaria-agricola-usada-crecen-250-y-disparan-otro-riesgo-el-ingreso-de-plagas/",
-            "fecha": "2026-11-04T11:18:29.000Z",
+            "titulo": "¿En serio no les preocupa? Las únicas que no parecen alarmadas por la baja del presupuesto 2027 para el INTA son las entidades tradicionales del agro, que además lo conducen",
+            "link": "https://bichosdecampo.com/en-serio-no-les-preocupa-las-unicas-que-no-parecen-alarmadas-por-la-baja-del-presupuesto-2027-para-el-inta-son-las-entidades-tradicionales-del-agro-que-ademas-lo-conducen/",
+            "fecha": "2026-11-04T21:57:22.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Trump perdió en las elecciones de medio término: ¿puede influir en la agroindustria argentina?",
+            "link": "https://www.infocampo.com.ar/trump-perdio-en-las-elecciones-de-medio-termino-puede-influir-en-la-agroindustria-argentina/",
+            "fecha": "2026-11-04T21:04:22.000Z",
             "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Chicharrita: Destacan que el escenario de siembra tardía para el maíz es “auspicioso”",
+            "link": "https://www.todoagro.com.ar/chicharrita-destacan-que-el-escenario-de-siembra-tardia-para-el-maiz-es-auspicioso/",
+            "fecha": "2026-11-04T21:01:58.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Río Negro: Los fruteros de Allen lograron frenar un cambio que sumaba 400 hectáreas de Zona Rural Irrigada al área urbana",
+            "link": "https://bichosdecampo.com/rio-negro-los-fruteros-de-allen-lograron-frenar-un-cambio-que-sumaba-400-hectareas-de-zona-rural-irrigada-al-area-urbana/",
+            "fecha": "2026-11-04T20:44:15.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Semillas y propiedad intelectual: “Mientras Brasil tiene 15 programas de mejoramiento en soja, Argentina solo dos”",
+            "link": "https://www.infocampo.com.ar/semillas-y-propiedad-intelectual-mientras-brasil-tiene-15-programas-de-mejoramiento-en-soja-argentina-solo-dos/",
+            "fecha": "2026-11-04T20:12:48.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "\"Seguir impulsando el consumo\": la carne argentina cierra el año en China, su principal mercado de exportación",
+            "link": "https://www.clarin.com/rural/seguir-impulsando-consumo-carne-argentina-cierra-ano-china-principal-mercado-exportacion_0_jZgQoPE7ww.html",
+            "fecha": "2026-11-04T19:04:15.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.07,
-            "usdTonelada": 443.49645899999996
+            "usdBushel": 12.0375,
+            "usdTonelada": 442.30228874999995
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.42,
-            "usdTonelada": 174.006118
+            "usdBushel": 4.4575,
+            "usdTonelada": 175.48241424999998
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.01,
-            "usdTonelada": 220.82963699999996
+            "usdBushel": 5.9925,
+            "usdTonelada": 220.18662224999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-04T13:37:06.273Z"
+      "obtenido": "2026-11-04T23:03:59.737Z"
     }
   }
 }
