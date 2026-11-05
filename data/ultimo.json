@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     },
     "dolar": {
       "datos": {
@@ -128,29 +128,20 @@
           }
         }
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-11-04",
+        "fecha": "2026-11-05",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-04",
-                "min": 15.1,
-                "max": 23.4,
-                "lluviaMm": 0.4,
-                "probLluvia": 49,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-05",
-                "min": 12.5,
-                "max": 26.3,
+                "min": 12,
+                "max": 26.4,
                 "lluviaMm": 0,
                 "probLluvia": 0,
                 "codigo": 0,
@@ -158,51 +149,60 @@
               },
               {
                 "fecha": "2026-11-06",
-                "min": 16.3,
-                "max": 27.4,
-                "lluviaMm": 1.4,
-                "probLluvia": 75,
+                "min": 16,
+                "max": 27.5,
+                "lluviaMm": 1.6,
+                "probLluvia": 66,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-07",
                 "min": 12.4,
-                "max": 22.1,
-                "lluviaMm": 5.8,
-                "probLluvia": 82,
-                "codigo": 55,
+                "max": 21.5,
+                "lluviaMm": 6.6,
+                "probLluvia": 76,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-08",
-                "min": 9.1,
-                "max": 23.6,
+                "min": 9.7,
+                "max": 23.1,
                 "lluviaMm": 0,
-                "probLluvia": 0,
+                "probLluvia": 4,
                 "codigo": 0,
                 "helada": false
               },
               {
                 "fecha": "2026-11-09",
-                "min": 11.8,
-                "max": 25,
-                "lluviaMm": 0,
-                "probLluvia": 20,
-                "codigo": 3,
+                "min": 11.5,
+                "max": 24.4,
+                "lluviaMm": 0.2,
+                "probLluvia": 10,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-10",
-                "min": 16.5,
+                "min": 14.4,
                 "max": 27.3,
-                "lluviaMm": 0,
-                "probLluvia": 27,
-                "codigo": 3,
+                "lluviaMm": 1.3,
+                "probLluvia": 25,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-11",
+                "min": 18,
+                "max": 34,
+                "lluviaMm": 0.6,
+                "probLluvia": 9,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 7.6,
+            "lluviaTotal": 10.299999999999999,
             "hayHelada": false
           },
           {
@@ -210,17 +210,8 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-04",
-                "min": 15.2,
-                "max": 24.1,
-                "lluviaMm": 0.4,
-                "probLluvia": 51,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-05",
-                "min": 11.2,
+                "min": 11.4,
                 "max": 26.9,
                 "lluviaMm": 0,
                 "probLluvia": 0,
@@ -229,26 +220,26 @@
               },
               {
                 "fecha": "2026-11-06",
-                "min": 15.1,
-                "max": 28.3,
-                "lluviaMm": 7.6,
-                "probLluvia": 88,
+                "min": 15.4,
+                "max": 27.2,
+                "lluviaMm": 6.5,
+                "probLluvia": 72,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-07",
-                "min": 11.9,
-                "max": 21.9,
-                "lluviaMm": 5,
-                "probLluvia": 90,
+                "min": 11.7,
+                "max": 21.6,
+                "lluviaMm": 5.5,
+                "probLluvia": 76,
                 "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-08",
-                "min": 7.8,
-                "max": 23.5,
+                "min": 7.5,
+                "max": 23.2,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 0,
@@ -256,76 +247,85 @@
               },
               {
                 "fecha": "2026-11-09",
-                "min": 11.2,
-                "max": 24.7,
-                "lluviaMm": 1,
-                "probLluvia": 10,
-                "codigo": 53,
+                "min": 11,
+                "max": 24.5,
+                "lluviaMm": 0.6,
+                "probLluvia": 8,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-10",
-                "min": 16.2,
+                "min": 14.8,
                 "max": 27.3,
-                "lluviaMm": 1.1,
+                "lluviaMm": 7.8,
                 "probLluvia": 31,
-                "codigo": 53,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-11",
+                "min": 16.9,
+                "max": 33,
+                "lluviaMm": 0,
+                "probLluvia": 8,
+                "codigo": 1,
                 "helada": false
               }
             ],
-            "lluviaTotal": 15.1,
+            "lluviaTotal": 20.4,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-04",
+        "fecha": "2026-11-05",
         "titulares": [
           {
-            "titulo": "Javier Álvarez Bento denuncia la pérdida de más de 5000 hectáreas en una estancia vecina a un basural a cielo abierto: “Paren de tirar”",
-            "link": "https://www.lanacion.com.ar/economia/campo/javier-alvarez-bento-denuncia-la-perdida-de-mas-de-5000-hectareas-por-un-basural-a-cielo-abierto-nid04112026/",
-            "fecha": "2026-11-04T22:56:38.000Z",
+            "titulo": "Clima Hoy en Córdoba, el pronóstico del tiempo para este 5 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-cordoba-el-pronostico-del-tiempo-para-este-5-noviembre-2026/",
+            "fecha": "2026-11-05T04:20:06.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima hoy en Salta, el pronóstico del tiempo para este 5 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-salta-el-pronostico-del-tiempo-para-este-5-noviembre-2026/",
+            "fecha": "2026-11-05T04:10:06.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Belén, veterinaria, eligió un tractor rosa: “Vamos a hacer algo muy disruptivo”",
+            "link": "https://www.lanacion.com.ar/economia/campo/belen-veterinaria-produce-en-cordoba-y-eligio-un-tractor-rosa-para-un-homenaje-vamos-a-hacer-algo-nid03112026/",
+            "fecha": "2026-11-05T03:52:53.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Volatilidad en los granos: había que blindarse para navegar la incertidumbre",
-            "link": "https://www.lanacion.com.ar/economia/campo/volatilidad-en-los-granos-habia-que-blindarse-para-navegar-la-incertidumbre-nid04112026/",
-            "fecha": "2026-11-04T22:48:59.000Z",
+            "titulo": "Invirtió US$40.000 para transformar bananas en harina y hoy vende un producto con demanda creciente: “Esto nos dio un plus”",
+            "link": "https://www.lanacion.com.ar/economia/campo/invirtio-us40000-para-transformar-bananas-en-harina-y-hoy-vende-un-producto-con-demanda-creciente-nid04112026/",
+            "fecha": "2026-11-05T03:52:05.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "¿En serio no les preocupa? Las únicas que no parecen alarmadas por la baja del presupuesto 2027 para el INTA son las entidades tradicionales del agro, que además lo conducen",
-            "link": "https://bichosdecampo.com/en-serio-no-les-preocupa-las-unicas-que-no-parecen-alarmadas-por-la-baja-del-presupuesto-2027-para-el-inta-son-las-entidades-tradicionales-del-agro-que-ademas-lo-conducen/",
-            "fecha": "2026-11-04T21:57:22.000Z",
+            "titulo": "A rezar: Apenas unas 6,0 millones de toneladas de soja 2026/27 tienen precio hecho",
+            "link": "https://bichosdecampo.com/a-rezar-apenas-unas-60-millones-de-toneladas-de-soja-2026-27-tienen-precio-hecho/",
+            "fecha": "2026-11-05T02:12:39.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Trump perdió en las elecciones de medio término: ¿puede influir en la agroindustria argentina?",
-            "link": "https://www.infocampo.com.ar/trump-perdio-en-las-elecciones-de-medio-termino-puede-influir-en-la-agroindustria-argentina/",
-            "fecha": "2026-11-04T21:04:22.000Z",
-            "fuente": "Infocampo"
+            "titulo": "¿Primera consecuencia de la derrota de Trump? John Deere anunció que trasladará la fábrica de cosechadoras de caña de azúcar a Brasil y cerrará dos plantas en Estados Unidos",
+            "link": "https://bichosdecampo.com/primera-consecuencia-de-la-derrota-de-trump-john-deere-anuncio-que-trasladara-la-fabrica-de-cosechadoras-de-cana-de-azucar-a-brasil-y-cerrara-dos-plantas-en-estados-unidos/",
+            "fecha": "2026-11-05T00:32:34.000Z",
+            "fuente": "Bichos de Campo"
           },
           {
             "titulo": "Chicharrita: Destacan que el escenario de siembra tardía para el maíz es “auspicioso”",
             "link": "https://www.todoagro.com.ar/chicharrita-destacan-que-el-escenario-de-siembra-tardia-para-el-maiz-es-auspicioso/",
             "fecha": "2026-11-04T21:01:58.000Z",
             "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Río Negro: Los fruteros de Allen lograron frenar un cambio que sumaba 400 hectáreas de Zona Rural Irrigada al área urbana",
-            "link": "https://bichosdecampo.com/rio-negro-los-fruteros-de-allen-lograron-frenar-un-cambio-que-sumaba-400-hectareas-de-zona-rural-irrigada-al-area-urbana/",
-            "fecha": "2026-11-04T20:44:15.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Semillas y propiedad intelectual: “Mientras Brasil tiene 15 programas de mejoramiento en soja, Argentina solo dos”",
-            "link": "https://www.infocampo.com.ar/semillas-y-propiedad-intelectual-mientras-brasil-tiene-15-programas-de-mejoramiento-en-soja-argentina-solo-dos/",
-            "fecha": "2026-11-04T20:12:48.000Z",
-            "fuente": "Infocampo"
           },
           {
             "titulo": "\"Seguir impulsando el consumo\": la carne argentina cierra el año en China, su principal mercado de exportación",
@@ -338,32 +338,32 @@
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-11-04",
+        "fecha": "2026-11-05",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.0375,
-            "usdTonelada": 442.30228874999995
+            "usdBushel": 12.0225,
+            "usdTonelada": 441.75113325
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.4575,
-            "usdTonelada": 175.48241424999998
+            "usdBushel": 4.455,
+            "usdTonelada": 175.3839945
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.9925,
-            "usdTonelada": 220.18662224999997
+            "usdBushel": 6.0075,
+            "usdTonelada": 220.73777775
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-04T23:03:59.737Z"
+      "obtenido": "2026-11-05T04:37:51.029Z"
     }
   }
 }
