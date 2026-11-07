@@ -3010,6 +3010,19 @@
         "enso": "ok",
         "feriados": "ok"
       }
+    },
+    {
+      "momento": "2026-11-07T04:02:00.838Z",
+      "estado": {
+        "pizarra": "ok",
+        "cbot": "ok",
+        "matba": "ok",
+        "dolar": "ok",
+        "clima": "ok",
+        "noticias": "ok",
+        "enso": "ok",
+        "feriados": "ok"
+      }
     }
   ],
   "relleno": {
