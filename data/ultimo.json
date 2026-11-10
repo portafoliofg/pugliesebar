@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     },
     "dolar": {
       "datos": {
@@ -104,17 +104,17 @@
           "mep": {
             "compra": 1560.2,
             "venta": 1587.9,
-            "actualizado": "2026-11-09T13:58:00.000Z"
+            "actualizado": "2026-11-09T20:58:00.000Z"
           },
           "ccl": {
             "compra": 1658.4,
             "venta": 1664.9,
-            "actualizado": "2026-11-09T13:58:00.000Z"
+            "actualizado": "2026-11-09T20:58:00.000Z"
           },
           "blue": {
             "compra": 1535,
             "venta": 1555,
-            "actualizado": "2026-11-09T13:58:00.000Z"
+            "actualizado": "2026-11-09T20:58:00.000Z"
           },
           "tarjeta": {
             "compra": 1976,
@@ -122,13 +122,13 @@
             "actualizado": "2026-11-05T18:55:00.000Z"
           },
           "cripto": {
-            "compra": 1660.97,
-            "venta": 1663.31,
-            "actualizado": "2026-11-09T13:58:00.000Z"
+            "compra": 1661.05,
+            "venta": 1666,
+            "actualizado": "2026-11-09T20:58:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     },
     "clima": {
       "datos": {
@@ -141,7 +141,7 @@
               {
                 "fecha": "2026-11-09",
                 "min": 12.8,
-                "max": 26.2,
+                "max": 26.5,
                 "lluviaMm": 0,
                 "probLluvia": 0,
                 "codigo": 0,
@@ -149,60 +149,60 @@
               },
               {
                 "fecha": "2026-11-10",
-                "min": 14.7,
-                "max": 24.9,
-                "lluviaMm": 3.9,
-                "probLluvia": 92,
+                "min": 14.9,
+                "max": 25.6,
+                "lluviaMm": 2.1,
+                "probLluvia": 76,
                 "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-11",
-                "min": 14.8,
-                "max": 30.2,
+                "min": 14.5,
+                "max": 31.1,
                 "lluviaMm": 0,
-                "probLluvia": 4,
-                "codigo": 45,
+                "probLluvia": 2,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-12",
-                "min": 17.7,
-                "max": 33.7,
+                "min": 18.8,
+                "max": 34.2,
                 "lluviaMm": 0,
-                "probLluvia": 7,
-                "codigo": 1,
+                "probLluvia": 6,
+                "codigo": 0,
                 "helada": false
               },
               {
                 "fecha": "2026-11-13",
-                "min": 20.7,
-                "max": 33,
-                "lluviaMm": 2.7,
+                "min": 20.9,
+                "max": 35.6,
+                "lluviaMm": 1.8,
                 "probLluvia": 71,
-                "codigo": 95,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-14",
-                "min": 19.5,
+                "min": 21.2,
                 "max": 28.4,
-                "lluviaMm": 5.4,
-                "probLluvia": 67,
+                "lluviaMm": 2.7,
+                "probLluvia": 70,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-15",
-                "min": 16.6,
-                "max": 28.6,
-                "lluviaMm": 0,
-                "probLluvia": 53,
-                "codigo": 3,
+                "min": 16.4,
+                "max": 24.6,
+                "lluviaMm": 19.8,
+                "probLluvia": 71,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 12,
+            "lluviaTotal": 26.400000000000002,
             "hayHelada": false
           },
           {
@@ -212,7 +212,7 @@
               {
                 "fecha": "2026-11-09",
                 "min": 11.3,
-                "max": 25.7,
+                "max": 26.3,
                 "lluviaMm": 0,
                 "probLluvia": 0,
                 "codigo": 0,
@@ -220,125 +220,125 @@
               },
               {
                 "fecha": "2026-11-10",
-                "min": 15.2,
-                "max": 24.8,
-                "lluviaMm": 8.2,
-                "probLluvia": 71,
-                "codigo": 81,
+                "min": 15.6,
+                "max": 26.9,
+                "lluviaMm": 0.4,
+                "probLluvia": 55,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-11",
-                "min": 14.6,
-                "max": 29.5,
+                "min": 15,
+                "max": 31.1,
                 "lluviaMm": 0,
-                "probLluvia": 31,
-                "codigo": 1,
+                "probLluvia": 27,
+                "codigo": 0,
                 "helada": false
               },
               {
                 "fecha": "2026-11-12",
-                "min": 17.7,
-                "max": 31.8,
+                "min": 18.7,
+                "max": 33.4,
                 "lluviaMm": 0,
-                "probLluvia": 4,
-                "codigo": 2,
+                "probLluvia": 2,
+                "codigo": 0,
                 "helada": false
               },
               {
                 "fecha": "2026-11-13",
-                "min": 20.4,
-                "max": 32.8,
-                "lluviaMm": 7.9,
-                "probLluvia": 53,
-                "codigo": 96,
+                "min": 20.7,
+                "max": 35.2,
+                "lluviaMm": 0.9,
+                "probLluvia": 49,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-14",
-                "min": 18.8,
-                "max": 28.3,
-                "lluviaMm": 5.3,
-                "probLluvia": 65,
-                "codigo": 81,
+                "min": 21.4,
+                "max": 29.4,
+                "lluviaMm": 5.7,
+                "probLluvia": 72,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-15",
-                "min": 16.2,
-                "max": 28.5,
-                "lluviaMm": 0,
-                "probLluvia": 38,
-                "codigo": 3,
+                "min": 18,
+                "max": 27,
+                "lluviaMm": 7.2,
+                "probLluvia": 60,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 21.400000000000002,
+            "lluviaTotal": 14.2,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-11-09",
         "titulares": [
           {
-            "titulo": "El boom de los drones en el agro: “La oportunidad está, es un cliente que adopta tecnologías muy rápido”",
-            "link": "https://www.infocampo.com.ar/el-boom-de-los-drones-en-el-agro-la-oportunidad-esta-es-un-cliente-que-adopta-tecnologias-muy-rapido/",
-            "fecha": "2026-11-09T14:50:29.000Z",
-            "fuente": "Infocampo"
+            "titulo": "La Mesa de Enlace participó del encuentro con el Papa en la UCA y valoró positivamente sus mensajes",
+            "link": "https://www.lanacion.com.ar/economia/campo/la-mesa-de-enlace-participo-del-encuentro-con-el-papa-en-la-uca-y-valoro-positivamente-sus-mensajes-nid09112026/",
+            "fecha": "2026-11-09T23:02:46.000Z",
+            "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Se mantiene la toma de Pauny. Los trabajadores reclaman un plan de pagos y la empresa ofrece una apertura parcial",
-            "link": "https://www.lanacion.com.ar/economia/campo/se-mantiene-la-toma-de-pauny-los-trabajadores-reclaman-un-plan-de-pagos-y-la-empresa-ofrece-una-nid09112026/",
-            "fecha": "2026-11-09T14:50:02.000Z",
+            "titulo": "Crecieron las exportaciones de cítricos: se movilizaron 90.000 toneladas de fruta y hubo un aumento del 9,3%",
+            "link": "https://www.lanacion.com.ar/economia/campo/crecieron-las-exportaciones-de-citricos-se-movilizaron-90000-toneladas-de-fruta-y-hubo-un-aumento-nid09112026/",
+            "fecha": "2026-11-09T22:31:31.000Z",
             "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Una buena noticia que en realidad es mala: Brasil está experimentando un auge de exportaciones de poroto hacia la Unión Europea",
+            "link": "https://bichosdecampo.com/una-buena-noticia-que-en-realidad-es-mala-brasil-esta-experimentando-un-auge-de-exportaciones-de-poroto-hacia-la-union-europea/",
+            "fecha": "2026-11-09T21:22:30.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Gustavo Piloni fue uno de los fundadores de la mayor exportadora de cítricos dulces hace 40 años, cuando había que sacar frutas: Ahora advierte que la crisis es peor porque “Argentina se cayó del globo”",
+            "link": "https://bichosdecampo.com/gustavo-piloni-fue-uno-de-los-fundadores-de-la-mayor-exportadora-de-citricos-dulces-hace-40-anos-cuando-habia-que-sacar-frutas-ahora-advierte-que-la-crisis-es-peor-porque-argentina-se-cayo/",
+            "fecha": "2026-11-09T20:17:10.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Cebada argentina en el país más poblado del mundo: Quilmes exportó US$ 370 millones del cereal para hacer cerveza y se expande a India",
+            "link": "https://www.clarin.com/rural/cebada-argentina-pais-poblado-mundo-quilmes-exporto-us-370-millones-cereal-hacer-cerveza-expande-india_0_wlJ3asWp2k.html",
+            "fecha": "2026-11-09T19:32:45.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "SIAL París reunió a 300.000 profesionales y anticipó las nuevas tendencias de la industria alimentaria",
+            "link": "https://www.todoagro.com.ar/sial-paris-reunio-a-300-000-profesionales-y-anticipo-las-nuevas-tendencias-de-la-industria-alimentaria/",
+            "fecha": "2026-11-09T19:30:06.000Z",
+            "fuente": "TodoAgro"
           },
           {
             "titulo": "Dólar BLUE HOY: a cuánto cotiza el 9 noviembre 2026",
             "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-9-noviembre-2026/",
-            "fecha": "2026-11-09T14:45:48.000Z",
+            "fecha": "2026-11-09T18:01:19.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Los productores de yerba intentan que el Papa, que mencionó al mate como símbolo de diálogo, logre conmover a Milei: “Ayúdenos a contarle al mundo nuestro sufrimiento”",
-            "link": "https://bichosdecampo.com/los-productores-de-yerba-intentan-que-el-papa-que-menciono-al-mate-como-simbolo-de-dialogo-logre-conmover-a-milei-ayudenos-a-contarle-al-mundo-nuestro-sufrimiento/",
-            "fecha": "2026-11-09T14:31:42.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "¿Se puede modificar 14 kilómetros de cauce sin pensar en las consecuencias? La agrónoma Alicia Barchuk advierte sobre las obras proyectadas sobre el río Anisacate, vital para una zona de Córdoba",
-            "link": "https://bichosdecampo.com/se-puede-modificar-14-kilometros-de-cauce-sin-pensar-en-las-consecuencias-la-agronoma-alicia-barchuk-advierte-sobre-las-obras-proyectadas-sobre-el-rio-anisacate-vital-para-una-zona-de-cordoba/",
-            "fecha": "2026-11-09T14:06:17.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "En octubre se registró la mitad de horas de sol que lo habitual y afirman que afectará al rendimiento del trigo",
-            "link": "https://www.clarin.com/rural/octubre-registro-mitad-horas-sol-habitual-afirman-afectara-rendimiento-trigo_0_uh9sXGCr0x.html",
-            "fecha": "2026-11-09T13:42:30.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Pese a que los precios reales de la hacienda registran 8 meses consecutivos de caída, continúan por encima de los promedios históricos",
-            "link": "https://www.clarin.com/rural/pese-precios-reales-hacienda-registran-8-meses-consecutivos-caida-continuan-encima-promedios-historicos_0_XidE9oshNj.html",
-            "fecha": "2026-11-09T13:29:50.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "Gonzalo Goñi, sobre un desarrollo argentino innovador: “Esto me va a decir cuánta plata te puedo prestar a partir de tu productividad”",
-            "link": "https://www.lanacion.com.ar/economia/campo/gonzalo-goni-sobre-un-desarrollo-argentino-innovador-esto-me-va-a-decir-cuanta-plata-te-puedo-nid09112026/",
-            "fecha": "2026-11-09T11:00:00.000Z",
-            "fuente": "La Nación Campo"
+            "titulo": "La disputa por el VISEC: desde CRA no descartan recurrir a Defensa de la Competencia",
+            "link": "https://www.infocampo.com.ar/la-disputa-por-el-visec-desde-cra-no-descartan-recurrir-a-defensa-de-la-competencia/",
+            "fecha": "2026-11-09T16:07:14.000Z",
+            "fuente": "Infocampo"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 11.9725,
-            "usdTonelada": 439.91394825
+            "usdBushel": 11.87,
+            "usdTonelada": 436.14771899999994
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.41,
-            "usdTonelada": 173.612439
+            "usdBushel": 4.3875,
+            "usdTonelada": 172.72666125
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.9,
-            "usdTonelada": 216.78782999999999
+            "usdBushel": 5.875,
+            "usdTonelada": 215.86923749999997
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-09T14:52:57.184Z"
+      "obtenido": "2026-11-10T01:02:29.382Z"
     }
   }
 }
