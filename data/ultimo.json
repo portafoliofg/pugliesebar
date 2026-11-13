@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     },
     "dolar": {
       "datos": {
@@ -128,118 +128,38 @@
           }
         }
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-11-12",
+        "fecha": "2026-11-13",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-12",
-                "min": 17,
-                "max": 34.1,
-                "lluviaMm": 0.2,
-                "probLluvia": 4,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-13",
-                "min": 21.4,
-                "max": 34.7,
-                "lluviaMm": 11.2,
-                "probLluvia": 69,
-                "codigo": 96,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-14",
-                "min": 20.4,
-                "max": 29.2,
-                "lluviaMm": 3.7,
-                "probLluvia": 71,
-                "codigo": 81,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-15",
-                "min": 16.7,
-                "max": 28.7,
-                "lluviaMm": 0.4,
-                "probLluvia": 23,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-16",
-                "min": 18.9,
-                "max": 29.3,
-                "lluviaMm": 15.8,
-                "probLluvia": 84,
-                "codigo": 96,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-17",
-                "min": 17.8,
-                "max": 26.5,
-                "lluviaMm": 0.7,
-                "probLluvia": 71,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-18",
-                "min": 16.8,
-                "max": 22.6,
-                "lluviaMm": 8.9,
-                "probLluvia": 65,
-                "codigo": 53,
-                "helada": false
-              }
-            ],
-            "lluviaTotal": 40.9,
-            "hayHelada": false
-          },
-          {
-            "nombre": "Villa del Rosario",
-            "provincia": "Córdoba",
-            "dias": [
-              {
-                "fecha": "2026-11-12",
-                "min": 20.1,
-                "max": 34.5,
-                "lluviaMm": 0.2,
-                "probLluvia": 10,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-13",
                 "min": 22.7,
-                "max": 35.1,
-                "lluviaMm": 16.5,
-                "probLluvia": 53,
+                "max": 35.7,
+                "lluviaMm": 8.7,
+                "probLluvia": 78,
                 "codigo": 96,
                 "helada": false
               },
               {
                 "fecha": "2026-11-14",
-                "min": 20.5,
-                "max": 29.4,
-                "lluviaMm": 10,
-                "probLluvia": 75,
+                "min": 20.7,
+                "max": 30,
+                "lluviaMm": 4.9,
+                "probLluvia": 73,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-15",
-                "min": 16.3,
-                "max": 28.6,
+                "min": 17.2,
+                "max": 28.9,
                 "lluviaMm": 0,
                 "probLluvia": 16,
                 "codigo": 3,
@@ -247,123 +167,203 @@
               },
               {
                 "fecha": "2026-11-16",
-                "min": 19.1,
-                "max": 29.4,
-                "lluviaMm": 31.5,
-                "probLluvia": 86,
+                "min": 18.2,
+                "max": 25.8,
+                "lluviaMm": 9.3,
+                "probLluvia": 91,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-17",
+                "min": 19.2,
+                "max": 26.3,
+                "lluviaMm": 5.8,
+                "probLluvia": 88,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-18",
+                "min": 17.4,
+                "max": 24.7,
+                "lluviaMm": 7.8,
+                "probLluvia": 75,
+                "codigo": 55,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-19",
+                "min": 13.4,
+                "max": 20.9,
+                "lluviaMm": 11.2,
+                "probLluvia": 88,
+                "codigo": 55,
+                "helada": false
+              }
+            ],
+            "lluviaTotal": 47.7,
+            "hayHelada": false
+          },
+          {
+            "nombre": "Villa del Rosario",
+            "provincia": "Córdoba",
+            "dias": [
+              {
+                "fecha": "2026-11-13",
+                "min": 23.1,
+                "max": 36,
+                "lluviaMm": 9.4,
+                "probLluvia": 71,
+                "codigo": 95,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-14",
+                "min": 21.4,
+                "max": 29.5,
+                "lluviaMm": 2.4,
+                "probLluvia": 72,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-15",
+                "min": 17,
+                "max": 29.3,
+                "lluviaMm": 0,
+                "probLluvia": 10,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-16",
+                "min": 19,
+                "max": 28.4,
+                "lluviaMm": 13,
+                "probLluvia": 87,
                 "codigo": 96,
                 "helada": false
               },
               {
                 "fecha": "2026-11-17",
-                "min": 18.5,
+                "min": 18.8,
                 "max": 27.5,
-                "lluviaMm": 0.4,
-                "probLluvia": 78,
-                "codigo": 51,
+                "lluviaMm": 2.4,
+                "probLluvia": 84,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-18",
-                "min": 17.2,
-                "max": 24.3,
-                "lluviaMm": 8.9,
-                "probLluvia": 43,
-                "codigo": 55,
+                "min": 17.7,
+                "max": 27.3,
+                "lluviaMm": 3.1,
+                "probLluvia": 57,
+                "codigo": 53,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-19",
+                "min": 14.3,
+                "max": 22.4,
+                "lluviaMm": 16.6,
+                "probLluvia": 67,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 67.5,
+            "lluviaTotal": 46.900000000000006,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-12",
+        "fecha": "2026-11-13",
         "titulares": [
           {
-            "titulo": "Tras nueve meses: reemplazan un puente de 1930 que se derrumbó por tubos de cemento y dicen que es “un parche definitivo”",
-            "link": "https://www.lanacion.com.ar/economia/campo/tras-nueve-meses-reemplazan-un-puente-de-1930-que-se-derrumbo-por-tubos-de-cemento-y-dicen-que-es-un-nid12112026/",
-            "fecha": "2026-11-12T22:11:43.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "El Niño: anticipan temperaturas de hasta 45 grados, lluvias desiguales y un posterior cambio térmico",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-nino-anticipan-temperaturas-de-hasta-45-grados-lluvias-desiguales-y-un-posterior-cambio-termico-nid12112026/",
-            "fecha": "2026-11-12T22:09:31.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Se viene el Roslot: Rosgan y los feedloteros crearon una plataforma digital para comercializar hacienda de invernada y generar una referencia de mercado",
-            "link": "https://bichosdecampo.com/se-viene-el-roslot-rosgan-y-los-feedloteros-crearon-una-plataforma-digital-para-comercializar-hacienda-de-invernada-y-generar-una-referencia-de-mercado/",
-            "fecha": "2026-11-12T21:45:23.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Amaggi amplía el acuerdo comercial con Los Grobo Agropecuaria para potenciar su capacidad de originación (y se hace cargo de los empleados garantizando condiciones laborales)",
-            "link": "https://bichosdecampo.com/amaggi-amplia-el-acuerdo-comercial-con-los-grobo-agropecuaria-para-potenciar-su-capacidad-de-originacion-y-se-hace-cargo-de-los-empleados-garantizando-condiciones-laborales/",
-            "fecha": "2026-11-12T21:31:50.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "“La ganadería está viviendo un momento histórico, ojalá no lo desaprovechemos”",
-            "link": "https://www.infocampo.com.ar/la-ganaderia-esta-viviendo-un-momento-historico-ojala-no-lo-desaprovechemos/",
-            "fecha": "2026-11-12T20:36:32.000Z",
+            "titulo": "Clima Hoy en Córdoba, el pronóstico del tiempo para este 13 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-cordoba-el-pronostico-del-tiempo-para-este-13-noviembre-2026/",
+            "fecha": "2026-11-13T04:20:09.000Z",
             "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima hoy en Salta, el pronóstico del tiempo para este 13 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-salta-el-pronostico-del-tiempo-para-este-13-noviembre-2026/",
+            "fecha": "2026-11-13T04:10:05.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Adecoagro pudo compensar el “perno” del negocio agrícola gracias a las ganancias extraordinarias generadas por los fertilizantes",
+            "link": "https://bichosdecampo.com/adecoagro-pudo-compensar-el-perno-del-negocio-agricola-gracias-a-las-ganancias-extraordinarias-generadas-por-los-fertilizantes/",
+            "fecha": "2026-11-13T03:24:29.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Una empresa agropecuaria de Tandil acumula cheques rechazados por más de $2200 millones: “Estamos poniendo la cara”",
+            "link": "https://www.lanacion.com.ar/economia/campo/una-empresa-agropecuaria-de-tandil-acumula-cheques-rechazados-por-mas-de-2200-millones-nid12112026/",
+            "fecha": "2026-11-13T00:28:21.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "“Kiosco de la casta”: productores autoconvocados de todo el país apuntaron contra Visec",
+            "link": "https://www.lanacion.com.ar/economia/campo/kiosco-de-la-casta-productores-autoconvocados-de-todo-el-pais-apuntaron-contra-visec-nid12112026/",
+            "fecha": "2026-11-13T00:19:51.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Resistiendo con aguante: El maíz argentino sigue mostrando una mayor entereza ante la ola bajista presente en Chicago",
+            "link": "https://bichosdecampo.com/resistiendo-con-aguante-el-maiz-argentino-sigue-mostrando-una-mayor-entereza-ante-la-ola-bajista-presente-en-chicago/",
+            "fecha": "2026-11-12T23:07:20.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Rusia y una solución argentina",
+            "link": "https://www.clarin.com/rural/rusia-solucion-argentina_0_d8Rr8LNkeS.html",
+            "fecha": "2026-11-12T22:56:16.000Z",
+            "fuente": "Clarín Rural"
           },
           {
             "titulo": "Más kilos, genética y exportaciones: el debate que abrió Rosgan sobre la ganadería que viene",
             "link": "https://www.todoagro.com.ar/mas-kilos-genetica-y-exportaciones-el-debate-que-abrio-rosgan-sobre-la-ganaderia-que-viene/",
             "fecha": "2026-11-12T20:03:44.000Z",
             "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Pauny lanza retiros voluntarios para reducir 150 empleos y promete plan de pagos, pero solo si se levanta la toma de la planta",
-            "link": "https://www.infocampo.com.ar/pauny-lanzo-retiros-voluntarios-para-reducir-150-empleos-y-promete-plan-de-pagos-pero-solo-si-se-levanta-la-toma-de-la-planta/",
-            "fecha": "2026-11-12T19:00:38.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Dos jornadas para aprender a potenciar rindes en trigo y soja de segunda",
-            "link": "https://www.clarin.com/rural/jornadas-aprender-potenciar-rindes-trigo-soja-segunda_0_rsaDxok9Xd.html",
-            "fecha": "2026-11-12T18:55:36.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-11-12",
+        "fecha": "2026-11-13",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.195,
-            "usdTonelada": 448.08942149999996
+            "usdBushel": 12.2925,
+            "usdTonelada": 451.67193225
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.4225,
-            "usdTonelada": 174.10453775000002
+            "usdBushel": 4.465,
+            "usdTonelada": 175.7776735
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.825,
-            "usdTonelada": 214.0320525
+            "usdBushel": 5.905,
+            "usdTonelada": 216.97154849999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-12T23:03:40.673Z"
+      "obtenido": "2026-11-13T04:31:50.790Z"
     }
   }
 }
