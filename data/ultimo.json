@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     },
     "dolar": {
       "datos": {
@@ -128,66 +128,57 @@
           }
         }
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-11-13",
+        "fecha": "2026-11-14",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-13",
-                "min": 23.1,
-                "max": 34.2,
-                "lluviaMm": 3.9,
-                "probLluvia": 96,
-                "codigo": 95,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-14",
-                "min": 20.7,
-                "max": 29.9,
-                "lluviaMm": 3.9,
+                "min": 21,
+                "max": 27.6,
+                "lluviaMm": 5.4,
                 "probLluvia": 57,
-                "codigo": 95,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-15",
-                "min": 16.9,
+                "min": 17.4,
                 "max": 28.7,
-                "lluviaMm": 0,
+                "lluviaMm": 0.1,
                 "probLluvia": 3,
-                "codigo": 3,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-16",
-                "min": 19.1,
-                "max": 25.1,
-                "lluviaMm": 13.9,
+                "min": 18.7,
+                "max": 27.2,
+                "lluviaMm": 20.5,
                 "probLluvia": 85,
                 "codigo": 96,
                 "helada": false
               },
               {
                 "fecha": "2026-11-17",
-                "min": 17.9,
-                "max": 26.3,
-                "lluviaMm": 9.7,
+                "min": 17.2,
+                "max": 25.4,
+                "lluviaMm": 6.5,
                 "probLluvia": 82,
-                "codigo": 95,
+                "codigo": 61,
                 "helada": false
               },
               {
                 "fecha": "2026-11-18",
-                "min": 16.5,
-                "max": 25.6,
-                "lluviaMm": 5.7,
+                "min": 16.9,
+                "max": 25.9,
+                "lluviaMm": 4.1,
                 "probLluvia": 69,
                 "codigo": 53,
                 "helada": false
@@ -195,14 +186,23 @@
               {
                 "fecha": "2026-11-19",
                 "min": 14.2,
-                "max": 24.1,
-                "lluviaMm": 5,
+                "max": 24,
+                "lluviaMm": 13.1,
                 "probLluvia": 81,
-                "codigo": 53,
+                "codigo": 95,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-20",
+                "min": 12.8,
+                "max": 24.6,
+                "lluviaMm": 0.4,
+                "probLluvia": 69,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 42.1,
+            "lluviaTotal": 50.1,
             "hayHelada": false
           },
           {
@@ -210,27 +210,18 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-13",
-                "min": 22.9,
-                "max": 34.9,
-                "lluviaMm": 10,
-                "probLluvia": 86,
-                "codigo": 95,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-14",
-                "min": 20.5,
-                "max": 30,
-                "lluviaMm": 11.7,
+                "min": 19.7,
+                "max": 28.9,
+                "lluviaMm": 1.1,
                 "probLluvia": 63,
-                "codigo": 95,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-15",
-                "min": 16.3,
-                "max": 28.2,
+                "min": 16.9,
+                "max": 29,
                 "lluviaMm": 0,
                 "probLluvia": 1,
                 "codigo": 3,
@@ -238,85 +229,100 @@
               },
               {
                 "fecha": "2026-11-16",
-                "min": 18.9,
-                "max": 24.9,
-                "lluviaMm": 14.7,
+                "min": 19.3,
+                "max": 29.2,
+                "lluviaMm": 12.6,
                 "probLluvia": 76,
-                "codigo": 96,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-17",
-                "min": 18.2,
-                "max": 28.1,
-                "lluviaMm": 4.1,
+                "min": 18.8,
+                "max": 26.9,
+                "lluviaMm": 5.1,
                 "probLluvia": 75,
-                "codigo": 55,
+                "codigo": 80,
                 "helada": false
               },
               {
                 "fecha": "2026-11-18",
-                "min": 17.6,
-                "max": 26.8,
-                "lluviaMm": 4.9,
+                "min": 17.9,
+                "max": 27.6,
+                "lluviaMm": 6.8,
                 "probLluvia": 61,
-                "codigo": 55,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-19",
                 "min": 14.7,
-                "max": 24.1,
-                "lluviaMm": 10.2,
+                "max": 25.2,
+                "lluviaMm": 10.5,
                 "probLluvia": 73,
-                "codigo": 55,
+                "codigo": 95,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-20",
+                "min": 13.6,
+                "max": 25.6,
+                "lluviaMm": 0,
+                "probLluvia": 52,
+                "codigo": 2,
                 "helada": false
               }
             ],
-            "lluviaTotal": 55.599999999999994,
+            "lluviaTotal": 36.099999999999994,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-13",
+        "fecha": "2026-11-14",
         "titulares": [
           {
-            "titulo": "Vacunos: cierre de semana con bajas en el Mercado Agroganadero de Cañuelas",
-            "link": "https://www.lanacion.com.ar/economia/campo/vacunos-cierre-de-semana-con-bajas-en-el-mercado-agroganadero-de-canuelas-nid13112026/",
-            "fecha": "2026-11-13T22:51:32.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "En Rosario: el río Paraná subió casi dos metros en nueve semanas y quedó a 53 centímetros del nivel de alerta",
-            "link": "https://www.lanacion.com.ar/economia/campo/en-rosario-el-rio-parana-subio-casi-dos-metros-en-nueve-semanas-y-quedo-a-53-centimetros-del-nivel-nid13112026/",
-            "fecha": "2026-11-13T22:39:07.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Con exportaciones que crecieron 82%, el girasol atraviesa uno de sus mejores momentos y apuesta a otra gran campaña",
-            "link": "https://bichosdecampo.com/con-exportaciones-que-crecieron-82-el-girasol-atraviesa-uno-de-sus-mejores-momentos-y-apuesta-a-otra-gran-campana/",
-            "fecha": "2026-11-13T21:48:13.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Agro Capital Day: cómo convertir la competitividad del campo en inversión de largo plazo",
-            "link": "https://www.infocampo.com.ar/agro-capital-day-como-convertir-la-competitividad-del-campo-en-inversion-de-largo-plazo/",
-            "fecha": "2026-11-13T20:14:30.000Z",
+            "titulo": "Clima Hoy en Córdoba, el pronóstico del tiempo para este 14 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-cordoba-el-pronostico-del-tiempo-para-este-14-noviembre-2026/",
+            "fecha": "2026-11-14T04:20:05.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Tres entidades del agro rechazaron el aumento impuesto por el gobierno de Buenos Aires a los fletes de granos",
-            "link": "https://bichosdecampo.com/tres-entidades-del-agro-rechazaron-el-aumento-impuesto-por-el-gobierno-de-buenos-aires-a-los-fletes-de-granos/",
-            "fecha": "2026-11-13T19:34:19.000Z",
+            "titulo": "Clima hoy en Salta, el pronóstico del tiempo para este 14 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-salta-el-pronostico-del-tiempo-para-este-14-noviembre-2026/",
+            "fecha": "2026-11-14T04:10:04.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Alejandra Gribaldo produce cebada sobre soja de cobertura (¿qué?) y tiene una muy buena razón para hacerlo",
+            "link": "https://bichosdecampo.com/alejandra-gribaldo-produce-cebada-sobre-soja-de-cobertura-que-y-tiene-una-muy-buena-razon-para-hacerlo/",
+            "fecha": "2026-11-14T04:06:47.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Buenos Aires: la provincia laudó un aumento en la tarifa del transporte de granos por encima de lo pedido por los transportistas y estalló la bronca del campo",
+            "titulo": "Zarpado: Se registraron embarques de maíz argentino por 680.000 toneladas en una sola jornada",
+            "link": "https://bichosdecampo.com/zarpado-se-registraron-embarques-de-maiz-argentino-por-680-000-toneladas-en-una-soja-jornada/",
+            "fecha": "2026-11-14T00:41:39.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Para más de 50.000 hectáreas: el PRO reclama por un proyecto que permite la siembra al costado de las rutas nacionales",
+            "link": "https://www.lanacion.com.ar/economia/campo/el-pro-reclama-que-avance-un-proyecto-para-volver-a-permitir-la-siembra-al-costado-de-las-rutas-nid13112026/",
+            "fecha": "2026-11-13T23:17:47.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Contraste: cayó un 11,2% el consumo de carne vacuna y, por primera vez en la historia, la exportación se llevó el 31,1% de la producción",
+            "link": "https://www.lanacion.com.ar/economia/campo/contraste-cayo-un-112-el-consumo-de-carne-vacuna-y-por-primera-vez-en-la-historia-la-exportacion-se-nid13112026/",
+            "fecha": "2026-11-13T23:15:58.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Polémica en Buenos Aires: entidades denunciaron que la provincia laudó un aumento en la tarifa de carga de granos por encima de lo pedido por los transportistas, pero el gobierno de Kicillof lo niega",
             "link": "https://www.clarin.com/rural/buenos-aires-provincia-laudo-aumento-tarifa-transporte-granos-encima-pedido-transportistas-estallo-bronca-campo_0_GK5cwVpRv4.html",
             "fecha": "2026-11-13T18:37:05.000Z",
             "fuente": "Clarín Rural"
@@ -326,19 +332,13 @@
             "link": "https://www.clarin.com/rural/avicultura-argentina-reconocida-region-acciones-promocion_0_85wBHSAvPI.html",
             "fecha": "2026-11-13T18:18:42.000Z",
             "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "El girasol disparó sus exportaciones un 822% y se convirtió en uno de los grandes protagonistas del crecimiento agroindustrial",
-            "link": "https://www.todoagro.com.ar/el-girasol-disparo-sus-exportaciones-un-822-y-se-convirtio-en-uno-de-los-grandes-protagonistas-del-crecimiento-agroindustrial/",
-            "fecha": "2026-11-13T18:07:30.000Z",
-            "fuente": "TodoAgro"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     },
     "cbot": {
       "datos": {
@@ -363,7 +363,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-13T23:06:54.516Z"
+      "obtenido": "2026-11-14T04:27:58.625Z"
     }
   }
 }
