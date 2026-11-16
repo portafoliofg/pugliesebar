@@ -2,31 +2,31 @@
   "fuentes": {
     "pizarra": {
       "datos": {
-        "fecha": "2026-11-12",
+        "fecha": "2026-11-13",
         "granos": {
           "soja": {
-            "pesos": 540000,
-            "usd": 351.45,
+            "pesos": 545000,
+            "usd": 355.16,
             "sinCotizacion": false
           },
           "maiz": {
-            "pesos": 275800,
-            "usd": 179.5,
+            "pesos": 269300,
+            "usd": null,
             "sinCotizacion": false
           },
           "girasol": {
-            "pesos": 752885,
+            "pesos": 750000,
             "usd": null,
             "sinCotizacion": false
           },
           "trigo": {
-            "pesos": 288900,
-            "usd": 188.02,
+            "pesos": 284000,
+            "usd": 185.08,
             "sinCotizacion": false
           }
         }
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     },
     "matba": {
       "datos": {
@@ -85,124 +85,124 @@
           ]
         }
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     },
     "dolar": {
       "datos": {
-        "fecha": "2026-11-13",
+        "fecha": "2026-11-16",
         "tipos": {
           "oficial": {
             "compra": 1520,
             "venta": 1570,
-            "actualizado": "2026-11-13T18:00:00.000Z"
+            "actualizado": "2026-11-16T11:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1534.5,
-            "venta": 1543.5,
-            "actualizado": "2026-11-13T15:31:00.000Z"
+            "compra": 1539,
+            "venta": 1548,
+            "actualizado": "2026-11-16T10:51:00.000Z"
           },
           "mep": {
-            "compra": 1575.5,
-            "venta": 1580.9,
-            "actualizado": "2026-11-13T20:58:00.000Z"
+            "compra": 1578.3,
+            "venta": 1578.3,
+            "actualizado": "2026-11-16T13:57:00.000Z"
           },
           "ccl": {
-            "compra": 1668.2,
-            "venta": 1671.9,
-            "actualizado": "2026-11-13T20:58:00.000Z"
+            "compra": 1675.5,
+            "venta": 1675.5,
+            "actualizado": "2026-11-16T13:57:00.000Z"
           },
           "blue": {
-            "compra": 1555,
-            "venta": 1575,
-            "actualizado": "2026-11-13T20:58:00.000Z"
+            "compra": 1560,
+            "venta": 1580,
+            "actualizado": "2026-11-16T13:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1976,
             "venta": 2041,
-            "actualizado": "2026-11-13T18:00:00.000Z"
+            "actualizado": "2026-11-16T11:00:00.000Z"
           },
           "cripto": {
-            "compra": 1663.04,
-            "venta": 1670.45,
-            "actualizado": "2026-11-13T20:58:00.000Z"
+            "compra": 1670.18,
+            "venta": 1672.96,
+            "actualizado": "2026-11-16T13:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-11-14",
+        "fecha": "2026-11-16",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-14",
-                "min": 21,
-                "max": 27.6,
-                "lluviaMm": 5.4,
-                "probLluvia": 57,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-15",
-                "min": 17.4,
-                "max": 28.7,
-                "lluviaMm": 0.1,
-                "probLluvia": 3,
-                "codigo": 51,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-16",
-                "min": 18.7,
-                "max": 27.2,
-                "lluviaMm": 20.5,
-                "probLluvia": 85,
-                "codigo": 96,
+                "min": 18.5,
+                "max": 30,
+                "lluviaMm": 18.2,
+                "probLluvia": 100,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-17",
-                "min": 17.2,
-                "max": 25.4,
-                "lluviaMm": 6.5,
-                "probLluvia": 82,
-                "codigo": 61,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-18",
-                "min": 16.9,
-                "max": 25.9,
-                "lluviaMm": 4.1,
-                "probLluvia": 69,
+                "min": 17.7,
+                "max": 26.3,
+                "lluviaMm": 3.2,
+                "probLluvia": 71,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-11-18",
+                "min": 16.1,
+                "max": 26.1,
+                "lluviaMm": 1.6,
+                "probLluvia": 82,
+                "codigo": 51,
+                "helada": false
+              },
+              {
                 "fecha": "2026-11-19",
-                "min": 14.2,
-                "max": 24,
-                "lluviaMm": 13.1,
-                "probLluvia": 81,
+                "min": 17.5,
+                "max": 23.7,
+                "lluviaMm": 12.4,
+                "probLluvia": 78,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-20",
-                "min": 12.8,
-                "max": 24.6,
-                "lluviaMm": 0.4,
-                "probLluvia": 69,
-                "codigo": 51,
+                "min": 15.5,
+                "max": 24.7,
+                "lluviaMm": 6.7,
+                "probLluvia": 55,
+                "codigo": 95,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-21",
+                "min": 17.6,
+                "max": 26.2,
+                "lluviaMm": 6.7,
+                "probLluvia": 65,
+                "codigo": 80,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-22",
+                "min": 17.3,
+                "max": 22.4,
+                "lluviaMm": 3.5,
+                "probLluvia": 52,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 50.1,
+            "lluviaTotal": 52.300000000000004,
             "hayHelada": false
           },
           {
@@ -210,160 +210,160 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-14",
-                "min": 19.7,
-                "max": 28.9,
-                "lluviaMm": 1.1,
-                "probLluvia": 63,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-15",
-                "min": 16.9,
-                "max": 29,
-                "lluviaMm": 0,
-                "probLluvia": 1,
-                "codigo": 3,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-16",
-                "min": 19.3,
-                "max": 29.2,
-                "lluviaMm": 12.6,
-                "probLluvia": 76,
+                "min": 19,
+                "max": 31.7,
+                "lluviaMm": 21.5,
+                "probLluvia": 100,
                 "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-17",
                 "min": 18.8,
-                "max": 26.9,
-                "lluviaMm": 5.1,
-                "probLluvia": 75,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-18",
-                "min": 17.9,
-                "max": 27.6,
-                "lluviaMm": 6.8,
-                "probLluvia": 61,
+                "max": 28,
+                "lluviaMm": 1,
+                "probLluvia": 73,
                 "codigo": 53,
                 "helada": false
               },
               {
+                "fecha": "2026-11-18",
+                "min": 17.5,
+                "max": 27.4,
+                "lluviaMm": 1.1,
+                "probLluvia": 75,
+                "codigo": 51,
+                "helada": false
+              },
+              {
                 "fecha": "2026-11-19",
-                "min": 14.7,
-                "max": 25.2,
-                "lluviaMm": 10.5,
-                "probLluvia": 73,
-                "codigo": 95,
+                "min": 17.4,
+                "max": 25.4,
+                "lluviaMm": 14.6,
+                "probLluvia": 76,
+                "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-11-20",
-                "min": 13.6,
-                "max": 25.6,
-                "lluviaMm": 0,
-                "probLluvia": 52,
-                "codigo": 2,
+                "min": 15.7,
+                "max": 25.8,
+                "lluviaMm": 12.2,
+                "probLluvia": 48,
+                "codigo": 81,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-21",
+                "min": 17,
+                "max": 26.9,
+                "lluviaMm": 13.6,
+                "probLluvia": 49,
+                "codigo": 81,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-22",
+                "min": 17.4,
+                "max": 26.1,
+                "lluviaMm": 2.3,
+                "probLluvia": 31,
+                "codigo": 53,
                 "helada": false
               }
             ],
-            "lluviaTotal": 36.099999999999994,
+            "lluviaTotal": 66.3,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-14",
+        "fecha": "2026-11-16",
         "titulares": [
           {
-            "titulo": "Clima Hoy en Córdoba, el pronóstico del tiempo para este 14 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/clima-hoy-en-cordoba-el-pronostico-del-tiempo-para-este-14-noviembre-2026/",
-            "fecha": "2026-11-14T04:20:05.000Z",
+            "titulo": "Santa Fe ya retiró el 90% de la hacienda de las islas ante la crecida del Paraná",
+            "link": "https://www.todoagro.com.ar/santa-fe-ya-retiro-el-90-de-la-hacienda-de-las-islas-ante-la-crecida-del-parana/",
+            "fecha": "2026-11-16T14:24:27.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Alivio: con el Paraná en su mayor nivel desde 1998, ya está a salvo casi toda la hacienda en riesgo",
+            "link": "https://www.infocampo.com.ar/alivio-con-el-parana-en-su-mayor-nivel-desde-1998-ya-esta-a-salvo-casi-toda-la-hacienda-en-riesgo/",
+            "fecha": "2026-11-16T14:24:21.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Clima hoy en Salta, el pronóstico del tiempo para este 14 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/clima-hoy-en-salta-el-pronostico-del-tiempo-para-este-14-noviembre-2026/",
-            "fecha": "2026-11-14T04:10:04.000Z",
+            "titulo": "Precio del maíz en Rosario hoy 16 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/precio-del-maiz-hoy-16-noviembre-2026/",
+            "fecha": "2026-11-16T14:06:29.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Alejandra Gribaldo produce cebada sobre soja de cobertura (¿qué?) y tiene una muy buena razón para hacerlo",
-            "link": "https://bichosdecampo.com/alejandra-gribaldo-produce-cebada-sobre-soja-de-cobertura-que-y-tiene-una-muy-buena-razon-para-hacerlo/",
-            "fecha": "2026-11-14T04:06:47.000Z",
+            "titulo": "El gobierno retoma una ley kirchnerista reglamentada por el macrismo y termina de moldear el “acceso abierto”, que obligará a compartir las vías del Belgrano Cargas",
+            "link": "https://bichosdecampo.com/el-gobierno-retoma-una-ley-kirchnerista-reglamentada-por-el-macrismo-y-termina-de-moldear-el-acceso-abierto-que-obligara-al-futuro-concesionario-del-belgrano-cargas-a-compartir-las-v/",
+            "fecha": "2026-11-16T13:58:12.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Zarpado: Se registraron embarques de maíz argentino por 680.000 toneladas en una sola jornada",
-            "link": "https://bichosdecampo.com/zarpado-se-registraron-embarques-de-maiz-argentino-por-680-000-toneladas-en-una-soja-jornada/",
-            "fecha": "2026-11-14T00:41:39.000Z",
+            "titulo": "Suben 500.000 toneladas al volumen de proyección para el trigo y anticipan una nueva campaña histórica",
+            "link": "https://www.todoagro.com.ar/suben-500-000-toneladas-al-volumen-de-proyeccion-para-el-trigo-y-anticipan-una-nueva-campana-historica/",
+            "fecha": "2026-11-16T13:45:43.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Revolucionaron un antiguo modelo forestal de 1000 hectáreas y el cambio en el negocio fue impactante",
+            "link": "https://www.lanacion.com.ar/economia/campo/cambiaron-un-viejo-modelo-forestal-de-1000-hectareas-y-el-resultado-fue-contundente-nid16112026/",
+            "fecha": "2026-11-16T13:22:29.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Esa repetida sensación de que llega fin de año y el Congreso va a volver a decepcionar: Temen porque los legisladores finalmente no aprueben este año leyes clave como Biocombustibles y Semillas",
+            "link": "https://bichosdecampo.com/esa-repetida-sensacion-de-que-llega-fin-de-ano-y-el-congreso-va-a-volver-a-decepcionar-temen-porque-los-legisladores-finalmente-no-aprueben-este-ano-leyes-clave-como-biocombustibles-y-semillas/",
+            "fecha": "2026-11-16T13:18:45.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Para más de 50.000 hectáreas: el PRO reclama por un proyecto que permite la siembra al costado de las rutas nacionales",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-pro-reclama-que-avance-un-proyecto-para-volver-a-permitir-la-siembra-al-costado-de-las-rutas-nid13112026/",
-            "fecha": "2026-11-13T23:17:47.000Z",
+            "titulo": "Invirtió US$20 millones: una empresa familiar inauguró una planta para procesar 500 toneladas diarias de madera y exportar",
+            "link": "https://www.lanacion.com.ar/economia/campo/invirtio-us20-millones-una-empresa-familiar-inauguro-una-planta-para-procesar-500-toneladas-diarias-nid16112026/",
+            "fecha": "2026-11-16T11:52:54.000Z",
             "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Contraste: cayó un 11,2% el consumo de carne vacuna y, por primera vez en la historia, la exportación se llevó el 31,1% de la producción",
-            "link": "https://www.lanacion.com.ar/economia/campo/contraste-cayo-un-112-el-consumo-de-carne-vacuna-y-por-primera-vez-en-la-historia-la-exportacion-se-nid13112026/",
-            "fecha": "2026-11-13T23:15:58.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Polémica en Buenos Aires: entidades denunciaron que la provincia laudó un aumento en la tarifa de carga de granos por encima de lo pedido por los transportistas, pero el gobierno de Kicillof lo niega",
-            "link": "https://www.clarin.com/rural/buenos-aires-provincia-laudo-aumento-tarifa-transporte-granos-encima-pedido-transportistas-estallo-bronca-campo_0_GK5cwVpRv4.html",
-            "fecha": "2026-11-13T18:37:05.000Z",
-            "fuente": "Clarín Rural"
-          },
-          {
-            "titulo": "La avicultura argentina fue reconocida en la región por sus acciones de promoción",
-            "link": "https://www.clarin.com/rural/avicultura-argentina-reconocida-region-acciones-promocion_0_85wBHSAvPI.html",
-            "fecha": "2026-11-13T18:18:42.000Z",
-            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-11-13",
+        "fecha": "2026-11-16",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.3275,
-            "usdTonelada": 452.95796175
+            "usdBushel": 12.2575,
+            "usdTonelada": 450.38590274999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.46,
-            "usdTonelada": 175.58083399999998
+            "usdBushel": 4.4475,
+            "usdTonelada": 175.08873524999998
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.935,
-            "usdTonelada": 218.07385949999997
+            "usdBushel": 5.9,
+            "usdTonelada": 216.78782999999999
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     },
     "enso": {
       "datos": {
@@ -471,11 +471,6 @@
         ],
         "nino34Semanal": [
           {
-            "fecha": "2026-08-19",
-            "nino34": 2.6,
-            "nino12": 4
-          },
-          {
             "fecha": "2026-08-26",
             "nino34": 2.6,
             "nino12": 4.2
@@ -517,8 +512,8 @@
           },
           {
             "fecha": "2026-10-21",
-            "nino34": 3.4,
-            "nino12": 5.2
+            "nino34": 3.3,
+            "nino12": 5.3
           },
           {
             "fecha": "2026-10-28",
@@ -529,11 +524,16 @@
             "fecha": "2026-11-04",
             "nino34": 3.3,
             "nino12": 5.6
+          },
+          {
+            "fecha": "2026-11-11",
+            "nino34": 3.2,
+            "nino12": 5.4
           }
         ],
         "faseActual": "nino",
         "intensidadActual": "muy fuerte",
-        "anomActual": 3.3,
+        "anomActual": 3.2,
         "alerta": "El Niño Advisory",
         "estadoTexto": "El Niño en curso",
         "sinopsis": "El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than a 79% chance).",
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-14T04:27:58.625Z"
+      "obtenido": "2026-11-16T14:28:52.352Z"
     }
   }
 }
