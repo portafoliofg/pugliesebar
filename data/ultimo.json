@@ -2,16 +2,16 @@
   "fuentes": {
     "pizarra": {
       "datos": {
-        "fecha": "2026-11-13",
+        "fecha": "2026-11-16",
         "granos": {
           "soja": {
             "pesos": 545000,
-            "usd": 355.16,
+            "usd": 353.44,
             "sinCotizacion": false
           },
           "maiz": {
-            "pesos": 269300,
-            "usd": null,
+            "pesos": 271400,
+            "usd": 176.01,
             "sinCotizacion": false
           },
           "girasol": {
@@ -20,13 +20,13 @@
             "sinCotizacion": false
           },
           "trigo": {
-            "pesos": 284000,
-            "usd": 185.08,
+            "pesos": 285270,
+            "usd": 185,
             "sinCotizacion": false
           }
         }
       },
-      "obtenido": "2026-11-17T01:24:37.130Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     },
     "matba": {
       "datos": {
@@ -85,124 +85,124 @@
           ]
         }
       },
-      "obtenido": "2026-11-17T01:24:37.130Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     },
     "dolar": {
       "datos": {
-        "fecha": "2026-11-16",
+        "fecha": "2026-11-17",
         "tipos": {
           "oficial": {
             "compra": 1525,
             "venta": 1575,
-            "actualizado": "2026-11-16T18:00:00.000Z"
+            "actualizado": "2026-11-17T12:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1542,
-            "venta": 1551,
-            "actualizado": "2026-11-16T15:11:00.000Z"
+            "compra": 1544,
+            "venta": 1553,
+            "actualizado": "2026-11-17T11:52:00.000Z"
           },
           "mep": {
-            "compra": 1581.2,
-            "venta": 1588.9,
-            "actualizado": "2026-11-16T20:59:00.000Z"
+            "compra": 1586.4,
+            "venta": 1587.7,
+            "actualizado": "2026-11-17T14:57:00.000Z"
           },
           "ccl": {
-            "compra": 1680.1,
-            "venta": 1682.9,
-            "actualizado": "2026-11-16T20:59:00.000Z"
+            "compra": 1683.9,
+            "venta": 1684.2,
+            "actualizado": "2026-11-17T14:57:00.000Z"
           },
           "blue": {
-            "compra": 1580,
-            "venta": 1600,
-            "actualizado": "2026-11-16T20:59:00.000Z"
+            "compra": 1585,
+            "venta": 1605,
+            "actualizado": "2026-11-17T14:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1982.5,
             "venta": 2047.5,
-            "actualizado": "2026-11-16T18:00:00.000Z"
+            "actualizado": "2026-11-17T12:00:00.000Z"
           },
           "cripto": {
-            "compra": 1667.48,
-            "venta": 1676.69,
-            "actualizado": "2026-11-16T20:59:00.000Z"
+            "compra": 1680.65,
+            "venta": 1683.98,
+            "actualizado": "2026-11-17T14:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-17T01:24:37.130Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-11-16",
+        "fecha": "2026-11-17",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-16",
-                "min": 18.5,
-                "max": 30,
-                "lluviaMm": 18.2,
-                "probLluvia": 100,
-                "codigo": 95,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-17",
-                "min": 17.7,
-                "max": 26.3,
-                "lluviaMm": 3.2,
-                "probLluvia": 71,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-18",
-                "min": 16.1,
-                "max": 26.1,
-                "lluviaMm": 1.6,
-                "probLluvia": 82,
+                "min": 16,
+                "max": 28.5,
+                "lluviaMm": 0.1,
+                "probLluvia": 78,
                 "codigo": 51,
                 "helada": false
               },
               {
+                "fecha": "2026-11-18",
+                "min": 16.7,
+                "max": 26.3,
+                "lluviaMm": 1.2,
+                "probLluvia": 78,
+                "codigo": 53,
+                "helada": false
+              },
+              {
                 "fecha": "2026-11-19",
-                "min": 17.5,
-                "max": 23.7,
-                "lluviaMm": 12.4,
+                "min": 17.6,
+                "max": 26.6,
+                "lluviaMm": 1.3,
+                "probLluvia": 76,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-20",
+                "min": 16.9,
+                "max": 24.6,
+                "lluviaMm": 17.2,
                 "probLluvia": 78,
                 "codigo": 95,
                 "helada": false
               },
               {
-                "fecha": "2026-11-20",
-                "min": 15.5,
-                "max": 24.7,
-                "lluviaMm": 6.7,
-                "probLluvia": 55,
+                "fecha": "2026-11-21",
+                "min": 18,
+                "max": 22.2,
+                "lluviaMm": 19.6,
+                "probLluvia": 68,
                 "codigo": 95,
                 "helada": false
               },
               {
-                "fecha": "2026-11-21",
-                "min": 17.6,
-                "max": 26.2,
-                "lluviaMm": 6.7,
-                "probLluvia": 65,
+                "fecha": "2026-11-22",
+                "min": 16,
+                "max": 24.1,
+                "lluviaMm": 7.4,
+                "probLluvia": 55,
                 "codigo": 80,
                 "helada": false
               },
               {
-                "fecha": "2026-11-22",
-                "min": 17.3,
-                "max": 22.4,
-                "lluviaMm": 3.5,
-                "probLluvia": 52,
-                "codigo": 53,
+                "fecha": "2026-11-23",
+                "min": 16.8,
+                "max": 21.9,
+                "lluviaMm": 13.8,
+                "probLluvia": 62,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 52.300000000000004,
+            "lluviaTotal": 60.60000000000001,
             "hayHelada": false
           },
           {
@@ -210,160 +210,160 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-16",
-                "min": 19,
-                "max": 31.7,
-                "lluviaMm": 21.5,
-                "probLluvia": 100,
-                "codigo": 95,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-17",
-                "min": 18.8,
-                "max": 28,
-                "lluviaMm": 1,
-                "probLluvia": 73,
-                "codigo": 53,
+                "min": 16.8,
+                "max": 28.7,
+                "lluviaMm": 0.2,
+                "probLluvia": 51,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-18",
-                "min": 17.5,
-                "max": 27.4,
-                "lluviaMm": 1.1,
-                "probLluvia": 75,
+                "min": 16.8,
+                "max": 27.6,
+                "lluviaMm": 0.4,
+                "probLluvia": 73,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-19",
-                "min": 17.4,
-                "max": 25.4,
-                "lluviaMm": 14.6,
-                "probLluvia": 76,
-                "codigo": 81,
+                "min": 18,
+                "max": 27,
+                "lluviaMm": 0.7,
+                "probLluvia": 51,
+                "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-20",
-                "min": 15.7,
-                "max": 25.8,
-                "lluviaMm": 12.2,
-                "probLluvia": 48,
-                "codigo": 81,
+                "min": 17.4,
+                "max": 27.1,
+                "lluviaMm": 5.8,
+                "probLluvia": 66,
+                "codigo": 95,
                 "helada": false
               },
               {
                 "fecha": "2026-11-21",
-                "min": 17,
-                "max": 26.9,
-                "lluviaMm": 13.6,
-                "probLluvia": 49,
+                "min": 17.2,
+                "max": 24.2,
+                "lluviaMm": 25.4,
+                "probLluvia": 55,
                 "codigo": 81,
                 "helada": false
               },
               {
                 "fecha": "2026-11-22",
                 "min": 17.4,
-                "max": 26.1,
-                "lluviaMm": 2.3,
-                "probLluvia": 31,
-                "codigo": 53,
+                "max": 25.9,
+                "lluviaMm": 1.4,
+                "probLluvia": 28,
+                "codigo": 51,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-23",
+                "min": 16.5,
+                "max": 23,
+                "lluviaMm": 13.4,
+                "probLluvia": 41,
+                "codigo": 80,
                 "helada": false
               }
             ],
-            "lluviaTotal": 66.3,
+            "lluviaTotal": 47.3,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-16",
+        "fecha": "2026-11-17",
         "titulares": [
           {
-            "titulo": "¿Qué hacer con US$50 millones? Empresarios del agro respondieron cómo invertirían ese dinero",
-            "link": "https://www.lanacion.com.ar/economia/campo/que-hacer-con-us50-millones-empresarios-del-agro-respondieron-como-invertirian-ese-dinero-nid16112026/",
-            "fecha": "2026-11-16T23:49:18.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Quién lo fundó: el pueblo que nació en 500 hectáreas y lleva un novillo en su bandera",
-            "link": "https://www.lanacion.com.ar/economia/campo/quien-lo-fundo-el-pueblo-que-nacio-en-500-hectareas-y-lleva-un-novillo-en-su-bandera-nid16112026/",
-            "fecha": "2026-11-16T23:45:40.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Se cae todo “como un piano”, salvo los precios de la harina de soja a causa de la desesperación de los europeos",
-            "link": "https://bichosdecampo.com/se-cae-todo-como-un-piano-salvo-los-precios-de-la-harina-de-soja-a-causa-de-la-desesperacion-de-los-europeos/",
-            "fecha": "2026-11-16T23:13:31.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Mega inversión: Toyota le mostró a Milei su plan para la primera pick-up híbrida de fabricación nacional",
-            "link": "https://www.infocampo.com.ar/mega-inversion-toyota-le-mostro-a-milei-su-plan-para-la-primera-pick-up-hibrida-de-fabricacion-nacional/",
-            "fecha": "2026-11-16T22:25:47.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 17 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-17-noviembre-2026/",
+            "fecha": "2026-11-17T15:16:12.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "“Jujuy todavía está descubriendo su identidad vitivinícola”: Dos jóvenes agrónomos crearon la primera bodega urbana en la capital y acaban de lanzar los primeros espumantes en la historia de la provincia",
-            "link": "https://bichosdecampo.com/jujuy-todavia-esta-descubriendo-su-identidad-vitivinicola-dos-jovenes-agronomos-crearon-la-primera-bodega-urbana-en-la-capital-y-acaban-de-lanzar-los-primeros-espumantes-en-la-historia-de/",
-            "fecha": "2026-11-16T21:08:06.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "“I+D y campo, todo en un mismo lugar”: un nuevo centro experimental modelo nace en Córdoba",
-            "link": "https://www.infocampo.com.ar/id-y-campo-todo-en-un-mismo-lugar-un-nuevo-centro-experimental-modelo-nace-en-cordoba/",
-            "fecha": "2026-11-16T20:28:52.000Z",
+            "titulo": "El mejor contexto ganadero de la historia: “Pasamos de un partido de barrio a la final del Mundial”",
+            "link": "https://www.infocampo.com.ar/el-mejor-contexto-ganadero-de-la-historia-pasamos-de-un-partido-de-barrio-a-la-final-del-mundial/",
+            "fecha": "2026-11-17T15:03:15.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Mastitis bovina: detectarla a tiempo puede reducir hasta un 50 % el uso de antibióticos",
-            "link": "https://www.todoagro.com.ar/mastitis-bovina-detectarla-a-tiempo-puede-reducir-hasta-un-50-el-uso-de-antibioticos/",
-            "fecha": "2026-11-16T20:13:37.000Z",
+            "titulo": "“Hay que dejar de mirar con los anteojos del siglo XIX”: La industria azucarera asegura que “el régimen de biocombustibles está agotado” y espera una nueva ley para volver a invertir",
+            "link": "https://bichosdecampo.com/hay-que-dejar-de-mirar-con-los-anteojos-del-siglo-xix-la-industria-azucarera-asegura-que-el-regimen-de-biocombustibles-esta-agotado-y-espera-una-nueva-ley-para-volver-a-invertir/",
+            "fecha": "2026-11-17T15:02:22.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Quiebra de Algodonera Avellaneda: la Justicia ordenó una suspensión gradual de actividades y extinguió los contratos de 243 empleados",
+            "link": "https://www.lanacion.com.ar/economia/campo/quiebra-de-algodonera-avellaneda-la-justicia-ordeno-una-suspension-gradual-de-actividades-y-nid17112026/",
+            "fecha": "2026-11-17T14:36:25.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Al final parece que San Pedro no cuidaba las puertas del cielo sino las del infierno: En ese partido bonaerense se registraron 41 delitos rurales desde mayo de 2025 y solo se esclarecieron dos",
+            "link": "https://bichosdecampo.com/al-final-parece-que-san-pedro-no-cuidaba-las-puertas-del-cielo-sino-las-del-infierno-en-ese-partido-bonaerense-se-registraron-41-delitos-rurales-desde-mayo-y-solo-se-esclarecieron-dos/",
+            "fecha": "2026-11-17T14:24:51.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "Angus, la raza que marca el rumbo en el Beef on Dairy",
+            "link": "https://www.todoagro.com.ar/angus-la-raza-que-marca-el-rumbo-en-el-beef-on-dairy/",
+            "fecha": "2026-11-17T14:23:38.000Z",
             "fuente": "TodoAgro"
           },
           {
-            "titulo": "Un grupo empresario local compró 65.000 hectáreas de bosques en el Litoral",
-            "link": "https://www.clarin.com/rural/grupo-empresario-local-compro-65000-hectareas-bosques-litoral_0_VzsZ0uu3An.html",
-            "fecha": "2026-11-16T20:08:41.000Z",
-            "fuente": "Clarín Rural"
+            "titulo": "Calidad de las reservas forrajeras: del momento de corte al almacenamiento",
+            "link": "https://www.todoagro.com.ar/calidad-de-las-reservas-forrajeras-del-momento-de-corte-al-almacenamiento/",
+            "fecha": "2026-11-17T14:11:33.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Invirtió US$20 millones: una empresa familiar inauguró una planta para procesar 500 toneladas diarias de madera y exportar",
+            "link": "https://www.lanacion.com.ar/economia/campo/invirtio-us20-millones-una-empresa-familiar-inauguro-una-planta-para-procesar-500-toneladas-diarias-nid16112026/",
+            "fecha": "2026-11-17T12:52:06.000Z",
+            "fuente": "La Nación Campo"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-17T01:24:37.130Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-11-16",
+        "fecha": "2026-11-17",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.2825,
-            "usdTonelada": 451.30449525
+            "usdBushel": 12.3675,
+            "usdTonelada": 454.42770974999996
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.485,
-            "usdTonelada": 176.5650315
+            "usdBushel": 4.505,
+            "usdTonelada": 177.3523895
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 6.0075,
-            "usdTonelada": 220.73777775
+            "usdBushel": 5.9825,
+            "usdTonelada": 219.81918524999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-17T01:24:37.130Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-17T01:24:37.130Z"
+      "obtenido": "2026-11-17T15:20:04.949Z"
     }
   }
 }
