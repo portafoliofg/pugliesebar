@@ -26,109 +26,109 @@
           }
         }
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T01:24:37.130Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-11-13",
+        "fecha": "2026-11-16",
         "granos": {
           "soja": [
             {
               "posicion": "MAY27",
-              "usdTonelada": 345.1,
-              "fecha": "2026-11-13"
+              "usdTonelada": 344.7,
+              "fecha": "2026-11-16"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 355.1,
-              "fecha": "2026-11-13"
+              "usdTonelada": 354.4,
+              "fecha": "2026-11-16"
             },
             {
               "posicion": "NOV27",
-              "usdTonelada": 366.5,
-              "fecha": "2026-11-13"
+              "usdTonelada": 365.6,
+              "fecha": "2026-11-16"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 189.1,
-              "fecha": "2026-11-13"
+              "usdTonelada": 187.5,
+              "fecha": "2026-11-16"
             },
             {
               "posicion": "ABR27",
-              "usdTonelada": 189.6,
-              "fecha": "2026-11-13"
+              "usdTonelada": 189.1,
+              "fecha": "2026-11-16"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 190,
-              "fecha": "2026-11-13"
+              "usdTonelada": 189.4,
+              "fecha": "2026-11-16"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 198,
-              "fecha": "2026-11-13"
+              "usdTonelada": 192,
+              "fecha": "2026-11-16"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 206.8,
-              "fecha": "2026-11-13"
+              "usdTonelada": 201.3,
+              "fecha": "2026-11-16"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 218.5,
-              "fecha": "2026-11-13"
+              "usdTonelada": 213.5,
+              "fecha": "2026-11-16"
             }
           ]
         }
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T01:24:37.130Z"
     },
     "dolar": {
       "datos": {
         "fecha": "2026-11-16",
         "tipos": {
           "oficial": {
-            "compra": 1520,
-            "venta": 1570,
-            "actualizado": "2026-11-16T11:00:00.000Z"
+            "compra": 1525,
+            "venta": 1575,
+            "actualizado": "2026-11-16T18:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1539,
-            "venta": 1548,
-            "actualizado": "2026-11-16T10:51:00.000Z"
+            "compra": 1542,
+            "venta": 1551,
+            "actualizado": "2026-11-16T15:11:00.000Z"
           },
           "mep": {
-            "compra": 1578.3,
-            "venta": 1578.3,
-            "actualizado": "2026-11-16T13:57:00.000Z"
+            "compra": 1581.2,
+            "venta": 1588.9,
+            "actualizado": "2026-11-16T20:59:00.000Z"
           },
           "ccl": {
-            "compra": 1675.5,
-            "venta": 1675.5,
-            "actualizado": "2026-11-16T13:57:00.000Z"
+            "compra": 1680.1,
+            "venta": 1682.9,
+            "actualizado": "2026-11-16T20:59:00.000Z"
           },
           "blue": {
-            "compra": 1560,
-            "venta": 1580,
-            "actualizado": "2026-11-16T13:57:00.000Z"
+            "compra": 1580,
+            "venta": 1600,
+            "actualizado": "2026-11-16T20:59:00.000Z"
           },
           "tarjeta": {
-            "compra": 1976,
-            "venta": 2041,
-            "actualizado": "2026-11-16T11:00:00.000Z"
+            "compra": 1982.5,
+            "venta": 2047.5,
+            "actualizado": "2026-11-16T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1670.18,
-            "venta": 1672.96,
-            "actualizado": "2026-11-16T13:57:00.000Z"
+            "compra": 1667.48,
+            "venta": 1676.69,
+            "actualizado": "2026-11-16T20:59:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T01:24:37.130Z"
     },
     "clima": {
       "datos": {
@@ -286,59 +286,59 @@
         "fecha": "2026-11-16",
         "titulares": [
           {
-            "titulo": "Santa Fe ya retiró el 90% de la hacienda de las islas ante la crecida del Paraná",
-            "link": "https://www.todoagro.com.ar/santa-fe-ya-retiro-el-90-de-la-hacienda-de-las-islas-ante-la-crecida-del-parana/",
-            "fecha": "2026-11-16T14:24:27.000Z",
-            "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Alivio: con el Paraná en su mayor nivel desde 1998, ya está a salvo casi toda la hacienda en riesgo",
-            "link": "https://www.infocampo.com.ar/alivio-con-el-parana-en-su-mayor-nivel-desde-1998-ya-esta-a-salvo-casi-toda-la-hacienda-en-riesgo/",
-            "fecha": "2026-11-16T14:24:21.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Precio del maíz en Rosario hoy 16 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/precio-del-maiz-hoy-16-noviembre-2026/",
-            "fecha": "2026-11-16T14:06:29.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "El gobierno retoma una ley kirchnerista reglamentada por el macrismo y termina de moldear el “acceso abierto”, que obligará a compartir las vías del Belgrano Cargas",
-            "link": "https://bichosdecampo.com/el-gobierno-retoma-una-ley-kirchnerista-reglamentada-por-el-macrismo-y-termina-de-moldear-el-acceso-abierto-que-obligara-al-futuro-concesionario-del-belgrano-cargas-a-compartir-las-v/",
-            "fecha": "2026-11-16T13:58:12.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Suben 500.000 toneladas al volumen de proyección para el trigo y anticipan una nueva campaña histórica",
-            "link": "https://www.todoagro.com.ar/suben-500-000-toneladas-al-volumen-de-proyeccion-para-el-trigo-y-anticipan-una-nueva-campana-historica/",
-            "fecha": "2026-11-16T13:45:43.000Z",
-            "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Revolucionaron un antiguo modelo forestal de 1000 hectáreas y el cambio en el negocio fue impactante",
-            "link": "https://www.lanacion.com.ar/economia/campo/cambiaron-un-viejo-modelo-forestal-de-1000-hectareas-y-el-resultado-fue-contundente-nid16112026/",
-            "fecha": "2026-11-16T13:22:29.000Z",
+            "titulo": "¿Qué hacer con US$50 millones? Empresarios del agro respondieron cómo invertirían ese dinero",
+            "link": "https://www.lanacion.com.ar/economia/campo/que-hacer-con-us50-millones-empresarios-del-agro-respondieron-como-invertirian-ese-dinero-nid16112026/",
+            "fecha": "2026-11-16T23:49:18.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Esa repetida sensación de que llega fin de año y el Congreso va a volver a decepcionar: Temen porque los legisladores finalmente no aprueben este año leyes clave como Biocombustibles y Semillas",
-            "link": "https://bichosdecampo.com/esa-repetida-sensacion-de-que-llega-fin-de-ano-y-el-congreso-va-a-volver-a-decepcionar-temen-porque-los-legisladores-finalmente-no-aprueben-este-ano-leyes-clave-como-biocombustibles-y-semillas/",
-            "fecha": "2026-11-16T13:18:45.000Z",
+            "titulo": "Quién lo fundó: el pueblo que nació en 500 hectáreas y lleva un novillo en su bandera",
+            "link": "https://www.lanacion.com.ar/economia/campo/quien-lo-fundo-el-pueblo-que-nacio-en-500-hectareas-y-lleva-un-novillo-en-su-bandera-nid16112026/",
+            "fecha": "2026-11-16T23:45:40.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Se cae todo “como un piano”, salvo los precios de la harina de soja a causa de la desesperación de los europeos",
+            "link": "https://bichosdecampo.com/se-cae-todo-como-un-piano-salvo-los-precios-de-la-harina-de-soja-a-causa-de-la-desesperacion-de-los-europeos/",
+            "fecha": "2026-11-16T23:13:31.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Invirtió US$20 millones: una empresa familiar inauguró una planta para procesar 500 toneladas diarias de madera y exportar",
-            "link": "https://www.lanacion.com.ar/economia/campo/invirtio-us20-millones-una-empresa-familiar-inauguro-una-planta-para-procesar-500-toneladas-diarias-nid16112026/",
-            "fecha": "2026-11-16T11:52:54.000Z",
-            "fuente": "La Nación Campo"
+            "titulo": "Mega inversión: Toyota le mostró a Milei su plan para la primera pick-up híbrida de fabricación nacional",
+            "link": "https://www.infocampo.com.ar/mega-inversion-toyota-le-mostro-a-milei-su-plan-para-la-primera-pick-up-hibrida-de-fabricacion-nacional/",
+            "fecha": "2026-11-16T22:25:47.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "“Jujuy todavía está descubriendo su identidad vitivinícola”: Dos jóvenes agrónomos crearon la primera bodega urbana en la capital y acaban de lanzar los primeros espumantes en la historia de la provincia",
+            "link": "https://bichosdecampo.com/jujuy-todavia-esta-descubriendo-su-identidad-vitivinicola-dos-jovenes-agronomos-crearon-la-primera-bodega-urbana-en-la-capital-y-acaban-de-lanzar-los-primeros-espumantes-en-la-historia-de/",
+            "fecha": "2026-11-16T21:08:06.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "“I+D y campo, todo en un mismo lugar”: un nuevo centro experimental modelo nace en Córdoba",
+            "link": "https://www.infocampo.com.ar/id-y-campo-todo-en-un-mismo-lugar-un-nuevo-centro-experimental-modelo-nace-en-cordoba/",
+            "fecha": "2026-11-16T20:28:52.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Mastitis bovina: detectarla a tiempo puede reducir hasta un 50 % el uso de antibióticos",
+            "link": "https://www.todoagro.com.ar/mastitis-bovina-detectarla-a-tiempo-puede-reducir-hasta-un-50-el-uso-de-antibioticos/",
+            "fecha": "2026-11-16T20:13:37.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Un grupo empresario local compró 65.000 hectáreas de bosques en el Litoral",
+            "link": "https://www.clarin.com/rural/grupo-empresario-local-compro-65000-hectareas-bosques-litoral_0_VzsZ0uu3An.html",
+            "fecha": "2026-11-16T20:08:41.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T01:24:37.130Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.2575,
-            "usdTonelada": 450.38590274999996
+            "usdBushel": 12.2825,
+            "usdTonelada": 451.30449525
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.4475,
-            "usdTonelada": 175.08873524999998
+            "usdBushel": 4.485,
+            "usdTonelada": 176.5650315
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.9,
-            "usdTonelada": 216.78782999999999
+            "usdBushel": 6.0075,
+            "usdTonelada": 220.73777775
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T01:24:37.130Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-16T14:28:52.352Z"
+      "obtenido": "2026-11-17T01:24:37.130Z"
     }
   }
 }
