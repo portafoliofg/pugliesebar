@@ -26,66 +26,66 @@
           }
         }
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-11-16",
+        "fecha": "2026-11-17",
         "granos": {
           "soja": [
             {
               "posicion": "MAY27",
-              "usdTonelada": 344.7,
-              "fecha": "2026-11-16"
+              "usdTonelada": 345.1,
+              "fecha": "2026-11-17"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 354.4,
-              "fecha": "2026-11-16"
+              "usdTonelada": 355.5,
+              "fecha": "2026-11-17"
             },
             {
               "posicion": "NOV27",
-              "usdTonelada": 365.6,
-              "fecha": "2026-11-16"
+              "usdTonelada": 365.1,
+              "fecha": "2026-11-17"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 187.5,
-              "fecha": "2026-11-16"
+              "usdTonelada": 185,
+              "fecha": "2026-11-17"
             },
             {
               "posicion": "ABR27",
-              "usdTonelada": 189.1,
-              "fecha": "2026-11-16"
+              "usdTonelada": 187.7,
+              "fecha": "2026-11-17"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 189.4,
-              "fecha": "2026-11-16"
+              "usdTonelada": 188.5,
+              "fecha": "2026-11-17"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 192,
-              "fecha": "2026-11-16"
+              "usdTonelada": 196.5,
+              "fecha": "2026-11-17"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 201.3,
-              "fecha": "2026-11-16"
+              "usdTonelada": 206.5,
+              "fecha": "2026-11-17"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 213.5,
-              "fecha": "2026-11-16"
+              "usdTonelada": 218,
+              "fecha": "2026-11-17"
             }
           ]
         }
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     },
     "dolar": {
       "datos": {
@@ -94,117 +94,46 @@
           "oficial": {
             "compra": 1525,
             "venta": 1575,
-            "actualizado": "2026-11-17T12:00:00.000Z"
+            "actualizado": "2026-11-17T18:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1544,
-            "venta": 1553,
-            "actualizado": "2026-11-17T11:52:00.000Z"
+            "compra": 1543,
+            "venta": 1552,
+            "actualizado": "2026-11-17T16:23:00.000Z"
           },
           "mep": {
-            "compra": 1586.4,
-            "venta": 1587.7,
-            "actualizado": "2026-11-17T14:57:00.000Z"
+            "compra": 1591.5,
+            "venta": 1603.3,
+            "actualizado": "2026-11-17T20:57:00.000Z"
           },
           "ccl": {
-            "compra": 1683.9,
-            "venta": 1684.2,
-            "actualizado": "2026-11-17T14:57:00.000Z"
+            "compra": 1694.2,
+            "venta": 1697.2,
+            "actualizado": "2026-11-17T20:57:00.000Z"
           },
           "blue": {
             "compra": 1585,
             "venta": 1605,
-            "actualizado": "2026-11-17T14:57:00.000Z"
+            "actualizado": "2026-11-17T20:57:00.000Z"
           },
           "tarjeta": {
             "compra": 1982.5,
             "venta": 2047.5,
-            "actualizado": "2026-11-17T12:00:00.000Z"
+            "actualizado": "2026-11-17T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1680.65,
-            "venta": 1683.98,
-            "actualizado": "2026-11-17T14:57:00.000Z"
+            "compra": 1687.92,
+            "venta": 1694.83,
+            "actualizado": "2026-11-17T20:57:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     },
     "clima": {
       "datos": {
         "fecha": "2026-11-17",
         "localidades": [
-          {
-            "nombre": "Córdoba",
-            "provincia": "Córdoba",
-            "dias": [
-              {
-                "fecha": "2026-11-17",
-                "min": 16,
-                "max": 28.5,
-                "lluviaMm": 0.1,
-                "probLluvia": 78,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-18",
-                "min": 16.7,
-                "max": 26.3,
-                "lluviaMm": 1.2,
-                "probLluvia": 78,
-                "codigo": 53,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-19",
-                "min": 17.6,
-                "max": 26.6,
-                "lluviaMm": 1.3,
-                "probLluvia": 76,
-                "codigo": 51,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-20",
-                "min": 16.9,
-                "max": 24.6,
-                "lluviaMm": 17.2,
-                "probLluvia": 78,
-                "codigo": 95,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-21",
-                "min": 18,
-                "max": 22.2,
-                "lluviaMm": 19.6,
-                "probLluvia": 68,
-                "codigo": 95,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-22",
-                "min": 16,
-                "max": 24.1,
-                "lluviaMm": 7.4,
-                "probLluvia": 55,
-                "codigo": 80,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-23",
-                "min": 16.8,
-                "max": 21.9,
-                "lluviaMm": 13.8,
-                "probLluvia": 62,
-                "codigo": 80,
-                "helada": false
-              }
-            ],
-            "lluviaTotal": 60.60000000000001,
-            "hayHelada": false
-          },
           {
             "nombre": "Villa del Rosario",
             "provincia": "Córdoba",
@@ -212,7 +141,7 @@
               {
                 "fecha": "2026-11-17",
                 "min": 16.8,
-                "max": 28.7,
+                "max": 28.5,
                 "lluviaMm": 0.2,
                 "probLluvia": 51,
                 "codigo": 51,
@@ -220,125 +149,127 @@
               },
               {
                 "fecha": "2026-11-18",
-                "min": 16.8,
-                "max": 27.6,
-                "lluviaMm": 0.4,
-                "probLluvia": 73,
-                "codigo": 51,
+                "min": 17.2,
+                "max": 27.7,
+                "lluviaMm": 1.4,
+                "probLluvia": 49,
+                "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-19",
-                "min": 18,
-                "max": 27,
-                "lluviaMm": 0.7,
-                "probLluvia": 51,
-                "codigo": 51,
+                "min": 17.4,
+                "max": 26.4,
+                "lluviaMm": 2.5,
+                "probLluvia": 71,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-20",
                 "min": 17.4,
-                "max": 27.1,
-                "lluviaMm": 5.8,
-                "probLluvia": 66,
-                "codigo": 95,
+                "max": 26.3,
+                "lluviaMm": 2.9,
+                "probLluvia": 45,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-21",
-                "min": 17.2,
-                "max": 24.2,
-                "lluviaMm": 25.4,
-                "probLluvia": 55,
-                "codigo": 81,
+                "min": 16.4,
+                "max": 26.6,
+                "lluviaMm": 10.6,
+                "probLluvia": 61,
+                "codigo": 55,
                 "helada": false
               },
               {
                 "fecha": "2026-11-22",
-                "min": 17.4,
-                "max": 25.9,
-                "lluviaMm": 1.4,
-                "probLluvia": 28,
+                "min": 13.3,
+                "max": 25.4,
+                "lluviaMm": 0.2,
+                "probLluvia": 45,
                 "codigo": 51,
                 "helada": false
               },
               {
                 "fecha": "2026-11-23",
-                "min": 16.5,
-                "max": 23,
-                "lluviaMm": 13.4,
-                "probLluvia": 41,
-                "codigo": 80,
+                "min": 15.9,
+                "max": 26.4,
+                "lluviaMm": 0.6,
+                "probLluvia": 45,
+                "codigo": 51,
                 "helada": false
               }
             ],
-            "lluviaTotal": 47.3,
+            "lluviaTotal": 18.400000000000002,
             "hayHelada": false
           }
         ],
-        "errores": []
+        "errores": [
+          "Respuesta no es JSON válido en https://api.open-meteo.com/v1/forecast?latitude=-31.4201&longitude=-64.1888&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Cprecipitation_probability_max%2Cweather_code&timezone=America%2FArgentina%2FBuenos_Aires&forecast_days=7"
+        ]
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     },
     "noticias": {
       "datos": {
         "fecha": "2026-11-17",
         "titulares": [
           {
-            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 17 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-17-noviembre-2026/",
-            "fecha": "2026-11-17T15:16:12.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "El mejor contexto ganadero de la historia: “Pasamos de un partido de barrio a la final del Mundial”",
-            "link": "https://www.infocampo.com.ar/el-mejor-contexto-ganadero-de-la-historia-pasamos-de-un-partido-de-barrio-a-la-final-del-mundial/",
-            "fecha": "2026-11-17T15:03:15.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "“Hay que dejar de mirar con los anteojos del siglo XIX”: La industria azucarera asegura que “el régimen de biocombustibles está agotado” y espera una nueva ley para volver a invertir",
-            "link": "https://bichosdecampo.com/hay-que-dejar-de-mirar-con-los-anteojos-del-siglo-xix-la-industria-azucarera-asegura-que-el-regimen-de-biocombustibles-esta-agotado-y-espera-una-nueva-ley-para-volver-a-invertir/",
-            "fecha": "2026-11-17T15:02:22.000Z",
+            "titulo": "Las Cuatro Cadenas agrícolas dan muestras de su respaldo a Milei, pero como desconfían de su continuidad piden que el cronograma de rebaja de las retenciones sea consagrado por ley",
+            "link": "https://bichosdecampo.com/las-cuatro-cadenas-agricolas-dan-muestras-de-su-respaldo-a-milei-pero-como-desconfian-de-su-continuidad-piden-que-el-cronograma-de-rebaja-de-las-retenciones-sea-consagrado-por-ley/",
+            "fecha": "2026-11-18T00:10:42.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Quiebra de Algodonera Avellaneda: la Justicia ordenó una suspensión gradual de actividades y extinguió los contratos de 243 empleados",
-            "link": "https://www.lanacion.com.ar/economia/campo/quiebra-de-algodonera-avellaneda-la-justicia-ordeno-una-suspension-gradual-de-actividades-y-nid17112026/",
-            "fecha": "2026-11-17T14:36:25.000Z",
+            "titulo": "Las cuatro cadenas agrícolas pidieron una ley que fije el camino para eliminar las retenciones",
+            "link": "https://www.lanacion.com.ar/economia/campo/las-cuatro-cadenas-agricolas-pidieron-una-ley-que-fije-el-camino-para-eliminar-las-retenciones-nid17112026/",
+            "fecha": "2026-11-17T23:33:24.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Al final parece que San Pedro no cuidaba las puertas del cielo sino las del infierno: En ese partido bonaerense se registraron 41 delitos rurales desde mayo de 2025 y solo se esclarecieron dos",
-            "link": "https://bichosdecampo.com/al-final-parece-que-san-pedro-no-cuidaba-las-puertas-del-cielo-sino-las-del-infierno-en-ese-partido-bonaerense-se-registraron-41-delitos-rurales-desde-mayo-y-solo-se-esclarecieron-dos/",
-            "fecha": "2026-11-17T14:24:51.000Z",
+            "titulo": "El crédito bancario destinado al sector agrícola argentino está en un máximo histórico ¿Buena o mala noticia?",
+            "link": "https://bichosdecampo.com/el-credito-bancario-destinado-al-sector-agricola-argentino-esta-en-un-maximo-historico-buena-o-mala-noticia/",
+            "fecha": "2026-11-17T22:57:36.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Angus, la raza que marca el rumbo en el Beef on Dairy",
-            "link": "https://www.todoagro.com.ar/angus-la-raza-que-marca-el-rumbo-en-el-beef-on-dairy/",
-            "fecha": "2026-11-17T14:23:38.000Z",
-            "fuente": "TodoAgro"
+            "titulo": "Un gigante de la carne pone la mira en Argentina: “Está recuperando su lugar en el mundo”",
+            "link": "https://www.infocampo.com.ar/un-gigante-de-la-carne-pone-la-mira-en-argentina-esta-recuperando-su-lugar-en-el-mundo/",
+            "fecha": "2026-11-17T21:58:28.000Z",
+            "fuente": "Infocampo"
           },
           {
-            "titulo": "Calidad de las reservas forrajeras: del momento de corte al almacenamiento",
-            "link": "https://www.todoagro.com.ar/calidad-de-las-reservas-forrajeras-del-momento-de-corte-al-almacenamiento/",
-            "fecha": "2026-11-17T14:11:33.000Z",
-            "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "Invirtió US$20 millones: una empresa familiar inauguró una planta para procesar 500 toneladas diarias de madera y exportar",
-            "link": "https://www.lanacion.com.ar/economia/campo/invirtio-us20-millones-una-empresa-familiar-inauguro-una-planta-para-procesar-500-toneladas-diarias-nid16112026/",
-            "fecha": "2026-11-17T12:52:06.000Z",
+            "titulo": "Maquinaria agrícola: seis empresas argentinas buscaron negocios en Europa y una avanza con un proyecto en Rumania",
+            "link": "https://www.lanacion.com.ar/economia/campo/maquinaria-agricola-seis-empresas-argentinas-buscaron-negocios-en-europa-y-una-avanza-con-un-nid17112026/",
+            "fecha": "2026-11-17T21:34:37.000Z",
             "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "Argentina tiene el potencial agrícola, pero Brasil se lleva las inversiones: ¿qué está fallando?",
+            "link": "https://www.todoagro.com.ar/argentina-tiene-el-potencial-agricola-pero-brasil-se-lleva-las-inversiones-que-esta-fallando/",
+            "fecha": "2026-11-17T20:15:10.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Otra operación de gran escala en Río Negro: compraron 19.000 hectáreas en el Valle Medio",
+            "link": "https://www.clarin.com/rural/operacion-gran-escala-rio-negro-compraron-19000-hectareas-valle-medio_0_s4fIrj17en.html",
+            "fecha": "2026-11-17T19:43:45.000Z",
+            "fuente": "Clarín Rural"
+          },
+          {
+            "titulo": "La maquinaria agrícola argentina, en una de las grandes vidrieras europeas",
+            "link": "https://www.clarin.com/rural/maquinaria-agricola-argentina-grandes-vidrieras-europeas_0_V0YIOyxBZj.html",
+            "fecha": "2026-11-17T19:23:02.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     },
     "cbot": {
       "datos": {
@@ -346,24 +277,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.3675,
-            "usdTonelada": 454.42770974999996
+            "usdBushel": 12.255,
+            "usdTonelada": 450.2940435
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.505,
-            "usdTonelada": 177.3523895
+            "usdBushel": 4.4675,
+            "usdTonelada": 175.87609325
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.9825,
-            "usdTonelada": 219.81918524999998
+            "usdBushel": 6.1025,
+            "usdTonelada": 224.22842924999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +853,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-17T15:20:04.949Z"
+      "obtenido": "2026-11-18T00:20:20.148Z"
     }
   }
 }
