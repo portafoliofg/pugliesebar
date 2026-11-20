@@ -26,109 +26,109 @@
           }
         }
       },
-      "obtenido": "2026-11-19T15:01:00.497Z"
+      "obtenido": "2026-11-20T00:07:47.228Z"
     },
     "matba": {
       "datos": {
-        "fecha": "2026-11-18",
+        "fecha": "2026-11-19",
         "granos": {
           "soja": [
             {
               "posicion": "MAY27",
-              "usdTonelada": 340.5,
-              "fecha": "2026-11-18"
+              "usdTonelada": 339.7,
+              "fecha": "2026-11-19"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 350.5,
-              "fecha": "2026-11-18"
+              "usdTonelada": 349.6,
+              "fecha": "2026-11-19"
             },
             {
               "posicion": "NOV27",
-              "usdTonelada": 363,
-              "fecha": "2026-11-18"
+              "usdTonelada": 361.5,
+              "fecha": "2026-11-19"
             }
           ],
           "maiz": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 183.6,
-              "fecha": "2026-11-18"
+              "usdTonelada": 185,
+              "fecha": "2026-11-19"
             },
             {
               "posicion": "ABR27",
-              "usdTonelada": 185.5,
-              "fecha": "2026-11-18"
+              "usdTonelada": 187.5,
+              "fecha": "2026-11-19"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 186.5,
-              "fecha": "2026-11-18"
+              "usdTonelada": 188,
+              "fecha": "2026-11-19"
             }
           ],
           "trigo": [
             {
               "posicion": "DIC26",
-              "usdTonelada": 195.9,
-              "fecha": "2026-11-18"
+              "usdTonelada": 196.7,
+              "fecha": "2026-11-19"
             },
             {
               "posicion": "ENE27",
-              "usdTonelada": 206.1,
-              "fecha": "2026-11-18"
+              "usdTonelada": 207.5,
+              "fecha": "2026-11-19"
             },
             {
               "posicion": "JUL27",
-              "usdTonelada": 217,
-              "fecha": "2026-11-18"
+              "usdTonelada": 219,
+              "fecha": "2026-11-19"
             }
           ]
         }
       },
-      "obtenido": "2026-11-19T15:01:00.497Z"
+      "obtenido": "2026-11-20T00:07:47.228Z"
     },
     "dolar": {
       "datos": {
         "fecha": "2026-11-19",
         "tipos": {
           "oficial": {
-            "compra": 1530,
-            "venta": 1580,
-            "actualizado": "2026-11-19T11:00:00.000Z"
+            "compra": 1535,
+            "venta": 1585,
+            "actualizado": "2026-11-19T18:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1550,
-            "venta": 1559,
-            "actualizado": "2026-11-19T10:49:00.000Z"
+            "compra": 1556,
+            "venta": 1565,
+            "actualizado": "2026-11-19T15:11:00.000Z"
           },
           "mep": {
-            "compra": 1616,
-            "venta": 1616,
-            "actualizado": "2026-11-19T13:57:00.000Z"
+            "compra": 1631.9,
+            "venta": 1649.8,
+            "actualizado": "2026-11-19T20:59:00.000Z"
           },
           "ccl": {
-            "compra": 1710.5,
-            "venta": 1710.5,
-            "actualizado": "2026-11-19T13:57:00.000Z"
+            "compra": 1739.8,
+            "venta": 1748.2,
+            "actualizado": "2026-11-19T20:59:00.000Z"
           },
           "blue": {
-            "compra": 1615,
-            "venta": 1635,
-            "actualizado": "2026-11-19T13:57:00.000Z"
+            "compra": 1620,
+            "venta": 1640,
+            "actualizado": "2026-11-19T20:59:00.000Z"
           },
           "tarjeta": {
-            "compra": 1989,
-            "venta": 2054,
-            "actualizado": "2026-11-19T11:00:00.000Z"
+            "compra": 1995.5,
+            "venta": 2060.5,
+            "actualizado": "2026-11-19T18:00:00.000Z"
           },
           "cripto": {
-            "compra": 1708.6,
-            "venta": 1711.88,
-            "actualizado": "2026-11-19T13:57:00.000Z"
+            "compra": 1730.43,
+            "venta": 1735,
+            "actualizado": "2026-11-19T20:59:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-19T15:01:00.497Z"
+      "obtenido": "2026-11-20T00:07:47.228Z"
     },
     "clima": {
       "datos": {
@@ -286,57 +286,59 @@
         "fecha": "2026-11-19",
         "titulares": [
           {
-            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 19 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-19-noviembre-2026/",
-            "fecha": "2026-11-19T14:45:52.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Puerto Quequén renovó su directorio dejando hijos y entenados: Carbap criticó fuerte a la gestión de Kicillof por haberla dejado afuera, otorgando dos sillas a Coninagro",
-            "link": "https://bichosdecampo.com/puerto-quequen-renovo-su-directorio-dejando-hijos-y-entenados-carbap-critico-fuerte-a-la-gestion-de-kicillof-por-haberla-dejado-afuera-otorgando-dos-sillas-a-coninagro/",
-            "fecha": "2026-11-19T14:45:34.000Z",
+            "titulo": "Se reunieron en Santa Fe los productores más críticos del Visec y apuntaron en dos direcciones: Contra la pasividad del gobierno frente a Europa y contra los exportadores de carne y soja, que se aprovechan de la situación",
+            "link": "https://bichosdecampo.com/se-reunieron-en-santa-fe-los-productores-mas-criticos-del-visec-y-apuntaron-en-dos-direcciones-contra-la-pasividad-del-gobierno-frente-a-europa-y-contra-los-exportadores-de-carne-y-soja-que-se-aprov/",
+            "fecha": "2026-11-20T00:06:58.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "“Lamento de corazón”: por carta, un dirigente de la Sociedad Rural Argentina le pidió disculpas a CRA luego de fuertes declaraciones",
-            "link": "https://www.lanacion.com.ar/economia/campo/lamento-de-corazon-por-carta-un-dirigente-de-la-sociedad-rural-argentina-le-pidio-disculpas-a-cra-nid19112026/",
-            "fecha": "2026-11-19T14:39:15.000Z",
+            "titulo": "“Cláusula análisis molino”: Industriales aseguran que nada impide recurrir a la Cámara Arbitral, aunque vendedores advierten que eso implica sumarse a una “lista negra”",
+            "link": "https://bichosdecampo.com/clausula-analisis-molino-industriales-aseguran-que-nada-impide-recurrir-a-la-camara-arbitral-aunque-vendedores-advierten-que-eso-implica-sumarse-a-una-lista-negra/",
+            "fecha": "2026-11-19T23:55:44.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "“Condenadas al fracaso”: Gustavo Grobocopatel reveló detalles desconocidos sobre por qué vendió su empresa hace 10 años",
+            "link": "https://www.lanacion.com.ar/economia/campo/condenadas-al-fracaso-gustavo-grobocopatel-revelo-detalles-desconocidos-de-por-que-vendio-su-empresa-nid19112026/",
+            "fecha": "2026-11-19T23:45:31.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "Euro BLUE HOY: precio y cotización de este 19 noviembre 2026",
-            "link": "https://www.infocampo.com.ar/euro-blue-euro-hoy-euro-oficial-19-noviembre-2026/",
-            "fecha": "2026-11-19T14:35:07.000Z",
+            "titulo": "Ruralismo en conflicto: el directorio del Puerto Quequén abrió otra interna en la Mesa de Enlace",
+            "link": "https://www.infocampo.com.ar/ruralismo-en-conflicto-el-directorio-del-puerto-quequen-abrio-otra-interna-en-la-mesa-de-enlace/",
+            "fecha": "2026-11-19T23:02:38.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Prohibieron los drones para aplicaciones en Misiones, estalló la polémica y el Gobierno convocó a una mesa técnica",
-            "link": "https://news.agrofy.com.ar/noticia/217032/prohibieron-drones-aplicaciones-misiones-estallo-polemica-gobierno-convoco-mesa-tecnica",
-            "fecha": "2026-11-19T14:01:18.000Z",
-            "fuente": "Agrofy News"
-          },
-          {
-            "titulo": "El fundador de un unicornio argentino vendido por US$1100 millones invirtió en una empresa vinculada con el agro",
-            "link": "https://www.lanacion.com.ar/economia/campo/el-fundador-de-un-unicornio-argentino-vendido-por-us1100-millones-invirtio-en-una-empresa-vinculada-nid19112026/",
-            "fecha": "2026-11-19T13:32:11.000Z",
+            "titulo": "Por ley, Neuquén prohibió que las tierras productivas bajo riego se puedan lotear, construir hoteles o instalar industrias",
+            "link": "https://www.lanacion.com.ar/economia/campo/por-ley-neuquen-prohibio-que-las-tierras-productivas-bajo-riego-se-puedan-lotear-construir-hoteles-o-nid19112026/",
+            "fecha": "2026-11-19T22:41:44.000Z",
             "fuente": "La Nación Campo"
           },
           {
-            "titulo": "El proyecto de Vandalismo Rural obtuvo dictamen en el Senado, pero plantean la necesidad de modificaciones en el texto",
-            "link": "https://www.clarin.com/rural/proyecto-vandalismo-rural-obtuvo-dictamen-senado-plantean-necesidad-modificaciones-texto_0_zgHgk9PwPz.html",
-            "fecha": "2026-11-19T13:31:28.000Z",
+            "titulo": "Talento e inteligencia artificial: ¿cuáles son las claves para liderar las empresas del agro?",
+            "link": "https://www.infocampo.com.ar/talento-e-inteligencia-artificial-cuales-son-las-claves-para-liderar-las-empresas-del-agro/",
+            "fecha": "2026-11-19T20:53:34.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Quirno dijo que “los acuerdos comerciales avanzaron del 10 a 30% del PBI mundial” en 34 meses",
+            "link": "https://www.clarin.com/rural/quirno-dijo-acuerdos-comerciales-avanzaron-10-30-pbi-mundial-34-meses_0_txM9p5wmr0.html",
+            "fecha": "2026-11-19T19:14:38.000Z",
             "fuente": "Clarín Rural"
           },
           {
-            "titulo": "La concentración láctea avanza: En los últimos 4 años cerraron 1300 tambos y sólo 18% de los establecimientos produce más de la mitad de la leche del país",
-            "link": "https://bichosdecampo.com/la-concentracion-lactea-avanza-en-los-ultimos-4-anos-cerraron-1300-tambos-y-solo-18-de-los-establecimientos-produce-mas-de-la-mitad-de-la-leche-del-pais/",
-            "fecha": "2026-11-19T13:30:56.000Z",
-            "fuente": "Bichos de Campo"
+            "titulo": "La carne daría una sorpresa: por primera vez en años, no saltarían los precios para las Fiestas",
+            "link": "https://www.clarin.com/rural/carne-daria-sorpresa-primera-vez-anos-saltarian-precios-fiestas_0_TZpCNbsuGI.html",
+            "fecha": "2026-11-19T17:47:06.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
-        "errores": []
+        "errores": [
+          "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
+        ]
       },
-      "obtenido": "2026-11-19T15:01:00.497Z"
+      "obtenido": "2026-11-20T00:07:47.228Z"
     },
     "cbot": {
       "datos": {
@@ -344,24 +346,24 @@
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.23,
-            "usdTonelada": 449.375451
+            "usdBushel": 12.0725,
+            "usdTonelada": 443.58831824999993
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.54,
-            "usdTonelada": 178.730266
+            "usdBushel": 4.5275,
+            "usdTonelada": 178.23816724999998
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.9925,
-            "usdTonelada": 220.18662224999997
+            "usdBushel": 5.9525,
+            "usdTonelada": 218.71687424999996
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-19T15:01:00.497Z"
+      "obtenido": "2026-11-20T00:07:47.228Z"
     },
     "enso": {
       "datos": {
@@ -920,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-19T15:01:00.497Z"
+      "obtenido": "2026-11-20T00:07:47.228Z"
     }
   }
 }
