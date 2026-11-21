@@ -26,7 +26,7 @@
           }
         }
       },
-      "obtenido": "2026-11-20T23:33:31.767Z"
+      "obtenido": "2026-11-21T05:05:53.753Z"
     },
     "matba": {
       "datos": {
@@ -85,7 +85,7 @@
           ]
         }
       },
-      "obtenido": "2026-11-20T23:33:31.767Z"
+      "obtenido": "2026-11-21T05:05:53.753Z"
     },
     "dolar": {
       "datos": {
@@ -128,7 +128,7 @@
           }
         }
       },
-      "obtenido": "2026-11-20T23:33:31.767Z"
+      "obtenido": "2026-11-21T05:05:53.753Z"
     },
     "clima": {
       "datos": {
@@ -283,19 +283,31 @@
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-20",
+        "fecha": "2026-11-21",
         "titulares": [
+          {
+            "titulo": "Clima hoy en Corrientes, el pronóstico del tiempo para este 21 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-corrientes-el-pronostico-del-tiempo-para-este-21-noviembre-2026/",
+            "fecha": "2026-11-21T05:00:25.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Clima Hoy en Córdoba, el pronóstico del tiempo para este 21 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/clima-hoy-en-cordoba-el-pronostico-del-tiempo-para-este-21-noviembre-2026/",
+            "fecha": "2026-11-21T04:20:04.000Z",
+            "fuente": "Infocampo"
+          },
+          {
+            "titulo": "Locura en el mercado argentino de trigo: En cuestión de horas la estimación oficial de la oferta exportable quedó desactualizada",
+            "link": "https://bichosdecampo.com/locura-en-el-mercado-argentino-de-trigo-en-cuestion-de-horas-la-estimacion-oficial-de-la-oferta-exportable-quedo-desactualizada/",
+            "fecha": "2026-11-21T02:44:00.000Z",
+            "fuente": "Bichos de Campo"
+          },
           {
             "titulo": "“Aumentó dramáticamente”: Visec Carne superó los 50.000 usuarios registrados y ya liberó 409 embarques",
             "link": "https://www.lanacion.com.ar/economia/campo/aumento-dramaticamente-visec-carne-supero-los-50000-usuarios-registrados-y-ya-libero-409-embarques-nid20112026/",
             "fecha": "2026-11-20T23:31:35.000Z",
             "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "La cadena de la carne cierra 2026 con un hito: el peso de faena más alto en 100 años",
-            "link": "https://www.infocampo.com.ar/la-cadena-de-la-carne-cierra-2026-con-un-hito-el-peso-de-faena-mas-alto-en-100-anos/",
-            "fecha": "2026-11-20T22:36:14.000Z",
-            "fuente": "Infocampo"
           },
           {
             "titulo": "“Fuera de lugar”: el gobierno de Kicillof exigirá todos los meses información salarial y laboral de los empleados y la Rural pidió su revisión",
@@ -310,35 +322,23 @@
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Sale Savencia e ingresa La Ramada: En menos de un mes de negociaciones encontró nuevo dueño una histórica fábrica quesera de la localidad santafesina de El Trébol",
-            "link": "https://bichosdecampo.com/sale-savencia-e-ingresa-la-ramada-en-menos-de-un-mes-de-negociaciones-encontro-nuevo-dueno-una-historica-fabrica-quesera-de-la-localidad-santafesina-de-el-trebol/",
-            "fecha": "2026-11-20T20:55:39.000Z",
-            "fuente": "Bichos de Campo"
+            "titulo": "\"Vamos a salir adelante\": una importante empresa de tecnología agrícola pidió la apertura de un concurso de acreedores",
+            "link": "https://www.clarin.com/rural/vamos-salir-adelante-importante-empresa-tecnologia-agricola-pidio-apertura-concurso-acreedores_0_iCIfqpWGXq.html",
+            "fecha": "2026-11-20T18:46:27.000Z",
+            "fuente": "Clarín Rural"
           },
           {
-            "titulo": "“Más burocracia”: la Sociedad Rural apuntó contra una medida laboral del gobierno de Kicillof",
-            "link": "https://www.infocampo.com.ar/mas-burocracia-la-sociedad-rural-apunto-contra-una-medida-laboral-del-gobierno-de-kicillof/",
-            "fecha": "2026-11-20T20:17:18.000Z",
-            "fuente": "Infocampo"
-          },
-          {
-            "titulo": "Luces y sombras en el negocio de las agromáquinas",
-            "link": "https://www.todoagro.com.ar/perspectivas-luces-y-sombras-en-el-negocio-de-las-agromaquinas/",
-            "fecha": "2026-11-20T15:12:18.000Z",
-            "fuente": "TodoAgro"
-          },
-          {
-            "titulo": "“Durante cuatro días, el mapa de la Argentina tiene otro centro”: Agroactiva lanzó su edición 2027",
-            "link": "https://www.todoagro.com.ar/durante-cuatro-dias-el-mapa-de-la-argentina-tiene-otro-centro-agroactiva-lanzo-su-edicion-2027/",
-            "fecha": "2026-11-20T14:40:40.000Z",
-            "fuente": "TodoAgro"
+            "titulo": "Entidades de usuarios de la hidrovía respaldaron la reforma del cabotaje y pidieron su pronta aprobación en Diputados",
+            "link": "https://www.clarin.com/rural/entidades-usuarios-hidrovia-respaldaron-reforma-cabotaje-pidieron-pronta-aprobacion-diputados_0_uRlpAIu9xK.html",
+            "fecha": "2026-11-20T16:51:22.000Z",
+            "fuente": "Clarín Rural"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-20T23:33:31.767Z"
+      "obtenido": "2026-11-21T05:05:53.753Z"
     },
     "cbot": {
       "datos": {
@@ -363,7 +363,7 @@
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-20T23:33:31.767Z"
+      "obtenido": "2026-11-21T05:05:53.753Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-20T23:33:31.767Z"
+      "obtenido": "2026-11-21T05:05:53.753Z"
     }
   }
 }
