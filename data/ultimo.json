@@ -2,31 +2,31 @@
   "fuentes": {
     "pizarra": {
       "datos": {
-        "fecha": "2026-11-20",
+        "fecha": "2026-11-24",
         "granos": {
           "soja": {
-            "pesos": 560000,
-            "usd": 356.46,
+            "pesos": 570000,
+            "usd": 359.85,
             "sinCotizacion": false
           },
           "maiz": {
-            "pesos": 270212,
+            "pesos": 272448,
             "usd": 172,
             "sinCotizacion": false
           },
           "girasol": {
-            "pesos": 754080,
+            "pesos": 760320,
             "usd": null,
             "sinCotizacion": false
           },
           "trigo": {
-            "pesos": 298490,
-            "usd": 190,
+            "pesos": 293040,
+            "usd": 185,
             "sinCotizacion": false
           }
         }
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     },
     "matba": {
       "datos": {
@@ -85,99 +85,90 @@
           ]
         }
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     },
     "dolar": {
       "datos": {
-        "fecha": "2026-11-24",
+        "fecha": "2026-11-25",
         "tipos": {
           "oficial": {
-            "compra": 1565,
-            "venta": 1615,
-            "actualizado": "2026-11-24T18:00:00.000Z"
+            "compra": 1580,
+            "venta": 1630,
+            "actualizado": "2026-11-25T12:00:00.000Z"
           },
           "mayorista": {
-            "compra": 1584,
-            "venta": 1593,
-            "actualizado": "2026-11-24T17:17:00.000Z"
+            "compra": 1603,
+            "venta": 1612,
+            "actualizado": "2026-11-25T11:42:00.000Z"
           },
           "mep": {
-            "compra": 1677.6,
-            "venta": 1695.1,
-            "actualizado": "2026-11-24T21:02:00.000Z"
+            "compra": 1665.4,
+            "venta": 1668,
+            "actualizado": "2026-11-25T14:55:00.000Z"
           },
           "ccl": {
-            "compra": 1793.4,
-            "venta": 1797.1,
-            "actualizado": "2026-11-24T21:02:00.000Z"
+            "compra": 1761.4,
+            "venta": 1762.4,
+            "actualizado": "2026-11-25T14:55:00.000Z"
           },
           "blue": {
-            "compra": 1680,
-            "venta": 1700,
-            "actualizado": "2026-11-24T21:02:00.000Z"
+            "compra": 1705,
+            "venta": 1725,
+            "actualizado": "2026-11-25T14:55:00.000Z"
           },
           "tarjeta": {
-            "compra": 2034.5,
-            "venta": 2099.5,
-            "actualizado": "2026-11-24T18:00:00.000Z"
+            "compra": 2054,
+            "venta": 2119,
+            "actualizado": "2026-11-25T12:00:00.000Z"
           },
           "cripto": {
-            "compra": 1749.06,
-            "venta": 1777.74,
-            "actualizado": "2026-11-24T21:02:00.000Z"
+            "compra": 1761.89,
+            "venta": 1770,
+            "actualizado": "2026-11-25T14:55:00.000Z"
           }
         }
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     },
     "clima": {
       "datos": {
-        "fecha": "2026-11-24",
+        "fecha": "2026-11-25",
         "localidades": [
           {
             "nombre": "Córdoba",
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-24",
-                "min": 14.9,
-                "max": 25.1,
-                "lluviaMm": 4.8,
-                "probLluvia": 94,
-                "codigo": 61,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-25",
-                "min": 14.4,
-                "max": 25.7,
+                "min": 16.2,
+                "max": 26.1,
                 "lluviaMm": 0,
-                "probLluvia": 2,
-                "codigo": 2,
+                "probLluvia": 22,
+                "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-26",
-                "min": 13.7,
-                "max": 25.5,
+                "min": 14.5,
+                "max": 24.9,
                 "lluviaMm": 0,
-                "probLluvia": 2,
+                "probLluvia": 8,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-27",
                 "min": 15.6,
-                "max": 27.3,
-                "lluviaMm": 0.8,
+                "max": 27.1,
+                "lluviaMm": 0.6,
                 "probLluvia": 25,
                 "codigo": 53,
                 "helada": false
               },
               {
                 "fecha": "2026-11-28",
-                "min": 17,
-                "max": 29.9,
+                "min": 16.1,
+                "max": 28.8,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 2,
@@ -185,24 +176,33 @@
               },
               {
                 "fecha": "2026-11-29",
-                "min": 17.4,
-                "max": 29.9,
+                "min": 18.6,
+                "max": 29.7,
                 "lluviaMm": 0,
-                "probLluvia": 2,
+                "probLluvia": 4,
                 "codigo": 3,
                 "helada": false
               },
               {
                 "fecha": "2026-11-30",
-                "min": 18.2,
-                "max": 30.7,
+                "min": 18,
+                "max": 30.4,
                 "lluviaMm": 0,
-                "probLluvia": 17,
+                "probLluvia": 33,
                 "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-12-01",
+                "min": 19,
+                "max": 28.1,
+                "lluviaMm": 18,
+                "probLluvia": 49,
+                "codigo": 95,
                 "helada": false
               }
             ],
-            "lluviaTotal": 5.6,
+            "lluviaTotal": 18.6,
             "hayHelada": false
           },
           {
@@ -210,54 +210,45 @@
             "provincia": "Córdoba",
             "dias": [
               {
-                "fecha": "2026-11-24",
-                "min": 15.5,
-                "max": 26.6,
-                "lluviaMm": 1.4,
-                "probLluvia": 63,
-                "codigo": 53,
-                "helada": false
-              },
-              {
                 "fecha": "2026-11-25",
-                "min": 13.7,
-                "max": 27.2,
-                "lluviaMm": 0,
-                "probLluvia": 0,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-26",
-                "min": 15.9,
-                "max": 27.3,
-                "lluviaMm": 0,
-                "probLluvia": 4,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-27",
-                "min": 16.7,
-                "max": 28.8,
-                "lluviaMm": 0,
-                "probLluvia": 4,
-                "codigo": 3,
-                "helada": false
-              },
-              {
-                "fecha": "2026-11-28",
-                "min": 17.7,
-                "max": 30.9,
+                "min": 15.1,
+                "max": 28.1,
                 "lluviaMm": 0,
                 "probLluvia": 2,
                 "codigo": 2,
                 "helada": false
               },
               {
+                "fecha": "2026-11-26",
+                "min": 15.8,
+                "max": 26.6,
+                "lluviaMm": 0,
+                "probLluvia": 12,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-27",
+                "min": 16.4,
+                "max": 28.5,
+                "lluviaMm": 0,
+                "probLluvia": 8,
+                "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-11-28",
+                "min": 16.8,
+                "max": 30.6,
+                "lluviaMm": 0,
+                "probLluvia": 0,
+                "codigo": 2,
+                "helada": false
+              },
+              {
                 "fecha": "2026-11-29",
-                "min": 17.9,
-                "max": 31.9,
+                "min": 17.6,
+                "max": 31.6,
                 "lluviaMm": 0,
                 "probLluvia": 0,
                 "codigo": 3,
@@ -265,105 +256,114 @@
               },
               {
                 "fecha": "2026-11-30",
-                "min": 18.6,
-                "max": 32.5,
+                "min": 18,
+                "max": 32.2,
                 "lluviaMm": 0,
-                "probLluvia": 7,
+                "probLluvia": 25,
                 "codigo": 3,
+                "helada": false
+              },
+              {
+                "fecha": "2026-12-01",
+                "min": 20.1,
+                "max": 29.2,
+                "lluviaMm": 19.6,
+                "probLluvia": 55,
+                "codigo": 81,
                 "helada": false
               }
             ],
-            "lluviaTotal": 1.4,
+            "lluviaTotal": 19.6,
             "hayHelada": false
           }
         ],
         "errores": []
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     },
     "noticias": {
       "datos": {
-        "fecha": "2026-11-24",
+        "fecha": "2026-11-25",
         "titulares": [
           {
-            "titulo": "Comenzaron sin oficinas, con dos camionetas que debían y acaban de inaugurar una fábrica de US$1,5 millones",
-            "link": "https://www.lanacion.com.ar/economia/campo/comenzaron-sin-oficinas-con-dos-camionetas-que-debian-y-acaban-de-inaugurar-una-fabrica-de-us15-nid24112026/",
-            "fecha": "2026-11-24T23:55:04.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "Vacunos: comenzó la semana con subas en el Mercado Agroganadero de Cañuelas",
-            "link": "https://www.lanacion.com.ar/economia/campo/vacunos-comenzo-la-semana-con-subas-en-el-mercado-agroganadero-de-canuelas-nid24112026/",
-            "fecha": "2026-11-24T22:45:21.000Z",
-            "fuente": "La Nación Campo"
-          },
-          {
-            "titulo": "La paranoía no siempre es buena consejera: ¿Cuál es el verdadero papel del empresario macrista David Lacroze dentro del Visec Carnes?",
-            "link": "https://bichosdecampo.com/la-paranoia-no-siempre-es-buena-consejera-cual-es-el-verdadero-papel-del-empresario-macrista-david-lacroze-dentro-del-visec-carnes/",
-            "fecha": "2026-11-24T22:39:35.000Z",
-            "fuente": "Bichos de Campo"
-          },
-          {
-            "titulo": "Exportaciones récord: la carne ya genera más de U$S 500 millones por mes y China ya no es la única “aspiradora”",
-            "link": "https://www.infocampo.com.ar/exportaciones-record-la-carne-ya-genera-mas-de-us-500-millones-por-mes-y-china-ya-no-es-la-unica-aspiradora/",
-            "fecha": "2026-11-24T21:42:09.000Z",
+            "titulo": "Un nuevo bioproducto del INTA: los desechos de cerdos se transforman en pellets y mejoran los suelos",
+            "link": "https://www.infocampo.com.ar/un-nuevo-bioproducto-del-inta-los-desechos-de-cerdos-se-transforman-en-pellets-y-mejoran-los-suelos/",
+            "fecha": "2026-11-25T16:32:50.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Inflación y tasas altas: el momento financiero difícil de EEUU pone un techo a los precios de los granos",
-            "link": "https://www.infocampo.com.ar/inflacion-y-tasas-altas-el-momento-financiero-dificil-de-eeuu-pone-un-techo-a-los-precios-de-los-granos/",
-            "fecha": "2026-11-24T21:29:03.000Z",
+            "titulo": "Dólar BLUE HOY: a cuánto cotiza el 25 noviembre 2026",
+            "link": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-25-noviembre-2026/",
+            "fecha": "2026-11-25T16:30:38.000Z",
             "fuente": "Infocampo"
           },
           {
-            "titulo": "Nuevo bioproducto creado por INTA: El popo y el pipi de los chanchos vuelve a la agricultura, pero enriquecido con microorganismos y pelletizado",
-            "link": "https://bichosdecampo.com/nuevo-bioproducto-creado-por-inta-el-popo-y-el-pipi-de-los-chanchos-vuelve-a-la-agricultura-pero-enriquecido-con-microorganismos-y-pelletizado/",
-            "fecha": "2026-11-24T19:39:15.000Z",
+            "titulo": "¿Faltan más razones para impulsar el ferrocarril? Aunque hoy solo el 5% de la producción usa esa vía, estiman que combinar el tren con el camión podría reducir costos en un 46%",
+            "link": "https://bichosdecampo.com/faltan-mas-razones-para-impulsar-el-ferrocarril-aunque-hoy-solo-el-5-de-la-produccion-usa-esa-via-estiman-que-combinar-el-tren-con-el-camion-podria-reducir-costos-en-un-46/",
+            "fecha": "2026-11-25T16:16:40.000Z",
             "fuente": "Bichos de Campo"
           },
           {
-            "titulo": "Los feedlots estiran el engorde hasta los 200 días para frenar las pérdidas y anticipan un 2027 más frío para la invernada",
-            "link": "https://www.todoagro.com.ar/los-feedlots-estiran-el-engorde-hasta-los-200-dias-para-frenar-las-perdidas-y-anticipan-un-2027-mas-frio-para-la-invernada/",
-            "fecha": "2026-11-24T18:41:30.000Z",
+            "titulo": "“Fin al requisito de telepatía”: el Gobierno dejó sin efecto más de 4000 circulares sobre controles sanitarios y exportaciones",
+            "link": "https://www.lanacion.com.ar/economia/campo/fin-al-requisito-de-telepatia-el-gobierno-dejo-sin-efecto-mas-de-4000-circulares-sobre-controles-nid25112026/",
+            "fecha": "2026-11-25T16:07:31.000Z",
+            "fuente": "La Nación Campo"
+          },
+          {
+            "titulo": "¿Para qué una ley si el mercado ya funciona? Con media sanción en el Senado, el agro responde las “preguntas incómodas” sobre los créditos de carbono y defiende la norma que ahora espera a Diputados",
+            "link": "https://bichosdecampo.com/para-que-una-ley-si-el-mercado-ya-funciona-con-media-sancion-en-el-senado-el-agro-responde-las-preguntas-incomodas-sobre-los-creditos-de-carbono-y-defiende-la-norma-que-ahora/",
+            "fecha": "2026-11-25T15:19:46.000Z",
+            "fuente": "Bichos de Campo"
+          },
+          {
+            "titulo": "30 millones de toneladas más en un año: el Gobierno confirmó una cosecha histórica para la Argentina",
+            "link": "https://www.todoagro.com.ar/argentina-alcanzo-una-cosecha-historica-produjo-171-millones-de-toneladas-de-granos-y-marco-un-salto-de-30-millones-en-un-ano/",
+            "fecha": "2026-11-25T13:49:56.000Z",
             "fuente": "TodoAgro"
           },
           {
-            "titulo": "Las exportaciones de carne vacuna ya son récord: crecieron 36% en valor y proyectan que superarán los US$ 5.000 millones este año",
-            "link": "https://www.clarin.com/rural/exportaciones-carne-vacuna-record-crecieron-36-valor-esperan-superar-us-5000-millones-ano_0_QSefKbd8I9.html",
-            "fecha": "2026-11-24T18:14:02.000Z",
-            "fuente": "Clarín Rural"
+            "titulo": "La carne vacuna argentina superó los US$ 4.300 millones en exportaciones, con una facturación que creció en más del 35%",
+            "link": "https://www.todoagro.com.ar/la-carne-vacuna-argentina-supero-los-us-4-300-millones-en-exportaciones-con-una-facturacion-que-crecio-en-mas-del-35/",
+            "fecha": "2026-11-25T13:24:36.000Z",
+            "fuente": "TodoAgro"
+          },
+          {
+            "titulo": "Vendía pan en la calle: hoy, tras empezar con esfuerzo, la historia de Jorge Aníbal Leguiza con los búfalos es un caso de superación y éxito",
+            "link": "https://www.lanacion.com.ar/economia/campo/vendia-pan-en-la-calle-hoy-la-historia-de-jorge-anibal-leguiza-con-los-bufalos-es-un-caso-de-nid22112026/",
+            "fecha": "2026-11-25T12:47:00.000Z",
+            "fuente": "La Nación Campo"
           }
         ],
         "errores": [
           "Agrofy News: HTTP 403 en https://news.agrofy.com.ar/rss.xml"
         ]
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     },
     "cbot": {
       "datos": {
-        "fecha": "2026-11-24",
+        "fecha": "2026-11-25",
         "granos": {
           "soja": {
             "simbolo": "ZS=F",
-            "usdBushel": 12.28,
-            "usdTonelada": 451.2126359999999
+            "usdBushel": 12.375,
+            "usdTonelada": 454.7032875
           },
           "maiz": {
             "simbolo": "ZC=F",
-            "usdBushel": 4.5025,
-            "usdTonelada": 177.25396975
+            "usdBushel": 4.525,
+            "usdTonelada": 178.1397475
           },
           "trigo": {
             "simbolo": "ZW=F",
-            "usdBushel": 5.8775,
-            "usdTonelada": 215.96109675
+            "usdBushel": 5.8425,
+            "usdTonelada": 214.67506724999998
           }
         },
         "errores": [],
         "origen": "Yahoo Finance"
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     },
     "enso": {
       "datos": {
@@ -922,7 +922,7 @@
         },
         "fuente": "NOAA Climate Prediction Center"
       },
-      "obtenido": "2026-11-25T01:49:06.197Z"
+      "obtenido": "2026-11-25T16:37:34.260Z"
     }
   }
 }
